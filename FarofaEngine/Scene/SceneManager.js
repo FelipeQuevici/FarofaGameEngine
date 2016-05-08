@@ -8,6 +8,10 @@ var SceneManager = (function () {
     var currentScene;
     var isInTransition = false;
 
+    function refreshCanvas() {
+        FarofaGame.getCanvas().width = FarofaGame.getCanvas().width;
+    }
+
     return {
         initialize: function () {
             currentScene = scenes[0];
@@ -21,6 +25,7 @@ var SceneManager = (function () {
         },
 
         draw: function (context) {
+            refreshCanvas();
             currentScene.onDraw(context);
         },
 

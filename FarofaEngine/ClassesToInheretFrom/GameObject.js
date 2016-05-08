@@ -43,8 +43,10 @@ function GameObject(scene, position, rotation) {
     };
 
     this.onPostUpdate = function () {
-        for (var i = 0; i < this.components.length; i++)
+        //console.log("PostUPDATING");
+        for (var i in this.components) {
             this.components[i].onPostUpdate();
+        }
     };
 
     this.addComponent = function (name, component) {

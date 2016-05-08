@@ -14,6 +14,11 @@ function GameScene() {
         console.log("GameScenePreInitialized");
     };
 
+    var i = 0;
+    this.onPostDraw = function (context) {
+        context.fillText(fps.getFPS() + " " + i++,10,10);
+        context.fill();
+    };
 
 
     this.onEnter = function () {

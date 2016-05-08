@@ -5,6 +5,7 @@
 var FarofaGame = (function () {
     var canvas;
     var context;
+    var fpsCounter;
 
     var loadDirectory = "";
     var tileSetsToLoad = [];
@@ -27,6 +28,7 @@ var FarofaGame = (function () {
         start: function () {
             canvas = document.getElementById("canvas");
             context = canvas.getContext("2d");
+            fpsCounter = document.getElementById("fps");
             SceneManager.initialize();
             InputManager.initialize();
             setInterval(gameLoop,1);

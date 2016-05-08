@@ -7,11 +7,13 @@ function angleBetweenTwoPoints(position, mousePosition) {
 
 
 function PlayerGameObject(scene, position, rotation) {
+    var playerMoveSpeed;
     function onCreate(scene, position, rotation) {
         this.onCreateGameObject(scene, position, rotation);
-        //this.addComponent("rigidBody", new RigidBodyComponent(this));
+        this.addComponent("rigidBody", new RigidBodyComponent(this));
         //this.addComponent("damageTrigger", new CollisionBoxComponent(this));
         //this.addComponent("attackTrigger", new CollisionBoxComponent(this));
+        playerMoveSpeed = 2;
 
 
         //this.addComponent("animation", new AnimationComponent(this));
@@ -33,12 +35,22 @@ function PlayerGameObject(scene, position, rotation) {
         this.rotation = angleBetweenTwoPoints(this.position, InputManager.getMousePosition());
 
 
-        if (InputManager.isKeyPressed("left") ) {
+        if (InputManager.isKeyPressed("arrowLeft") ) {
+            currentSpeed = new Vector2(-1,0);
+        }
+        if (InputManager.isKeyPressed("arrowRight") ) {
             currentSpeed = new Vector2(1,0);
         }
+        if (InputManager.isKeyPressed("arrowUp") ) {
+            currentSpeed = new Vector2(0,-1);
+        }
+        if (InputManager.isKeyPressed("arrowDown") ) {
+            currentSpeed = new Vector2(0,1);
+        }
+        currentSpeed.multiplyByScalar(playerMoveSpeed);
 
         //CALUCLA
-        //this.components["rigidBody"].move(currentSpeed);
+        this.components["rigidBody"].move(currentSpeed);
     };
 }
 

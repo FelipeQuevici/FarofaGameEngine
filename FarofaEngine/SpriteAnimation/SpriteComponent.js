@@ -22,20 +22,27 @@ function SpriteComponent(parent, spriteName, rectangle, totalDirections, layer) 
     
     onCreate.call(this, parent, spriteName, rectangle, totalDirections, layer);
 
+    this.setSprite = function (sprite) {
+        this.sprite = sprite;
+        /* for (var collisionComponent in this.sprite.spriteInformation.collision) {
+         this.parent.getComponent(collisionComponent).updateBox(this.sprite.spriteInformation.collision[collisionComponent]);
+         }*/
+    };
+
     // TODO: Calculate direction based on angle
     function angleToDirection() {
         return 0;
     }
-    
+
+
     this.onPostUpdate = function () {
+        this.setPosition(this.parent.position);
         this.setAngle(this.parent.rotation);
     };
 
-    this.setSprite = function (sprite) {
-        this.sprite = sprite;
-        /* for (var collisionComponent in this.sprite.spriteInformation.collision) {
-            this.parent.getComponent(collisionComponent).updateBox(this.sprite.spriteInformation.collision[collisionComponent]);
-        }*/
+    this.setPosition = function (position) {
+        this.sprite.rectangle.x = position.x;
+        this.sprite.rectangle.y = position.y;
     };
     
     this.setAngle = function (angle) {
@@ -49,3 +56,5 @@ function SpriteComponent(parent, spriteName, rectangle, totalDirections, layer) 
         this.sprite.draw(context);
     }
 }
+
+SpriteComponent.inheritsFrom(Component);

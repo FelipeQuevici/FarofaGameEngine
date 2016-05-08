@@ -31,7 +31,7 @@ var InputManager = ( function () {
 
     function onKeyDown(e) {
         if (!keys[e.keyCode]) {
-            this.objCallEvent(numberToKey[e.keyCode] + "Clicked", this, {"key": e.keyCode});
+            EventCenterInstance.getInstance().callEvent(numberToKey[e.keyCode] + "Clicked", this, {"key": e.keyCode});
         }
         keys[e.keyCode] = true;
     }

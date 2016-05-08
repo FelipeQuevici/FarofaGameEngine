@@ -2,7 +2,7 @@
  * Created by Felipe on 07/05/2016.
  */
 
-Component =  {
+var Component =  {
     onPreUpdate : function () {
         
     },    

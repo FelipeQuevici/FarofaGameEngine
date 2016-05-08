@@ -15,3 +15,8 @@ Vector2.prototype.sum = function (other) {
 Vector2.prototype.equals = function (other) {
     return this.x == other.x && this.y == other.y;
 };
+
+Vector2.prototype.multiplyByScalar = function (scalar) {
+    this.x *= scalar;
+    this.y *= scalar;
+};

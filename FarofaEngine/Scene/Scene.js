@@ -46,6 +46,7 @@ function Scene() {
     };
 
     this.onPostUpdate = function () {
+        //console.log("DANDO POST UPDATE");
         for (var i = 0; i < this.objects.length; i++) {
             this.objects[i].onPostUpdate();
         }
@@ -87,6 +88,11 @@ function Scene() {
         for (var i = 0; i < this.layers.length; i++) {
             this.drawLayer(context, i);
         }
+        this.onPostDraw(context);
+    };
+
+    this.onPostDraw = function (context) {
+
     };
 
     this.drawLayer = function (context, i) {
