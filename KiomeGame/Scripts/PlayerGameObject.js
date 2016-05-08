@@ -24,7 +24,7 @@ function PlayerGameObject(scene, position, rotation) {
     this.onInitialize = function () {
         this.addComponent("sprite", new SpriteComponent(this,"witchWalk00",
             new Rectangle(position.x,position.y,40,40),
-            1,
+            3,
             "background"));
     };
 
@@ -32,25 +32,28 @@ function PlayerGameObject(scene, position, rotation) {
         //FAZER COISAS DO PLAYER
         var currentSpeed = new Vector2();
 
-        this.rotation = angleBetweenTwoPoints(this.position, InputManager.getMousePosition());
+        //this.rotation = angleBetweenTwoPoints(this.position, InputManager.getMousePosition());
 
 
         if (InputManager.isKeyPressed("arrowLeft") ) {
             currentSpeed.sum(new Vector2(-1,0));
+            this.rotation = 1;
         }
         if (InputManager.isKeyPressed("arrowRight") ) {
             currentSpeed.sum(new Vector2(1,0));
+            this.rotation = 2;
         }
         if (InputManager.isKeyPressed("arrowUp") ) {
             currentSpeed.sum(new Vector2(0,-1));
+            this.rotation = 3;
         }
         if (InputManager.isKeyPressed("arrowDown") ) {
             currentSpeed.sum(new Vector2(0,1));
+            this.rotation = 0;
         }
 
         currentSpeed.multiplyByScalar(playerMoveSpeed);
 
-        //CALUCLA
         this.components["rigidBody"].move(currentSpeed);
     };
 }
