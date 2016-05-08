@@ -36,17 +36,18 @@ function PlayerGameObject(scene, position, rotation) {
 
 
         if (InputManager.isKeyPressed("arrowLeft") ) {
-            currentSpeed = new Vector2(-1,0);
+            currentSpeed.sum(new Vector2(-1,0));
         }
         if (InputManager.isKeyPressed("arrowRight") ) {
-            currentSpeed = new Vector2(1,0);
+            currentSpeed.sum(new Vector2(1,0));
         }
         if (InputManager.isKeyPressed("arrowUp") ) {
-            currentSpeed = new Vector2(0,-1);
+            currentSpeed.sum(new Vector2(0,-1));
         }
         if (InputManager.isKeyPressed("arrowDown") ) {
-            currentSpeed = new Vector2(0,1);
+            currentSpeed.sum(new Vector2(0,1));
         }
+
         currentSpeed.multiplyByScalar(playerMoveSpeed);
 
         //CALUCLA

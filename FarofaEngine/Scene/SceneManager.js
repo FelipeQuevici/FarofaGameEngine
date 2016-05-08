@@ -7,6 +7,8 @@ var SceneManager = (function () {
     var scenesNames = {};
     var currentScene;
     var isInTransition = false;
+    var millisecondsLastUpdate;
+    var millisecondsBetweenUpdate = 1000/60;
 
     function refreshCanvas() {
         FarofaGame.getCanvas().width = FarofaGame.getCanvas().width;
@@ -16,12 +18,18 @@ var SceneManager = (function () {
         initialize: function () {
             currentScene = scenes[0];
             currentScene.onEnter();
+            millisecondsLastUpdate = new Date().getTime();
         },
 
         update: function () {
-            currentScene.onPreUpdate();
-            currentScene.onUpdate();
-            currentScene.onPostUpdate();
+            var date = new Date();
+            var timeNow = date.getTime();
+            if (timeNow - millisecondsLastUpdate > millisecondsBetweenUpdate) {
+                millisecondsLastUpdate = timeNow;
+                currentScene.onPreUpdate();
+                currentScene.onUpdate();
+                currentScene.onPostUpdate();
+            }
         },
 
         draw: function (context) {
