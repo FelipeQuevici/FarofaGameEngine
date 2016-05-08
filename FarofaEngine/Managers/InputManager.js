@@ -12,7 +12,6 @@ var InputManager = ( function () {
         "space": 32,
         "esc": 27
     };
-    console.log("entrou aqui inputManager");
 
     var numberToKey = {
         37: "arrowLeft",
@@ -31,7 +30,6 @@ var InputManager = ( function () {
     };
 
     function onKeyDown(e) {
-        console.log(e.keyCode);
         if (!keys[e.keyCode]) {
             this.objCallEvent(numberToKey[e.keyCode] + "Clicked", this, {"key": e.keyCode});
         }

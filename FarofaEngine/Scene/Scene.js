@@ -9,6 +9,7 @@ function Scene() {
 
         this.objects = [];
         this.collisionSystem = new CollisionSystem();
+        console.log("Created Scene");
     };
 
     this.onCreateScene();
@@ -18,6 +19,7 @@ function Scene() {
     };
 
     this.onPreEnter = function () {
+        
         this.subscribeEvents();
         this.onEnter();
     };
@@ -76,17 +78,18 @@ function Scene() {
 
     // TODO: Check if layer name exits and give error if does not
     this.addSpriteToLayer = function (sprite, layer) {
+
         var layerIndex = this.layersNames[layer];
-        this.layers[layerIndex].push(sprite);
+        this.layers[layerIndex].addSprite(sprite);
     };
 
-    this.onDraw = function () {
+    this.onDraw = function (context) {
         for (var i = 0; i < this.layers.length; i++) {
-            this.drawLayer(i);
+            this.drawLayer(context, i);
         }
     };
 
-    this.drawLayer = function (i) {
-        this.layers[i].draw();
+    this.drawLayer = function (context, i) {
+        this.layers[i].draw(context);
     }
 }

@@ -1,0 +1,146 @@
+{
+  "witchWalk00-0": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "witchWalk01-0": {
+    "x": 32,
+    "y": 0,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "witchWalk02-0": {
+    "x": 64,
+    "y": 0,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "witchWalk00-1": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "witchWalk01-1": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "witchWalk02-1": {
+    "x": 64,
+    "y": 0,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 32,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  }
+}

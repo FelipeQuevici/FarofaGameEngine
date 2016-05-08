@@ -1,7 +1,5 @@
 var SpriteSheetManager = (function () {
     var spriteSheets = {};
-    //const JSON_PATH = "http://people.ucsc.edu/~earrais/CMPM_120/Snake/Images/";
-    const JSON_PATH = "Sprites/";
 
     function loadJSON(callback, file) {
 
@@ -9,7 +7,7 @@ var SpriteSheetManager = (function () {
         xobj.overrideMimeType("application/json");
 
 
-        xobj.open('GET', JSON_PATH + file + ".json", false);
+        xobj.open('GET', FarofaGame.getLoadDirectory() + file + ".json", false);
         xobj.onreadystatechange = function () {
             if (xobj.readyState == 4 && xobj.status == "200") {
                 callback(xobj.responseText);
@@ -20,6 +18,8 @@ var SpriteSheetManager = (function () {
 
     return {
         loadSpriteSheet: function (name) {
+            console.log("Loadgin Spritesheet:" + name);
+
             if (spriteSheets.hasOwnProperty(name)) {
                 Debug.log("Sprite sheet already loaded", 0, "spriteName");
                 return;
@@ -47,7 +47,16 @@ var SpriteSheetManager = (function () {
         },
 
         getSprite: function (spriteName, rectangle, direction) {
+            direction = direction != null ? "-"+direction : "";
+            for (var spriteSheetName in spriteSheets) {
+                var currentSpriteSheet = spriteSheets[spriteSheetName];
+                if (!currentSpriteSheet.hasOwnProperty("sprites")) continue;
 
+                if (currentSpriteSheet.sprites.hasOwnProperty(spriteName+direction)) {
+                    return currentSpriteSheet.getSprite(spriteName+direction, rectangle);
+                }
+            }
+            console.log("Nao existe esse sprite!");
         }
     };
 })();

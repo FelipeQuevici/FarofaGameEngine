@@ -11,12 +11,12 @@ function Layer(doesObjectsMove) {
         this.sprites.push(sprite);
     };
 
-    this.draw = function () {
+    this.draw = function (context) {
         if (this.doesObjectsMove) {
             orderY.call(this);
         }
 
-        this.drawAllSprites();
+        this.drawAllSprites(context);
     };
 
     // TODO: Reorder all the sprites on this layer based on their Y position
@@ -24,9 +24,9 @@ function Layer(doesObjectsMove) {
 
     }
 
-    this.drawAllSprites = function () {
+    this.drawAllSprites = function (context) {
         for (var i = 0; i < this.sprites.length; i++) {
-            this.sprites[i].draw();
+            this.sprites[i].draw(context);
         }
     };
 }

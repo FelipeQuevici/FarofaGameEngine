@@ -3,18 +3,20 @@
  */
 
 function GameScene() {
-    this.onCreateScene();
+    var player;
 
     this.onPreInitialize = function () {
         this.addLayer("background");
         this.addLayer("lowerEffects");
+        player = new PlayerGameObject(this, new Vector2(10,10),0);
+        this.addObject(player);
+        player.onInitialize();
+        console.log("GameScenePreInitialized");
     };
 
-    var player;
+
 
     this.onEnter = function () {
-        player = new PlayerGameObject(new Vector2(10,10),0);
-        this.addObject(player);
     };
 }
 

@@ -11,6 +11,7 @@ var SceneManager = (function () {
     return {
         initialize: function () {
             currentScene = scenes[0];
+            currentScene.onEnter();
         },
 
         update: function () {
@@ -19,8 +20,8 @@ var SceneManager = (function () {
             currentScene.onPostUpdate();
         },
 
-        draw: function () {
-            currentScene.onDraw();
+        draw: function (context) {
+            currentScene.onDraw(context);
         },
 
         addScene : function (scene, name) {
