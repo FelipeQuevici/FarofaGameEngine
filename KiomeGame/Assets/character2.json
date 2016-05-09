@@ -1,0 +1,218 @@
+{
+  "c200-2": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "c200-4": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "c200-0": {
+    "x": 0,
+    "y": 64,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "c200-6": {
+    "x": 0,
+    "y": 96,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "c200-3": {
+    "x": 0,
+    "y": 128,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    },
+    "c200-04": {
+      "x": 0,
+      "y": 32,
+      "w": 32,
+      "h": 32,
+      "pivot" : {
+        "x":16,
+        "y":16
+      },
+      "direction": 0,
+      "frameSpeed": 1,
+      "collisions": {
+        "rigidBody": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "damageCollisionBox": {
+        },
+        "attackCollisionBox": {
+        }
+      }
+    }
+  },
+  "c200-1": {
+    "x": 0,
+    "y": 160,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "c200-5": {
+    "x": 0,
+    "y": 192,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "c200-7": {
+    "x": 0,
+    "y": 224,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  }
+}

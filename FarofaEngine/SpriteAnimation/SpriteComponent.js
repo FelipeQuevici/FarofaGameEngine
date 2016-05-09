@@ -31,7 +31,7 @@ function SpriteComponent(parent, spriteName, rectangle, totalDirections, layer) 
 
     // TODO: Calculate direction based on angle
     function angleToDirection(angle) {
-        return angle;
+        return angle / (360 / (totalDirections+1) );
     }
 
 
