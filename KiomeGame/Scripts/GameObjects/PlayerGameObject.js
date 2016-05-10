@@ -1,6 +1,3 @@
-function angleBetweenTwoPoints(position, mousePosition) {
-    
-}
 /**
  * Created by Felipe on 07/05/2016.
  */
@@ -18,10 +15,11 @@ function PlayerGameObject(scene, position, rotation) {
     onCreate.call(this,scene,  position, rotation);
 
     this.onInitialize = function () {
-        this.addComponent("sprite", new SpriteComponent(this,"c200",
-            new Rectangle(position.x,position.y,40,40),
+        this.addComponent("sprite", new SpriteComponent(this,
             7,
-            "background"));
+            "objectsLayer",
+            "c200",
+            new Rectangle(position.x,position.y,40,40)));
         this.addComponent("rigidBody", new RigidBodyComponent(this));
         this.addComponent("playerMovement", new PlayerMovementComponent(this))
     };

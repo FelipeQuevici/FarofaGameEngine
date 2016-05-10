@@ -7,7 +7,12 @@ function RigidBodyComponent(parent, rectangle) {
 
     function onCreate (parent, rectangle) {
         this.parent = parent;
-        this.rectangle = rectangle;
+        if (rectangle instanceof Rectangle) {
+            this.rectangle = rectangle;
+        }
+        else {
+            this.rectangle = new Rectangle(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
+        }
     }
 
     var movedBy = new Vector2();

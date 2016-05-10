@@ -47,6 +47,7 @@ var SpriteSheetManager = (function () {
         },
 
         getSprite: function (spriteName, rectangle, direction) {
+            rectangle = rectangle || new Rectangle();
             direction = direction != null ? "-"+direction : "";
             for (var spriteSheetName in spriteSheets) {
                 var currentSpriteSheet = spriteSheets[spriteSheetName];

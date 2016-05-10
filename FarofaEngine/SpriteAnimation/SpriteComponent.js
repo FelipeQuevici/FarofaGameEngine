@@ -2,25 +2,33 @@
  * Created by Felipe on 06/05/2016.
  */
 
-function SpriteComponent(parent, spriteName, rectangle, totalDirections, layer) {
+function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) {
 
-    function onCreate(parent, spriteName, rectangle, totalDirections, layer) {
+    function onCreate(parent, totalDirections, layer, spriteName, rectangle) {
         var currentScene = parent.scene;
         this.totalDirections = totalDirections;
         this.parent = parent;
-        this.spriteName = spriteName;
-        this.rectangle = rectangle;
+
         if (totalDirections > 0) {
             this.currentDirection = 0;
         }
         else {
             this.currentDirection = null;
         }
-        this.sprite = SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection);
+
+        if (spriteName instanceof Sprite) {
+            this.setSprite(spriteName);
+        }
+        else {
+            this.spriteName = spriteName;
+            this.rectangle = rectangle;
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));        }
+
+
         currentScene.addSpriteToLayer(this, layer);
     }
     
-    onCreate.call(this, parent, spriteName, rectangle, totalDirections, layer);
+    onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);
 
     this.setSprite = function (sprite) {
         this.sprite = sprite;
@@ -31,7 +39,7 @@ function SpriteComponent(parent, spriteName, rectangle, totalDirections, layer) 
 
     // TODO: Calculate direction based on angle
     function angleToDirection(angle) {
-        return angle / (360 / (totalDirections+1) );
+        return Math.round(angle / (360 / (totalDirections+1) ));
     }
 
 

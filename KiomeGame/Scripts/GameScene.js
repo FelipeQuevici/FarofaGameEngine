@@ -8,6 +8,7 @@ function GameScene() {
     this.onPreInitialize = function () {
         this.addLayer("background");
         this.addLayer("lowerEffects");
+        this.addLayer("objectsLayer");
         player = new PlayerGameObject(this, new Vector2(10,10),0);
         this.addObject(player);
         player.onInitialize();
@@ -62,10 +63,6 @@ function GameScene() {
         }
         elapsed++;
         context.putImageData(imageData,-borderSize,- borderSize);*/
-    };
-
-
-    this.onEnter = function () {
     };
 }
 
