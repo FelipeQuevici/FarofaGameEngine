@@ -10,9 +10,11 @@ var FarofaGame = (function () {
     var loadDirectory = "";
     var tileSetsToLoad = [];
     
+    var renderer;
+    
     function gameLoop() {
         SceneManager.update();
-        SceneManager.draw(context);
+        SceneManager.draw(renderer);
     }
     
     return {
@@ -27,10 +29,10 @@ var FarofaGame = (function () {
         
         start: function () {
             canvas = document.getElementById("canvas");
-            context = canvas.getContext("2d");
             fpsCounter = document.getElementById("fps");
             SceneManager.initialize();
             InputManager.initialize();
+            renderer = new CanvasRenderer(canvas);
             setInterval(gameLoop,1);
         },
 
@@ -44,10 +46,6 @@ var FarofaGame = (function () {
 
         getCanvas: function () {
             return canvas;
-        },
-
-        getContext: function () {
-            return context;
         }
     }
 })();

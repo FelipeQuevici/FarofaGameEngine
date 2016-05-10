@@ -84,18 +84,18 @@ function Scene() {
         this.layers[layerIndex].addSprite(sprite);
     };
 
-    this.onDraw = function (context) {
+    this.onDraw = function (renderer) {
         for (var i = 0; i < this.layers.length; i++) {
-            this.drawLayer(context, i);
+            this.drawLayer(renderer, i);
         }
-        this.onPostDraw(context);
+        this.onPostDraw(renderer);
     };
 
-    this.onPostDraw = function (context) {
+    this.onPostDraw = function (renderer) {
 
     };
 
-    this.drawLayer = function (context, i) {
-        this.layers[i].draw(context);
+    this.drawLayer = function (renderer, i) {
+        this.layers[i].draw(renderer);
     }
 }

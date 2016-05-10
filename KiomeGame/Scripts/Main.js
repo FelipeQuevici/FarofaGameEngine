@@ -4,11 +4,7 @@
 
 FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
-FarofaGame.addSpriteSheet("witchTileSet");
 FarofaGame.addSpriteSheet("character2");
-
-//FarofaGame.addScene(new Scene());
-//FarofaGame.start();
 
 var gameScene = new GameScene();
 

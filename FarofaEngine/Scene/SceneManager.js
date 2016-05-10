@@ -32,9 +32,9 @@ var SceneManager = (function () {
             }
         },
 
-        draw: function (context) {
+        draw: function (renderer) {
             refreshCanvas();
-            currentScene.onDraw(context);
+            currentScene.onDraw(renderer);
         },
 
         addScene : function (scene, name) {
