@@ -3,6 +3,8 @@
  */
 
 var Component =  {
+    parent: null,
+
     onPreUpdate : function () {
         
     },    

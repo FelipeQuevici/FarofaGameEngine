@@ -49,7 +49,3 @@ var FarofaGame = (function () {
         }
     }
 })();
-
-function DefineRequesites() {
-    
-}

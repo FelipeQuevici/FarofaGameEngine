@@ -18,12 +18,12 @@ function GameObject(scene, position, rotation) {
     this.onCreate(scene, position, rotation);
 
     this.onInitialize = function () {
-
     };
 
     this.onPreUpdate = function () {
-        for (var i = 0; i < this.components.length; i++)
+        for (var i in this.components) {
             this.components[i].onPreUpdate();
+        }
     };
 
     //GENERICO
@@ -33,8 +33,9 @@ function GameObject(scene, position, rotation) {
     };
 
     this.componentsUpdate = function () {
-        for (var i = 0; i < this.components.length; i++)
+        for (var i in this.components) {
             this.components[i].onUpdate();
+        }
     };
 
     // CADA CLASSE PRECISA IMPLEMENTAR
