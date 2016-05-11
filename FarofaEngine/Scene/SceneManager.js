@@ -36,7 +36,8 @@ var SceneManager = (function () {
         },
 
         draw: function () {
-            refreshCanvas();
+            //refreshCanvas();
+            renderer.refreshCanvas();
             currentScene.onDraw(renderer);
         },
 

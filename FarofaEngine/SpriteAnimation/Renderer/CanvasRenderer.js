@@ -16,6 +16,14 @@ function CanvasRenderer(canvas) {
             b.x - d.x, b.y - d.y, b.width, b.height);
     };
 
+    this.refreshCanvas = function () {
+        this.parent.refreshCanvas();
+
+        context.fillStyle = "#5F61C2";
+        context.fillRect(0,0,500,500);
+        context.fill();
+    };
+
     this.getContext = function () {
         return context;
     };

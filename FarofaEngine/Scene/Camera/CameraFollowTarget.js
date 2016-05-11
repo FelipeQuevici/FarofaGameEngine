@@ -21,9 +21,5 @@ function CameraFollowTarget(scene) {
     this.getTarget = function () {
         return target;
     };
-
-    this.onUpdate = function () {
-        this.position = target.position;
-    }
 }
 

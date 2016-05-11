@@ -6,5 +6,8 @@ var Renderer = {
     drawSprite: function (sprite) {
         
     },
-    camera: null
+    camera: null,
+    refreshCanvas: function () {
+        canvas.width = canvas.width;
+    }
 };

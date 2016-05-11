@@ -6,7 +6,7 @@ function GameScene() {
     var player;
 
     this.declareCamera = function () {
-        this.camera = new CameraFollowTarget(this);
+        this.camera = new CameraFollowWithMargins(this,200,200);
         console.log("SET CAMERA");
     };
 
