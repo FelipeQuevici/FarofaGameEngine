@@ -7,6 +7,7 @@ function RigidBodyComponent(parent, rectangle) {
 
     function onCreate (parent, rectangle) {
         this.parent = parent;
+        rectangle = rectangle || new Rectangle();
         if (rectangle instanceof Rectangle) {
             this.rectangle = rectangle;
         }

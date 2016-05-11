@@ -11,15 +11,36 @@ var FarofaGame = (function () {
     var tileSetsToLoad = [];
     
     var renderer;
-    
+
+    var globalVariables = {};
+
     function gameLoop() {
         SceneManager.update();
         SceneManager.draw(renderer);
     }
     
+    function loadJSON(callback, file) {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+
+
+        xobj.open('GET', loadDirectory + file + ".json", false);
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                callback(xobj.responseText);
+            }
+        };
+        xobj.send(null);
+    }
+
+    var objectToReturn;
+    function returnObject(string) {
+        objectToReturn = JSON.parse(string);
+    }
+    
     return {
         addScene: function (scene, name) {
-            scene.onPreInitialize();
+            scene.onInternalInitialize();
             SceneManager.addScene(scene, name);
         },
         
@@ -46,6 +67,17 @@ var FarofaGame = (function () {
 
         getCanvas: function () {
             return canvas;
+        },
+
+        loadObject: function (file) {
+            loadJSON(returnObject,file);
+            return objectToReturn;
+        },
+        setGlobalVariable: function (name, value) {
+            globalVariables[name] = value;
+        },
+        getGlobalVariable: function (name) {
+            return globalVariables[name];
         }
     }
 })();

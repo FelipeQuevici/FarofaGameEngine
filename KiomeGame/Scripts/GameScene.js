@@ -5,14 +5,25 @@
 function GameScene() {
     var player;
 
-    this.onPreInitialize = function () {
+    this.declareObjects = function () {
+        const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
         this.addLayer("lowerEffects");
         this.addLayer("objectsLayer");
-        player = new PlayerGameObject(this, new Vector2(10,10),0);
+        player = new PlayerGameObject(this, new Vector2(0,0),0);
         this.addObject(player);
-        player.onInitialize();
-        console.log("GameScenePreInitialized");
+        console.log("Objects created");
+        var maps = FarofaGame.loadObject("Maps/maps");
+        var atlas = maps["atlas"];
+        var level01 = maps["level01"];
+        for (var column in level01["background"]) {
+            for (var row in level01["background"][column]) {
+                var tile = new TileGameObject(this, new Vector2(row*tileSize,column*tileSize),
+                    0,
+                    atlas[level01["background"][column][row]]);
+                this.addObject(tile);
+            }
+        }
     };
 
    /* var borderSize = 20;

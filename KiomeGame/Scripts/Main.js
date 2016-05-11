@@ -4,7 +4,10 @@
 
 FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
-FarofaGame.addSpriteSheet("character2");
+FarofaGame.addSpriteSheet("Characters/character2");
+FarofaGame.addSpriteSheet("TileSets/testeTileSet");
+
+FarofaGame.setGlobalVariable("tileSize",32);
 
 var gameScene = new GameScene();
 

@@ -27,8 +27,6 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
 
         currentScene.addSpriteToLayer(this, layer);
     }
-    
-    onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);
 
     this.setSprite = function (sprite) {
         this.sprite = sprite;
@@ -63,6 +61,8 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
     this.draw = function (context) {
         this.sprite.draw(context);
     }
+
+    onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);
 }
 
 SpriteComponent.inheritsFrom(Component);

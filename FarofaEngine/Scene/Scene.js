@@ -14,8 +14,19 @@ function Scene() {
 
     this.onCreateScene();
 
-    this.onPreInitialize = function () {
+    this.onInternalInitialize = function () {
+        this.declareObjects();
+        this.initializeObjects();
+    };
 
+    this.declareObjects = function () {
+
+    };
+
+    this.initializeObjects = function () {
+        for (var i = 0; i < this.objects.length; i++) {
+            this.objects[i].onInitialize();
+        }
     };
 
     this.onPreEnter = function () {
