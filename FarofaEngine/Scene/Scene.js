@@ -9,14 +9,21 @@ function Scene() {
 
         this.objects = [];
         this.collisionSystem = new CollisionSystem();
+
         console.log("Created Scene");
     };
 
     this.onCreateScene();
 
     this.onInternalInitialize = function () {
+        this.declareCamera();
         this.declareObjects();
         this.initializeObjects();
+    };
+
+    this.declareCamera = function () {
+        var rect = new Rectangle();
+        this.camera = new Camera(this, new Rectangle());
     };
 
     this.declareObjects = function () {
@@ -24,6 +31,7 @@ function Scene() {
     };
 
     this.initializeObjects = function () {
+        this.addObject(this.camera);
         for (var i = 0; i < this.objects.length; i++) {
             this.objects[i].onInitialize();
         }

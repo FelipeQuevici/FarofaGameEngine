@@ -14,5 +14,9 @@ function Rectangle(x, y, width, height) {
 
     this.right = function () {
         return this.x + this.width;
+    };
+
+    this.toString = function () {
+      return "(" + this.x + ", " +  this.y + ", "  + this.width + ", "+  this.height + ")";
     }
 }

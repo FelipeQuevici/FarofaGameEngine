@@ -5,6 +5,11 @@
 function GameScene() {
     var player;
 
+    this.declareCamera = function () {
+        this.camera = new CameraFollowTarget(this);
+        console.log("SET CAMERA");
+    };
+
     this.declareObjects = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
@@ -12,7 +17,10 @@ function GameScene() {
         this.addLayer("objectsLayer");
         player = new PlayerGameObject(this, new Vector2(0,0),0);
         this.addObject(player);
-        console.log("Objects created");
+        this.camera.setTarget(player);
+        console.log("SET TARGET");
+        console.log(this.camera.getTarget());
+
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
         var level01 = maps["level01"];
@@ -32,13 +40,15 @@ function GameScene() {
     var freq = 2 * 2 * Math.PI * 0.01;
     var elapsed = 0;*/
 
-    this.onPostDraw = function (context) {
-        /*context.fillText(fps.getFPS(),10,10);
+    this.onPostDraw = function (renderer) {
+        /*var context = renderer.getContext();
+
+        context.fillText(fps.getFPS(),10,10);
         context.fill();
-        console.log("ASD");
+
+        
         var imageData = context.getImageData(-borderSize,-borderSize,allCanvasSize,allCanvasSize);
         var data = imageData.data;
-        var newData = [];
 
         for (var y = 0; y < allCanvasSize; y++) {
             var translate = Math.floor((amplitude * Math.sin(freq * (y + elapsed))))*4;

@@ -43,6 +43,9 @@ var FarofaGame = (function () {
             scene.onInternalInitialize();
             SceneManager.addScene(scene, name);
         },
+        setInicialScene: function (name) {
+            SceneManager.initialScene = name;
+        },
         
         addSpriteSheet: function (name) {
             SpriteSheetManager.loadSpriteSheet(name);
@@ -51,9 +54,9 @@ var FarofaGame = (function () {
         start: function () {
             canvas = document.getElementById("canvas");
             fpsCounter = document.getElementById("fps");
-            SceneManager.initialize();
-            InputManager.initialize();
             renderer = new CanvasRenderer(canvas);
+            SceneManager.initialize(renderer);
+            InputManager.initialize();
             setInterval(gameLoop,1);
         },
 

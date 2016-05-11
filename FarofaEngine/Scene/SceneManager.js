@@ -9,15 +9,18 @@ var SceneManager = (function () {
     var isInTransition = false;
     var millisecondsLastUpdate;
     var millisecondsBetweenUpdate = 1000/60;
+    var renderer;
 
     function refreshCanvas() {
         FarofaGame.getCanvas().width = FarofaGame.getCanvas().width;
     }
 
     return {
-        initialize: function () {
-            currentScene = scenes[0];
-            currentScene.onEnter();
+        initialScene: "",
+
+        initialize: function (newRenderer) {
+            renderer = newRenderer;
+            this.changeScene(this.initialScene);
             millisecondsLastUpdate = new Date().getTime();
         },
 
@@ -32,7 +35,7 @@ var SceneManager = (function () {
             }
         },
 
-        draw: function (renderer) {
+        draw: function () {
             refreshCanvas();
             currentScene.onDraw(renderer);
         },
@@ -60,6 +63,9 @@ var SceneManager = (function () {
             currentScene = scenes[scenesNames[sceneName]];
 
             currentScene.onPreEnter();
+            renderer.camera = currentScene.camera;
+            console.log("Set Camera" );
+            console.log(renderer);
 
             isInTransition = false;
         },

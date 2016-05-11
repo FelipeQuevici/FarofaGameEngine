@@ -5,5 +5,6 @@
 var Renderer = {
     drawSprite: function (sprite) {
         
-    }
+    },
+    camera: null
 };

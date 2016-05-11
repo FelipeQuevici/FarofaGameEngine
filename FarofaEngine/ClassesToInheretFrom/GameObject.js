@@ -29,7 +29,7 @@ function GameObject(scene, position, rotation) {
     //GENERICO
     this.internalUpdate = function () {
         this.componentsUpdate();
-        this.update();
+        this.onUpdate();
     };
 
     this.componentsUpdate = function () {
@@ -39,7 +39,7 @@ function GameObject(scene, position, rotation) {
     };
 
     // CADA CLASSE PRECISA IMPLEMENTAR
-    this.update = function () {
+    this.onUpdate = function () {
 
     };
 
