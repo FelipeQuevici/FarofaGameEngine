@@ -7,8 +7,9 @@ function TileGameObject(scene, position, rotation, type) {
     var shouldAddRigidBody = false;
 
     function onCreate(scene, position, rotation, type) {
+        const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.onCreateGameObject(scene,position,rotation);
-        sprite = SpriteSheetManager.getSprite(type,new Rectangle(position.x, position.y,40,40));
+        sprite = SpriteSheetManager.getSprite(type,new Rectangle(position.x, position.y,tileSize,tileSize));
         if (sprite.spriteInformation.hasOwnProperty("collisions")) {
             shouldAddRigidBody = true;
         }
