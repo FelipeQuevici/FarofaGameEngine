@@ -52,22 +52,22 @@ function Scene() {
 
     };
 
-    this.onPreUpdate = function () {
+    this.onPreUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
-            this.objects[i].onPreUpdate();
+            this.objects[i].onPreUpdate(deltaTime);
         }
     };
 
-    this.onUpdate = function () {
+    this.onUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
-            this.objects[i].internalUpdate();
+            this.objects[i].internalUpdate(deltaTime);
         }
     };
 
-    this.onPostUpdate = function () {
+    this.onPostUpdate = function (deltaTime) {
         //console.log("DANDO POST UPDATE");
         for (var i = 0; i < this.objects.length; i++) {
-            this.objects[i].onPostUpdate();
+            this.objects[i].onPostUpdate(deltaTime);
         }
     };
 

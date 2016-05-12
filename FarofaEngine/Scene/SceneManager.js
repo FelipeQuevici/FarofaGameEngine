@@ -21,24 +21,30 @@ var SceneManager = (function () {
         initialize: function (newRenderer) {
             renderer = newRenderer;
             this.changeScene(this.initialScene);
-            millisecondsLastUpdate = new Date().getTime();
+            millisecondsLastUpdate = Date.now();
         },
 
         update: function () {
-            var date = new Date();
-            var timeNow = date.getTime();
-            if (timeNow - millisecondsLastUpdate > millisecondsBetweenUpdate) {
-                millisecondsLastUpdate = timeNow;
-                currentScene.onPreUpdate();
-                currentScene.onUpdate();
-                currentScene.onPostUpdate();
+            var timeNow = Date.now();
+            var deltaTime = timeNow - millisecondsLastUpdate;
+            
+            if (deltaTime > millisecondsBetweenUpdate) {
+            	deltaTime = deltaTime/1000;                
+                currentScene.onPreUpdate(deltaTime);
+                currentScene.onUpdate(deltaTime);
+                currentScene.onPostUpdate(deltaTime);
             }
         },
 
         draw: function () {
-            //refreshCanvas();
-            renderer.refreshCanvas();
-            currentScene.onDraw(renderer);
+        	var timeNow = Date.now();
+            var deltaTime = timeNow - millisecondsLastUpdate;
+            
+            if (deltaTime > millisecondsBetweenUpdate) {
+            	millisecondsLastUpdate = timeNow;
+	            renderer.refreshCanvas();
+	            currentScene.onDraw(renderer);
+            }
         },
 
         addScene : function (scene, name) {

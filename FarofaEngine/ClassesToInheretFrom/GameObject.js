@@ -20,26 +20,26 @@ function GameObject(scene, position, rotation) {
     this.onInitialize = function () {
     };
 
-    this.onPreUpdate = function () {
+    this.onPreUpdate = function (deltaTime) {
         for (var i in this.components) {
-            this.components[i].onPreUpdate();
+            this.components[i].onPreUpdate(deltaTime);
         }
     };
 
     //GENERICO
-    this.internalUpdate = function () {
-        this.componentsUpdate();
-        this.onUpdate();
+    this.internalUpdate = function (deltaTime) {
+        this.componentsUpdate(deltaTime);
+        this.onUpdate(deltaTime);
     };
 
-    this.componentsUpdate = function () {
+    this.componentsUpdate = function (deltaTime) {
         for (var i in this.components) {
-            this.components[i].onUpdate();
+            this.components[i].onUpdate(deltaTime);
         }
     };
 
     // CADA CLASSE PRECISA IMPLEMENTAR
-    this.onUpdate = function () {
+    this.onUpdate = function (deltaTime) {
 
     };
 
@@ -56,5 +56,9 @@ function GameObject(scene, position, rotation) {
 
     this.getComponent = function (name) {
         return this.components[name];
+    }
+    
+    this.hasComponent = function (name) {
+        return this.components.hasOwnProperty(name);
     }
 }
