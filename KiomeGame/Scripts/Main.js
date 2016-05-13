@@ -6,6 +6,7 @@ FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
 FarofaGame.addSpriteSheet("Characters/character2");
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
+FarofaGame.addSpriteSheet("crossHair");
 
 FarofaGame.setGlobalVariable("tileSize",60);
 
