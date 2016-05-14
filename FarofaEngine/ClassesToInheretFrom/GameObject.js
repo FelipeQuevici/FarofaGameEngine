@@ -56,9 +56,9 @@ function GameObject(scene, position, rotation) {
 
     this.getComponent = function (name) {
         return this.components[name];
-    }
+    };
     
     this.hasComponent = function (name) {
         return this.components.hasOwnProperty(name);
-    }
+    };
 }
