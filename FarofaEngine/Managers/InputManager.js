@@ -42,6 +42,7 @@ var InputManager = ( function () {
 
     function onMouseMove(event) {
         mousePosition = new Vector2(event.clientX, event.clientY);
+        EventCenterInstance.getInstance().callEvent("mouseMovedTo", this, {"position": mousePosition});
     }
 
     var canvas;

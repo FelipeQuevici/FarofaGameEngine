@@ -35,9 +35,10 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
          }*/
     };
 
-    // TODO: Calculate direction based on angle
     function angleToDirection(angle) {
-        return Math.round(angle / (360 / (totalDirections+1) ));
+        var direction = Math.round(angle / (360 / (totalDirections+1) ));
+        if (direction > totalDirections) direction = 0;
+        return direction;
     }
 
 
@@ -60,7 +61,7 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
 
     this.draw = function (context) {
         this.sprite.draw(context);
-    }
+    };
 
     onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);
 }

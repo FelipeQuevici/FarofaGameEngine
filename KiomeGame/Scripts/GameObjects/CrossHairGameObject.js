@@ -15,6 +15,7 @@ function CrossHairGameObject(scene) {
         const crossHairSize = FarofaGame.getGlobalVariable("tileSize")/2;
         this.addComponent("sprite", new SpriteComponent(this,
             0, "hud", "crossHair", new Rectangle(0,0,crossHairSize,crossHairSize)));
+        console.log(this.scene.camera);
         this.addComponent("followMouse", new FollowMouseComponent(this,this.scene.camera));
     }
 }
