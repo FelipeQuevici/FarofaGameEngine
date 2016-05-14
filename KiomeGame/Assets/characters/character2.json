@@ -14,9 +14,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -39,9 +39,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -64,9 +64,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -89,9 +89,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -114,9 +114,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -138,9 +138,9 @@
         "rigidBody": {
           "shape": "rectangle",
           "x": 0,
-          "y": 0,
+          "y": 16,
           "w": 32,
-          "h": 32
+          "h": 16
         },
         "damageCollisionBox": {
         },
@@ -164,9 +164,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -189,9 +189,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },
@@ -214,9 +214,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 0,
-        "y": 0,
+        "y": 16,
         "w": 32,
-        "h": 32
+        "h": 16
       },
       "damageCollisionBox": {
       },

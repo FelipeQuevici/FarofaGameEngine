@@ -61,10 +61,10 @@ function CollisionSystem() {
     }
     
     function getRecMaxX(collisionComponent){
-    	return collisionComponent.parent.position.x + collisionComponent.collisionInfo.width;
+    	return getRecMinX(collisionComponent) + collisionComponent.collisionInfo.width;
     }
     
     function getRecMaxY(collisionComponent){
-    	return collisionComponent.parent.position.y + collisionComponent.collisionInfo.height;
+    	return getRecMinY(collisionComponent) + collisionComponent.collisionInfo.height;
     }
 }

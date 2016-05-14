@@ -25,8 +25,8 @@ function RigidBodyComponent(parent, collisionInfo) {
     
     this.draw = function (renderer) {
     	if(this.collisionInfo instanceof Rectangle){
-    		var x = this.parent.position.x + this.collisionInfo.x;
-    		var y = this.parent.position.y + this.collisionInfo.y;
+    		var x = this.parent.position.x + this.collisionInfo.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
+    		var y = this.parent.position.y + this.collisionInfo.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
     		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
     		renderer.drawRectangle(rect, "red");
 		}         
