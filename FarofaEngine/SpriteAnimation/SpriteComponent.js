@@ -30,9 +30,12 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
 
     this.setSprite = function (sprite) {
         this.sprite = sprite;
-        /* for (var collisionComponent in this.sprite.spriteInformation.collision) {
-         this.parent.getComponent(collisionComponent).updateBox(this.sprite.spriteInformation.collision[collisionComponent]);
-         }*/
+        
+        for (var collisionComponent in sprite.spriteInformation.collisions) {        	
+        	if(collisionComponent == "rigidBody"){
+        		this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
+        	}        	
+        }
     };
 
     function angleToDirection(angle) {

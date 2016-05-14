@@ -35,6 +35,10 @@ var SceneManager = (function () {
             renderer.refreshCanvas();
             currentScene.onDraw(renderer);
         },
+        
+        drawCollisions: function () {
+        	currentScene.onDrawCollisions(renderer);
+        },
 
         addScene : function (scene, name) {
             scenesNames[name] = scenes.length;

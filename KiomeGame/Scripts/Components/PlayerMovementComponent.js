@@ -1,5 +1,3 @@
-
-
 /**
  * Created by Felipe on 09/05/2016.
  */
@@ -69,7 +67,14 @@ function PlayerMovementComponent(parent, target) {
         }
 
         currentSpeed.multiplyByScalar(playerMoveSpeed * deltaTime);
-        this.parent.getComponent("rigidBody").move(currentSpeed);
+        if(currentSpeed.x != 0 || currentSpeed.y != 0){
+        	this.parent.getComponent("rigidBody").move(currentSpeed);
+        }
+        
+    };
+
+    this.onUpdate = function (deltaTime) {
+        
     };
 }
 

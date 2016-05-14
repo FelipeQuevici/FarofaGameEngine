@@ -20,3 +20,10 @@ Vector2.prototype.multiplyByScalar = function (scalar) {
     this.x *= scalar;
     this.y *= scalar;
 };
+
+Vector2.prototype.getBiggestCoordinate = function () {
+	var x = Math.abs(this.x);
+	var y = Math.abs(this.y);
+	
+    return x > y ? x : y;
+};

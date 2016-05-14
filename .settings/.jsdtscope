@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="SpriteAnimation/Renderer/WebGl/|Collision/|SpriteAnimation/|Scene/|SpriteAnimation/Renderer/|Managers/|ClassesToInheretFrom/|HelperFunctions/|Scene/Camera/|SpriteAnimation/SpriteSheet/" kind="src" path="FarofaEngine"/>
+	<classpathentry kind="src" path="FarofaEngine/ClassesToInheretFrom"/>
+	<classpathentry kind="src" path="FarofaEngine/Collision"/>
+	<classpathentry kind="src" path="FarofaEngine/HelperFunctions"/>
+	<classpathentry kind="src" path="FarofaEngine/Managers"/>
+	<classpathentry excluding="Camera/" kind="src" path="FarofaEngine/Scene"/>
+	<classpathentry kind="src" path="FarofaEngine/Scene/Camera"/>
+	<classpathentry excluding="Renderer/WebGl/|Renderer/|SpriteSheet/" kind="src" path="FarofaEngine/SpriteAnimation"/>
+	<classpathentry excluding="WebGl/" kind="src" path="FarofaEngine/SpriteAnimation/Renderer"/>
+	<classpathentry kind="src" path="FarofaEngine/SpriteAnimation/Renderer/WebGl"/>
+	<classpathentry kind="src" path="FarofaEngine/SpriteAnimation/SpriteSheet"/>
+	<classpathentry excluding="GameObjects/|Components/" kind="src" path="KiomeGame/Scripts"/>
+	<classpathentry kind="src" path="KiomeGame/Scripts/Components"/>
+	<classpathentry kind="src" path="KiomeGame/Scripts/GameObjects"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

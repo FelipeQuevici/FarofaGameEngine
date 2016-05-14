@@ -21,6 +21,13 @@ function CanvasRenderer(canvas) {
         context.fillRect(d.x,d.y,1,1);
         context.fill();*/
     };
+    
+    this.drawRectangle = function (rectangle, color) {    	
+    	var c = this.camera.position;
+    	context.fillStyle = color;
+        context.fillRect(rectangle.x - (c.x - canvas.width/2),rectangle.y - (c.y - canvas.height/2),rectangle.width,rectangle.height);
+        context.fill();
+    };
 
     this.refreshCanvas = function () {
         this.parent.refreshCanvas();
