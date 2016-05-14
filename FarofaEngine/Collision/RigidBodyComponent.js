@@ -32,24 +32,32 @@ function RigidBodyComponent(parent, collisionInfo) {
 		}         
     };
 
-    this.move = function (velocity) {
-    	var movedBy = velocity;
-        var newPosition = new Vector2(this.parent.position.x,this.parent.position.y);   
-        newPosition.sum(movedBy);
-        var collisions = collisionSystem.checkCollision(this);
-        var biggestCoordinate = velocity.getBiggestCoordinate();
-        if(collisions.length > 0){
-        	newPosition.x = this.parent.position.x;
-        	newPosition.y = this.parent.position.y;
-        	
-        	for(var i = 0; i < biggestCoordinate; i++){
-            	
-            }
+    this.move = function (velocity) {   
+        this.parent.position.sum(velocity);        
+        var collisions = collisionSystem.checkCollision(this);                
+        if(collisions.length > 0){    
+        	var steps = velocity.getBiggestCoordinate();
+        	this.parent.position.sub(velocity);
+        	var xStep = velocity.x != 0 ? velocity.x / steps : 0;
+        	var yStep = velocity.y != 0 ? velocity.y / steps : 0;
+        	var vectorSteps = new Vector2(xStep, 0);        	
+        	moveStepByStep(this,collisions, vectorSteps, steps);
+        	vectorSteps = new Vector2(0, yStep);        	
+        	moveStepByStep(this,collisions, vectorSteps, steps);
         }
         //console.log(collisions);
         //CHECAR PIXEl A PIXEl SE COLIDU COM CADA UM DEELES E PARAR QUANDO COLIDIR
-        this.parent.position.sum(movedBy);
     };
+    
+    function moveStepByStep(component, collisions, vectorSteps, steps){
+    	for(var i = 0; i < steps; i++){
+    		component.parent.position.sum(vectorSteps);
+    		if(collisionSystem.checkCollision(component, collisions).length > 0){
+    			component.parent.position.sub(vectorSteps);
+    			break;
+    		}
+        }
+    }
 
     this.onPostUpdate = function () {
     	

@@ -28,9 +28,7 @@ function CollisionSystem() {
         	if(componentsListToCheck[i] != thisCollisionComponent){
         		if(thisCollisionComponent.collisionInfo instanceof Rectangle && componentsListToCheck[i].collisionInfo instanceof Rectangle){
         			if(checkCollisionBetweenRectangles(thisCollisionComponent, componentsListToCheck[i])){
-        				bodysCollided.push(componentsListToCheck[i]);
-        				console.log("Player[minx: "+getRecMinX(thisCollisionComponent)+" miny: "+getRecMinY(thisCollisionComponent)+" maxx: "+getRecMaxX(thisCollisionComponent)+" maxy: "+getRecMaxY(thisCollisionComponent));
-        				console.log("Tile[minx: "+getRecMinX(bodysCollided[0])+" miny: "+getRecMinY(bodysCollided[0])+" maxx: "+getRecMaxX(bodysCollided[0])+" maxy: "+getRecMaxY(bodysCollided[0]));
+        				bodysCollided.push(componentsListToCheck[i]);        				
         			}            	
             	}
         	}      	

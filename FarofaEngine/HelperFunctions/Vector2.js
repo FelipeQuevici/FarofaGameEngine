@@ -12,6 +12,11 @@ Vector2.prototype.sum = function (other) {
     this.y += other.y;
 };
 
+Vector2.prototype.sub = function (other) {
+    this.x -= other.x;
+    this.y -= other.y;
+};
+
 Vector2.prototype.equals = function (other) {
     return this.x == other.x && this.y == other.y;
 };

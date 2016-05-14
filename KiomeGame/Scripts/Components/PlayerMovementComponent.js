@@ -13,7 +13,8 @@ function PlayerMovementComponent(parent) {
     this.onCreate(parent);
     
     this.onPreUpdate = function (deltaTime) {
-    	var currentSpeed = new Vector2();            
+    	var currentSpeed = new Vector2();     
+    	var finalSpeed = playerMoveSpeed;
 
         if (InputManager.isKeyPressed("arrowLeft") ) {
             currentSpeed.sum(new Vector2(-1,0));
@@ -41,19 +42,23 @@ function PlayerMovementComponent(parent) {
             this.parent.rotation = 270;
         }
         else if (currentSpeed.equals(new Vector2(1,1))) {
+        	finalSpeed *= 0.7071
             this.parent.rotation = 45;
         }
         else if (currentSpeed.equals(new Vector2(-1,1))) {
+        	finalSpeed *= 0.7071
             this.parent.rotation = 135;
         }
         else if (currentSpeed.equals(new Vector2(-1,-1))) {
+        	finalSpeed *= 0.7071
             this.parent.rotation = 225;
         }
         else if (currentSpeed.equals(new Vector2(1,-1))) {
+        	finalSpeed *= 0.7071
             this.parent.rotation = 315;
         }
 
-        currentSpeed.multiplyByScalar(playerMoveSpeed * deltaTime);
+        currentSpeed.multiplyByScalar(finalSpeed * deltaTime);
         if(currentSpeed.x != 0 || currentSpeed.y != 0){
         	this.parent.getComponent("rigidBody").move(currentSpeed);
         }
