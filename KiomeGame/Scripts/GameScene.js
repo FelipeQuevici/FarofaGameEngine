@@ -17,14 +17,14 @@ function GameScene() {
         this.addLayer("lowerEffects");
         this.addLayer("objectsLayer");
         this.addLayer("hud");
-        player = new PlayerGameObject(this, new Vector2(0,0),0);
-        this.addObject(player);
-        this.camera.setTarget(player);
-        console.log("SET TARGET");
-        console.log(this.camera.getTarget());
 
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
+
+        player = new PlayerGameObject(this, new Vector2(0,0),crossHair);
+        this.addObject(player);
+        this.camera.setTarget(player);
+
 
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
