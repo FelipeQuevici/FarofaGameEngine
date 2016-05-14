@@ -10,28 +10,29 @@ function PlayerMovementComponent(parent, target) {
         this.parent = parent;
         playerMoveSpeed = 120;
         targetToLookAt = target;
-        console.log(target + " CRiOu");
+        console.log("criou");
+        console.log(this);
     };
 
     this.onCreate(parent,target);
 
-    this.onUpdate = function (deltaTime) {
-        var currentSpeed = new Vector2();            
+    this.onPreUpdate = function (deltaTime) {
+        var currentSpeed = new Vector2();
         var isAnyKeyPressed = false;
         
-        if (InputManager.isKeyPressed("arrowLeft") ) {
+        if (InputManager.isKeyPressed("left") ) {
             currentSpeed.sum(new Vector2(-1,0));
             isAnyKeyPressed = true;
         }
-        if (InputManager.isKeyPressed("arrowRight") ) {
+        if (InputManager.isKeyPressed("right") ) {
             currentSpeed.sum(new Vector2(1,0));
             isAnyKeyPressed = true;
         }
-        if (InputManager.isKeyPressed("arrowUp") ) {
+        if (InputManager.isKeyPressed("up") ) {
             currentSpeed.sum(new Vector2(0,-1));
             isAnyKeyPressed = true;
         }
-        if (InputManager.isKeyPressed("arrowDown") ) {
+        if (InputManager.isKeyPressed("down") ) {
             currentSpeed.sum(new Vector2(0,1));
             isAnyKeyPressed = true;
         }
