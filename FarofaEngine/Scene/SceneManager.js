@@ -24,36 +24,20 @@ var SceneManager = (function () {
             millisecondsLastUpdate = Date.now();
         },
 
-        update: function () {
-            var timeNow = Date.now();
-            var deltaTime = timeNow - millisecondsLastUpdate;
-            
-            if (deltaTime > millisecondsBetweenUpdate) {
-            	deltaTime = deltaTime/1000;                
-                currentScene.onPreUpdate(deltaTime);
-                currentScene.onUpdate(deltaTime);
-                currentScene.onPostUpdate(deltaTime);
-            }
+        update: function (deltaTime) {
+            deltaTime = deltaTime/1000;
+            currentScene.onPreUpdate(deltaTime);
+            currentScene.onUpdate(deltaTime);
+            currentScene.onPostUpdate(deltaTime);
         },
 
         draw: function () {
-        	var timeNow = Date.now();
-            var deltaTime = timeNow - millisecondsLastUpdate;
-            
-            if (deltaTime > millisecondsBetweenUpdate) {
-	            renderer.refreshCanvas();
-	            currentScene.onDraw(renderer);
-            }
+            renderer.refreshCanvas();
+            currentScene.onDraw(renderer);
         },
         
         drawCollisions: function () {
-        	var timeNow = Date.now();
-            var deltaTime = timeNow - millisecondsLastUpdate;
-            
-            if (deltaTime > millisecondsBetweenUpdate) {
-            	millisecondsLastUpdate = timeNow;
-            	currentScene.onDrawCollisions(renderer);
-            }
+        	currentScene.onDrawCollisions(renderer);
         },
 
         addScene : function (scene, name) {

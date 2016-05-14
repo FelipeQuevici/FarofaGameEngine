@@ -14,10 +14,19 @@ var FarofaGame = (function () {
 
     var globalVariables = {};
 
+
+    var millisecondsLastUpdate;
+    var millisecondsBetweenUpdate = 1000/60;
+
     function gameLoop() {
-        SceneManager.update();
-        SceneManager.draw(renderer);
-        SceneManager.drawCollisions(renderer);
+        var timeNow = Date.now();
+        var deltaTime = timeNow - millisecondsLastUpdate;
+        if (deltaTime > millisecondsBetweenUpdate) {
+            millisecondsLastUpdate = timeNow;
+            SceneManager.update(deltaTime);
+            SceneManager.draw(renderer);
+            SceneManager.drawCollisions(renderer);
+        }
     }
     
     function loadJSON(callback, file) {
@@ -58,6 +67,7 @@ var FarofaGame = (function () {
             renderer = new CanvasRenderer(canvas);
             SceneManager.initialize(renderer);
             InputManager.initialize();
+            millisecondsLastUpdate = Date.now();
             setInterval(gameLoop,1);
         },
 

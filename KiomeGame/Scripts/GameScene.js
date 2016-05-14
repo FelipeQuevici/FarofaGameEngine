@@ -4,9 +4,10 @@
 
 function GameScene() {
     var player;
+    var crossHair;
 
     this.declareCamera = function () {
-        this.camera = new CameraFollowWithMargins(this,200,200);
+        this.camera = new CameraFollowWithMargins(this,150,150);
         console.log("SET CAMERA");
     };
 
@@ -15,11 +16,15 @@ function GameScene() {
         this.addLayer("background");
         this.addLayer("lowerEffects");
         this.addLayer("objectsLayer");
+        this.addLayer("hud");
         player = new PlayerGameObject(this, new Vector2(0,0),0);
         this.addObject(player);
         this.camera.setTarget(player);
         console.log("SET TARGET");
         console.log(this.camera.getTarget());
+
+        crossHair = new CrossHairGameObject(this);
+        this.addObject(crossHair);
 
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
@@ -34,10 +39,10 @@ function GameScene() {
         }
     };
 
-   /* var borderSize = 20;
+    /*    var borderSize = 20;
     var allCanvasSize = 500+2*borderSize;
     var amplitude = 5;
-    var freq = 2 * 2 * Math.PI * 0.01;
+    var freq = 1 * 2 * Math.PI * 0.01;
     var elapsed = 0;*/
 
     this.onPostDraw = function (renderer) {
@@ -52,7 +57,6 @@ function GameScene() {
 
         for (var y = 0; y < allCanvasSize; y++) {
             var translate = Math.floor((amplitude * Math.sin(freq * (y + elapsed))))*4;
-            //console.log(translate);
             var x;
 
             if (translate > 0) {
@@ -65,7 +69,10 @@ function GameScene() {
                 }
                 for (x = translate; x >= 0; x--) {
                     var pixelIndex = (y * allCanvasSize + x) * 4;
-                    data[pixelIndex+3] = 0;
+                    data[pixelIndex] = 0;
+                    data[pixelIndex+1] = 0;
+                    data[pixelIndex+2] = 0;
+                    data[pixelIndex+3] = 255;
                 }
             }
             else if (translate < 0) {
@@ -78,12 +85,17 @@ function GameScene() {
                 }
                 for (x = allCanvasSize - translate; x < allCanvasSize-1; x++) {
                     var pixelIndex = (y * allCanvasSize + x) * 4;
-                    data[pixelIndex+3] = 0;
+                    data[pixelIndex] = 255;
+                    data[pixelIndex+1] = 255;
+                    data[pixelIndex+2] = 255;
+                    data[pixelIndex+3] = 255;
                 }
             }
         }
-        elapsed++;
+        elapsed+=4;
+
         context.putImageData(imageData,-borderSize,- borderSize);*/
+
     };
 }
 

@@ -40,20 +40,29 @@ var InputManager = ( function () {
         keys[e.keyCode] = false;
     }
 
+    function onMouseMove(event) {
+        mousePosition = new Vector2(event.clientX, event.clientY);
+    }
+
+    var canvas;
+    var mousePosition = new Vector2();
+
     return {
         initialize : function () {
             keys = [];
             window.addEventListener("keyup", onKeyUp);
             window.addEventListener("keydown", onKeyDown);
+            canvas =  FarofaGame.getCanvas();
+            //console.log(canvas);
+            //canvas.addEventListener("mousemove ", onMouseMove);
+            document.onmousemove = onMouseMove;
         },
-
         isKeyPressed : function (key) {
             return keys[keyToNumber[key]];
         },
-        
-        //TODO: get mouse position
         getMousePosition: function () {
-            return new Vector2();
+            var boundingRect = canvas.getBoundingClientRect();
+            return new Vector2(mousePosition.x - boundingRect.left, mousePosition.y - boundingRect.top);
         }
     }
 })();

@@ -6,10 +6,6 @@
 function PlayerGameObject(scene, position, rotation) {
     function onCreate(scene, position, rotation) {
         this.onCreateGameObject(scene, position, rotation);
-
-        //this.addComponent("damageTrigger", new CollisionBoxComponent(this));
-        //this.addComponent("attackTrigger", new CollisionBoxComponent(this));
-        //this.addComponent("animation", new AnimationComponent(this));
     }
 
     onCreate.call(this,scene,  position, rotation);
