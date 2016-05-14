@@ -9,15 +9,7 @@
       "y":16
     },
     "direction": 0,
-    "frameSpeed": 1,
-    "collisions": {
-      "rigidBody": {
-        "x": 0,
-        "y": 0,
-        "w": 32,
-        "h": 32
-      }
-    }
+    "frameSpeed": 1
   },
   "grass01": {
     "x": 32,
@@ -29,15 +21,7 @@
       "y":16
     },
     "direction": 0,
-    "frameSpeed": 1,
-    "collisions": {
-      "rigidBody": {
-        "x": 0,
-        "y": 0,
-        "w": 32,
-        "h": 32
-      }
-    }
+    "frameSpeed": 1
   },
   "sand00": {
     "x": 64,
@@ -49,6 +33,15 @@
       "y":16
     },
     "direction": 0,
-    "frameSpeed": 1
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      }
+    }
   }
 }

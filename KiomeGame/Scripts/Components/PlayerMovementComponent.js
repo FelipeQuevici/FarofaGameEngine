@@ -11,9 +11,9 @@ function PlayerMovementComponent(parent) {
     };
 
     this.onCreate(parent);
-
-    this.onUpdate = function (deltaTime) {
-        var currentSpeed = new Vector2();            
+    
+    this.onPreUpdate = function (deltaTime) {
+    	var currentSpeed = new Vector2();            
 
         if (InputManager.isKeyPressed("arrowLeft") ) {
             currentSpeed.sum(new Vector2(-1,0));
@@ -55,6 +55,10 @@ function PlayerMovementComponent(parent) {
 
         currentSpeed.multiplyByScalar(playerMoveSpeed * deltaTime);
         this.parent.getComponent("rigidBody").move(currentSpeed);
+    };
+
+    this.onUpdate = function (deltaTime) {
+        
     };
 }
 

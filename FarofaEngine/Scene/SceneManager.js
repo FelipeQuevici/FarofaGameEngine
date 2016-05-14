@@ -41,9 +41,18 @@ var SceneManager = (function () {
             var deltaTime = timeNow - millisecondsLastUpdate;
             
             if (deltaTime > millisecondsBetweenUpdate) {
-            	millisecondsLastUpdate = timeNow;
 	            renderer.refreshCanvas();
 	            currentScene.onDraw(renderer);
+            }
+        },
+        
+        drawCollisions: function () {
+        	var timeNow = Date.now();
+            var deltaTime = timeNow - millisecondsLastUpdate;
+            
+            if (deltaTime > millisecondsBetweenUpdate) {
+            	millisecondsLastUpdate = timeNow;
+            	currentScene.onDrawCollisions(renderer);
             }
         },
 

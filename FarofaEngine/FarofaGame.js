@@ -17,6 +17,7 @@ var FarofaGame = (function () {
     function gameLoop() {
         SceneManager.update();
         SceneManager.draw(renderer);
+        SceneManager.drawCollisions(renderer);
     }
     
     function loadJSON(callback, file) {

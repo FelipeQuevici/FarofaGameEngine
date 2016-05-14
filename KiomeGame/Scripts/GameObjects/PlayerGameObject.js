@@ -16,12 +16,13 @@ function PlayerGameObject(scene, position, rotation) {
 
     this.onInitialize = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");
+        this.addComponent("rigidBody", new RigidBodyComponent(this));
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
             "c200",
             new Rectangle(position.x,position.y,tileSize,tileSize)));
-        this.addComponent("rigidBody", new RigidBodyComponent(this));
+        
         this.addComponent("playerMovement", new PlayerMovementComponent(this));
     };
 }
