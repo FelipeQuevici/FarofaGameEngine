@@ -9,8 +9,6 @@ function Scene() {
 
         this.objects = [];
         this.collisionSystem = new CollisionSystem();
-
-        console.log("Created Scene");
     };
 
     this.onCreateScene();
@@ -22,7 +20,6 @@ function Scene() {
     };
 
     this.declareCamera = function () {
-        var rect = new Rectangle();
         this.camera = new Camera(this, new Rectangle());
     };
 

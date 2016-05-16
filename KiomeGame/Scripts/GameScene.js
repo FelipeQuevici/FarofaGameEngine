@@ -8,7 +8,6 @@ function GameScene() {
 
     this.declareCamera = function () {
         this.camera = new CameraFollowWithMargins(this,150,150);
-        console.log("SET CAMERA");
     };
 
     this.declareObjects = function () {
@@ -21,7 +20,7 @@ function GameScene() {
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
-        player = new PlayerGameObject(this, new Vector2(0,0),crossHair);
+        player = new PlayerGameObject(this, new Vector2(32,32),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
 
@@ -39,14 +38,15 @@ function GameScene() {
         }
     };
 
-    /*    var borderSize = 20;
+   /* var borderSize = 50;
     var allCanvasSize = 500+2*borderSize;
     var amplitude = 5;
     var freq = 1 * 2 * Math.PI * 0.01;
-    var elapsed = 0;*/
+    var elapsed = 0;
+    var elapsedChange = 20  ;*/
 
     this.onPostDraw = function (renderer) {
-        /*var context = renderer.getContext();
+       /* var context = renderer.getContext();
 
         context.fillText(fps.getFPS(),10,10);
         context.fill();
@@ -92,10 +92,10 @@ function GameScene() {
                 }
             }
         }
-        elapsed+=4;
+        elapsed+=elapsedChange;
 
-        context.putImageData(imageData,-borderSize,- borderSize);*/
-
+        context.putImageData(imageData,-borderSize,- borderSize);
+            */
     };
 }
 

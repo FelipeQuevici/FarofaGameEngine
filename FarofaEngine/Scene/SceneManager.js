@@ -64,8 +64,7 @@ var SceneManager = (function () {
 
             currentScene.onPreEnter();
             renderer.camera = currentScene.camera;
-            console.log("Set Camera" );
-            console.log(renderer);
+            Debug.log("Set Camera",0,"sceneManager" );
 
             isInTransition = false;
         },

@@ -2,7 +2,7 @@
  * Created by Felipe on 09/05/2016.
  */
 
-function PlayerMovementComponent(parent, target) {
+function PlayerControllerComponent(parent, target) {
     var playerMoveSpeed;
     var targetToLookAt;
     
@@ -10,8 +10,6 @@ function PlayerMovementComponent(parent, target) {
         this.parent = parent;
         playerMoveSpeed = 120;
         targetToLookAt = target;
-        console.log("criou");
-        console.log(this);
     };
 
     this.onCreate(parent,target);
@@ -52,19 +50,19 @@ function PlayerMovementComponent(parent, target) {
                 this.parent.rotation = 270;
             }
             else if (currentSpeed.equals(new Vector2(1, 1))) {
-            	finalSpeed *= 0.7071
+            	finalSpeed *= 0.7071;
                 this.parent.rotation = 45;
             }
             else if (currentSpeed.equals(new Vector2(-1, 1))) {
-            	finalSpeed *= 0.7071
+            	finalSpeed *= 0.7071;
                 this.parent.rotation = 135;
             }
             else if (currentSpeed.equals(new Vector2(-1, -1))) {
-            	finalSpeed *= 0.7071
+            	finalSpeed *= 0.7071;
                 this.parent.rotation = 225;
             }
             else if (currentSpeed.equals(new Vector2(1, -1))) {
-            	finalSpeed *= 0.7071
+            	finalSpeed *= 0.7071;
                 this.parent.rotation = 315;
             }
         }
@@ -84,4 +82,4 @@ function PlayerMovementComponent(parent, target) {
     };
 }
 
-PlayerMovementComponent.inheritsFrom(Component);
+PlayerControllerComponent.inheritsFrom(Component);
