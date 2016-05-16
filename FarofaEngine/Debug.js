@@ -3,7 +3,7 @@
  */
 
 var Debug = (function () {
-    var debugLevel = 0;
+    var debugLevel = 3;
     var types = {
         "collision": false,
         "draw": false,
@@ -15,7 +15,7 @@ var Debug = (function () {
 
     return {
         log: function (message, level, type) {
-            if (types[type] || level >= debugLevel) {
+            if (types[type] && level >= debugLevel) {
                 console.log(message);
             }
         },

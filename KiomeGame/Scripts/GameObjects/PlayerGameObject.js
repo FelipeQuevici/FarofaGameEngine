@@ -21,7 +21,7 @@ function PlayerGameObject(scene, position, target) {
             "c200",
             new Rectangle(position.x,position.y,tileSize,tileSize)));
 
-        this.addComponent("playerMovement", new PlayerMovementComponent(this, target));
+        this.addComponent("playerMovement", new PlayerControllerComponent(this, target));
 
     };
 }

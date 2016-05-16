@@ -89,34 +89,6 @@ function CollisionSystem() {
     	}else{
     		return false;
     	}
-    	
-    	/*
-    	var recMinX = getRecMinX(rec);
-    	var recMaxX = getRecMaxX(rec) / 2;
-    	var recMinY = getRecMinY(rec);
-    	var recMaxY = getRecMaxY(rec) / 2;
-    	
-    	
-    	var circleDistanceX = Math.abs(CircleCenter.x - recMinX);
-    	var circleDistanceY = Math.abs(CircleCenter.y - recMinY);
-    	var recCornerDistance = (circleDistanceX - recMaxX) * (circleDistanceX - recMaxX) +
-         (circleDistanceY - recMaxY) * (circleDistanceY - recMaxY);
-    	
-    	if (circleDistanceX > (recMaxX + cir.collisionInfo.radius))
-    		return false;
-    	if (circleDistanceY > (recMaxY + cir.collisionInfo.radius))
-    		return false;
-    		
-    	if (circleDistanceX <= recMaxX)
-    		return true;
-    	if (circleDistanceY <= recMaxY)
-    		return true;
-    		
-    	if (recCornerDistance <= cir.collisionInfo.radius * cir.collisionInfo.radius)
-    		return true;
-    	else
-    		return false;
-    	*/
     }
     
     function getRecMinX(collisionComponent){

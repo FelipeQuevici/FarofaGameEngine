@@ -18,10 +18,10 @@ var SpriteSheetManager = (function () {
 
     return {
         loadSpriteSheet: function (name) {
-            console.log("Loadgin Spritesheet:" + name);
+            Debug.log("Loading Sprite Sheet:" + name, 0, "sprite");
 
             if (spriteSheets.hasOwnProperty(name)) {
-                Debug.log("Sprite sheet already loaded", 0, "spriteName");
+                Debug.log("Sprite sheet already loaded", 0, "sprite");
                 return;
             }
 
@@ -57,7 +57,7 @@ var SpriteSheetManager = (function () {
                     return currentSpriteSheet.getSprite(spriteName+direction, rectangle);
                 }
             }
-            console.log("Nao existe esse sprite!");
+            Debug.log("The sprite " + spriteName + " does not exist", 5, "generic");
         }
     };
 })();
