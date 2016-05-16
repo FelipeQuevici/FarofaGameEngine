@@ -28,6 +28,14 @@ function CanvasRenderer(canvas) {
         context.fillRect(rectangle.x - (c.x - canvas.width/2),rectangle.y - (c.y - canvas.height/2),rectangle.width,rectangle.height);
         context.fill();
     };
+    
+    this.drawCircle = function (circle, color) {        	
+    	var c = this.camera.position;    	
+    	context.beginPath();
+    	context.arc(circle.center.x - (c.x - canvas.width/2) ,circle.center.y - (c.y - canvas.height/2),circle.radius,0,2*Math.PI);
+    	context.fillStyle = color;
+        context.fill();
+    };
 
     this.refreshCanvas = function () {
         this.parent.refreshCanvas();

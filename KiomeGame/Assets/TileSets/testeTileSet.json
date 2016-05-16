@@ -21,7 +21,16 @@
       "y":16
     },
     "direction": 0,
-    "frameSpeed": 1
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      }
+    }
   },
   "sand00": {
     "x": 64,
@@ -36,11 +45,12 @@
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
-        "shape": "rectangle",
-        "x": 0,
-        "y": 0,
-        "w": 32,
-        "h": 32
+        "shape": "circle",
+        "center": {
+          "x": 16,
+          "y": 16
+        },
+        "radius": 16
       }
     }
   }

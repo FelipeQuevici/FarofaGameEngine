@@ -30,14 +30,18 @@ function CollisionSystem() {
         			if(checkCollisionBetweenRectangles(thisCollisionComponent, componentsListToCheck[i])){
         				bodysCollided.push(componentsListToCheck[i]);        				
         			}            	
+            	}else if(thisCollisionComponent.collisionInfo instanceof Circle && componentsListToCheck[i].collisionInfo instanceof Circle){
+            		if(checkCollisionBetweenCircles(thisCollisionComponent, componentsListToCheck[i])){
+        				bodysCollided.push(componentsListToCheck[i]);        				
+        			}
+            	}else{
+            		if(checkCollisionBetweenCircleAndRectangle(thisCollisionComponent, componentsListToCheck[i])){
+        				bodysCollided.push(componentsListToCheck[i]);        				
+        			}
             	}
-        	}      	
-        	     	
+        	}      	        	     	
         }
-        //console.log(bodysCollided);
-        //console.log = function(){};   
-        return bodysCollided;
-        
+        return bodysCollided;        
     };
     
     function checkCollisionBetweenRectangles(collisionComponent1, collisionComponent2){
@@ -48,6 +52,71 @@ function CollisionSystem() {
 			return false;
 		}
     	return true;
+    }
+    
+    function checkCollisionBetweenCircles(collisionComponent1, collisionComponent2){
+    	var center1 = getCircleCenter(collisionComponent1);
+    	var center2 = getCircleCenter(collisionComponent2);
+    	var deltaX = center2.x - center1.x;
+    	var deltaY = center1.y - center2.y;
+    	var powX = deltaX * deltaX; 
+    	var powY = deltaY * deltaY; 
+    	var rSum = collisionComponent1.collisionInfo.radius + collisionComponent2.collisionInfo.radius;
+    	var powR = rSum * rSum;
+    	if(powX + powY <= powR){
+			return true;
+		}			
+    	return false;
+    }
+    
+    function checkCollisionBetweenCircleAndRectangle(collisionComponent1, collisionComponent2){
+    	if(collisionComponent1.collisionInfo instanceof Rectangle){
+    		rec = collisionComponent1;
+    		cir = collisionComponent2;
+    	}else{
+    		rec = collisionComponent2;
+    		cir = collisionComponent1;
+    	}
+    	var circleCenter = getCircleCenter(cir);    	
+    	var closestX = clamp(circleCenter.x, getRecMinX(rec), getRecMaxX(rec));
+    	var closestY = clamp(circleCenter.y, getRecMinY(rec), getRecMaxY(rec));
+    	var distanceX = circleCenter.x - closestX;
+    	var distanceY = circleCenter.y - closestY;
+    	var distanceSquared =  (distanceX * distanceX) + (distanceY * distanceY);
+    	
+    	if (distanceSquared < cir.collisionInfo.radius * cir.collisionInfo.radius){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    	
+    	/*
+    	var recMinX = getRecMinX(rec);
+    	var recMaxX = getRecMaxX(rec) / 2;
+    	var recMinY = getRecMinY(rec);
+    	var recMaxY = getRecMaxY(rec) / 2;
+    	
+    	
+    	var circleDistanceX = Math.abs(CircleCenter.x - recMinX);
+    	var circleDistanceY = Math.abs(CircleCenter.y - recMinY);
+    	var recCornerDistance = (circleDistanceX - recMaxX) * (circleDistanceX - recMaxX) +
+         (circleDistanceY - recMaxY) * (circleDistanceY - recMaxY);
+    	
+    	if (circleDistanceX > (recMaxX + cir.collisionInfo.radius))
+    		return false;
+    	if (circleDistanceY > (recMaxY + cir.collisionInfo.radius))
+    		return false;
+    		
+    	if (circleDistanceX <= recMaxX)
+    		return true;
+    	if (circleDistanceY <= recMaxY)
+    		return true;
+    		
+    	if (recCornerDistance <= cir.collisionInfo.radius * cir.collisionInfo.radius)
+    		return true;
+    	else
+    		return false;
+    	*/
     }
     
     function getRecMinX(collisionComponent){
@@ -64,5 +133,10 @@ function CollisionSystem() {
     
     function getRecMaxY(collisionComponent){
     	return getRecMinY(collisionComponent) + collisionComponent.collisionInfo.height;
+    }
+    
+    function getCircleCenter(collisionComponent){
+    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x,
+    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y);
     }
 }
