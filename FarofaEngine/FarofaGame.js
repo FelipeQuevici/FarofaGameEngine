@@ -68,6 +68,10 @@ var FarofaGame = (function () {
             SceneManager.initialize(renderer);
             InputManager.initialize();
             millisecondsLastUpdate = Date.now();
+            window.oncontextmenu = function ()
+            {
+                return false;
+            };
             setInterval(gameLoop,1);
         },
 

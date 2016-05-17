@@ -85,6 +85,10 @@ function Scene() {
         this.objects.push(object);
     };
 
+    this.createObject = function (object) {
+        object.onInitialize();
+        this.addObject(object)
+    };
 
     // TODO: Check if layer name already exists
     this.addLayer = function (name, shouldOrderY) {
