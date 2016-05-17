@@ -25,7 +25,7 @@ var FarofaGame = (function () {
             millisecondsLastUpdate = timeNow;
             SceneManager.update(deltaTime);
             SceneManager.draw(renderer);
-            //SceneManager.drawCollisions(renderer);
+            SceneManager.drawCollisions(renderer);
         }
     }
     
@@ -59,6 +59,10 @@ var FarofaGame = (function () {
         
         addSpriteSheet: function (name) {
             SpriteSheetManager.loadSpriteSheet(name);
+        },
+        
+        addAnimation: function (name) {
+            AnimationManager.loadAnimation(name);
         },
         
         start: function () {

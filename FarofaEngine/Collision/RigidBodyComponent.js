@@ -30,7 +30,6 @@ function RigidBodyComponent(parent, collisionInfo) {
     		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
     		renderer.drawRectangle(rect, "red");
 		}else if(this.collisionInfo instanceof Circle){	
-			console.log(this.collisionInfo);
 			var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
 									 this.parent.position.y + this.collisionInfo.center.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
     		var circle = new Circle(center,this.collisionInfo.radius);
@@ -51,8 +50,6 @@ function RigidBodyComponent(parent, collisionInfo) {
         	vectorSteps = new Vector2(0, yStep);        	
         	moveStepByStep(this,collisions, vectorSteps, steps);
         }
-        //console.log(collisions);
-        //CHECAR PIXEl A PIXEl SE COLIDU COM CADA UM DEELES E PARAR QUANDO COLIDIR
     };
     
     function moveStepByStep(component, collisions, vectorSteps, steps){

@@ -3,7 +3,18 @@
  */
 
 //TODO: TUDO
-function Animation() {
-    this.frames = [];
-    this.spriteSheet = spriteSheet;
+function Animation(animationName, information) {
+	
+    function onCreate(animationName, information) {
+    	this.information = information;
+    	this.name = animationName;
+    	this.spriteSheet = information[animationName].spriteSheet;
+    	this.speed = information[animationName].animationSpeed;
+    	this.frames = [];
+    	for(var frame in information[animationName].frames){
+    		this.frames.push(information[animationName].frames[frame]);
+        }
+    }
+
+    onCreate.call(this, animationName, information);
 }

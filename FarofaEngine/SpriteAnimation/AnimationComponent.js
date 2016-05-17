@@ -2,14 +2,15 @@
  * Created by Felipe on 06/05/2016.
  */
 
-//TODO: TUDO
-function AnimationComponent(parent, sprite) {
-    this.parent = parent;
-    this.sprite = sprite;
-
-    currentanimation = 0;
-    this.currentFrame = 0;
-    CurrenttimeS = 0;
+function AnimationComponent(parent, initialAnimation, spriteComponent) {
+    var timer = 0;
+    
+    function onCreate(parent, initialAnimation, spriteComponent) {
+    	this.parent = parent;
+        this.spriteComponent = spriteComponent;
+        this.currentanimation = initialAnimation;
+        this.currentFrame = 0;
+    }
 
     function shouldChangeFrame() {
         
@@ -29,4 +30,8 @@ function AnimationComponent(parent, sprite) {
             this.sprite = nextFrame.call(this);
         
     };
+    
+    onCreate.call(this, initialAnimation, spriteComponent);
 }
+
+AnimationComponent.inheritsFrom(Component);
