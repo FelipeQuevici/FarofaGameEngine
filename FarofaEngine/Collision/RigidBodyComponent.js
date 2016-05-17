@@ -7,6 +7,7 @@ function RigidBodyComponent(parent, collisionInfo) {
     
     function onCreate (parent, collisionInfo) {
         this.parent = parent;
+        this.type = "rigidBody";
 
         if(collisionInfo){
         	if(collisionInfo.shape == "rectangle"){
@@ -45,14 +46,20 @@ function RigidBodyComponent(parent, collisionInfo) {
         	if(callback){
         		callback.call(callbackCaller, collisions);
         	}
+        	var rigidBodyCollisions = collisions;
+        	for(var i = 0; i < collisions.length; i++){            	
+        		if(collisions[i].type != "rigidBody"){        			
+        			rigidBodyCollisions.splice(i,1);
+        		}
+        	}        	
         	var steps = velocity.getBiggestCoordinate();
         	this.parent.position.sub(velocity);
         	var xStep = velocity.x != 0 ? velocity.x / steps : 0;
         	var yStep = velocity.y != 0 ? velocity.y / steps : 0;
         	var vectorSteps = new Vector2(xStep, 0);        	
-        	moveStepByStep(this,collisions, vectorSteps, steps);
+        	moveStepByStep(this,rigidBodyCollisions, vectorSteps, steps);
         	vectorSteps = new Vector2(0, yStep);        	
-        	moveStepByStep(this,collisions, vectorSteps, steps);
+        	moveStepByStep(this,rigidBodyCollisions, vectorSteps, steps);
         }
     };
     

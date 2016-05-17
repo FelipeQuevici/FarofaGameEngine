@@ -3,14 +3,51 @@
  */
 
 function CollisionBoxComponent(parent, collisionInfo) {
-    var collisionSystem = SceneManager.getCurrentScene().collisionSystem;
+	var collisionSystem = parent.scene.collisionSystem;
 
     function onCreate (parent, collisionInfo) {
         this.parent = parent;
-        this.collisionInfo = collisionInfo;
+        this.type = "collisionBox";
+
+        if(collisionInfo){
+        	if(collisionInfo.shape == "rectangle"){
+            	this.collisionInfo = new Rectangle(collisionInfo.x, collisionInfo.y, collisionInfo.w, collisionInfo.h);
+            }else if(collisionInfo.shape == "circle"){
+            	this.collisionInfo = new Circle(new Vector2(collisionInfo.x, collisionInfo.y), collisionInfo.radius);
+            }
+        }else{
+        	this.collisionInfo = null;
+        }
+        
+        collisionSystem.addBody(this);
     }
 
     onCreate.call(this, parent, collisionInfo);
+    
+    this.draw = function (renderer) {
+    	if(this.collisionInfo instanceof Rectangle){
+    		var x = this.parent.position.x + this.collisionInfo.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
+    		var y = this.parent.position.y + this.collisionInfo.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
+    		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
+    		renderer.drawRectangle(rect, "red");
+		}else if(this.collisionInfo instanceof Circle){	
+			var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
+									 this.parent.position.y + this.collisionInfo.center.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
+    		var circle = new Circle(center,this.collisionInfo.radius);
+    		renderer.drawCircle(circle, "red");
+		}
+    };
+    
+    this.move = function (velocity, callback, callbackCaller) {
+    	callback = callback || null;
+        this.parent.position.sum(velocity);        
+        var collisions = collisionSystem.checkCollision(this);                
+        if(collisions.length > 0){   
+        	if(callback){
+        		callback.call(callbackCaller, collisions);
+        	}
+        }
+    };
     
     this.updateCollisionInfo = function (collisionInfo) {
     	if (collisionInfo.shape == "rectangle") {
@@ -31,3 +68,5 @@ function CollisionBoxComponent(parent, collisionInfo) {
     	
     };
 }
+
+CollisionBoxComponent.inheritsFrom(Component);
