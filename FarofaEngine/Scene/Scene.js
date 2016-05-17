@@ -51,21 +51,25 @@ function Scene() {
 
     this.onPreUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
-            this.objects[i].onPreUpdate(deltaTime);
+            var object = this.objects[i];
+            object.onPreUpdate(deltaTime);
         }
     };
 
     this.onUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
-            this.objects[i].internalUpdate(deltaTime);
+            var object = this.objects[i];
+            object.internalUpdate(deltaTime);
         }
     };
 
     this.onPostUpdate = function (deltaTime) {
-        //console.log("DANDO POST UPDATE");
         for (var i = 0; i < this.objects.length; i++) {
-            this.objects[i].onPostUpdate(deltaTime);
+            var object = this.objects[i];
+            object.onPostUpdate(deltaTime);
         }
+
+        this.takePendingObjectsFromList();
     };
 
     this.onPreExit = function () {
@@ -90,16 +94,39 @@ function Scene() {
         this.addObject(object)
     };
 
-    // TODO: Check if layer name already exists
+    var destroyList = [];
+
+    this.destroyObject = function (object) {
+        destroyList.push(object);
+
+    };
+
+    this.takePendingObjectsFromList = function() {
+        for (var i = 0; i < destroyList.length; i++) {
+            var index = this.objects.indexOf(destroyList[i]);
+            var object = destroyList[i];
+            var sprite = object.getComponent("sprite");
+            if (sprite) {
+                console.log(sprite.layer);
+                this.layers[this.layersNames[sprite.layer]].removeSpriteComponent(sprite);
+            }
+            var rigidBody = object.getComponent("rigidBody");
+            if (rigidBody) {
+                this.collisionSystem.removeBody(rigidBody);
+            }
+
+            this.objects.splice(index,1);
+        }
+        destroyList = [];
+    };
+
     this.addLayer = function (name, shouldOrderY) {
         shouldOrderY = shouldOrderY || false;
         this.layersNames[name] = this.layers.length;
         this.layers.push(new Layer(shouldOrderY));
     };
 
-    // TODO: Check if layer name exits and give error if does not
     this.addSpriteToLayer = function (sprite, layer) {
-
         var layerIndex = this.layersNames[layer];
         this.layers[layerIndex].addSprite(sprite);
     };

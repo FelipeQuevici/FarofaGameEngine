@@ -20,6 +20,9 @@ function ProjectileBehaviourComponent(parent, direction) {
 
     this.onPreUpdate = function (deltaTime) {
         if (Date.now() - timeCreated > duration) {
+            this.parent.scene.destroyObject(this.parent);
+            console.log("DELETANDO");
+            return;
         }
         var toMove = new Vector2(direction.x, direction.y);
         toMove.multiplyByScalar(deltaTime);
