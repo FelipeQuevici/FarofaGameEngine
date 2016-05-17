@@ -48,3 +48,13 @@ Vector2.prototype.normalize = function () {
     var m = this.magnitude();
     this.divideByScalar(m);
 };
+
+Vector2.prototype.angle = function () {
+    var atan = Math.atan2(this.y, this.x) * 180 / Math.PI;
+    if (atan < 0) atan += 360;
+    return atan;
+};
+
+var polarToVector = function (magnitude, angle) {
+    return new Vector2(Math.cos(angle)*magnitude, Math.sin(angle)*magnitude)
+};

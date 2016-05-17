@@ -51,30 +51,7 @@ function PlayerControllerComponent(parent, target) {
         }
 
         if (isAnyKeyPressed) {
-            if (currentDirection.equals(new Vector2(-1, 0))) {
-                this.parent.rotation = 180;
-            }
-            else if (currentDirection.equals(new Vector2(1, 0))) {
-                this.parent.rotation = 0;
-            }
-            else if (currentDirection.equals(new Vector2(0, 1))) {
-                this.parent.rotation = 90;
-            }
-            else if (currentDirection.equals(new Vector2(0, -1))) {
-                this.parent.rotation = 270;
-            }
-            else if (currentDirection.equals(new Vector2(1, 1))) {
-                this.parent.rotation = 45;
-            }
-            else if (currentDirection.equals(new Vector2(-1, 1))) {
-                this.parent.rotation = 135;
-            }
-            else if (currentDirection.equals(new Vector2(-1, -1))) {
-                this.parent.rotation = 225;
-            }
-            else if (currentDirection.equals(new Vector2(1, -1))) {
-                this.parent.rotation = 315;
-            }
+            this.parent.rotation = currentDirection.angle();
         }
         else {
             this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
@@ -90,8 +67,11 @@ function PlayerControllerComponent(parent, target) {
     var attack2AnimationDuration = 600;
     var lastDirection;
 
-    function throwPoo() {
-        
+    this.throwPoo = function () {
+        var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
+        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y),
+            sprite, polarToVector(1,this.parent.rotation));
+        this.parent.scene.createObject(bulletTest);
     }
     
     function moveState(deltaTime) {
@@ -104,6 +84,7 @@ function PlayerControllerComponent(parent, target) {
         if (InputManager.isKeyPressed("attack2")) {
             attackAnimationStartTime = Date.now();
             this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
+            this.throwPoo();
             currentState = "rangedAttack";
             return;
         }
@@ -115,6 +96,7 @@ function PlayerControllerComponent(parent, target) {
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
             this.parent.getComponent("rigidBody").move(moveDirection);
+
             //Walk animation
         }
         else {

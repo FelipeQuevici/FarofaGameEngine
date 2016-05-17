@@ -19,7 +19,6 @@ function TileGameObject(scene, position, rotation, type) {
 
     this.onInitialize = function () {
         if (shouldAddRigidBody) {
-            //console.log("criando rigid body");
             this.addComponent("rigidBody", new RigidBodyComponent(this, sprite.spriteInformation.collisions['rigidBody']));
         }
         this.addComponent("sprite", new SpriteComponent(this, 0, "background", sprite));

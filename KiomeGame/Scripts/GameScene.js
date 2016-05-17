@@ -24,7 +24,6 @@ function GameScene() {
         this.addObject(player);
         this.camera.setTarget(player);
 
-
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
         var level01 = maps["level01"];
