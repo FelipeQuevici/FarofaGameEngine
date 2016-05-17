@@ -2,17 +2,19 @@
  * Created by Felipe on 06/05/2016.
  */
 
-function GameObject(scene, position, rotation) {
+function GameObject(scene, position, rotation, tag) {
 
-    this.onCreateGameObject = function (scene, position, rotation) {
+    this.onCreateGameObject = function (scene, position, rotation, tag) {
+    	var tag = tag || "";
         this.scene = scene;
         this.position = position || new Vector2();
         this.rotation = rotation;
         this.components = {};
+        this.tag = tag;
     };
 
-    this.onCreate = function (scene, position, rotation) {
-        this.onCreateGameObject(scene, position, rotation);
+    this.onCreate = function (scene, position, rotation, tag) {
+        this.onCreateGameObject(scene, position, rotation, tag);
     };
 
     this.onCreate(scene, position, rotation);
@@ -60,5 +62,9 @@ function GameObject(scene, position, rotation) {
     
     this.hasComponent = function (name) {
         return this.components.hasOwnProperty(name);
+    };
+    
+    this.setTag = function (tag) {
+    	this.tag = tag;
     };
 }
