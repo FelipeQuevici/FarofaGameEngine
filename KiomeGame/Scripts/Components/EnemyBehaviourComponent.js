@@ -6,7 +6,7 @@ function EnemyBehaviourComponent(parent) {
     var lastChangedDirection;
     var timeNextChangeDirection;
     var direction;
-    var enemySpeed = 70;
+    var enemySpeed = 150;
 
     this.changeDirection = function () {
         lastChangedDirection = Date.now();
