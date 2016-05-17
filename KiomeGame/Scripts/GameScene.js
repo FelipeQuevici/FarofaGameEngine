@@ -22,19 +22,20 @@ function GameScene() {
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
-        player = new PlayerGameObject(this, new Vector2(32,32),crossHair);
+        player = new PlayerGameObject(this, new Vector2(0,0),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
+        this.camera.position.sum(new Vector2(150,150));
 
-        var enemy1 = new EnemyGameObject(this, new Vector2(32,200),270);
+        var enemy1 = new EnemyGameObject(this, new Vector2(0,130),270);
         enemies.push(enemy1);
         this.addObject(enemy1);
 
-        var enemy2 = new EnemyGameObject(this, new Vector2(200, 32), 180);
+        var enemy2 = new EnemyGameObject(this, new Vector2(130, 0), 180);
         enemies.push(enemy2);
         this.addObject(enemy2);
 
-        var enemy3 = new EnemyGameObject(this, new Vector2(200,200),215);
+        var enemy3 = new EnemyGameObject(this, new Vector2(130,130),215);
         this.addObject(enemy3);
 
         //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
@@ -46,7 +47,7 @@ function GameScene() {
         var level01 = maps["level01"];
         for (var column in level01["background"]) {
             for (var row in level01["background"][column]) {
-                var tile = new TileGameObject(this, new Vector2(row*tileSize,column*tileSize),
+                var tile = new TileGameObject(this, new Vector2((row-5)*tileSize,(column-5)*tileSize),
                     0,
                     atlas[level01["background"][column][row]]);
                 this.addObject(tile);

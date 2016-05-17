@@ -1,18 +1,18 @@
 {
-  "poo": {
+  "old-poo": {
     "x": 0,
     "y": 0,
     "w": 16,
-    "h": 32,
+    "h": 16,
     "pivot" : {
       "x":16,
-      "y":32
+      "y":16
     },
     "collisions": {
       "collisionBox": {
         "shape": "rectangle",
         "x": 0,
-        "y": 16,
+        "y": 0,
         "w": 16,
         "h": 16
       }

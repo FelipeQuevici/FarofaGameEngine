@@ -75,8 +75,8 @@ function PlayerControllerComponent(parent, target) {
     var lastDirection;
 
     this.throwPoo = function () {
-        var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
-        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y, "poo"),
+        var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,32));
+        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+16, "poo"),
             sprite, polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
     };
