@@ -64,7 +64,7 @@ function PlayerControllerComponent(parent, target) {
 
     var attackAnimationStartTime;
     var attack1AnimationDuration = 300;
-    var attack2AnimationDuration = 600;
+    var attack2AnimationDuration = 500;
     var lastDirection;
 
     this.throwPoo = function () {
@@ -84,7 +84,6 @@ function PlayerControllerComponent(parent, target) {
         if (InputManager.isKeyPressed("attack2")) {
             attackAnimationStartTime = Date.now();
             this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
-            this.throwPoo();
             currentState = "rangedAttack";
             return;
         }
@@ -129,6 +128,7 @@ function PlayerControllerComponent(parent, target) {
     function rangedAttackState() {
         if (isRangedAttackAnimationOver()) {
             currentState = "move";
+            this.throwPoo();
             return;
         }
         
