@@ -13,9 +13,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -38,9 +38,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -63,9 +63,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -88,9 +88,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -113,9 +113,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -137,9 +137,9 @@
       "collisions": {
         "rigidBody": {
           "shape": "rectangle",
-          "x": 0,
+          "x": 3,
           "y": 16,
-          "w": 32,
+          "w": 26,
           "h": 16
         },
         "damageCollisionBox": {
@@ -163,9 +163,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -188,9 +188,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {
@@ -213,9 +213,9 @@
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 0,
+        "x": 3,
         "y": 16,
-        "w": 32,
+        "w": 26,
         "h": 16
       },
       "damageCollisionBox": {

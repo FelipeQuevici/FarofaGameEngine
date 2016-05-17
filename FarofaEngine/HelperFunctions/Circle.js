@@ -3,6 +3,6 @@ function Circle(center, radius) {
     this.radius = radius || 0;
 
     this.toString = function () {
-      return "(Center: " + this.center.x + ", " +  this.radius.y + ", Radius: "  + this.radius + ")";
+      return "(Center: " + this.center.x + ", " +  this.center.y + ", Radius: "  + this.radius + ")";
     };
 }

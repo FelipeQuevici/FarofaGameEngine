@@ -29,7 +29,13 @@ function RigidBodyComponent(parent, collisionInfo) {
     		var y = this.parent.position.y + this.collisionInfo.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
     		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
     		renderer.drawRectangle(rect, "red");
-		}         
+		}else if(this.collisionInfo instanceof Circle){	
+			console.log(this.collisionInfo);
+			var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
+									 this.parent.position.y + this.collisionInfo.center.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
+    		var circle = new Circle(center,this.collisionInfo.radius);
+    		renderer.drawCircle(circle, "red");
+		}
     };
 
     this.move = function (velocity) {   
