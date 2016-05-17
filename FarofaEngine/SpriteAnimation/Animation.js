@@ -6,7 +6,6 @@
 function Animation(animationName, information) {
 	
     function onCreate(animationName, information) {
-    	this.information = information;
     	this.name = animationName;
     	this.spriteSheet = information[animationName].spriteSheet;
     	this.speed = information[animationName].animationSpeed;

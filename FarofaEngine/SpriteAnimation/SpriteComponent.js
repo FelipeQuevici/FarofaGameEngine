@@ -2,28 +2,26 @@
  * Created by Felipe on 06/05/2016.
  */
 
-function SpriteComponent(parent, totalDirections, layer, animationName, rectangle) {
+function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) {
 
-    function onCreate(parent, totalDirections, layer, animationName, rectangle) {
+    function onCreate(parent, totalDirections, layer, spriteName, rectangle) {
         var currentScene = parent.scene;
         this.totalDirections = totalDirections;
         this.parent = parent;
 
         if (totalDirections > 0) {
             this.currentDirection = 0;
-        }
-        else {
+        }else {
             this.currentDirection = null;
         }
 
-        if (animationName instanceof Sprite) {
-            this.rectangle = animationName.rectangle;
-            this.setSprite(animationName);
-        }
-        else {
-            this.animationName = animationName;
+        if (spriteName instanceof Sprite) {
+            this.setSprite(spriteName);
+        }else {
+            this.spriteName = spriteName;
             this.rectangle = rectangle;
-            this.setSprite(SpriteSheetManager.getSprite(this.animationName,rectangle,this.currentDirection));        }
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));        
+        }
 
         this.layer = layer;
         currentScene.addSpriteToLayer(this, layer);
@@ -59,7 +57,7 @@ function SpriteComponent(parent, totalDirections, layer, animationName, rectangl
     this.setAngle = function (angle) {
         if (this.totalDirections > 0) {
             this.currentDirection = angleToDirection(angle);
-            this.setSprite(SpriteSheetManager.getSprite(this.animationName,rectangle,this.currentDirection));
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));
         }
     };
 
@@ -67,7 +65,7 @@ function SpriteComponent(parent, totalDirections, layer, animationName, rectangl
         this.sprite.draw(context);
     };
 
-    onCreate.call(this, parent, totalDirections, layer, animationName, rectangle);
+    onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);
 }
 
 SpriteComponent.inheritsFrom(Component);
