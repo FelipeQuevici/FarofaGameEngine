@@ -26,9 +26,35 @@ Vector2.prototype.multiplyByScalar = function (scalar) {
     this.y *= scalar;
 };
 
+Vector2.prototype.divideByScalar = function (scalar) {
+    this.x /= scalar;
+    this.y /= scalar;
+};
+
 Vector2.prototype.getBiggestCoordinate = function () {
 	var x = Math.abs(this.x);
 	var y = Math.abs(this.y);
 	
     return x > y ? x : y;
+};
+
+Vector2.prototype.magnitude = function () {
+    return Math.sqrt(this.x*this.x + this.y * this.y);
+};
+
+Vector2.prototype.normalize = function () {
+    if (this.x == 0 && this.y == 0) return;
+
+    var m = this.magnitude();
+    this.divideByScalar(m);
+};
+
+Vector2.prototype.angle = function () {
+    var atan = Math.atan2(this.y, this.x) * 180 / Math.PI;
+    if (atan < 0) atan += 360;
+    return atan;
+};
+
+var polarToVector = function (magnitude, angle) {
+    return new Vector2(Math.cos(angle)*magnitude, Math.sin(angle)*magnitude)
 };

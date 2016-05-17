@@ -11,10 +11,15 @@ var InputManager = ( function () {
         "arrowDown": [40],
         "space": [32],
         "esc": [27],
+        "mouseLeft": [1],
+
         "left": [65, 37],
         "right": [68, 39],
         "down": [83, 40],
-        "up": [87, 38]
+        "up": [87, 38],
+
+        "attack1": [1],
+        "attack2": [3]
     };
 
     var numberToKey = {
@@ -25,6 +30,8 @@ var InputManager = ( function () {
     };
 
     function onKeyDown(e) {
+        if (e.keyCode == 3) return;
+
         if (!keys[e.keyCode]) {
             EventCenterInstance.getInstance().callEvent(numberToKey[e.keyCode] + "Clicked", this, {"key": e.keyCode});
         }
@@ -32,12 +39,43 @@ var InputManager = ( function () {
     }
 
     function onKeyUp(e) {
+        if (e.keyCode == 3) return;
+
         keys[e.keyCode] = false;
     }
 
     function onMouseMove(event) {
+
         mousePosition = new Vector2(event.clientX, event.clientY);
         EventCenterInstance.getInstance().callEvent("mouseMovedTo", this, {"position": mousePosition});
+    }
+
+    function onClick(event) {
+
+    }
+
+    var mouseEventToButton = function (event) {
+        var button;
+        if ("which" in event) {
+            button = event.which;
+        }
+        else if ("button" in event) {
+            button = event.button;
+        }
+        return button;
+    };
+
+    function onMouseDown(event) {
+        event.preventDefault();
+        var button = mouseEventToButton(event);
+        if (!keys[button]) {
+            EventCenterInstance.getInstance().callEvent("mouse" + button + "Clicked", this, {position: mousePosition});
+        }
+        keys[button] = true;
+    }
+
+    function onMouseUp(event) {
+        keys[mouseEventToButton(event)] = false;
     }
 
     var canvas;
@@ -49,9 +87,9 @@ var InputManager = ( function () {
             window.addEventListener("keyup", onKeyUp);
             window.addEventListener("keydown", onKeyDown);
             canvas =  FarofaGame.getCanvas();
-            //console.log(canvas);
-            //canvas.addEventListener("mousemove ", onMouseMove);
             document.onmousemove = onMouseMove;
+            window.addEventListener("mousedown", onMouseDown);
+            window.addEventListener("mouseup", onMouseUp);
         },
         isKeyPressed : function (key) {
             if (keyToNumber.hasOwnProperty(key)) {

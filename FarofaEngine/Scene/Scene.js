@@ -85,6 +85,10 @@ function Scene() {
         this.objects.push(object);
     };
 
+    this.createObject = function (object) {
+        object.onInitialize();
+        this.addObject(object)
+    };
 
     // TODO: Check if layer name already exists
     this.addLayer = function (name, shouldOrderY) {
@@ -110,7 +114,7 @@ function Scene() {
     this.onDrawCollisions = function (renderer) {
         for (var i = 0; i < this.objects.length; i++) {
         	var obj = this.objects[i];
-        	for(name in obj.components){
+        	for(var name in obj.components){
         		if(obj.components[name].hasOwnProperty("collisionInfo")){
         			obj.components[name].draw(renderer);
         		}
