@@ -109,7 +109,7 @@ function PlayerControllerComponent(parent, target) {
         
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-            this.parent.getComponent("rigidBody").move(moveDirection);
+            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback);
 
             //Walk animation
         }
@@ -148,6 +148,10 @@ function PlayerControllerComponent(parent, target) {
         }
         
         
+    }
+    
+    function collisionCallback(collisions){
+    	console.log(collisions);
     }
 
     function isDashingAnimationOver() {

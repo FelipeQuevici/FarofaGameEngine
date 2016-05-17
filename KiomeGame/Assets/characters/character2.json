@@ -1,5 +1,5 @@
 {
-  "c200-2": {
+  "player_idle1-2": {
     "x": 0,
     "y": 0,
     "w": 32,
@@ -24,7 +24,7 @@
       }
     }
   },
-  "c200-4": {
+  "player_idle1-4": {
     "x": 0,
     "y": 32,
     "w": 32,
@@ -49,7 +49,7 @@
       }
     }
   },
-  "c200-0": {
+  "player_idle1-0": {
     "x": 0,
     "y": 64,
     "w": 32,
@@ -74,7 +74,7 @@
       }
     }
   },
-  "c200-6": {
+  "player_idle1-6": {
     "x": 0,
     "y": 96,
     "w": 32,
@@ -99,7 +99,7 @@
       }
     }
   },
-  "c200-3": {
+  "player_idle1-3": {
     "x": 0,
     "y": 128,
     "w": 32,
@@ -123,7 +123,7 @@
       "attackCollisionBox": {
       }
     },
-    "c200-04": {
+    "player_idle1-04": {
       "x": 0,
       "y": 32,
       "w": 32,
@@ -149,7 +149,7 @@
       }
     }
   },
-  "c200-1": {
+  "player_idle1-1": {
     "x": 0,
     "y": 160,
     "w": 32,
@@ -174,7 +174,7 @@
       }
     }
   },
-  "c200-5": {
+  "player_idle1-5": {
     "x": 0,
     "y": 192,
     "w": 32,
@@ -199,8 +199,233 @@
       }
     }
   },
-  "c200-7": {
+  "player_idle1-7": {
     "x": 0,
+    "y": 224,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-2": {
+    "x": 32,
+    "y": 0,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-4": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-0": {
+    "x": 32,
+    "y": 64,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-6": {
+    "x": 32,
+    "y": 96,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-3": {
+    "x": 32,
+    "y": 128,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    },
+    "player_idle2-04": {
+      "x": 32,
+      "y": 32,
+      "w": 32,
+      "h": 32,
+      "pivot" : {
+        "x":16,
+        "y":16
+      },
+      "direction": 0,
+      "frameSpeed": 1,
+      "collisions": {
+        "rigidBody": {
+          "shape": "rectangle",
+          "x": 3,
+          "y": 16,
+          "w": 26,
+          "h": 16
+        },
+        "damageCollisionBox": {
+        },
+        "attackCollisionBox": {
+        }
+      }
+    }
+  },
+  "player_idle2-1": {
+    "x": 32,
+    "y": 160,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-5": {
+    "x": 32,
+    "y": 192,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "player_idle2-7": {
+    "x": 32,
     "y": 224,
     "w": 32,
     "h": 32,
