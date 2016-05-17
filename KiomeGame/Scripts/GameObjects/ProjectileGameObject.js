@@ -4,10 +4,10 @@
 
 ProjectileGameObject.inheritsFrom(GameObject);
 
-function ProjectileGameObject(scene, position, sprite, direction) {
+function ProjectileGameObject(scene, position, sprite, direction, tag) {
 
-    function onCreate(scene,position,sprite,direction) {
-        this.onCreateGameObject(scene,position,direction.angle());
+    function onCreate(scene,position,sprite,direction, tag) {
+        this.onCreateGameObject(scene,position,direction.angle(), tag);
     }
 
     this.onInitialize = function () {
@@ -16,5 +16,5 @@ function ProjectileGameObject(scene, position, sprite, direction) {
         this.addComponent("sprite", new SpriteComponent(this, 0,"objectsLayer",sprite));
     };
     
-    onCreate.call(this, scene,position,sprite,direction);
+    onCreate.call(this, scene,position,sprite,direction, tag);
 }

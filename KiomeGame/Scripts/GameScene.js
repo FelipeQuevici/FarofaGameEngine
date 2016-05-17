@@ -20,7 +20,7 @@ function GameScene() {
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
-        player = new PlayerGameObject(this, new Vector2(32,32),crossHair);
+        player = new PlayerGameObject(this, new Vector2(32,32),crossHair, "player");
         this.addObject(player);
         this.camera.setTarget(player);
 

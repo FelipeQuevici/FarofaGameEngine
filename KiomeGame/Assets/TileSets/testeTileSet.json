@@ -9,6 +9,7 @@
       "y":16
     },
     "direction": 0,
+    "tag": "",
     "frameSpeed": 1
   },
   "grass01": {
@@ -21,6 +22,7 @@
       "y":16
     },
     "direction": 0,
+    "tag": "solid",
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
@@ -42,6 +44,7 @@
       "y":16
     },
     "direction": 0,
+    "tag": "solid",
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {

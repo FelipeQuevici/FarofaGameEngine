@@ -16,10 +16,6 @@ function CollisionSystem() {
     	this.bodys.push(body);
     };
     
-    this.moveBody = function (body, velocity) {
-        
-    };
-    
     this.checkCollision = function (thisCollisionComponent, componentsListToCheck) {
         var componentsListToCheck = componentsListToCheck || this.bodys;
         var bodysCollided = [];
