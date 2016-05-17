@@ -113,6 +113,10 @@ function Scene() {
             if (rigidBody) {
                 this.collisionSystem.removeBody(rigidBody);
             }
+            var collisionBox = object.getComponent("collisionBox");
+            if (collisionBox) {
+                this.collisionSystem.removeBody(collisionBox);
+            }
 
             this.objects.splice(index,1);
         }

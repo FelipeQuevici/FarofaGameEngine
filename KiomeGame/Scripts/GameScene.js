@@ -10,19 +10,32 @@ function GameScene() {
         this.camera = new CameraFollowWithMargins(this,150,150);
     };
 
+    var enemies = [];
+
     this.declareObjects = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
         this.addLayer("lowerEffects");
-        this.addLayer("objectsLayer");
+        this.addLayer("objectsLayer", true);
         this.addLayer("hud");
 
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
-        player = new PlayerGameObject(this, new Vector2(32,32),crossHair, "player");
+        player = new PlayerGameObject(this, new Vector2(32,32),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
+
+        var enemy1 = new EnemyGameObject(this, new Vector2(32,200),270);
+        enemies.push(enemy1);
+        this.addObject(enemy1);
+
+        var enemy2 = new EnemyGameObject(this, new Vector2(200, 32), 180);
+        enemies.push(enemy2);
+        this.addObject(enemy2);
+
+        var enemy3 = new EnemyGameObject(this, new Vector2(200,200),215);
+        this.addObject(enemy3);
 
         //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));

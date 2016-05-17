@@ -108,7 +108,7 @@ function PlayerControllerComponent(parent, target) {
         
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback, this);
+            this.parent.getComponent("rigidBody").move(moveDirection);
 
             //Walk animation
         }
@@ -131,7 +131,7 @@ function PlayerControllerComponent(parent, target) {
         var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
         moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
         if(moveDirection.x != 0 || moveDirection.y != 0){
-            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback, this);
+            this.parent.getComponent("rigidBody").move(moveDirection);
         }
     }
 
@@ -147,10 +147,6 @@ function PlayerControllerComponent(parent, target) {
         }
         
         
-    }
-    
-    function collisionCallback(collisions){
-    	console.log(collisions);
     }
 
     function isDashingAnimationOver() {

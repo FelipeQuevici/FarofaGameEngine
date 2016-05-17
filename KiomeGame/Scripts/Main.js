@@ -7,6 +7,7 @@ FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 FarofaGame.addSpriteSheet("characters/character2");
 FarofaGame.addSpriteSheet("tileSets/testeTileSet");
 FarofaGame.addSpriteSheet("crossHair");
+FarofaGame.addSpriteSheet("characters/enemy");
 FarofaGame.addSpriteSheet("poo");
 
 
