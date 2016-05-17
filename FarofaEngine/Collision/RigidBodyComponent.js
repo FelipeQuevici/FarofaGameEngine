@@ -37,10 +37,14 @@ function RigidBodyComponent(parent, collisionInfo) {
 		}
     };
 
-    this.move = function (velocity) {   
+    this.move = function (velocity, callback) {  
+    	callback = callback || null;
         this.parent.position.sum(velocity);        
         var collisions = collisionSystem.checkCollision(this);                
-        if(collisions.length > 0){    
+        if(collisions.length > 0){   
+        	if(callback){
+        		callback(collisions);
+        	}
         	var steps = velocity.getBiggestCoordinate();
         	this.parent.position.sub(velocity);
         	var xStep = velocity.x != 0 ? velocity.x / steps : 0;
