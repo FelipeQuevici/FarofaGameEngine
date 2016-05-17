@@ -24,7 +24,7 @@ function SpriteComponent(parent, totalDirections, layer, animationName, rectangl
             this.rectangle = rectangle;
             this.setSprite(SpriteSheetManager.getSprite(this.animationName,rectangle,this.currentDirection));        }
 
-
+        this.layer = layer;
         currentScene.addSpriteToLayer(this, layer);
     }
 

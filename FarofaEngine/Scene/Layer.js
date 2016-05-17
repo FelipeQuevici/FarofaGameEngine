@@ -24,6 +24,11 @@ function Layer(doesObjectsMove) {
 
     }
 
+    this.removeSpriteComponent = function(sprite){
+        var index = this.sprites.indexOf(sprite);
+        this.sprites.splice(index,1);
+    };
+
     this.drawAllSprites = function (renderer) {
         for (var i = 0; i < this.sprites.length; i++) {
             this.sprites[i].draw(renderer);

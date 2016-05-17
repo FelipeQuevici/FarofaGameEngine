@@ -56,5 +56,7 @@ Vector2.prototype.angle = function () {
 };
 
 var polarToVector = function (magnitude, angle) {
-    return new Vector2(Math.cos(angle)*magnitude, Math.sin(angle)*magnitude)
+    angle-=180;
+    angle *=  Math.PI / 180;
+    return new Vector2(-Math.cos(angle)*magnitude, -Math.sin(angle)*magnitude)
 };
