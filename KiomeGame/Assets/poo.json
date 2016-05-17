@@ -9,7 +9,7 @@
       "y":16
     },
     "collisions": {
-      "rigidBody": {
+      "collisionBox": {
         "shape": "rectangle",
         "x": 0,
         "y": 0,

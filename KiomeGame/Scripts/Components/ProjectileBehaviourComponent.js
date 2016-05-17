@@ -36,7 +36,7 @@ function ProjectileBehaviourComponent(parent, direction) {
         }
         var toMove = new Vector2(direction.x, direction.y);
         toMove.multiplyByScalar(deltaTime);
-        this.parent.getComponent("rigidBody").move(toMove, this.onCollision, this);
+        this.parent.getComponent("collisionBox").move(toMove, this.onCollision, this);
     };
 
 

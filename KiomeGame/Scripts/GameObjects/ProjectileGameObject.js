@@ -11,8 +11,7 @@ function ProjectileGameObject(scene, position, sprite, direction, tag) {
     }
 
     this.onInitialize = function () {
-        console.log(sprite.spriteInformation.collisions['rigidBody']);
-        this.addComponent("rigidBody", new RigidBodyComponent(this, sprite.spriteInformation.collisions['rigidBody']));
+        this.addComponent("collisionBox", new CollisionBoxComponent(this, sprite.spriteInformation.collisions['collisionBox']));
         this.addComponent("projectileBehaviour", new ProjectileBehaviourComponent(this, direction));
         this.addComponent("sprite", new SpriteComponent(this, 0,"objectsLayer",sprite));
     };
