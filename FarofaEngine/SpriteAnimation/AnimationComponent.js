@@ -4,34 +4,49 @@
 
 function AnimationComponent(parent, initialAnimation, spriteComponent) {
     var timer = 0;
+    var timePerFrame = 0;
     
     function onCreate(parent, initialAnimation, spriteComponent) {
     	this.parent = parent;
-        this.spriteComponent = spriteComponent;
-        this.currentanimation = initialAnimation;
-        this.currentFrame = 0;
-    }
-
-    function shouldChangeFrame() {
+        this.spriteComponent = spriteComponent;        
+        this.currentFrame = 1;        
         
+        if (initialAnimation instanceof Animation) {
+        	this.setAnimation(initialAnimation);            
+        }else {
+            this.setAnimation(AnimationManager.getAnimation(initialAnimation));        
+        }        
     }
-
-    function nextFrame() {
-        var nextSprite = null;//ACHAR NEXT SPRITE NA ANIMACAO
-        for (var component in nextSprite.others) {
-            for (var property in this.parent.components[component]) {
-                this.parent.components[component][property] = nextSprite.others[component][property];
-            }
-        }
-    }
-
-    this.update = function () {
-        if (shouldChangeFrame())
-            this.sprite = nextFrame.call(this);
-        
+    
+    this.setAnimation = function (animation) {
+        this.currentAnimation = animation;    
+        setTimePerFrame(this.currentAnimation["speed"],this.currentAnimation["frames"].length);
+        timer = 0;
     };
     
-    onCreate.call(this, initialAnimation, spriteComponent);
+    function setTimePerFrame(animationSpeed, framesLength){
+    	timePerFrame = animationSpeed / framesLength;
+    }
+
+    this.nextFrame = function () {    	
+    	
+    	if(this.currentFrame == this.currentAnimation["frames"].length){
+    		this.currentFrame = 1;
+    	}else{
+    		this.currentFrame += 1;
+    	}
+    	this.spriteComponent.spriteName = this.currentAnimation["name"] + this.currentFrame;
+    }
+
+    this.onUpdate = function (deltaTime) {
+    	timer += deltaTime; 
+        if (timer >= timePerFrame){
+        	timer = 0;
+        	this.nextFrame();
+        }               
+    };
+    
+    onCreate.call(this, parent, initialAnimation, spriteComponent);
 }
 
 AnimationComponent.inheritsFrom(Component);

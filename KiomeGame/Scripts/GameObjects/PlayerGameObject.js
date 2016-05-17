@@ -24,6 +24,7 @@ function PlayerGameObject(scene, position, target, tag) {
         this.addComponent("animation", new AnimationComponent(this, "player_idle", this.getComponent("sprite")));
         
         this.addComponent("playerMovement", new PlayerControllerComponent(this, target));
+        console.log(this);
     };
 }
 

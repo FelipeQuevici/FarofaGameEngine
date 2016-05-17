@@ -35,7 +35,11 @@ var AnimationManager = (function () {
             }
 
             loadJSON(loadCallback, name);
-            console.log(animations);
+        },
+        
+        getAnimation: function (animationName) {
+        	return animations[animationName];
+            Debug.log("The sprite " + animationName + " does not exist", 5, "generic");
         }
     };
 })();
