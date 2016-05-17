@@ -107,12 +107,15 @@ function Scene() {
             var object = destroyList[i];
             var sprite = object.getComponent("sprite");
             if (sprite) {
-                console.log(sprite.layer);
                 this.layers[this.layersNames[sprite.layer]].removeSpriteComponent(sprite);
             }
             var rigidBody = object.getComponent("rigidBody");
             if (rigidBody) {
                 this.collisionSystem.removeBody(rigidBody);
+            }
+            var collisionBox = object.getComponent("collisionBox");
+            if (collisionBox) {
+                this.collisionSystem.removeBody(collisionBox);
             }
 
             this.objects.splice(index,1);

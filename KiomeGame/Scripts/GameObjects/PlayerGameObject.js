@@ -3,12 +3,12 @@
  */
 
 
-function PlayerGameObject(scene, position, target, tag) {
-    function onCreate(scene, position, tag) {
-        this.onCreateGameObject(scene, position, 0, tag);
+function PlayerGameObject(scene, position, target) {
+    function onCreate(scene, position) {
+        this.onCreateGameObject(scene, position, 0, "player");
     }
 
-    onCreate.call(this, scene, position, tag);
+    onCreate.call(this, scene, position);
 
     this.onInitialize = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");

@@ -74,7 +74,7 @@ function RigidBodyComponent(parent, collisionInfo) {
     }
 
     this.onPostUpdate = function () {
-    	
+
     };
 
     this.updateCollisionInfo = function (collisionInfo) {

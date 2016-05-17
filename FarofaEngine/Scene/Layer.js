@@ -19,9 +19,17 @@ function Layer(doesObjectsMove) {
         this.drawAllSprites(renderer);
     };
 
+    function higherY(a,b) {
+        if (a.rectangle.y > b.rectangle.y)
+            return 1;
+        if (a.rectangle.y < b.rectangle.y)
+            return -1;
+        return 0;
+    }
+
     // TODO: Reorder all the sprites on this layer based on their Y position
     function orderY() {
-
+        this.sprites.sort(higherY);
     }
 
     this.removeSpriteComponent = function(sprite){

@@ -14,9 +14,9 @@ function PlayerControllerComponent(parent, target) {
         "dashing": dashingState
     };
 
-    var moveSpeed = 70;
-    var moveSpeedWhileAttacking = 20;
-    var dashSpeed = 140;
+    var moveSpeed = 200;
+    var moveSpeedWhileAttacking = 50;
+    var dashSpeed = 300;
 
     this.onCreate = function (parent, target) {
         this.parent = parent;
@@ -65,9 +65,12 @@ function PlayerControllerComponent(parent, target) {
     }
 
     var attackAnimationStartTime;
-    var attack1AnimationDuration = 300;
+    var attack1AnimationDuration = 20;
     var attack2AnimationDuration = 500;
-    var dashAnimationDuration = 100;
+    var dashAnimationDuration = 20;
+
+    var dashCoolDown = 100;
+    var lastDash = Date.now();
 
     var lastDirection;
 
@@ -93,11 +96,14 @@ function PlayerControllerComponent(parent, target) {
         }
 
         if (InputManager.isKeyPressed("dash")) {
-            attackAnimationStartTime = Date.now();
-            if (lastDirection.x == 0 && lastDirection.y ==0) {
-                var direction = Math.round(this.parent.rotation / (360 / (9) ));
-                if (direction > 8) direction = 0;
-                lastDirection = polarToVector(1,direction*(360 / (9)));
+            var now = Date.now();
+            if (now - lastDash > dashCoolDown) {
+                attackAnimationStartTime = Date.now();
+                if (lastDirection.x == 0 && lastDirection.y == 0) {
+                    var direction = Math.round(this.parent.rotation / (360 / (9) ));
+                    if (direction > 8) direction = 0;
+                    lastDirection = polarToVector(1, direction * (360 / (9)));
+                }
             }
             currentState = "dashing";
             return;
@@ -108,7 +114,7 @@ function PlayerControllerComponent(parent, target) {
         
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback, this);
+            this.parent.getComponent("rigidBody").move(moveDirection);
 
             //Walk animation
         }
@@ -131,7 +137,7 @@ function PlayerControllerComponent(parent, target) {
         var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
         moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
         if(moveDirection.x != 0 || moveDirection.y != 0){
-            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback, this);
+            this.parent.getComponent("rigidBody").move(moveDirection);
         }
     }
 
@@ -148,10 +154,6 @@ function PlayerControllerComponent(parent, target) {
         
         
     }
-    
-    function collisionCallback(collisions){
-    	console.log(collisions);
-    }
 
     function isDashingAnimationOver() {
         return Date.now() - attackAnimationStartTime > dashAnimationDuration
@@ -160,6 +162,7 @@ function PlayerControllerComponent(parent, target) {
     function dashingState(deltaTime) {
         if (isDashingAnimationOver()) {
             currentState = "move";
+            lastDash = Date.now();
             return;
         }
 
