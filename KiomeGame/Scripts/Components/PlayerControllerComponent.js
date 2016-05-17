@@ -75,7 +75,6 @@ function PlayerControllerComponent(parent, target) {
         var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y),
             sprite, polarToVector(1,this.parent.rotation));
-        console.log(polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
     };
     
@@ -109,7 +108,7 @@ function PlayerControllerComponent(parent, target) {
         
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback);
+            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback, this);
 
             //Walk animation
         }
@@ -132,7 +131,7 @@ function PlayerControllerComponent(parent, target) {
         var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
         moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
         if(moveDirection.x != 0 || moveDirection.y != 0){
-            this.parent.getComponent("rigidBody").move(moveDirection);
+            this.parent.getComponent("rigidBody").move(moveDirection, collisionCallback, this);
         }
     }
 

@@ -18,15 +18,18 @@ function ProjectileBehaviourComponent(parent, direction) {
         duration = 2000;
     };
 
+    this.onCollision = function() {
+        this.parent.scene.destroyObject(this.parent);
+    };
+
     this.onPreUpdate = function (deltaTime) {
         if (Date.now() - timeCreated > duration) {
             this.parent.scene.destroyObject(this.parent);
-            console.log("DELETANDO");
             return;
         }
         var toMove = new Vector2(direction.x, direction.y);
         toMove.multiplyByScalar(deltaTime);
-        this.parent.getComponent("rigidBody").move(toMove);
+        this.parent.getComponent("rigidBody").move(toMove, this.onCollision, this);
     };
 
 
