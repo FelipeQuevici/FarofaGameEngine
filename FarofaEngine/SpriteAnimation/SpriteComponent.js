@@ -34,7 +34,10 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
         for (var collisionComponent in sprite.spriteInformation.collisions) {        	
         	if(collisionComponent == "rigidBody"){
         		this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
-        	}        	
+        	}
+            if (collisionComponent == "collisionBox") {
+                this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
+            }
         }
     };
 

@@ -5,8 +5,8 @@
     "w": 16,
     "h": 32,
     "pivot" : {
-      "x":16,
-      "y":32
+      "x":8,
+      "y":16
     },
     "collisions": {
       "collisionBox": {

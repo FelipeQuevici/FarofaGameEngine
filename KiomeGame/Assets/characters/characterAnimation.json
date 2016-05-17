@@ -3,8 +3,7 @@
     "spriteSheet": "characters/character2",
     "animationSpeed": 0.5,
     "frames": {
-      "1": "player_idle1",
-      "2": "player_idle2"
+      "1": "player_idle1"
     }
   }
 }
