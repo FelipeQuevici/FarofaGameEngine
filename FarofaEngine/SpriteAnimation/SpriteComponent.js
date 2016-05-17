@@ -16,6 +16,7 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
         }
 
         if (spriteName instanceof Sprite) {
+            this.rectangle = spriteName.rectangle;
             this.setSprite(spriteName);
         }else {
             this.spriteName = spriteName;
