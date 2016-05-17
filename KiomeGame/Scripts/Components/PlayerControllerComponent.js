@@ -65,7 +65,7 @@ function PlayerControllerComponent(parent, target) {
     }
 
     var attackAnimationStartTime;
-    var attack1AnimationDuration = 300;
+    var attack1AnimationDuration = 20;
     var attack2AnimationDuration = 500;
     var dashAnimationDuration = 20;
 
