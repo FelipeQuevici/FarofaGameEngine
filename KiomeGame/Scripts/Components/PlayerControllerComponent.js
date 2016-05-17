@@ -71,8 +71,9 @@ function PlayerControllerComponent(parent, target) {
         var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y),
             sprite, polarToVector(1,this.parent.rotation));
+        console.log(polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
-    }
+    };
     
     function moveState(deltaTime) {
         if (InputManager.isKeyPressed("attack1")) {
