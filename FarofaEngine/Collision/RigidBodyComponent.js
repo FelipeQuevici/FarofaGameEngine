@@ -46,12 +46,12 @@ function RigidBodyComponent(parent, collisionInfo) {
         	if(callback){
         		callback.call(callbackCaller, collisions);
         	}
-        	var rigidBodyCollisions = collisions;
+        	var rigidBodyCollisions = [];
         	for(var i = 0; i < collisions.length; i++){            	
-        		if(collisions[i].type != "rigidBody"){        			
-        			rigidBodyCollisions.splice(i,1);
+        		if(collisions[i].type == "rigidBody"){          			
+        			rigidBodyCollisions.push(collisions[i]);
         		}
-        	}        	
+        	}        	        	
         	var steps = velocity.getBiggestCoordinate();
         	this.parent.position.sub(velocity);
         	var xStep = velocity.x != 0 ? velocity.x / steps : 0;
