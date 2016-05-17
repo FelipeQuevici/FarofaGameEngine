@@ -24,6 +24,10 @@ function GameScene() {
         this.addObject(player);
         this.camera.setTarget(player);
 
+        //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
+        //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));
+        //his.addObject(bulletTest);
+
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
         var level01 = maps["level01"];

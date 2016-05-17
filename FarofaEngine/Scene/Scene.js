@@ -107,7 +107,6 @@ function Scene() {
             var object = destroyList[i];
             var sprite = object.getComponent("sprite");
             if (sprite) {
-                console.log(sprite.layer);
                 this.layers[this.layersNames[sprite.layer]].removeSpriteComponent(sprite);
             }
             var rigidBody = object.getComponent("rigidBody");

@@ -12,14 +12,14 @@ function ProjectileBehaviourComponent(parent, direction) {
     this.onCreate = function (parent, direction) {
         this.parent = parent;
         direction.normalize();
-        projectileSpeed = 400;
+        projectileSpeed = 200;
         direction.multiplyByScalar(projectileSpeed);
         timeCreated = Date.now();
-        duration = 2000;
+        duration = 5000;
     };
 
     this.onCollision = function() {
-        this.parent.scene.destroyObject(this.parent);
+        //this.parent.scene.destroyObject(this.parent);
     };
 
     this.onPreUpdate = function (deltaTime) {
