@@ -18,7 +18,14 @@ function ProjectileBehaviourComponent(parent, direction) {
         duration = 5000;
     };
 
-    this.onCollision = function() {
+    this.onCollision = function(collisions) {
+        for (var collision in collisions) {
+            if (collisions[collision].parent.tag != "player") {
+                this.parent.scene.destroyObject(this.parent);
+                return;
+            }
+
+        }
         //this.parent.scene.destroyObject(this.parent);
     };
 
