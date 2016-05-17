@@ -10,11 +10,13 @@ function PlayerControllerComponent(parent, target) {
     var playerStates = {
         "move": moveState,
         "meleeAttack": meleeAttackState,
-        "rangedAttack": rangedAttackState
+        "rangedAttack": rangedAttackState,
+        "dashing": dashingState
     };
 
-    var moveSpeed = 120;
+    var moveSpeed = 70;
     var moveSpeedWhileAttacking = 20;
+    var dashSpeed = 140;
 
     this.onCreate = function (parent, target) {
         this.parent = parent;
@@ -65,6 +67,8 @@ function PlayerControllerComponent(parent, target) {
     var attackAnimationStartTime;
     var attack1AnimationDuration = 300;
     var attack2AnimationDuration = 500;
+    var dashAnimationDuration = 100;
+
     var lastDirection;
 
     this.throwPoo = function () {
@@ -89,6 +93,16 @@ function PlayerControllerComponent(parent, target) {
             return;
         }
 
+        if (InputManager.isKeyPressed("dash")) {
+            attackAnimationStartTime = Date.now();
+            if (lastDirection.x == 0 && lastDirection.y ==0) {
+                var direction = Math.round(this.parent.rotation / (360 / (9) ));
+                if (direction > 8) direction = 0;
+                lastDirection = polarToVector(1,direction*(360 / (9)));
+            }
+            currentState = "dashing";
+            return;
+        }
 
         var moveDirection = getCurrentDirection.call(this, moveSpeed);
         lastDirection = moveDirection;
@@ -136,6 +150,21 @@ function PlayerControllerComponent(parent, target) {
         
     }
 
+    function isDashingAnimationOver() {
+        return Date.now() - attackAnimationStartTime > dashAnimationDuration
+    }
+    
+    function dashingState(deltaTime) {
+        if (isDashingAnimationOver()) {
+            currentState = "move";
+            return;
+        }
+
+        var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
+        moveDirection.multiplyByScalar(dashSpeed * deltaTime);
+        this.parent.getComponent("rigidBody").move(moveDirection);
+    }
+    
     this.onPreUpdate = function (deltaTime) {
         playerStates[currentState].call(this, deltaTime);
     };

@@ -19,7 +19,8 @@ var InputManager = ( function () {
         "up": [87, 38],
 
         "attack1": [1],
-        "attack2": [3]
+        "attack2": [3],
+        "dash": [32]
     };
 
     var numberToKey = {
