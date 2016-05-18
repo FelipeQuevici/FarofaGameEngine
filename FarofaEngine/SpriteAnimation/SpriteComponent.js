@@ -16,12 +16,10 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
         }
 
         if (spriteName instanceof Sprite) {
-            this.rectangle = spriteName.rectangle;
             this.setSprite(spriteName);
         }else {
             this.spriteName = spriteName;
-            this.rectangle = rectangle;
-            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));        
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));
         }
 
         this.layer = layer;
@@ -39,6 +37,9 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
                 this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
             }
         }
+
+        this.rectangle = new Rectangle(this.parent.position.x, this.parent.position.y,
+            sprite.spriteInformation.w,sprite.spriteInformation.h);
     };
 
     function angleToDirection(angle) {
@@ -61,14 +62,14 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
     this.setAngle = function (angle) {
         if (this.totalDirections > 0) {
             this.currentDirection = angleToDirection(angle);
-            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,this.rectangle,this.currentDirection));
         }
     };
 
-    this.draw = function (renreder) {
-        //renreder.drawSpriteComponent(this);
+    this.draw = function (renderer) {
+        //renderer.drawSpriteComponent(this);
         
-        this.sprite.draw(renreder);
+        this.sprite.draw(renderer);
     };
 
     onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);

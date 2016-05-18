@@ -56,5 +56,28 @@
         "radius": 16
       }
     }
+  },
+  "sand01": {
+    "x": 64,
+    "y": 32,
+    "w": 32,
+    "h": 32,
+    "pivot" : {
+      "x":16,
+      "y":16
+    },
+    "direction": 0,
+    "tag": "solid",
+    "frameSpeed": 1,
+    "collisions": {
+      "collisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "radius": 8
+      }
+    }
   }
 }

@@ -12,10 +12,10 @@ function CanvasRenderer(canvas) {
         var b = sprite.rectangle;
         var c = this.camera.position;
         var d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
-        var e = new Vector2(a.pivot.x/a.w*b.width, a.pivot.y/a.h*b.height);
+        var e = new Vector2(a.pivot.x, a.pivot.y);
 
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
-            d.x - e.x, d.y - e.y, b.width, b.height);
+            d.x - e.x, d.y - e.y, a.w,a.h);
 
         /*context.fillStyle = "black";
         context.fillRect(d.x,d.y,1,1);
@@ -38,7 +38,7 @@ function CanvasRenderer(canvas) {
 
     };
 
-    this.drawRectangle = function (rectangle, color) {    	
+    this.drawRectangle = function (rectangle, color) {
     	var c = this.camera.position;
     	context.fillStyle = color;
         context.fillRect(rectangle.x - (c.x - canvas.width/2),rectangle.y - (c.y - canvas.height/2),rectangle.width,rectangle.height);

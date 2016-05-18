@@ -9,6 +9,7 @@ function GameObject(scene, position, rotation, tag) {
         this.scene = scene;
         this.position = position || new Vector2();
         this.rotation = rotation;
+        this.scale = new Vector2(1,1);
         this.components = {};
         this.tag = tag;
         this.wasDestroyed = false;

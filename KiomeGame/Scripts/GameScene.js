@@ -114,13 +114,13 @@ function GameScene() {
         this.camera.setTarget(player);
         this.camera.position.sum(new Vector2(150,150));
         
-        /*spawnPoints.push(new EnemySpawnPointGameObject(this, new Vector2(10,100)));
-        spawnPoints.push(new EnemySpawnPointGameObject(this, new Vector2(100,10)));
-        spawnPoints.push(new EnemySpawnPointGameObject(this, new  Vector2(100,100)));
+        spawnPoints.push(new EnemySpawnPointGameObject(this, new Vector2(100,200)));
+        spawnPoints.push(new EnemySpawnPointGameObject(this, new Vector2(200,100)));
+        spawnPoints.push(new EnemySpawnPointGameObject(this, new  Vector2(200,200)));
 
         for (var i=0; i < spawnPoints.length; i++) {
             this.addObject(spawnPoints[i]);
-        }*/
+        }
 
         //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));
