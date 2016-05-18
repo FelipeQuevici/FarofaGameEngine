@@ -40,9 +40,13 @@ function CollisionBoxComponent(parent, collisionInfo) {
     
     this.move = function (velocity, callback, callbackCaller) {
     	callback = callback || null;
-        this.parent.position.sum(velocity);        
-        var collisions = collisionSystem.checkCollision(this);                
-        if(collisions.length > 0){   
+        this.parent.position.sum(velocity);
+		var collisions = collisionSystem.checkCollision(this);
+		console.log(collisions);
+		console.log(this.parent.position);
+		console.log(this.parent.components.sprite.rectangle);
+		console.log(this.collisionInfo);
+		if(collisions.length > 0){
         	if(callback){
         		callback.call(callbackCaller, collisions);
         	}

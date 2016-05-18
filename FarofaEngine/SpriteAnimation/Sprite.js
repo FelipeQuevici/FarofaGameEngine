@@ -9,7 +9,6 @@ function Sprite(rectangle, image, information) {
     this.rotation = 0;
     this.direction = information.direction;
 
-    //TODO: Translate and rotate context to change
     this.draw = function (renderer) {
         renderer.drawSprite(this);
     }

@@ -79,6 +79,7 @@ function PlayerControllerComponent(parent, target) {
         var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y),
             "poo", polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
+        console.log(bulletTest);
     };
     
     function moveState(deltaTime) {

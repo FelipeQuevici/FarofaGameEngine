@@ -65,8 +65,10 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
         }
     };
 
-    this.draw = function (context) {
-        this.sprite.draw(context);
+    this.draw = function (renreder) {
+        //renreder.drawSpriteComponent(this);
+        
+        this.sprite.draw(renreder);
     };
 
     onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);

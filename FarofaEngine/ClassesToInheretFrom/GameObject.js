@@ -11,6 +11,7 @@ function GameObject(scene, position, rotation, tag) {
         this.rotation = rotation;
         this.components = {};
         this.tag = tag;
+        this.wasDestroyed = false;
     };
 
     this.onCreate = function (scene, position, rotation, tag) {
