@@ -1,0 +1,202 @@
+{
+  "playerIdle1-2": {
+    "x": 1099,
+    "y": 0,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-3": {
+    "x": 1099,
+    "y": 151,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-4": {
+    "x": 1099,
+    "y": 302,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-5": {
+    "x": 1099,
+    "y": 453,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-6": {
+    "x": 1099,
+    "y": 604,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-7": {
+    "x": 1099,
+    "y": 755,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-0": {
+    "x": 1099,
+    "y": 906,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  },
+  "playerIdle1-1": {
+    "x": 1099,
+    "y": 1057,
+    "w": 157,
+    "h": 151,
+    "pivot" : {
+      "x":79,
+      "y":75
+    },
+    "direction": 0,
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 16,
+        "w": 26,
+        "h": 16
+      },
+      "damageCollisionBox": {
+      },
+      "attackCollisionBox": {
+      }
+    }
+  }
+}

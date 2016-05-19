@@ -18,10 +18,9 @@ function PlayerGameObject(scene, position, target) {
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
-            "player_idle1",
-            new Rectangle(position.x,position.y,tileSize,tileSize)));
+            "playerIdle1"));
         
-        this.addComponent("animation", new AnimationComponent(this, "player_idle", this.getComponent("sprite")));
+        this.addComponent("animation", new AnimationComponent(this, "playerIdle", this.getComponent("sprite")));
         
         this.addComponent("playerMovement", new PlayerControllerComponent(this, target));
         console.log(this);
