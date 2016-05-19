@@ -56,7 +56,11 @@ function PlayerControllerComponent(parent, target) {
             this.parent.rotation = currentDirection.angle();
         }
         else {
-            this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
+        	//GABIARRA
+        	var pos = new Vector2(this.parent.position.x, this.parent.position.y);
+        	pos.x += 64;
+        	pos.y += 85;
+            this.parent.rotation = angleBetweenTwoPoints(pos, targetToLookAt.position);
         }
 
         currentDirection.normalize();
@@ -76,7 +80,7 @@ function PlayerControllerComponent(parent, target) {
 
     this.throwPoo = function () {
        // var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,32));
-        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y),
+        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x + 64,this.parent.position.y + 85),
             "poo", polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
     };
@@ -89,8 +93,12 @@ function PlayerControllerComponent(parent, target) {
         }
 
         if (InputManager.isKeyPressed("attack2")) {
+        	//GABIARRA
+        	var pos = new Vector2(this.parent.position.x, this.parent.position.y);
+        	pos.x += 64;
+        	pos.y += 85;
             attackAnimationStartTime = Date.now();
-            this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
+            this.parent.rotation = angleBetweenTwoPoints(pos, targetToLookAt.position);
             currentState = "rangedAttack";
             return;
         }
@@ -114,12 +122,15 @@ function PlayerControllerComponent(parent, target) {
         
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-            this.parent.getComponent("rigidBody").move(moveDirection);
-
-            //Walk animation
+            this.parent.getComponent("rigidBody").move(moveDirection);              
+            if(!this.parent.getComponent("animation").isAnimationPlaying("playerWalking")){
+            	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerWalking"));
+            }                        
         }
         else {
-            //Idle animation
+        	if(!this.parent.getComponent("animation").isAnimationPlaying("playerIdle")){        		
+            	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));
+            }  
         }
     }
 

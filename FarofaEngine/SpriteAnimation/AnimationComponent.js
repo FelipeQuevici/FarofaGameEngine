@@ -18,25 +18,30 @@ function AnimationComponent(parent, initialAnimation, spriteComponent) {
         }        
     }
     
-    this.setAnimation = function (animation) {
+    this.setAnimation = function (animation) {    	
         this.currentAnimation = animation;    
+        this.currentFrame = 0;
+        this.nextFrame();
         setTimePerFrame(this.currentAnimation["speed"],this.currentAnimation["frames"].length);
         timer = 0;
+    };
+    
+    this.isAnimationPlaying = function (animation){
+    	return this.currentAnimation.name == animation;
     };
     
     function setTimePerFrame(animationSpeed, framesLength){
     	timePerFrame = animationSpeed / framesLength;
     }
 
-    this.nextFrame = function () {    	
-    	
+    this.nextFrame = function () {    	    	
     	if(this.currentFrame == this.currentAnimation["frames"].length){
     		this.currentFrame = 1;
     	}else{
     		this.currentFrame += 1;
     	}
-    	this.spriteComponent.spriteName = this.currentAnimation["name"] + this.currentFrame;
-    }
+    	this.spriteComponent.setSpriteName(this.currentAnimation["name"] + this.currentFrame);
+    };
 
     this.onUpdate = function (deltaTime) {
     	timer += deltaTime; 
