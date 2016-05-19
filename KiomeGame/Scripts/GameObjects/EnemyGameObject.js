@@ -12,8 +12,6 @@ function EnemyGameObject(scene, position, rotation) {
     onCreate.call(this, scene, position, rotation);
 
     this.onInitialize = function () {
-        const tileSize = FarofaGame.getGlobalVariable("tileSize");
-
         this.addComponent("rigidBody", new RigidBodyComponent(this));
 
         this.addComponent("sprite", new SpriteComponent(this,
