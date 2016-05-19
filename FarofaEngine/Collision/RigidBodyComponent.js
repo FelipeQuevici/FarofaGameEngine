@@ -26,13 +26,13 @@ function RigidBodyComponent(parent, collisionInfo) {
     
     this.draw = function (renderer) {
     	if(this.collisionInfo instanceof Rectangle){
-    		var x = this.parent.position.x + this.collisionInfo.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
-    		var y = this.parent.position.y + this.collisionInfo.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
+    		var x = this.parent.position.x + this.collisionInfo.x;// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
+    		var y = this.parent.position.y + this.collisionInfo.y;// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
     		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
     		renderer.drawRectangle(rect, "red");
 		}else if(this.collisionInfo instanceof Circle){	
-			var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
-									 this.parent.position.y + this.collisionInfo.center.y - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
+			var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x,// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
+									 this.parent.position.y + this.collisionInfo.center.y);// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
     		var circle = new Circle(center,this.collisionInfo.radius);
     		renderer.drawCircle(circle, "red");
 		}
@@ -77,13 +77,13 @@ function RigidBodyComponent(parent, collisionInfo) {
 
     };
 
-    this.updateCollisionInfo = function (collisionInfo) {
+    this.updateCollisionInfo = function (collisionInfo, spriteInformation) {
     	if (collisionInfo.shape == "rectangle") {
     		if(!(this.collisionInfo instanceof Rectangle)){
     			this.collisionInfo = new Rectangle();
     		}    		
-	        this.collisionInfo.x = collisionInfo.x;
-	        this.collisionInfo.y = collisionInfo.y;
+	        this.collisionInfo.x = collisionInfo.x - spriteInformation.pivot.x;
+	        this.collisionInfo.y = collisionInfo.y - spriteInformation.pivot.y;
 	        this.collisionInfo.width = collisionInfo.w;
 	        this.collisionInfo.height = collisionInfo.h;	        
     	}else if (collisionInfo.shape == "circle") {
@@ -91,6 +91,8 @@ function RigidBodyComponent(parent, collisionInfo) {
     			this.collisionInfo = new Circle();
     		}
     		this.collisionInfo.center = collisionInfo.center;
+			this.collisionInfo.center.x -=  spriteInformation.pivot.x;
+			this.collisionInfo.center.y -=  spriteInformation.pivot.y;
     		this.collisionInfo.radius = collisionInfo.radius;
     	}
     	

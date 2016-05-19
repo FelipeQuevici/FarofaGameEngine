@@ -13,7 +13,7 @@ function EnemySpawnPointGameObject(scene, position, rotation) {
         this.addComponent("sprite", new SpriteComponent(this,0,"invisible","sand01"));
 
         this.components["collisionBox"].updateCollisionInfo(this.components.sprite.sprite.
-            spriteInformation.collisions["collisionBox"]);
+            spriteInformation.collisions["collisionBox"], this.components.sprite.sprite.spriteInformation);
 
     };
 

@@ -31,10 +31,12 @@ function SpriteComponent(parent, totalDirections, layer, spriteName) {
         
         for (var collisionComponent in sprite.spriteInformation.collisions) {        	
         	if(collisionComponent == "rigidBody"){
-        		this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
+        		this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent],
+                    sprite.spriteInformation);
         	}
             if (collisionComponent == "collisionBox") {
-                this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
+                this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent],
+                    sprite.spriteInformation);
             }
         }
     };

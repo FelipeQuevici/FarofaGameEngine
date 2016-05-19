@@ -33,7 +33,7 @@ function GameScene() {
     };
 
     this.spawnEnemy = function (spawnPoint) {
-        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x - 64, spawnPoint.position.y - 115), 0);
+        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x, spawnPoint.position.y-52), 0);
         this.createObject(enemy);
         enemies.push(enemy);
         enemiesSpawnedThisWave++;
@@ -121,15 +121,12 @@ function GameScene() {
 
         var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(1,1));
         spawnPoints.push(enemySpawn2);
-        this.addObject(enemySpawn2);
+            this.addObject(enemySpawn2);
 
         var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,311));
         spawnPoints.push(enemySpawn3);
         this.addObject(enemySpawn3);
 
-        //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
-        //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));
-        //his.addObject(bulletTest);
 
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];

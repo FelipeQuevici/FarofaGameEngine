@@ -113,7 +113,7 @@ function CollisionSystem() {
     }
     
     function getCircleCenter(collisionComponent){
-    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x,
-    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y);
+    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
+    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.y	);
     }
 }
