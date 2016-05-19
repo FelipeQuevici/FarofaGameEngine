@@ -10,9 +10,9 @@ function EnemySpawnPointGameObject(scene, position, rotation) {
 
     this.onInitialize = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");
-
+        
         this.addComponent("collisionBox", new CollisionBoxComponent(this));
-        this.addComponent("sprite", new SpriteComponent(this,0,"objectsLayer","sand01"));
+        this.addComponent("sprite", new SpriteComponent(this,0,"invisible","sand01"));
 
         this.components["collisionBox"].updateCollisionInfo(this.components.sprite.sprite.
             spriteInformation.collisions["collisionBox"]);

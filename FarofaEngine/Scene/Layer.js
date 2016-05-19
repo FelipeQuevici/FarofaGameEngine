@@ -2,8 +2,9 @@
  * Created by Felipe on 07/05/2016.
  */
 
-function Layer(doesObjectsMove) {
+function Layer(doesObjectsMove, isHudLayer) {
     this.doesObjectsMove = doesObjectsMove;
+    this.isHudLayer = isHudLayer || false;
 
     this.sprites = [];
 
@@ -27,7 +28,6 @@ function Layer(doesObjectsMove) {
         return 0;
     }
 
-    // TODO: Reorder all the sprites on this layer based on their Y position
     function orderY() {
         this.sprites.sort(higherY);
     }
@@ -39,7 +39,7 @@ function Layer(doesObjectsMove) {
 
     this.drawAllSprites = function (renderer) {
         for (var i = 0; i < this.sprites.length; i++) {
-            this.sprites[i].draw(renderer);
+            this.sprites[i].draw(renderer, this.isHudLayer);
         }
     };
 }

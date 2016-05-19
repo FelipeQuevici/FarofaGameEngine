@@ -57,8 +57,8 @@ function SpriteComponent(parent, totalDirections, layer, spriteName) {
         }
     };
 
-    this.draw = function (renderer) {
-        renderer.drawSpriteComponent(this);
+    this.draw = function (renderer, isUsingCamera) {
+        renderer.drawSpriteComponent(this, isUsingCamera);
         
         //this.sprite.draw(renderer);
     };

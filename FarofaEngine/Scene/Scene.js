@@ -14,6 +14,8 @@ function Scene() {
     this.onCreateScene();
 
     this.onInternalInitialize = function () {
+        this.layersNames["invisible"] = 0;
+        this.layers.push(new Layer(false, true));
         this.declareCamera();
         this.declareObjects();
         this.initializeObjects();
@@ -130,10 +132,11 @@ function Scene() {
         destroyList = [];
     };
 
-    this.addLayer = function (name, shouldOrderY) {
+    this.addLayer = function (name, shouldOrderY, isHud) {
         shouldOrderY = shouldOrderY || false;
+        isHud = isHud || false;
         this.layersNames[name] = this.layers.length;
-        this.layers.push(new Layer(shouldOrderY));
+        this.layers.push(new Layer(shouldOrderY,isHud));
     };
 
     this.addSpriteToLayer = function (sprite, layer) {
@@ -142,7 +145,7 @@ function Scene() {
     };
 
     this.onDraw = function (renderer) {
-        for (var i = 0; i < this.layers.length; i++) {
+        for (var i = 1; i < this.layers.length; i++) {
             this.drawLayer(renderer, i);
         }
         this.onPostDraw(renderer);

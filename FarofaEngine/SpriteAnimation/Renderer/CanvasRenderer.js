@@ -16,21 +16,21 @@ function CanvasRenderer(canvas) {
 
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
             d.x - e.x, d.y - e.y, a.w,a.h);
-
-        /*context.fillStyle = "black";
-        context.fillRect(d.x,d.y,1,1);
-        context.fill();*/
     };
 
 
-    this.drawSpriteComponent = function (spriteComponent) {
+    this.drawSpriteComponent = function (spriteComponent, isHud) {
         var sprite = spriteComponent.sprite;
         var a = sprite.spriteInformation;
         //var f = sprite.rectangle;
         var b = new Rectangle(spriteComponent.parent.position.x, spriteComponent.parent.position.y,
                                 a.w, a.h);
         var c = this.camera.position;
-        var d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
+        if (!isHud)
+            var d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
+        else
+            var d = new Vector2(b.x,b.y);
+
         var e = new Vector2(a.pivot.x, a.pivot.y);
 
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h,

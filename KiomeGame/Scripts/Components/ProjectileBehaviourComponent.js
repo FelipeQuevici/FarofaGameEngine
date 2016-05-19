@@ -21,16 +21,16 @@ function ProjectileBehaviourComponent(parent, direction) {
     this.onCollision = function(collisions) {
         for (var collision in collisions) {
             var collidedObject = collisions[collision].parent;
-            if (collidedObject.tag != "player") {
-                if (collidedObject.tag == "enemy") {
-                    collidedObject.getComponent("enemyStats").removeLife(100);
-                }
-                
+            if (collidedObject.tag == "enemy") {
+                collidedObject.getComponent("enemyStats").removeLife(100);
                 this.parent.scene.destroyObject(this.parent);
                 return;
             }
-
-        }
+            else if (collidedObject.tag == "solid") {
+                this.parent.scene.destroyObject(this.parent);
+                return;
+            }
+    }
         //this.parent.scene.destroyObject(this.parent);
     };
 

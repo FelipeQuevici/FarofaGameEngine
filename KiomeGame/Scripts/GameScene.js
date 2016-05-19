@@ -12,6 +12,7 @@ function GameScene() {
 
     var enemies = [];
 
+    
     var timeBetweenWaves = 5000;
     var timeWhenLastWaveEnded;
 
@@ -99,26 +100,31 @@ function GameScene() {
         this.addLayer("background");
         this.addLayer("objectsLayer", true);
         this.addLayer("hud");
+        this.addLayer("GUI",false,true);
 
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
-        player = new PlayerGameObject(this, new Vector2(0,0),crossHair);
+        player = new PlayerGameObject(this, new Vector2(1,1),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
         this.camera.position.sum(new Vector2(150,150));
 
-        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(100,200));
+        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,351));
         spawnPoints.push(enemySpawn);
         this.addObject(enemySpawn);
 
-        var enemySpawn1 = new EnemySpawnPointGameObject(this, new Vector2(200,100));
+        var enemySpawn1 = new EnemySpawnPointGameObject(this, new Vector2(383,1));
         spawnPoints.push(enemySpawn1);
         this.addObject(enemySpawn1);
 
-        var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(200,200));
+        var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(1,1));
         spawnPoints.push(enemySpawn2);
         this.addObject(enemySpawn2);
+
+        var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,351));
+        spawnPoints.push(enemySpawn3);
+        this.addObject(enemySpawn3);
 
         //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));
@@ -135,6 +141,10 @@ function GameScene() {
                 this.addObject(tile);
             }
         }
+
+
+        var gui = new GUIHud(this);
+        this.addObject(gui);
     };
 
    /* var borderSize = 50;
