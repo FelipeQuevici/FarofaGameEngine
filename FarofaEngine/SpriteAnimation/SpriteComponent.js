@@ -57,6 +57,11 @@ function SpriteComponent(parent, totalDirections, layer, spriteName) {
         }
     };
 
+    this.setSpriteName = function (name) {
+        this.spriteName = name;
+        this.setSprite(SpriteSheetManager.getSprite(this.spriteName,this.currentDirection));
+    };
+    
     this.draw = function (renderer, isUsingCamera) {
         renderer.drawSpriteComponent(this, isUsingCamera);
         

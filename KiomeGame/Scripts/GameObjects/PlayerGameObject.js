@@ -20,6 +20,8 @@ function PlayerGameObject(scene, position, target) {
             "objectsLayer",
             "player_idle1"
             ));
+
+        this.addComponent("playerStat", new PlayerStatsComponent(this));
         
         this.addComponent("animation", new AnimationComponent(this, "player_idle", this.getComponent("sprite")));
         

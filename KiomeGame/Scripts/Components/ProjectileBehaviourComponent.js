@@ -22,7 +22,7 @@ function ProjectileBehaviourComponent(parent, direction) {
         for (var collision in collisions) {
             var collidedObject = collisions[collision].parent;
             if (collidedObject.tag == "enemy") {
-                collidedObject.getComponent("enemyStats").removeLife(100);
+                collidedObject.getComponent("enemyStats").removeLife(1);
                 this.parent.scene.destroyObject(this.parent);
                 return;
             }
@@ -30,8 +30,7 @@ function ProjectileBehaviourComponent(parent, direction) {
                 this.parent.scene.destroyObject(this.parent);
                 return;
             }
-    }
-        //this.parent.scene.destroyObject(this.parent);
+        }   
     };
 
     this.onPreUpdate = function (deltaTime) {

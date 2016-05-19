@@ -51,6 +51,7 @@ function GameScene() {
 
          for (var enemy in enemies) {
             if (enemies[enemy].wasDestroyed) {
+                EventCenterInstance.getInstance().callEvent("enemyDied",this,{"enemy": enemies[enemy]});
                 updateEnemyList.push(enemies[enemy]);
             }
          }
@@ -143,8 +144,18 @@ function GameScene() {
         }
 
 
-        var gui = new GUIHud(this);
-        this.addObject(gui);
+        var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
+        this.addObject(hudLife1);
+        var hudLife2 = new PlayerLifeGUIGameObject(this, player, 1);
+        this.addObject(hudLife2);
+        var hudLife3 = new PlayerLifeGUIGameObject(this, player, 2);
+        this.addObject(hudLife3);
+
+        var moneyText = new MoneyTextGUIGameObject(this, player);
+        this.addObject(moneyText);
+
+        var moneyIcon = new MoneyImageGUIGameObject(this);
+        this.addObject(moneyIcon);
     };
 
    /* var borderSize = 50;
@@ -155,9 +166,9 @@ function GameScene() {
     var elapsedChange = 20  ;*/
 
     this.onPostDraw = function (renderer) {
-        var context = renderer.getContext();
+       /* var context = renderer.getContext();
         context.fillStyle = "black";
-        context.fillText(currentState, 10, 10);
+        context.fillText(currentState, 10, 10);*/
 
        /* var context = renderer.getContext();
 

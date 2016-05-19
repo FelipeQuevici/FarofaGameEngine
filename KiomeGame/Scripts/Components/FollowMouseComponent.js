@@ -14,7 +14,7 @@ function FollowMouseComponent(parent, camera) {
     
     this.onUpdate = function (deltaTime) {
         var mousePosition = InputManager.getMousePosition();
-        this.parent.position = new Vector2(mousePosition.x + this.camera.position.x - 250
-            , mousePosition.y + this.camera.position.y - 250);
+        this.parent.position = new Vector2(mousePosition.x + this.camera.position.x - canvas.width/2
+            , mousePosition.y + this.camera.position.y - canvas.height/2);
     }
 }

@@ -22,21 +22,49 @@ function CanvasRenderer(canvas) {
     this.drawSpriteComponent = function (spriteComponent, isHud) {
         var sprite = spriteComponent.sprite;
         var a = sprite.spriteInformation;
-        //var f = sprite.rectangle;
         var b = new Rectangle(spriteComponent.parent.position.x, spriteComponent.parent.position.y,
-                                a.w, a.h);
+            a.w, a.h);
         var c = this.camera.position;
+        var d;
         if (!isHud)
-            var d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
+            d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
         else
-            var d = new Vector2(b.x,b.y);
+            d = new Vector2(b.x,b.y);
 
         var e = new Vector2(a.pivot.x, a.pivot.y);
 
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
             d.x - e.x, d.y - e.y, b.width, b.height);
+    };
+
+    this.drawText = function (textComponent, isHud) {
+        if (textComponent.hasOwnProperty("color")) {
+            context.fillStyle = textComponent.color;
+        }
+        else {
+            context.fillStyle = "black";
+        }
+
+        if (textComponent.hasOwnProperty("font")) {
+            //console.log(textComponent.font);
+            context.font = textComponent.font;
+        }
+
+        var b = new Vector2(textComponent.parent.position.x, textComponent.parent.position.y);
+        var c = this.camera.position;
+        var d;
+        if (!isHud)
+            d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
+        else
+            d = new Vector2(b.x,b.y);
+
+        //console.log("X " + textComponent.text);
+
+        context.fillText(textComponent.text, d.x, d.y);
+        context.fill();
 
     };
+
 
     this.drawRectangle = function (rectangle, color) {
     	var c = this.camera.position;
@@ -53,11 +81,13 @@ function CanvasRenderer(canvas) {
         context.fill();
     };
 
+
+
     this.refreshCanvas = function () {
         this.parent.refreshCanvas();
 
         context.fillStyle = "#5F61C2";
-        context.fillRect(-40,-40,580,580);
+        context.fillRect(0,0,canvas.width,canvas.height);
         context.fill();
     };
 

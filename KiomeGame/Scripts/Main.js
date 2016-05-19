@@ -9,6 +9,7 @@ FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("crossHair");
 FarofaGame.addSpriteSheet("Characters/enemy");
 FarofaGame.addSpriteSheet("oldPoo");
+FarofaGame.addSpriteSheet("Hud");
 FarofaGame.addSpriteSheet("poo");
 
 
