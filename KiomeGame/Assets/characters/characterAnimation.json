@@ -1,9 +1,21 @@
 {
-  "player_idle": {
-    "spriteSheet": "characters/character2",
+  "playerIdle": {
     "animationSpeed": 0.5,
     "frames": {
-      "1": "player_idle1"
+      "1": "playerIdle1"
+    }
+  },
+  "playerWalking": {
+    "animationSpeed": 5,
+    "frames": {
+      "1": "playerWalking1",
+      "2": "playerWalking2",
+      "3": "playerWalking3",
+      "4": "playerWalking4",
+      "5": "playerWalking5",
+      "6": "playerWalking6",
+      "7": "playerWalking7",
+      "8": "playerWalking8"
     }
   }
 }
