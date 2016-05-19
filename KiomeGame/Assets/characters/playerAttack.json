@@ -1,9 +1,9 @@
 {
-  "enemy_idle1-2": {
-    "x": 1099,
+  "playerWalking1-2": {
+    "x": 0,
     "y": 0,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -24,11 +24,11 @@
       }
     }
   },
-  "enemy_idle1-3": {
-    "x": 1099,
+  "playerWalking1-3": {
+    "x": 0,
     "y": 151,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -49,11 +49,11 @@
       }
     }
   },
-  "enemy_idle1-4": {
-    "x": 1099,
+  "playerWalking1-4": {
+    "x": 0,
     "y": 302,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -74,11 +74,11 @@
       }
     }
   },
-  "enemy_idle1-5": {
-    "x": 1099,
+  "playerWalking1-5": {
+    "x": 0,
     "y": 453,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -99,36 +99,11 @@
       }
     }
   },
-  "enemy_idle1-6": {
-    "x": 1099,
-    "y": 604,
-    "w": 157,
-    "h": 151,
-    "pivot" : {
-      "x":16,
-      "y":16
-    },
-    "direction": 0,
-    "frameSpeed": 1,
-    "collisions": {
-      "rigidBody": {
-        "shape": "rectangle",
-        "x": 64,
-        "y": 85,
-        "w": 26,
-        "h": 55
-      },
-      "damageCollisionBox": {
-      },
-      "attackCollisionBox": {
-      }
-    }
-  },
-  "enemy_idle1-7": {
-    "x": 1099,
+  "playerWalking1-7": {
+    "x": 0,
     "y": 755,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -148,12 +123,12 @@
       "attackCollisionBox": {
       }
     }
-  },
-  "enemy_idle1-0": {
-    "x": 1099,
+  },  
+  "playerWalking1-0": {
+    "x": 0,
     "y": 906,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -174,11 +149,11 @@
       }
     }
   },
-  "enemy_idle1-1": {
-    "x": 1099,
+  "playerWalking1-1": {
+    "x": 0,
     "y": 1057,
-    "w": 157,
-    "h": 151,
+    "w": 258,
+    "h": 177,
     "pivot" : {
       "x":16,
       "y":16
@@ -198,5 +173,5 @@
       "attackCollisionBox": {
       }
     }
-  }
+  }  
 }

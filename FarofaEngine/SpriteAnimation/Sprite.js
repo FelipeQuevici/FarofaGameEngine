@@ -18,7 +18,7 @@ function SpriteInformation(information) {
     this.y = information.y;
     this.w = information.w;
     this.h = information.h;
-    this.tag = 
+    this.tag = information.tag;
     this.pivot = new Vector2(information.pivot.x, information.pivot.y);
     this.frameSpeed = information.frameSpeed;
     this.direction = information.direction;

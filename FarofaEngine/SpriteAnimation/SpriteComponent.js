@@ -38,6 +38,11 @@ function SpriteComponent(parent, totalDirections, layer, spriteName) {
             }
         }
     };
+    
+    this.setSpriteName = function (name) {
+    	this.spriteName = name;
+    	this.setSprite(SpriteSheetManager.getSprite(this.spriteName,this.currentDirection));
+    };
 
     function angleToDirection(angle) {
         var direction = Math.round(angle / (360 / (totalDirections+1) ));
