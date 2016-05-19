@@ -7,7 +7,6 @@ function TileGameObject(scene, position, rotation, type) {
     var shouldAddRigidBody = false;
 
     function onCreate(scene, position, rotation, type) {    	
-        const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.onCreateGameObject(scene,position,rotation);
         sprite = SpriteSheetManager.getSprite(type);        
         this.setTag(sprite.spriteInformation.tag);

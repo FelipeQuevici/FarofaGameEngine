@@ -97,25 +97,23 @@ function CollisionSystem() {
     }
     
     function getRecMinX(collisionComponent){
-    	return collisionComponent.parent.position.x + collisionComponent.collisionInfo.x - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
+    	return collisionComponent.parent.position.x + collisionComponent.collisionInfo.x;
     }
     
     function getRecMinY(collisionComponent){
-    	return collisionComponent.parent.position.y + collisionComponent.collisionInfo.y - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
+    	return collisionComponent.parent.position.y + collisionComponent.collisionInfo.y;
     }
     
     function getRecMaxX(collisionComponent){
-    	return getRecMinX(collisionComponent) + collisionComponent.collisionInfo.width - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
+    	return getRecMinX(collisionComponent) + collisionComponent.collisionInfo.width;
     }
     
     function getRecMaxY(collisionComponent){
-    	return getRecMinY(collisionComponent) + collisionComponent.collisionInfo.height - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
+    	return getRecMinY(collisionComponent) + collisionComponent.collisionInfo.height;
     }
     
     function getCircleCenter(collisionComponent){
-    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x 
-    					   - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
-    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y 
-    				       - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
+    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x,
+    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y);
     }
 }

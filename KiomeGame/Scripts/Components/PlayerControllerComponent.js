@@ -148,12 +148,13 @@ function PlayerControllerComponent(parent, target) {
             this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));            
             return;
         }
-
+        /*
         var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
         moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
         if(moveDirection.x != 0 || moveDirection.y != 0){
             this.parent.getComponent("rigidBody").move(moveDirection);
         }
+        */
     }
 
     function isRangedAttackAnimationOver() {

@@ -11,8 +11,6 @@ function PlayerGameObject(scene, position, target) {
     onCreate.call(this, scene, position);
 
     this.onInitialize = function () {
-        const tileSize = FarofaGame.getGlobalVariable("tileSize");
-
         this.addComponent("rigidBody", new RigidBodyComponent(this));
 
         this.addComponent("sprite", new SpriteComponent(this,
@@ -21,7 +19,7 @@ function PlayerGameObject(scene, position, target) {
             "playerIdle1"));
         
         this.addComponent("animation", new AnimationComponent(this, "playerIdle", this.getComponent("sprite")));
-        
+        this.addComponent("playerStat", new PlayerStatsComponent(this));
         this.addComponent("playerMovement", new PlayerControllerComponent(this, target));
         this.addComponent("playerStat", new PlayerStatsComponent(this));
         console.log(this);

@@ -33,7 +33,7 @@ function GameScene() {
     };
 
     this.spawnEnemy = function (spawnPoint) {
-        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x - 64, spawnPoint.position.y - 85), 0);
+        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x - 64, spawnPoint.position.y - 115), 0);
         this.createObject(enemy);
         enemies.push(enemy);
         enemiesSpawnedThisWave++;
@@ -97,7 +97,7 @@ function GameScene() {
     };
 
     this.declareObjects = function () {
-        const tileSize = FarofaGame.getGlobalVariable("tileSize");
+        const tileSize = 32;//FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
         this.addLayer("objectsLayer", true);
         this.addLayer("hud");
@@ -111,7 +111,7 @@ function GameScene() {
         this.camera.setTarget(player);
         this.camera.position.sum(new Vector2(150,150));
 
-        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,351));
+        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,311));
         spawnPoints.push(enemySpawn);
         this.addObject(enemySpawn);
 
@@ -123,7 +123,7 @@ function GameScene() {
         spawnPoints.push(enemySpawn2);
         this.addObject(enemySpawn2);
 
-        var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,351));
+        var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,311));
         spawnPoints.push(enemySpawn3);
         this.addObject(enemySpawn3);
 

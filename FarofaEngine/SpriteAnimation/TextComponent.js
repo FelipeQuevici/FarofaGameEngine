@@ -16,7 +16,7 @@ function TextComponent(parent, text, layer, color, font) {
     }
     
     this.setText = function (value) {
-        console.log(value);
+        //console.log(value);
         this.text = value;
     };
 

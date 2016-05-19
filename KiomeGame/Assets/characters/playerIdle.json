@@ -14,9 +14,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -39,9 +39,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -64,9 +64,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -89,9 +89,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -114,9 +114,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -139,9 +139,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -164,9 +164,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -189,9 +189,9 @@
       "rigidBody": {
         "shape": "rectangle",
         "x": 64,
-        "y": 85,
+        "y": 115,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
