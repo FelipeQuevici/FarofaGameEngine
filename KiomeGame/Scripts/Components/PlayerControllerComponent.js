@@ -69,7 +69,7 @@ function PlayerControllerComponent(parent, target) {
     }
 
     var attackAnimationStartTime;
-    var attack1AnimationDuration = 20;
+    var attack1AnimationDuration = 500;
     var attack2AnimationDuration = 500;
     var dashAnimationDuration = 20;
 
@@ -89,6 +89,9 @@ function PlayerControllerComponent(parent, target) {
         if (InputManager.isKeyPressed("attack1")) {
             attackAnimationStartTime = Date.now();
             currentState = "meleeAttack";
+            if(!this.parent.getComponent("animation").isAnimationPlaying("playerAttack")){
+            	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerAttack"));
+            }
             return;
         }
 
@@ -141,7 +144,8 @@ function PlayerControllerComponent(parent, target) {
 
     function meleeAttackState(deltaTime) {
         if (isMeleeAttackAnimationOver()) {
-            currentState = "move";
+            currentState = "move";            
+            this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));            
             return;
         }
 

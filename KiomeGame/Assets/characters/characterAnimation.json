@@ -17,5 +17,14 @@
       "7": "playerWalking7",
       "8": "playerWalking8"
     }
+  },
+  "playerAttack": {
+    "animationSpeed": 0.5,
+    "frames": {
+      "1": "playerAttack1",
+      "2": "playerAttack2",
+      "3": "playerAttack3",
+      "4": "playerAttack4"
+    }
   }
 }
