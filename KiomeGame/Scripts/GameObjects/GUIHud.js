@@ -57,8 +57,8 @@ function MoneyTextGUIGameObject(scene, player) {
     };
 
     this.onUpdate = function (deltaTime) {
-        console.log(this.player.getComponent("playerStat"));
-        console.log(this.player.getComponent("playerStat").getCurrentMoney());
+        //console.log(this.player.getComponent("playerStat"));
+        //console.log(this.player.getComponent("playerStat").getCurrentMoney());
         this.getComponent("textComponent").setText("x " + this.player.getComponent("playerStat").getCurrentMoney());
     };
 
