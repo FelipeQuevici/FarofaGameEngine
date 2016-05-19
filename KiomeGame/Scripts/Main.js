@@ -9,10 +9,11 @@ FarofaGame.addSpriteSheet("Characters/playerIdle");
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("crossHair");
 FarofaGame.addSpriteSheet("Characters/enemy");
+FarofaGame.addSpriteSheet("oldPoo");
 FarofaGame.addSpriteSheet("poo");
 
 
-FarofaGame.addAnimation("characters/characterAnimation");
+FarofaGame.addAnimation("Characters/characterAnimation");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 

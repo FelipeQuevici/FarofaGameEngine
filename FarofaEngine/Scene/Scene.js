@@ -49,24 +49,31 @@ function Scene() {
 
     };
 
-    this.onPreUpdate = function (deltaTime) {
+    this.onInternalPreUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
             var object = this.objects[i];
-            object.onPreUpdate(deltaTime);
+            if (!object.wasDestroyed)
+                object.onPreUpdate(deltaTime);
         }
     };
 
     this.onUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
             var object = this.objects[i];
-            object.internalUpdate(deltaTime);
+            if (!object.wasDestroyed)
+                object.internalUpdate(deltaTime);
         }
     };
+    
+    this.onPreUpdate = function (deltaTime) {
+        
+    };    
 
     this.onPostUpdate = function (deltaTime) {
         for (var i = 0; i < this.objects.length; i++) {
             var object = this.objects[i];
-            object.onPostUpdate(deltaTime);
+            if (!object.wasDestroyed)
+                object.onPostUpdate(deltaTime);
         }
 
         this.takePendingObjectsFromList();
@@ -98,7 +105,7 @@ function Scene() {
 
     this.destroyObject = function (object) {
         destroyList.push(object);
-
+        object.wasDestroyed = true;
     };
 
     this.takePendingObjectsFromList = function() {

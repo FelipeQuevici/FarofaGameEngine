@@ -13,7 +13,7 @@ function CanvasRenderer(canvas) {
         var c = this.camera.position;
         var d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
         var e = new Vector2(a.pivot.x, a.pivot.y);
-        
+
         context.save();
         context.translate(b.x - a.pivot.x, b.y - a.pivot.y);            
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h, -c.x + canvas.width/2, -c.y + canvas.height/2, a.w, a.h);
@@ -25,8 +25,24 @@ function CanvasRenderer(canvas) {
         context.fillRect(d.x,d.y,1,1);
         context.fill();*/
     };
-    
-    this.drawRectangle = function (rectangle, color) {    	
+
+
+    this.drawSpriteComponent = function (spriteComponent) {
+        var sprite = spriteComponent.sprite;
+        var a = sprite.spriteInformation;
+        //var f = sprite.rectangle;
+        var b = new Rectangle(spriteComponent.parent.position.x, spriteComponent.parent.position.y,
+                                a.w, a.h);
+        var c = this.camera.position;
+        var d = new Vector2(b.x - c.x + canvas.width/2,b.y - c.y + canvas.height/2);
+        var e = new Vector2(a.pivot.x, a.pivot.y);
+
+        context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
+            d.x - e.x, d.y - e.y, b.width, b.height);
+
+    };
+
+    this.drawRectangle = function (rectangle, color) {
     	var c = this.camera.position;
     	context.save();
     	context.translate(rectangle.x, rectangle.y);  

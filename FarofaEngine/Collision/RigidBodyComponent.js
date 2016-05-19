@@ -19,7 +19,7 @@ function RigidBodyComponent(parent, collisionInfo) {
         	this.collisionInfo = null;
         }
         
-        collisionSystem.addBody(this);
+        collisionSystem.addBody(this); 
     }
     
     onCreate.call(this, parent, collisionInfo);
@@ -40,8 +40,8 @@ function RigidBodyComponent(parent, collisionInfo) {
 
     this.move = function (velocity, callback, callbackCaller) {
     	callback = callback || null;
-        this.parent.position.sum(velocity);        
-        var collisions = collisionSystem.checkCollision(this);                
+        this.parent.position.sum(velocity);
+        var collisions = collisionSystem.checkCollision(this);
         if(collisions.length > 0){   
         	if(callback){
         		callback.call(callbackCaller, collisions);

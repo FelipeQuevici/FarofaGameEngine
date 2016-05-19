@@ -26,6 +26,7 @@ var SceneManager = (function () {
 
         update: function (deltaTime) {
             deltaTime = deltaTime/1000;
+            currentScene.onInternalPreUpdate(deltaTime);
             currentScene.onPreUpdate(deltaTime);
             currentScene.onUpdate(deltaTime);
             currentScene.onPostUpdate(deltaTime);

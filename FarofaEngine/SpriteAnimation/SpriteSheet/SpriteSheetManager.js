@@ -36,25 +36,22 @@ var SpriteSheetManager = (function () {
             loadJSON(loadCallback, name);
         },
 
-        getSpriteFromSpriteSheet: function (spriteName, spriteSheetName, rectangle, direction) {
+        getSpriteFromSpriteSheet: function (spriteName, spriteSheetName,  direction) {
             direction = direction || "";
-            rectangle = rectangle || new Rectangle();
-
             if (!spriteSheets.hasOwnProperty(spriteSheetName)) {
                 this.loadSpriteSheet(spriteSheetName);
             }
-            return spriteSheets[spriteSheetName].getSprite(spriteName+direction, rectangle);
+            return spriteSheets[spriteSheetName].getSprite(spriteName+direction);
         },
 
-        getSprite: function (spriteName, rectangle, direction) {
-            rectangle = rectangle || new Rectangle();
+        getSprite: function (spriteName , direction) {
             direction = direction != null ? "-"+direction : "";
             for (var spriteSheetName in spriteSheets) {
                 var currentSpriteSheet = spriteSheets[spriteSheetName];
                 if (!currentSpriteSheet.hasOwnProperty("sprites")) continue;
 
                 if (currentSpriteSheet.sprites.hasOwnProperty(spriteName+direction)) {
-                    return currentSpriteSheet.getSprite(spriteName+direction, rectangle);
+                    return currentSpriteSheet.getSprite(spriteName+direction);
                 }
             }
             Debug.log("The sprite " + spriteName + " does not exist", 5, "generic");

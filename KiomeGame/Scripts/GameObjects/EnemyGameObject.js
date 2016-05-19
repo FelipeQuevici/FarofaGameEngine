@@ -19,8 +19,8 @@ function EnemyGameObject(scene, position, rotation) {
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
-            "enemy_idle1",
-            new Rectangle(position.x,position.y,tileSize,tileSize)));
+            "enemy_idle1"
+            ));
 
         this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this));
         this.addComponent("enemyStats", new EnemyStatsComponent(this));

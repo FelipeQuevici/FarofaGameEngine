@@ -12,10 +12,91 @@ function GameScene() {
 
     var enemies = [];
 
+    var timeBetweenWaves = 5000;
+    var timeWhenLastWaveEnded;
+
+    var enemiesToSpawnThisWave;
+    var enemiesSpawnedThisWave;
+
+    this.shouldSpawnEnemy = function () {
+        return enemiesSpawnedThisWave < enemiesToSpawnThisWave;
+    };
+
+    this.whereToSpawn = function() {
+        for (var spawnPoint in spawnPoints) {
+            if (spawnPoints[spawnPoint].checkIfIsFree()) {
+                return spawnPoints[spawnPoint];
+            }
+        }
+        return null;
+    };
+
+    this.spawnEnemy = function (spawnPoint) {
+        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x, spawnPoint.position.y), 0);
+        this.createObject(enemy);
+        enemies.push(enemy);
+        enemiesSpawnedThisWave++;
+    };
+
+    function fightingWaveState(deltaTime) {
+        if (this.shouldSpawnEnemy()) {
+            var spawnPointToUse = this.whereToSpawn();
+            if (spawnPointToUse) {
+                this.spawnEnemy.call(this, spawnPointToUse);
+            }
+        }
+
+        var updateEnemyList = [];
+
+         for (var enemy in enemies) {
+            if (enemies[enemy].wasDestroyed) {
+                updateEnemyList.push(enemies[enemy]);
+            }
+         }
+
+         for (var i = 0; i < updateEnemyList.length; i++) {
+            enemies.splice(enemies.indexOf(updateEnemyList[i]),1);
+         }
+
+        if (enemies.length == 0 && enemiesSpawnedThisWave == enemiesToSpawnThisWave) {
+            timeWhenLastWaveEnded = Date.now();
+            currentState = "waitingNextWave";
+            wavesCleared++;
+        }
+    }
+    
+    var wavesCleared = 0;
+    var spawnPoints = [];
+    
+
+    function waitingNextWaveState() {
+        if (Date.now() - timeWhenLastWaveEnded > timeBetweenWaves) {
+            enemiesSpawnedThisWave = 0;
+            enemiesToSpawnThisWave = wavesCleared + 1;
+            currentState = "fightingWave";
+        }
+    }
+
+    var gameStates = {
+        "fightingWave": fightingWaveState,
+        "waitingNextWave": waitingNextWaveState
+    };
+
+    this.onEnter = function () {
+        timeWhenLastWaveEnded = Date.now();
+        currentState = "waitingNextWave";
+        wavesCleared = 1;
+    };
+
+    var currentState = "waitingNextWave";
+
+    this.onPreUpdate = function (deltaTime) {
+        gameStates[currentState].call(this, deltaTime);
+    };
+
     this.declareObjects = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
-        this.addLayer("lowerEffects");
         this.addLayer("objectsLayer", true);
         this.addLayer("hud");
 
@@ -27,16 +108,17 @@ function GameScene() {
         this.camera.setTarget(player);
         this.camera.position.sum(new Vector2(150,150));
 
-        var enemy1 = new EnemyGameObject(this, new Vector2(0,130),270);
-        enemies.push(enemy1);
-        this.addObject(enemy1);
+        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(100,200));
+        spawnPoints.push(enemySpawn);
+        this.addObject(enemySpawn);
 
-        var enemy2 = new EnemyGameObject(this, new Vector2(130, 0), 180);
-        enemies.push(enemy2);
-        this.addObject(enemy2);
+        var enemySpawn1 = new EnemySpawnPointGameObject(this, new Vector2(200,100));
+        spawnPoints.push(enemySpawn1);
+        this.addObject(enemySpawn1);
 
-        var enemy3 = new EnemyGameObject(this, new Vector2(130,130),215);
-        this.addObject(enemy3);
+        var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(200,200));
+        spawnPoints.push(enemySpawn2);
+        this.addObject(enemySpawn2);
 
         //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));
@@ -63,6 +145,10 @@ function GameScene() {
     var elapsedChange = 20  ;*/
 
     this.onPostDraw = function (renderer) {
+        var context = renderer.getContext();
+        context.fillStyle = "black";
+        context.fillText(currentState, 10, 10);
+
        /* var context = renderer.getContext();
 
         context.fillText(fps.getFPS(),10,10);

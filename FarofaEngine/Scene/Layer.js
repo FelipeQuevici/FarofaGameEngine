@@ -20,9 +20,9 @@ function Layer(doesObjectsMove) {
     };
 
     function higherY(a,b) {
-        if (a.rectangle.y > b.rectangle.y)
+        if (a.parent.position.y > b.parent.position.y)
             return 1;
-        if (a.rectangle.y < b.rectangle.y)
+        if (a.parent.position.y < b.parent.position.y)
             return -1;
         return 0;
     }

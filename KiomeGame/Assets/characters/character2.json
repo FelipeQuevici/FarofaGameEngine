@@ -8,7 +8,6 @@
       "x":16,
       "y":16
     },
-    "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
@@ -308,7 +307,6 @@
       "x":16,
       "y":16
     },
-    "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {

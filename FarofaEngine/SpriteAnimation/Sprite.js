@@ -2,14 +2,12 @@
  * Created by Felipe on 07/05/2016.
  */
 
-function Sprite(rectangle, image, information) {
+function Sprite(image, information) {
     this.image = image;
     this.spriteInformation = information;
-    this.rectangle = rectangle;
     this.rotation = 0;
     this.direction = information.direction;
 
-    //TODO: Translate and rotate context to change
     this.draw = function (renderer) {
         renderer.drawSprite(this);
     }
@@ -20,6 +18,7 @@ function SpriteInformation(information) {
     this.y = information.y;
     this.w = information.w;
     this.h = information.h;
+    this.tag = 
     this.pivot = new Vector2(information.pivot.x, information.pivot.y);
     this.frameSpeed = information.frameSpeed;
     this.direction = information.direction;
