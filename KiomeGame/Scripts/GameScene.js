@@ -12,7 +12,7 @@ function GameScene() {
 
     var enemies = [];
 
-    var timeBetweenWaves = 1000;
+    var timeBetweenWaves = 5000;
     var timeWhenLastWaveEnded;
 
     var enemiesToSpawnThisWave;
@@ -24,10 +24,7 @@ function GameScene() {
 
     this.whereToSpawn = function() {
         for (var spawnPoint in spawnPoints) {
-            console.log(spawnPoints[spawnPoint]);
             if (spawnPoints[spawnPoint].checkIfIsFree()) {
-                console.log("ITS FREE");
-                console.log(spawnPoint);
                 return spawnPoints[spawnPoint];
             }
         }
@@ -39,7 +36,6 @@ function GameScene() {
         this.createObject(enemy);
         enemies.push(enemy);
         enemiesSpawnedThisWave++;
-        console.log("CHEGOU AQUI");
     };
 
     function fightingWaveState(deltaTime) {
@@ -90,7 +86,6 @@ function GameScene() {
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
         wavesCleared = 1;
-        console.log("ENTER");
     };
 
     var currentState = "waitingNextWave";
@@ -102,7 +97,6 @@ function GameScene() {
     this.declareObjects = function () {
         const tileSize = FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
-        this.addLayer("lowerEffects");
         this.addLayer("objectsLayer", true);
         this.addLayer("hud");
 

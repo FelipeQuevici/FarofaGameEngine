@@ -51,10 +51,6 @@ var InputManager = ( function () {
         EventCenterInstance.getInstance().callEvent("mouseMovedTo", this, {"position": mousePosition});
     }
 
-    function onClick(event) {
-
-    }
-
     var mouseEventToButton = function (event) {
         var button;
         if ("which" in event) {
