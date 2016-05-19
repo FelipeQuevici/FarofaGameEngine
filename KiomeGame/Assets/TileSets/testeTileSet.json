@@ -73,10 +73,10 @@
       "collisionBox": {
         "shape": "circle",
         "center": {
-          "x": 0,
-          "y": 0
+          "x": 16,
+          "y": 16
         },
-        "radius": 8
+        "radius": 16
       }
     }
   }

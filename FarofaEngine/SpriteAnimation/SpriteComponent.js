@@ -2,9 +2,9 @@
  * Created by Felipe on 06/05/2016.
  */
 
-function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) {
+function SpriteComponent(parent, totalDirections, layer, spriteName) {
 
-    function onCreate(parent, totalDirections, layer, spriteName, rectangle) {
+    function onCreate(parent, totalDirections, layer, spriteName) {
         var currentScene = parent.scene;
         this.totalDirections = totalDirections;
         this.parent = parent;
@@ -19,7 +19,7 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
             this.setSprite(spriteName);
         }else {
             this.spriteName = spriteName;
-            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,rectangle,this.currentDirection));
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,this.currentDirection));
         }
 
         this.layer = layer;
@@ -37,9 +37,6 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
                 this.parent.getComponent(collisionComponent).updateCollisionInfo(this.sprite.spriteInformation.collisions[collisionComponent]);
             }
         }
-
-        this.rectangle = new Rectangle(this.parent.position.x, this.parent.position.y,
-            sprite.spriteInformation.w,sprite.spriteInformation.h);
     };
 
     function angleToDirection(angle) {
@@ -50,29 +47,23 @@ function SpriteComponent(parent, totalDirections, layer, spriteName, rectangle) 
 
 
     this.onPostUpdate = function () {
-        this.setPosition(this.parent.position);
         this.setAngle(this.parent.rotation);
     };
 
-    this.setPosition = function (position) {
-        this.sprite.rectangle.x = position.x;
-        this.sprite.rectangle.y = position.y;
-    };
-    
     this.setAngle = function (angle) {
         if (this.totalDirections > 0) {
             this.currentDirection = angleToDirection(angle);
-            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,this.rectangle,this.currentDirection));
+            this.setSprite(SpriteSheetManager.getSprite(this.spriteName,this.currentDirection));
         }
     };
 
     this.draw = function (renderer) {
-        //renderer.drawSpriteComponent(this);
+        renderer.drawSpriteComponent(this);
         
-        this.sprite.draw(renderer);
+        //this.sprite.draw(renderer);
     };
 
-    onCreate.call(this, parent, totalDirections, layer, spriteName, rectangle);
+    onCreate.call(this, parent, totalDirections, layer, spriteName);
 }
 
 SpriteComponent.inheritsFrom(Component);

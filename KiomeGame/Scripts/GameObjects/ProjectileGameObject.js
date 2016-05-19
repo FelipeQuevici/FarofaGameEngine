@@ -13,7 +13,7 @@ function ProjectileGameObject(scene, position, sprite, direction, tag) {
     this.onInitialize = function () {
         this.addComponent("collisionBox", new CollisionBoxComponent(this, new Rectangle()));
         this.addComponent("projectileBehaviour", new ProjectileBehaviourComponent(this, direction));
-        this.addComponent("sprite", new SpriteComponent(this, 0,"objectsLayer",sprite, new Rectangle(0,0,16,32)));
+        this.addComponent("sprite", new SpriteComponent(this, 0,"objectsLayer",sprite));
     };
     
     onCreate.call(this, scene,position,sprite,direction, tag);

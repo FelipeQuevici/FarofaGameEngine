@@ -113,14 +113,18 @@ function GameScene() {
         this.addObject(player);
         this.camera.setTarget(player);
         this.camera.position.sum(new Vector2(150,150));
-        
-        spawnPoints.push(new EnemySpawnPointGameObject(this, new Vector2(100,200)));
-        spawnPoints.push(new EnemySpawnPointGameObject(this, new Vector2(200,100)));
-        spawnPoints.push(new EnemySpawnPointGameObject(this, new  Vector2(200,200)));
 
-        for (var i=0; i < spawnPoints.length; i++) {
-            this.addObject(spawnPoints[i]);
-        }
+        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(100,200));
+        spawnPoints.push(enemySpawn);
+        this.addObject(enemySpawn);
+
+        var enemySpawn1 = new EnemySpawnPointGameObject(this, new Vector2(200,100));
+        spawnPoints.push(enemySpawn1);
+        this.addObject(enemySpawn1);
+
+        var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(200,200));
+        spawnPoints.push(enemySpawn2);
+        this.addObject(enemySpawn2);
 
         //var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,16));
         //var bulletTest = new ProjectileGameObject(this, new Vector2(50,50),sprite,polarToVector(1,50));

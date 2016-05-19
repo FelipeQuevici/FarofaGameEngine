@@ -19,7 +19,7 @@ function RigidBodyComponent(parent, collisionInfo) {
         	this.collisionInfo = null;
         }
         
-        collisionSystem.addBody(this);
+        collisionSystem.addBody(this); 
     }
     
     onCreate.call(this, parent, collisionInfo);
