@@ -30,6 +30,8 @@ function CollisionSystem() {
         var bodysCollided = [];
         
         for(var i = 0; i < componentsListToCheck.length; i++){
+        	if(!componentsListToCheck[i].enable)
+        		continue;
         	if(componentsListToCheck[i] != thisCollisionComponent){
         		if(thisCollisionComponent.collisionInfo instanceof Rectangle && componentsListToCheck[i].collisionInfo instanceof Rectangle){
         			if(checkCollisionBetweenRectangles(thisCollisionComponent, componentsListToCheck[i])){
@@ -113,7 +115,7 @@ function CollisionSystem() {
     }
     
     function getCircleCenter(collisionComponent){
-    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
-    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y - collisionComponent.parent.getComponent("sprite").sprite.spriteInformation.pivot.y	);
+    	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x,
+    				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y);
     }
 }

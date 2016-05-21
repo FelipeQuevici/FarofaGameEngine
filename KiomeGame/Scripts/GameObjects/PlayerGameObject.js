@@ -12,6 +12,10 @@ function PlayerGameObject(scene, position, target) {
 
     this.onInitialize = function () {
         this.addComponent("rigidBody", new RigidBodyComponent(this));
+        this.addComponent("attackCollisionBox", new CollisionBoxComponent(this));
+        this.getComponent("attackCollisionBox").enable = false;
+        this.addComponent("damageCollisionBox", new CollisionBoxComponent(this));
+        this.getComponent("damageCollisionBox").enable = false;
 
         this.addComponent("sprite", new SpriteComponent(this,
             7,

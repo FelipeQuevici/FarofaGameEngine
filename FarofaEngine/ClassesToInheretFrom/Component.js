@@ -5,8 +5,9 @@
 var Component =  {
     parent: null,
     onCreate: function (parent) {
-        this.parent = parent;
+        this.parent = parent;        
     },
+    
     onPreUpdate : function () {
         
     },    

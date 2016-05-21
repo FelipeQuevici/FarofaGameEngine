@@ -56,11 +56,7 @@ function PlayerControllerComponent(parent, target) {
             this.parent.rotation = currentDirection.angle();
         }
         else {
-        	//GABIARRA
-        	var pos = new Vector2(this.parent.position.x, this.parent.position.y);
-        	pos.x += 64;
-        	pos.y += 85;
-            this.parent.rotation = angleBetweenTwoPoints(pos, targetToLookAt.position);
+            this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
         }
 
         currentDirection.normalize();
@@ -92,16 +88,13 @@ function PlayerControllerComponent(parent, target) {
             if(!this.parent.getComponent("animation").isAnimationPlaying("playerAttack")){
             	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerAttack"));
             }
+            this.parent.getComponent("attackCollisionBox").enable = true;
             return;
         }
 
         if (InputManager.isKeyPressed("attack2")) {
-        	//GABIARRA
-        	var pos = new Vector2(this.parent.position.x, this.parent.position.y);
-        	pos.x += 64;
-        	pos.y += 85;
             attackAnimationStartTime = Date.now();
-            this.parent.rotation = angleBetweenTwoPoints(pos, targetToLookAt.position);
+            this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
             currentState = "rangedAttack";
             return;
         }
@@ -145,7 +138,8 @@ function PlayerControllerComponent(parent, target) {
     function meleeAttackState(deltaTime) {
         if (isMeleeAttackAnimationOver()) {
             currentState = "move";            
-            this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));            
+            this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));   
+            this.parent.getComponent("attackCollisionBox").enable = false;
             return;
         }
         /*
