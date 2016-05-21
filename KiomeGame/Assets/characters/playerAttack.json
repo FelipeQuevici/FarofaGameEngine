@@ -5,28 +5,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {      
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -36,28 +36,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {      
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -67,28 +67,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {      
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -98,28 +98,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {      
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -129,28 +129,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -160,28 +160,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -191,28 +191,28 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
       "attackCollisionBox": {      
         "shape": "circle",
         "center": {
-          "x": 100,
+          "x": 126,
           "y": 100
         },
-        "radius": 44
+        "radius": 35
       }
     }
   },
@@ -222,18 +222,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -247,18 +247,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -272,18 +272,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -297,18 +297,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -322,18 +322,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -347,18 +347,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -372,18 +372,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -397,18 +397,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -422,18 +422,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -447,18 +447,18 @@
     "w": 157,
     "h": 151,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -472,18 +472,18 @@
     "w": 157,
     "h": 151,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -497,18 +497,18 @@
     "w": 157,
     "h": 151,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -522,18 +522,18 @@
     "w": 157,
     "h": 151,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -547,18 +547,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -572,18 +572,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -597,18 +597,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -622,18 +622,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -647,18 +647,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -672,18 +672,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -697,18 +697,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -722,18 +722,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -747,18 +747,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -772,18 +772,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -797,18 +797,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },
@@ -822,18 +822,18 @@
     "w": 258,
     "h": 177,
     "pivot" : {
-      "x":66,
-      "y":16
+      "x":129,
+      "y":85
     },
     "direction": 0,
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
         "shape": "rectangle",
-        "x": 114,
-        "y": 85,
+        "x": 115,
+        "y": 125,
         "w": 26,
-        "h": 55
+        "h": 25
       },
       "damageCollisionBox": {
       },

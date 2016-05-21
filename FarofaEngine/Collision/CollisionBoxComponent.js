@@ -7,6 +7,7 @@ function CollisionBoxComponent(parent, collisionInfo) {
 
     function onCreate (parent, collisionInfo) {
         this.parent = parent;
+        this.enable = true;
         this.type = "collisionBox";
 
         if(collisionInfo){
@@ -25,17 +26,19 @@ function CollisionBoxComponent(parent, collisionInfo) {
     onCreate.call(this, parent, collisionInfo);
     
     this.draw = function (renderer) {
-    	if(this.collisionInfo instanceof Rectangle){
-    		var x = this.parent.position.x + this.collisionInfo.x;// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x;
-    		var y = this.parent.position.y + this.collisionInfo.y;// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y;
-    		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
-    		renderer.drawRectangle(rect, "red");
-		}else if(this.collisionInfo instanceof Circle){	
-			var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x, // - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.x,
-									 this.parent.position.y + this.collisionInfo.center.y);// - this.parent.getComponent("sprite").sprite.spriteInformation.pivot.y);
-    		var circle = new Circle(center,this.collisionInfo.radius);
-    		renderer.drawCircle(circle, "red");
-		}
+    	if(this.enable){
+	    	if(this.collisionInfo instanceof Rectangle){
+	    		var x = this.parent.position.x + this.collisionInfo.x;
+	    		var y = this.parent.position.y + this.collisionInfo.y;
+	    		var rect = new Rectangle(x,y,this.collisionInfo.width,this.collisionInfo.height);
+	    		renderer.drawRectangle(rect, "red");
+			}else if(this.collisionInfo instanceof Circle){	
+				var center = new Vector2(this.parent.position.x + this.collisionInfo.center.x,
+										 this.parent.position.y + this.collisionInfo.center.y);
+	    		var circle = new Circle(center,this.collisionInfo.radius);
+	    		renderer.drawCircle(circle, "red");
+			}
+    	}
     };
     
     this.move = function (velocity, callback, callbackCaller) {
@@ -62,9 +65,8 @@ function CollisionBoxComponent(parent, collisionInfo) {
 			if(!(this.collisionInfo instanceof Circle)){
 				this.collisionInfo = new Circle();
 			}
-			this.collisionInfo.center = collisionInfo.center;
-			this.collisionInfo.center.x -= spriteInformation.pivot.x;
-			this.collisionInfo.center.y -= spriteInformation.pivot.y;
+			this.collisionInfo.center.x = collisionInfo.center.x - spriteInformation.pivot.x;
+			this.collisionInfo.center.y = collisionInfo.center.y - spriteInformation.pivot.y;
 			this.collisionInfo.radius = collisionInfo.radius;
 		}
     	
