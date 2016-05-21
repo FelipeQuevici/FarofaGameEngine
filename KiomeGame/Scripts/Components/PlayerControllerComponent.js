@@ -71,7 +71,7 @@ function PlayerControllerComponent(parent, target) {
     var attackAnimationStartTime;
     var attack1AnimationDuration = 500;
     var attack2AnimationDuration = 500;
-    var dashAnimationDuration = 20;
+    var dashAnimationDuration = 60;
 
     var dashCoolDown = 100;
     var lastDash = Date.now();
@@ -148,13 +148,13 @@ function PlayerControllerComponent(parent, target) {
             this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));            
             return;
         }
-        /*
+
         var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
         moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
         if(moveDirection.x != 0 || moveDirection.y != 0){
             this.parent.getComponent("rigidBody").move(moveDirection);
         }
-        */
+
     }
 
     function isRangedAttackAnimationOver() {

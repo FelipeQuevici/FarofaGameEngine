@@ -155,41 +155,42 @@ function GameScene() {
         this.addObject(moneyIcon);
     };
 
-   /* var borderSize = 50;
-    var allCanvasSize = 500+2*borderSize;
+    var borderSize = 50;
+    var allCanvasWidth = canvas.width+2*borderSize;
+    var allCanvasHeight = canvas.height+2*borderSize;
     var amplitude = 5;
     var freq = 1 * 2 * Math.PI * 0.01;
     var elapsed = 0;
-    var elapsedChange = 20  ;*/
+    var elapsedChange = 20  ;
 
     this.onPostDraw = function (renderer) {
        /* var context = renderer.getContext();
         context.fillStyle = "black";
         context.fillText(currentState, 10, 10);*/
 
-       /* var context = renderer.getContext();
+        /*var context = renderer.getContext();
 
         context.fillText(fps.getFPS(),10,10);
         context.fill();
 
         
-        var imageData = context.getImageData(-borderSize,-borderSize,allCanvasSize,allCanvasSize);
+        var imageData = context.getImageData(-borderSize,-borderSize,allCanvasWidth,allCanvasHeight);
         var data = imageData.data;
 
-        for (var y = 0; y < allCanvasSize; y++) {
+        for (var y = 0; y < allCanvasHeight; y++) {
             var translate = Math.floor((amplitude * Math.sin(freq * (y + elapsed))))*4;
             var x;
 
             if (translate > 0) {
-                for (x = allCanvasSize-1; x > translate; x--) {
-                    var pixelIndex = (y * allCanvasSize + x) * 4;
+                for (x = allCanvasWidth-1; x > translate; x--) {
+                    var pixelIndex = (y * allCanvasWidth + x) * 4;
                     data[pixelIndex] = data[pixelIndex-translate];
                     data[pixelIndex+1] = data[pixelIndex-translate+1];
                     data[pixelIndex+2] = data[pixelIndex-translate+2];
                     data[pixelIndex+3] = data[pixelIndex-translate+3];
                 }
                 for (x = translate; x >= 0; x--) {
-                    var pixelIndex = (y * allCanvasSize + x) * 4;
+                    var pixelIndex = (y * allCanvasWidth + x) * 4;
                     data[pixelIndex] = 0;
                     data[pixelIndex+1] = 0;
                     data[pixelIndex+2] = 0;
@@ -197,15 +198,15 @@ function GameScene() {
                 }
             }
             else if (translate < 0) {
-                for (x = 0; x < allCanvasSize-1 - translate; x++) {
-                    var pixelIndex = (y * allCanvasSize + x) * 4;
+                for (x = 0; x < allCanvasWidth-1 - translate; x++) {
+                    var pixelIndex = (y * allCanvasWidth + x) * 4;
                     data[pixelIndex] = data[pixelIndex-translate];
                     data[pixelIndex+1] = data[pixelIndex-translate+1];
                     data[pixelIndex+2] = data[pixelIndex-translate+2];
                     data[pixelIndex+3] = data[pixelIndex-translate+3];
                 }
-                for (x = allCanvasSize - translate; x < allCanvasSize-1; x++) {
-                    var pixelIndex = (y * allCanvasSize + x) * 4;
+                for (x = allCanvasWidth - translate; x < allCanvasWidth-1; x++) {
+                    var pixelIndex = (y * allCanvasWidth + x) * 4;
                     data[pixelIndex] = 255;
                     data[pixelIndex+1] = 255;
                     data[pixelIndex+2] = 255;
@@ -216,7 +217,7 @@ function GameScene() {
         elapsed+=elapsedChange;
 
         context.putImageData(imageData,-borderSize,- borderSize);
-            */
+*/
     };
 }
 

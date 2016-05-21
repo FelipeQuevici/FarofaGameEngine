@@ -48,12 +48,12 @@
     "frameSpeed": 1,
     "collisions": {
       "rigidBody": {
-        "shape": "circle",
-        "center": {
-          "x": 16,
-          "y": 16
-        },
-        "radius": 16
+        "shape": "rectangle",
+
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
       }
     }
   },
