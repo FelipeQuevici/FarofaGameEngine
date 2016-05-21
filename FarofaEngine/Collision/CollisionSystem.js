@@ -114,7 +114,7 @@ function CollisionSystem() {
     	return getRecMinY(collisionComponent) + collisionComponent.collisionInfo.height;
     }
     
-    function getCircleCenter(collisionComponent){
+    function getCircleCenter(collisionComponent){    	
     	return new Vector2(collisionComponent.parent.position.x + collisionComponent.collisionInfo.center.x,
     				       collisionComponent.parent.position.y + collisionComponent.collisionInfo.center.y);
     }

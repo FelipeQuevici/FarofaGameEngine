@@ -17,6 +17,7 @@ function PlayerControllerComponent(parent, target) {
     var moveSpeed = 200;
     var moveSpeedWhileAttacking = 50;
     var dashSpeed = 300;
+    var hitList = [];
 
     this.onCreate = function (parent, target) {
         this.parent = parent;
@@ -140,15 +141,19 @@ function PlayerControllerComponent(parent, target) {
             currentState = "move";            
             this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));   
             this.parent.getComponent("attackCollisionBox").enable = false;
+            hitList = [];
             return;
         }
+        var attackCollisionComponent = this.parent.getComponent("attackCollisionBox");        
+        attackCollisionComponent.move(new Vector2(0,0), this.onCollision, this);
+        
         /*
         var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
         moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
         if(moveDirection.x != 0 || moveDirection.y != 0){
             this.parent.getComponent("rigidBody").move(moveDirection);
         }
-        */
+        */        
     }
 
     function isRangedAttackAnimationOver() {
@@ -180,6 +185,16 @@ function PlayerControllerComponent(parent, target) {
         moveDirection.multiplyByScalar(dashSpeed * deltaTime);
         this.parent.getComponent("rigidBody").move(moveDirection);
     }
+    
+    this.onCollision = function(collisions) {
+        for (var collision in collisions) {
+            var collidedObject = collisions[collision].parent;
+            if (collidedObject.tag == "enemy" && hitList.indexOf(collidedObject.getComponent("enemyStats").parent) == -1) {
+                collidedObject.getComponent("enemyStats").removeLife(1);
+                hitList.push(collidedObject.getComponent("enemyStats").parent);               
+            }
+        }   
+    };
     
     this.onPreUpdate = function (deltaTime) {
         playerStates[currentState].call(this, deltaTime);
