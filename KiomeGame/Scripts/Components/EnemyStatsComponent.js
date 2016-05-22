@@ -4,7 +4,7 @@
 
 function EnemyStatsComponent(parent) {
     var currentLife;
-    var maxLife;
+    var maxLife;    
 
     this.onCreate = function (parent) {
         this.parent = parent;

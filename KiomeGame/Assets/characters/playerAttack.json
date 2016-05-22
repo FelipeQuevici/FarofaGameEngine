@@ -24,9 +24,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
@@ -55,9 +55,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
@@ -86,9 +86,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
@@ -117,9 +117,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
@@ -148,9 +148,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
@@ -179,9 +179,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
@@ -210,9 +210,9 @@
         "shape": "circle",
         "center": {
           "x": 126,
-          "y": 100
+          "y": 150
         },
-        "radius": 35
+        "radius": 25
       }
     }
   },
