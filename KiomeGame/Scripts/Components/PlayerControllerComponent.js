@@ -16,7 +16,7 @@ function PlayerControllerComponent(parent, target) {
 
     var moveSpeed = 200;
     var moveSpeedWhileAttacking = 50;
-    var dashSpeed = 300;
+    var dashSpeed = 400;
 
     this.onCreate = function (parent, target) {
         this.parent = parent;
@@ -67,7 +67,7 @@ function PlayerControllerComponent(parent, target) {
     var attackAnimationStartTime;
     var attack1AnimationDuration = 500;
     var attack2AnimationDuration = 500;
-    var dashAnimationDuration = 60;
+    var dashAnimationDuration = 100;
 
     var dashCoolDown = 100;
     var lastDash = Date.now();
@@ -113,9 +113,9 @@ function PlayerControllerComponent(parent, target) {
             return;
         }
 
-        var moveDirection = getCurrentDirection.call(this, moveSpeed);
-        lastDirection = moveDirection;
-        
+        lastDirection = getCurrentDirection.call(this, moveSpeed);
+        var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
+
         if(moveDirection.x != 0 || moveDirection.y != 0){
             moveDirection.multiplyByScalar(moveSpeed * deltaTime);
             this.parent.getComponent("rigidBody").move(moveDirection);              
@@ -161,8 +161,6 @@ function PlayerControllerComponent(parent, target) {
             this.throwPoo();
             return;
         }
-        
-        
     }
 
     function isDashingAnimationOver() {
