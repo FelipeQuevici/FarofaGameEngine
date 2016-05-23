@@ -3,6 +3,10 @@ function Vector2(x, y) {
     this.y = y || 0;
 }
 
+Vector2.prototype.copy = function () {
+    return new Vector2(this.x, this.y);
+};
+
 Vector2.prototype.toString = function pointToString() {
     return "(" + this.x + "," + this.y + ")";
 };
