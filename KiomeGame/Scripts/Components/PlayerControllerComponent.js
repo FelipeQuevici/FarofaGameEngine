@@ -4,7 +4,6 @@
 
 function PlayerControllerComponent(parent, target) {
     var targetToLookAt;
-
     var currentState;
 
     var playerStates = {
@@ -14,16 +13,14 @@ function PlayerControllerComponent(parent, target) {
         "dashing": dashingState
     };
 
-    var moveSpeed = 200;
-    var moveSpeedWhileAttacking = 50;
-    var dashSpeed = 400;
-    var hitList = [];
+    var characterController;
 
     this.onCreate = function (parent, target) {
         this.parent = parent;
         targetToLookAt = target;
         currentState = "move";
         lastDirection = new Vector2(0,0);
+        characterController = this.parent.getComponent("characterController");
     };
 
     function getCurrentDirection() {
@@ -59,134 +56,64 @@ function PlayerControllerComponent(parent, target) {
 
     }
 
-    var attackAnimationStartTime;
-    var attack1AnimationDuration = 500;
-    var attack2AnimationDuration = 500;
-    var dashAnimationDuration = 100;
-
     var dashCoolDown = 100;
     var lastDash = Date.now();
 
     var lastDirection;
 
-    this.throwPoo = function () {
-       // var sprite = SpriteSheetManager.getSprite("poo",new Rectangle(0,0,16,32));
-        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+40),
-            "poo", polarToVector(1,this.parent.rotation));
-        this.parent.scene.createObject(bulletTest);
-    };
-    
     function moveState(deltaTime) {
         if (InputManager.isKeyPressed("attack1")) {
             currentState = "meleeAttack";
-
-            attackAnimationStartTime = Date.now();
-            if(!this.parent.getComponent("animation").isAnimationPlaying("playerAttack")){
-            	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerAttack"));
-            }
-            this.parent.getComponent("attackCollisionBox").enable = true;
+            characterController.enterMeleeAttackState();
             return;
         }
 
         if (InputManager.isKeyPressed("attack2")) {
-            attackAnimationStartTime = Date.now();
             this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
             currentState = "rangedAttack";
+            characterController.enterRangedAttack();
             return;
         }
 
         if (InputManager.isKeyPressed("dash")) {
             var now = Date.now();
             if (now - lastDash > dashCoolDown) {
-                attackAnimationStartTime = Date.now();
                 if (lastDirection.x == 0 && lastDirection.y == 0) {
                     var direction = Math.round(this.parent.rotation / (360 / (9) ));
                     if (direction > 8) direction = 0;
                     lastDirection = polarToVector(1, direction * (360 / (9)));
                 }
             }
+            characterController.enterDashSate();
             currentState = "dashing";
             return;
         }
 
-        lastDirection = getCurrentDirection.call(this, moveSpeed);
-        var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
-
-        if(moveDirection.x != 0 || moveDirection.y != 0){
-            moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-            this.parent.getComponent("rigidBody").move(moveDirection);              
-            if(!this.parent.getComponent("animation").isAnimationPlaying("playerWalking")){
-            	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerWalking"));
-            }                        
-        }
-        else {
-        	if(!this.parent.getComponent("animation").isAnimationPlaying("playerIdle")){        		
-            	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));
-            }  
-        }
+        lastDirection = getCurrentDirection.call(this);
+        characterController.move(lastDirection,deltaTime);
     }
 
-    function isMeleeAttackAnimationOver() {
-        return Date.now() - attackAnimationStartTime > attack1AnimationDuration;
+    function goBackToMove() {
+        currentState = "move";
     }
 
     function meleeAttackState(deltaTime) {
-        if (isMeleeAttackAnimationOver()) {
-            currentState = "move";            
-            this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));   
-            this.parent.getComponent("attackCollisionBox").enable = false;
-            hitList = [];
-            return;
-        }
-
-        var attackCollisionComponent = this.parent.getComponent("attackCollisionBox");        
-        attackCollisionComponent.move(new Vector2(0,0), this.onCollision, this);
-        
-
-        var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
-        moveDirection.multiplyByScalar(moveSpeedWhileAttacking * deltaTime);
-        if(moveDirection.x != 0 || moveDirection.y != 0){
-            this.parent.getComponent("rigidBody").move(moveDirection);
-        }
+        characterController.meleeAttackUpdate(lastDirection,deltaTime,goBackToMove,this);
     }
 
-    function isRangedAttackAnimationOver() {
-        return Date.now() - attackAnimationStartTime > attack2AnimationDuration;
+    function rangedAttackState(deltaTime) {
+        characterController.rangedAttack(deltaTime,goBackToMove(), this);
     }
 
-    function rangedAttackState() {
-        if (isRangedAttackAnimationOver()) {
-            currentState = "move";
-            this.throwPoo();
-            return;
-        }
-    }
-
-    function isDashingAnimationOver() {
-        return Date.now() - attackAnimationStartTime > dashAnimationDuration
-    }
-    
-    function dashingState(deltaTime) {
-        if (isDashingAnimationOver()) {
-            currentState = "move";
-            lastDash = Date.now();
-            return;
-        }
-
-        var moveDirection = new Vector2(lastDirection.x , lastDirection.y);
-        moveDirection.multiplyByScalar(dashSpeed * deltaTime);
-        this.parent.getComponent("rigidBody").move(moveDirection);
-    }
-    
-    this.onCollision = function(collisions) {
-        for (var collision in collisions) {
-            var collidedObject = collisions[collision].parent;
-            if (collidedObject.tag == "enemy" && hitList.indexOf(collidedObject.getComponent("enemyStats").parent) == -1) {
-                collidedObject.getComponent("enemyStats").removeLife(1);
-                hitList.push(collidedObject.getComponent("enemyStats").parent);               
-            }
-        }   
+    var finishDash = function () {
+        currentState = "move";
+        lastDash = Date.now();
     };
+
+    function dashingState(deltaTime) {
+        characterController.dashUpdate(deltaTime,lastDirection,finishDash,this);
+    }
+
     
     this.onPreUpdate = function (deltaTime) {
         playerStates[currentState].call(this, deltaTime);

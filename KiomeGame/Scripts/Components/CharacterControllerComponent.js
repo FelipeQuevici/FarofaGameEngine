@@ -22,7 +22,7 @@ function CharacterControllerComponent(parent) {
     var dashSpeed = 400;
     var hitList = [];
 
-    var walkAnimation = "playerWalk";
+    var walkAnimation = "playerWalking";
     var idleAnimation = "playerIdle";
     var meleeAttackAnimation = "playerAttack";
 
@@ -97,7 +97,11 @@ function CharacterControllerComponent(parent) {
         return Date.now() - attackAnimationStartTime > dashAnimationDuration
     }
 
-    this.dashingState = function(direction ,deltaTime, functionOnOver, caller) {
+    this.enterDashSate = function () {
+        attackAnimationStartTime = Date.now();
+    };
+
+    this.dashUpdate = function(deltaTime, direction, functionOnOver, caller) {
         if (isDashingAnimationOver()) {
             functionOnOver.call(caller);
             return;
@@ -112,11 +116,21 @@ function CharacterControllerComponent(parent) {
         return Date.now() - attackAnimationStartTime > attack2AnimationDuration;
     }
 
+    this.enterRangedAttack = function () {
+        attackAnimationStartTime = Date.now();
+    };
+
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
         if (isRangedAttackAnimationOver()) {
+            this.throwProjectile();
             functionOnOver.call(caller);
-            this.throwPoo();
         }
+    };
+
+    this.throwProjectile = function () {
+        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+40),
+            "poo", polarToVector(1,this.parent.rotation));
+        this.parent.scene.createObject(bulletTest);
     };
 
     this.onCreate(parent);
