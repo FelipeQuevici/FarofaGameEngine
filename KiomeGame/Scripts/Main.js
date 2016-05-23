@@ -23,5 +23,5 @@ FarofaGame.setGlobalVariable("tileSize",32);
 var gameScene = new GameScene();
 
 FarofaGame.addScene(gameScene, "GameScene");
-FarofaGame.setInicialScene("GameScene");
+FarofaGame.setInitialScene("GameScene");
 FarofaGame.start();

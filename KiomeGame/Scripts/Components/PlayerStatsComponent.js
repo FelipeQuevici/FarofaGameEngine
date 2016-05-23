@@ -12,7 +12,6 @@ function PlayerStatsComponent(parent) {
         this.maxHealth = 6;
         this.currentHealth = this.maxHealth;
         currentMoney = 0;
-        console.log("CURRENT MONTE" + this.currentMoney);
         EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied);
     };
 

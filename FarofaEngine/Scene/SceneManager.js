@@ -7,8 +7,6 @@ var SceneManager = (function () {
     var scenesNames = {};
     var currentScene;
     var isInTransition = false;
-    var millisecondsLastUpdate;
-    var millisecondsBetweenUpdate = 1000/60;
     var renderer;
 
     function refreshCanvas() {
@@ -21,7 +19,10 @@ var SceneManager = (function () {
         initialize: function (newRenderer) {
             renderer = newRenderer;
             this.changeScene(this.initialScene);
-            millisecondsLastUpdate = Date.now();
+        },
+        
+        pause: function () {
+              
         },
 
         update: function (deltaTime) {

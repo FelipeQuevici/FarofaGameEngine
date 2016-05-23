@@ -2,21 +2,24 @@
  * Created by Felipe on 07/05/2016.
  */
 
-var Component =  {
-    parent: null,
-    onCreate: function (parent) {
-        this.parent = parent;        
-    },
-    
-    onPreUpdate : function () {
-        
-    },    
-    
-    onUpdate: function () {
+function Component () {
+    this.parent = null;
+    this.enebled = false;
 
-    },
+    this.onCreateComponent = function (parent) {
+        this.parent = parent;
+        this.enabled = true;
+    };
     
-    onPostUpdate: function () {
+    this.onPreUpdate = function () {
         
-    }
-};
+    };
+    
+    this.onUpdate =function (deltaTime) {
+
+    };
+    
+    this.onPostUpdate = function () {
+        
+    };
+}

@@ -23,13 +23,7 @@ function PlayerControllerComponent(parent, target) {
         this.parent = parent;
         targetToLookAt = target;
         currentState = "move";
-
-        /*playerMoveSpeed = 120;
-         playerMoveSpeedWhileAttacking = 30;
-         isAttacking = false;
-         attackType = 0;
-         attack1TimeDuration = 30;
-         attack2TimeDuration = 70;*/
+        lastDirection = new Vector2(0,0);
     };
 
     function getCurrentDirection() {
@@ -84,8 +78,9 @@ function PlayerControllerComponent(parent, target) {
     
     function moveState(deltaTime) {
         if (InputManager.isKeyPressed("attack1")) {
-            attackAnimationStartTime = Date.now();
             currentState = "meleeAttack";
+
+            attackAnimationStartTime = Date.now();
             if(!this.parent.getComponent("animation").isAnimationPlaying("playerAttack")){
             	this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerAttack"));
             }
@@ -133,7 +128,6 @@ function PlayerControllerComponent(parent, target) {
 
     function isMeleeAttackAnimationOver() {
         return Date.now() - attackAnimationStartTime > attack1AnimationDuration;
-
     }
 
     function meleeAttackState(deltaTime) {
@@ -154,8 +148,6 @@ function PlayerControllerComponent(parent, target) {
         if(moveDirection.x != 0 || moveDirection.y != 0){
             this.parent.getComponent("rigidBody").move(moveDirection);
         }
-
-   
     }
 
     function isRangedAttackAnimationOver() {
@@ -168,8 +160,6 @@ function PlayerControllerComponent(parent, target) {
             this.throwPoo();
             return;
         }
-        
-        
     }
 
     function isDashingAnimationOver() {

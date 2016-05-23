@@ -4,16 +4,13 @@
 
 var FarofaGame = (function () {
     var canvas;
-    var context;
     var fpsCounter;
 
     var loadDirectory = "";
-    var tileSetsToLoad = [];
-    
+
     var renderer;
 
     var globalVariables = {};
-
 
     var millisecondsLastUpdate;
     var millisecondsBetweenUpdate = 1000/60;
@@ -25,7 +22,7 @@ var FarofaGame = (function () {
             millisecondsLastUpdate = timeNow;
             SceneManager.update(deltaTime);
             SceneManager.draw(renderer);
-            SceneManager.drawCollisions(renderer);
+            //SceneManager.drawCollisions(renderer);
         }
     }
     
@@ -47,13 +44,23 @@ var FarofaGame = (function () {
     function returnObject(string) {
         objectToReturn = JSON.parse(string);
     }
-    
+
+    var isPaused = false;
+    function pause() {
+        console.log("ASD");
+        isPaused = true;
+    }
+
+    function unPause() {
+        isPaused = false;
+    }
+
     return {
         addScene: function (scene, name) {
             scene.onInternalInitialize();
             SceneManager.addScene(scene, name);
         },
-        setInicialScene: function (name) {
+        setInitialScene: function (name) {
             SceneManager.initialScene = name;
         },
         
@@ -76,6 +83,9 @@ var FarofaGame = (function () {
             {
                 return false;
             };
+            canvas.focus();
+            canvas.addEventListener("onfocusout", pause, true);
+
             setInterval(gameLoop,1);
         },
 
