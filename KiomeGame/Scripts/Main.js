@@ -4,19 +4,23 @@
 
 FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
-FarofaGame.addSpriteSheet("Characters/character2");
-FarofaGame.addSpriteSheet("Characters/playerIdle");
-FarofaGame.addSpriteSheet("Characters/playerWalking");
-FarofaGame.addSpriteSheet("Characters/playerAttack");
+FarofaGame.addSpriteSheet("Characters/Player/playerIdle");
+FarofaGame.addSpriteSheet("Characters/Player/playerWalking");
+FarofaGame.addSpriteSheet("Characters/Player/playerAttack");
+FarofaGame.addAnimation("Characters/Player/playerAnimation");
+
+FarofaGame.addSpriteSheet("Characters/Enemy/enemyIdle");
+FarofaGame.addSpriteSheet("Characters/Enemy/enemyWalking");
+FarofaGame.addSpriteSheet("Characters/Enemy/enemyAttack");
+FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
+
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("crossHair");
-FarofaGame.addSpriteSheet("Characters/enemy");
 FarofaGame.addSpriteSheet("oldPoo");
 FarofaGame.addSpriteSheet("Hud");
 FarofaGame.addSpriteSheet("poo");
 
 
-FarofaGame.addAnimation("Characters/characterAnimation");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 

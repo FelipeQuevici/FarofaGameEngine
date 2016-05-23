@@ -64,6 +64,7 @@ function PlayerControllerComponent(parent, target) {
     function moveState(deltaTime) {
         if (InputManager.isKeyPressed("attack1")) {
             currentState = "meleeAttack";
+            lastDirection = getCurrentDirection.call(this);
             characterController.enterMeleeAttackState();
             return;
         }
@@ -72,6 +73,7 @@ function PlayerControllerComponent(parent, target) {
             this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
             currentState = "rangedAttack";
             characterController.enterRangedAttack();
+            console.log("RANGED ataque");
             return;
         }
 
@@ -102,7 +104,7 @@ function PlayerControllerComponent(parent, target) {
     }
 
     function rangedAttackState(deltaTime) {
-        characterController.rangedAttack(deltaTime,goBackToMove(), this);
+        characterController.rangedAttack(deltaTime,goBackToMove, this);
     }
 
     var finishDash = function () {

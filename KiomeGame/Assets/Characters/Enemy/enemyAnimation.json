@@ -1,0 +1,30 @@
+{
+  "enemyIdle": {
+    "animationSpeed": 0.5,
+    "frames": {
+      "1": "enemyIdle1"
+    }
+  },
+  "enemyWalking": {
+    "animationSpeed": 0.8,
+    "frames": {
+      "1": "enemyWalking1",
+      "2": "enemyWalking2",
+      "3": "enemyWalking3",
+      "4": "enemyWalking4",
+      "5": "enemyWalking5",
+      "6": "enemyWalking6",
+      "7": "enemyWalking7",
+      "8": "enemyWalking8"
+    }
+  },
+  "enemyAttack": {
+    "animationSpeed": 0.5,
+    "frames": {
+      "1": "enemyAttack1",
+      "2": "enemyAttack2",
+      "3": "enemyAttack3",
+      "4": "enemyAttack4"
+    }
+  }
+}

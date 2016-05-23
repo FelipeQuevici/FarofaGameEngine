@@ -23,7 +23,6 @@ function PlayerGameObject(scene, position, target) {
             "playerIdle1"));
         
         this.addComponent("animation", new AnimationComponent(this, "playerIdle", this.getComponent("sprite")));
-        this.addComponent("playerStat", new PlayerStatsComponent(this));
         this.addComponent("characterController", new CharacterControllerComponent(this));
         this.addComponent("playerController", new PlayerControllerComponent(this, target));
         this.addComponent("playerStat", new PlayerStatsComponent(this));

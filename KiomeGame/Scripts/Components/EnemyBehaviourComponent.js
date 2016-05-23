@@ -8,6 +8,8 @@ function EnemyBehaviourComponent(parent) {
     var direction;
     var enemySpeed = 150;
 
+    var characterController;
+
     this.changeDirection = function () {
         lastChangedDirection = Date.now();
         timeNextChangeDirection = Math.random() * 2000 + 2000;
@@ -16,6 +18,7 @@ function EnemyBehaviourComponent(parent) {
 
     this.onCreate = function (parent) {
         this.parent = parent;
+        characterController = this.parent.getComponent("characterController");
         this.changeDirection();
     };
 
@@ -30,9 +33,11 @@ function EnemyBehaviourComponent(parent) {
         }
 
         var toMove = new Vector2(direction.x, direction.y);
-        toMove.multiplyByScalar(deltaTime * enemySpeed);
         this.parent.rotation = toMove.angle();
-        this.parent.getComponent("rigidBody").move(toMove, this.onCollision, this);
+
+        characterController.move(toMove, deltaTime);
+        /*toMove.multiplyByScalar(deltaTime * enemySpeed);
+        this.parent.getComponent("rigidBody").move(toMove, this.onCollision, this);*/
     };
 
     this.onCreate(parent);

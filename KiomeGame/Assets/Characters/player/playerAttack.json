@@ -238,6 +238,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -263,6 +269,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -288,6 +300,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -313,6 +331,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -338,6 +362,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -363,6 +393,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -388,6 +424,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -413,6 +455,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -438,6 +486,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -463,6 +517,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -488,6 +548,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -513,6 +579,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -538,6 +610,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -563,6 +641,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },  
@@ -588,6 +672,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   }, 
@@ -613,6 +703,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   }, 
@@ -638,6 +734,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   }, 
@@ -663,6 +765,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -688,6 +796,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -713,6 +827,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -738,6 +858,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -763,6 +889,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   }, 
@@ -788,6 +920,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -813,6 +951,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   },
@@ -838,6 +982,12 @@
       "damageCollisionBox": {
       },
       "attackCollisionBox": {
+        "shape": "circle",
+        "center": {
+          "x": 126,
+          "y": 150
+        },
+        "radius": 25
       }
     }
   }

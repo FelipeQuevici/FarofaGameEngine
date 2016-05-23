@@ -4,7 +4,6 @@
 
 
 function EnemyGameObject(scene, position, rotation) {
-
     function onCreate(scene, position, rotation) {
         this.onCreateGameObject(scene, position, rotation , 'enemy');
     }
@@ -17,8 +16,14 @@ function EnemyGameObject(scene, position, rotation) {
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
-            "enemy_idle1"
+            "enemyIdle1"
             ));
+
+        this.addComponent("animation", new AnimationComponent(this, "enemyIdle", this.getComponent("sprite")));
+        var character = this.addComponent("characterController", new CharacterControllerComponent(this));
+        character.setWalkAnimation("enemyWalking");
+        character.setIdleAnimation("enemyIdle");
+        character.setMeleeAttackAnimation("enemyAttack");
 
         this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this));
         this.addComponent("enemyStats", new EnemyStatsComponent(this));

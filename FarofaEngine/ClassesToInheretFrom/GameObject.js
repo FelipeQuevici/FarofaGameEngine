@@ -56,6 +56,7 @@ function GameObject(scene, position, rotation, tag) {
 
     this.addComponent = function (name, component) {
         this.components[name] = component;
+        return component;
     };
 
     this.getComponent = function (name) {

@@ -26,6 +26,19 @@ function CharacterControllerComponent(parent) {
     var idleAnimation = "playerIdle";
     var meleeAttackAnimation = "playerAttack";
 
+
+    this.setWalkAnimation = function (value) {
+        walkAnimation = value;
+    };
+
+    this.setIdleAnimation = function (value) {
+        idleAnimation = value;
+    };
+
+    this.setMeleeAttackAnimation = function (value) {
+        meleeAttackAnimation = value;
+    };
+
     this.move = function (amount,  deltaTime) {
         var moveDirection = amount.copy();
        if(moveDirection.x != 0 || moveDirection.y != 0){
@@ -121,7 +134,9 @@ function CharacterControllerComponent(parent) {
     };
 
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
+        console.log("update rangede");
         if (isRangedAttackAnimationOver()) {
+            console.log("Deveria atirar");
             this.throwProjectile();
             functionOnOver.call(caller);
         }
@@ -131,6 +146,7 @@ function CharacterControllerComponent(parent) {
         var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+40),
             "poo", polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
+        console.log("ASD");
     };
 
     this.onCreate(parent);
