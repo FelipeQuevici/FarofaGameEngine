@@ -41,17 +41,16 @@ function PlayerStatsComponent(parent) {
     };
     
     var waveStarted = function (){
-    	var waveState = true;
+    	waveState = true;
     };
     
     var waveEnded = function (){
-    	var waveState = false;
+    	waveState = false;
     	this.adrenaline = 10;
     };
     
-    this.onUpdate = function (deltaTime) {
-    	console.log("adrenaline: "+this.adrenaline);
-    	if(waveState){
+    this.onUpdate = function (deltaTime) {    	
+    	if(waveState){    		
     		this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
         	if(this.adrenaline <= 0){
         		this.adrenaline = 0;
