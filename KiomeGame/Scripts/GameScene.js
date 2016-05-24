@@ -61,6 +61,7 @@ function GameScene() {
 
         if (enemies.length == 0 && enemiesSpawnedThisWave == enemiesToSpawnThisWave) {
             timeWhenLastWaveEnded = Date.now();
+            EventCenterInstance.getInstance().callEvent("waveEnded",this);
             currentState = "waitingNextWave";
             wavesCleared++;
         }
@@ -74,6 +75,7 @@ function GameScene() {
         if (Date.now() - timeWhenLastWaveEnded > timeBetweenWaves) {
             enemiesSpawnedThisWave = 0;
             enemiesToSpawnThisWave = wavesCleared;
+            EventCenterInstance.getInstance().callEvent("waveStarted",this);
             currentState = "fightingWave";
         }
     }
