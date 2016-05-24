@@ -12,7 +12,7 @@ function PlayerStatsComponent(parent) {
         this.maxHealth = 6;
         this.currentHealth = this.maxHealth;
         currentMoney = 0;
-        EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied);
+        EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied, this);
     };
 
     this.removeLife = function (amount) {

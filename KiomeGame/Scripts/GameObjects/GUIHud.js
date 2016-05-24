@@ -40,7 +40,7 @@ function PlayerLifeGUIGameObject(scene, player, index) {
     this.onInitialize = function () {
         setType.call(this, index);
         this.addComponent("sprite", new SpriteComponent(this,0,"GUI",type));
-        EventCenterInstance.getInstance().subscribeEvent("playerLoseHealth", this.playerLoseHealth);
+        EventCenterInstance.getInstance().subscribeEvent("playerLoseHealth", this.playerLoseHealth, this);
     };
 
     onCreate.call(this, scene);

@@ -127,6 +127,11 @@ function Scene() {
                 this.collisionSystem.removeBody(collisionBox);
             }
 
+            var attackBox = object.getComponent("attackCollisionBox");
+            if (attackBox) {
+                this.collisionSystem.removeBody(attackBox);
+            }
+
             this.objects.splice(index,1);
         }
         destroyList = [];

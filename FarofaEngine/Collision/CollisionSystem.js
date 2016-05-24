@@ -32,6 +32,10 @@ function CollisionSystem() {
         for(var i = 0; i < componentsListToCheck.length; i++){
         	if(!componentsListToCheck[i].enable)
         		continue;
+
+			if (componentsListToCheck[i].parent.wasDestroyed)
+				continue;
+
         	if(componentsListToCheck[i] != thisCollisionComponent){
         		if(thisCollisionComponent.collisionInfo instanceof Rectangle && componentsListToCheck[i].collisionInfo instanceof Rectangle){
         			if(checkCollisionBetweenRectangles(thisCollisionComponent, componentsListToCheck[i])){

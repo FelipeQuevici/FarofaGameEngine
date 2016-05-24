@@ -5,11 +5,16 @@ function EventCenter() {
 
     this.initialize();
 
-    this.subscribeEvent = function (eventName, functionToFire) {
+    function FunctionCaller(functionName, owner) {
+        this.functionName = functionName;
+        this.owner = owner;
+    }
+
+    this.subscribeEvent = function (eventName, functionToFire, owner) {
         if (!this.events.hasOwnProperty(eventName)) {
             this.events[eventName] = [];
         }
-        this.events[eventName].push(functionToFire);
+        this.events[eventName].push(new FunctionCaller(functionToFire, owner));
     };
 
     this.unsubscribeEvent = function (eventName, functionToUnsubscribe) {
@@ -31,7 +36,7 @@ function EventCenter() {
         args["sender"] = sender;
         
         for (var i = 0; i < this.events[eventName].length; i++) {
-            this.events[eventName][i].call(null, args);
+            this.events[eventName][i].functionName.call(this.events[eventName][i].owner, args);
         }
     };
 }
