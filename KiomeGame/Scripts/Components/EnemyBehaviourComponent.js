@@ -2,11 +2,14 @@
  * Created by Felipe on 16/05/2016.
  */
 
-function EnemyBehaviourComponent(parent) {
+function EnemyBehaviourComponent(parent, target) {
     var lastChangedDirection;
     var timeNextChangeDirection;
     var direction;
     var enemySpeed = 150;
+
+
+    var attackDistance = 30;
 
     var characterController;
 
@@ -26,16 +29,32 @@ function EnemyBehaviourComponent(parent) {
         return Date.now() - lastChangedDirection > timeNextChangeDirection;
     }
 
+    var isMoving = true;
+    var lastToMove;
+
+    function goBackToMove() {
+        isMoving = true;
+    }
+
     this.onPreUpdate = function (deltaTime) {
-        if (shouldChangeDirection())
-        {
-            this.changeDirection();
+
+        if (isMoving) {
+            this.parent.rotation =  angleBetweenTwoPoints(this.parent.position, target.position);
+            var toMove = polarToVector(1, this.parent.rotation);
+            lastToMove = toMove.copy();
+            var distance = distanceBetweenTwoPoints(this.parent.position, target.position);
+            console.log(distance);
+            if (distance < attackDistance) {
+                console.log("Deve atacar");
+                characterController.enterMeleeAttackState();
+                isMoving = false;
+            }
+            characterController.move(toMove, deltaTime);
+        }
+        else {
+            characterController.meleeAttackUpdate(lastToMove,deltaTime,goBackToMove, this);
         }
 
-        var toMove = new Vector2(direction.x, direction.y);
-        this.parent.rotation = toMove.angle();
-
-        characterController.move(toMove, deltaTime);
         /*toMove.multiplyByScalar(deltaTime * enemySpeed);
         this.parent.getComponent("rigidBody").move(toMove, this.onCollision, this);*/
     };

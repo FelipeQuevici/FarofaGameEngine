@@ -80,14 +80,14 @@ function PlayerControllerComponent(parent, target) {
         if (InputManager.isKeyPressed("dash")) {
             var now = Date.now();
             if (now - lastDash > dashCoolDown) {
+                characterController.enterDashSate();
+                currentState = "dashing";
                 if (lastDirection.x == 0 && lastDirection.y == 0) {
                     var direction = Math.round(this.parent.rotation / (360 / (9) ));
                     if (direction > 8) direction = 0;
                     lastDirection = polarToVector(1, direction * (360 / (9)));
                 }
             }
-            characterController.enterDashSate();
-            currentState = "dashing";
             return;
         }
 

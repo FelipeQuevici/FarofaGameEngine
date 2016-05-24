@@ -3,16 +3,16 @@
  */
 
 
-function EnemyGameObject(scene, position, rotation) {
+function EnemyGameObject(scene, position, rotation, target) {
     function onCreate(scene, position, rotation) {
         this.onCreateGameObject(scene, position, rotation , 'enemy');
     }
 
-    onCreate.call(this, scene, position, rotation);
-
     this.onInitialize = function () {
         this.addComponent("rigidBody", new RigidBodyComponent(this));
-
+        this.addComponent("attackCollisionBox", new CollisionBoxComponent(this));
+        this.getComponent("attackCollisionBox").enable = false;
+        
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
@@ -25,9 +25,12 @@ function EnemyGameObject(scene, position, rotation) {
         character.setIdleAnimation("enemyIdle");
         character.setMeleeAttackAnimation("enemyAttack");
 
-        this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this));
+        this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this, target));
         this.addComponent("enemyStats", new EnemyStatsComponent(this));
     };
+
+    onCreate.call(this, scene, position, rotation, target);
+
 }
 
 EnemyGameObject.inheritsFrom(GameObject);
