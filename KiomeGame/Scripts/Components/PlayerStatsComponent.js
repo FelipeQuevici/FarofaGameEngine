@@ -13,7 +13,7 @@ function PlayerStatsComponent(parent) {
         this.maxHealth = 6;
         this.currentHealth = this.maxHealth;
         this.adrenaline = 10;
-        this.adrenalineSpeed = 0.2;
+        this.adrenalineReductionSpeed = 2;
         this.moveSpeed = 200;
         currentMoney = 0;
         playerController = this.parent.getComponent("playerController");
@@ -34,18 +34,21 @@ function PlayerStatsComponent(parent) {
         var enemy = args["enemy"];
         var value = enemy.getComponent("stats").money;
         currentMoney += value;
-        this.adrenaline += 1;
+        this.adrenaline += 20;
+        console.log("adrenaline: "+this.adrenaline);
     };
     
     this.onUpdate = function (deltaTime) {
-    	this.adrenaline -= this.adrenalineSpeed * deltaTime;    
+    	this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
     	if(this.adrenaline <= 0){
+    		console.log("adrenaline: "+this.adrenaline);
     		this.adrenaline = 0;
-    		playerController.setMoveSpeed(this.moveSpeed / 10);
+    		playerController.setMoveSpeed(this.moveSpeed / 4);
     	}else{
     		playerController.setMoveSpeed(this.moveSpeed);
     	}
+    	
     };    
-
+        
     this.onCreate(parent);
 }
