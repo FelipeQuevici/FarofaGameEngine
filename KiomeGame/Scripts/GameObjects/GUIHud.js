@@ -6,42 +6,45 @@ PlayerLifeGUIGameObject.inheritsFrom(GameObject);
 
 function PlayerLifeGUIGameObject(scene, player, index) {
 
-    var setType = function () {
-        var currentLife = this.player.getComponent("playerStat").currentHealth;
+   var type;
 
-        if (currentLife >= (this.index + 1) * 2) {
-            this.type = "Life";
+    var setType = function () {
+        var currentLife = player.getComponent("stats").currentHealth;
+
+        if (currentLife >= (index + 1) * 2) {
+            type = "Life";
         }
-        else if (currentLife > (this.index)(2)) {
-            this.type = "Half_life";
+        else if (currentLife > (index) * (2)) {
+            type = "Half_Life";
         }
         else {
-            this.type = "Empty_Life";
+            type = "Empty_Life";
         }
     };
 
-    function onCreate(scene, player, index) {
+    function onCreate(scene) {
         this.onCreateGameObject(scene,new Vector2(10+85*index,10),0);
-        this.index = index;
-        this.player = player;
+        type = "Life";
     }
 
-    this.updateSprite = function () {
-        this.parent.getComponent("sprite").setSpriteName(this.type);
+    var updateSprite = function () {
+        this.getComponent("sprite").setSpriteName(type);
     };
+
 
     this.playerLoseHealth = function() {
         setType.call(this);
-        this.updateSprite();
+        updateSprite.call(guihud);
     };
 
     this.onInitialize = function () {
         setType.call(this, index);
-        this.addComponent("sprite", new SpriteComponent(this,0,"GUI",this.type));
+        this.addComponent("sprite", new SpriteComponent(this,0,"GUI",type));
         EventCenterInstance.getInstance().subscribeEvent("playerLoseHealth", this.playerLoseHealth);
     };
 
-    onCreate.call(this, scene, player, index);
+    onCreate.call(this, scene);
+    var guihud = this;
 }
 
 MoneyTextGUIGameObject.inheritsFrom(GameObject);
@@ -59,7 +62,7 @@ function MoneyTextGUIGameObject(scene, player) {
     this.onUpdate = function (deltaTime) {
         //console.log(this.player.getComponent("playerStat"));
         //console.log(this.player.getComponent("playerStat").getCurrentMoney());
-        this.getComponent("textComponent").setText("x " + this.player.getComponent("playerStat").getCurrentMoney());
+        this.getComponent("textComponent").setText("x " + this.player.getComponent("stats").getCurrentMoney());
     };
 
     onCreate.call(this, scene, player);

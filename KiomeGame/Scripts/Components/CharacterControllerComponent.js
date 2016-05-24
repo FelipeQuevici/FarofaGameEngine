@@ -96,11 +96,15 @@ function CharacterControllerComponent(parent) {
 
     var attackHitTag = "enemy";
 
+    this.setHitTag = function (value) {
+        attackHitTag = value;
+    };
+
     this.onAttackHit = function (collisions) {
         for (var collision in collisions) {
             var collidedObject = collisions[collision].parent;
-            if (collidedObject.tag == attackHitTag && hitList.indexOf(collidedObject) == -1) {
-                collidedObject.getComponent("enemyStats").removeLife(1);
+            if (collidedObject.tag == attackHitTag && !collidedObject.wasDestroyed && hitList.indexOf(collidedObject) == -1) {
+                collidedObject.getComponent("stats").removeLife(1);
                 hitList.push(collidedObject);
             }
         }
@@ -134,9 +138,7 @@ function CharacterControllerComponent(parent) {
     };
 
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
-        console.log("update rangede");
         if (isRangedAttackAnimationOver()) {
-            console.log("Deveria atirar");
             this.throwProjectile();
             functionOnOver.call(caller);
         }
@@ -146,7 +148,6 @@ function CharacterControllerComponent(parent) {
         var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+40),
             "poo", polarToVector(1,this.parent.rotation));
         this.parent.scene.createObject(bulletTest);
-        console.log("ASD");
     };
 
     this.onCreate(parent);

@@ -21,8 +21,8 @@ function ProjectileBehaviourComponent(parent, direction) {
     this.onCollision = function(collisions) {
         for (var collision in collisions) {
             var collidedObject = collisions[collision].parent;
-            if (collidedObject.tag == "enemy") {
-                collidedObject.getComponent("enemyStats").removeLife(1);
+            if (collidedObject.tag == "enemy" && !collidedObject.wasDestroyed) {
+                collidedObject.getComponent("stats").removeLife(1);
                 this.parent.scene.destroyObject(this.parent);
                 return;
             }

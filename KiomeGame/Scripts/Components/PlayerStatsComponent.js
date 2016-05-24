@@ -15,13 +15,18 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied);
     };
 
+    this.removeLife = function (amount) {
+        this.currentHealth -= amount;
+        EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
+    };
+
     this.getCurrentMoney = function () {
         return currentMoney;
     };
 
     var enemyDied = function (args) {
         var enemy = args["enemy"];
-        var value = enemy.getComponent("enemyStats").money;
+        var value = enemy.getComponent("stats").money;
         currentMoney += value;
     };
 

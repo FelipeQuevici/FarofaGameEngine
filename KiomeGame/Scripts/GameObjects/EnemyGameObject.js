@@ -10,9 +10,10 @@ function EnemyGameObject(scene, position, rotation, target) {
 
     this.onInitialize = function () {
         this.addComponent("rigidBody", new RigidBodyComponent(this));
-        this.addComponent("attackCollisionBox", new CollisionBoxComponent(this));
-        this.getComponent("attackCollisionBox").enable = false;
-        
+        var attackCollisionBox = this.addComponent("attackCollisionBox", new CollisionBoxComponent(this));
+        attackCollisionBox.enable = false;
+        attackCollisionBox.collisionInfo = new Circle(0,0);
+
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
@@ -24,9 +25,10 @@ function EnemyGameObject(scene, position, rotation, target) {
         character.setWalkAnimation("enemyWalking");
         character.setIdleAnimation("enemyIdle");
         character.setMeleeAttackAnimation("enemyAttack");
+        character.setHitTag("player");
 
         this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this, target));
-        this.addComponent("enemyStats", new EnemyStatsComponent(this));
+        this.addComponent("stats", new EnemyStatsComponent(this));
     };
 
     onCreate.call(this, scene, position, rotation, target);

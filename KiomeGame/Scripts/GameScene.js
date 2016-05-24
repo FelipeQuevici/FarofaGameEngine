@@ -73,7 +73,7 @@ function GameScene() {
     function waitingNextWaveState() {
         if (Date.now() - timeWhenLastWaveEnded > timeBetweenWaves) {
             enemiesSpawnedThisWave = 0;
-            enemiesToSpawnThisWave = wavesCleared + 1;
+            enemiesToSpawnThisWave = wavesCleared;
             currentState = "fightingWave";
         }
     }

@@ -22,7 +22,7 @@ var FarofaGame = (function () {
             millisecondsLastUpdate = timeNow;
             SceneManager.update(deltaTime);
             SceneManager.draw(renderer);
-            //SceneManager.drawCollisions(renderer);
+            SceneManager.drawCollisions(renderer);
         }
     }
     

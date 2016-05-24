@@ -12,8 +12,9 @@ function PlayerGameObject(scene, position, target) {
 
     this.onInitialize = function () {
         this.addComponent("rigidBody", new RigidBodyComponent(this));
-        this.addComponent("attackCollisionBox", new CollisionBoxComponent(this));
-        this.getComponent("attackCollisionBox").enable = false;
+        var attackCollision = this.addComponent("attackCollisionBox", new CollisionBoxComponent(this));
+        attackCollision.enable = false;
+        attackCollision.collisionInfo = new Circle(0,0);
         //this.addComponent("damageCollisionBox", new CollisionBoxComponent(this));
        // this.getComponent("damageCollisionBox").enable = false;
 
@@ -25,8 +26,7 @@ function PlayerGameObject(scene, position, target) {
         this.addComponent("animation", new AnimationComponent(this, "playerIdle", this.getComponent("sprite")));
         this.addComponent("characterController", new CharacterControllerComponent(this));
         this.addComponent("playerController", new PlayerControllerComponent(this, target));
-        this.addComponent("playerStat", new PlayerStatsComponent(this));
-        console.log(this);
+        this.addComponent("stats", new PlayerStatsComponent(this));
     };
 }
 

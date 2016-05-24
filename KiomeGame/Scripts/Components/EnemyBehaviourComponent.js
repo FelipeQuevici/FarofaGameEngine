@@ -43,20 +43,16 @@ function EnemyBehaviourComponent(parent, target) {
             var toMove = polarToVector(1, this.parent.rotation);
             lastToMove = toMove.copy();
             var distance = distanceBetweenTwoPoints(this.parent.position, target.position);
-            console.log(distance);
             if (distance < attackDistance) {
-                console.log("Deve atacar");
                 characterController.enterMeleeAttackState();
                 isMoving = false;
+                return;
             }
             characterController.move(toMove, deltaTime);
         }
         else {
             characterController.meleeAttackUpdate(lastToMove,deltaTime,goBackToMove, this);
         }
-
-        /*toMove.multiplyByScalar(deltaTime * enemySpeed);
-        this.parent.getComponent("rigidBody").move(toMove, this.onCollision, this);*/
     };
 
     this.onCreate(parent);
