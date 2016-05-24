@@ -115,7 +115,10 @@ function PlayerControllerComponent(parent, target) {
     function dashingState(deltaTime) {
         characterController.dashUpdate(deltaTime,lastDirection,finishDash,this);
     }
-
+    
+    this.setMoveSpeed = function (speed){
+    	characterController.setMoveSpeed(speed);
+    };
     
     this.onPreUpdate = function (deltaTime) {
         playerStates[currentState].call(this, deltaTime);

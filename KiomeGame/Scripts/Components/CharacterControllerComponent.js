@@ -26,6 +26,9 @@ function CharacterControllerComponent(parent) {
     var idleAnimation = "playerIdle";
     var meleeAttackAnimation = "playerAttack";
 
+    this.setMoveSpeed = function(speed){
+    	moveSpeed = speed;
+    };
 
     this.setWalkAnimation = function (value) {
         walkAnimation = value;
