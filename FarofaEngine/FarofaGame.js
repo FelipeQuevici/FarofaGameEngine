@@ -57,7 +57,7 @@ var FarofaGame = (function () {
 
     return {
         addScene: function (scene, name) {
-            scene.onInternalInitialize();
+            //scene.onInternalInitialize();
             SceneManager.addScene(scene, name);
         },
         setInitialScene: function (name) {

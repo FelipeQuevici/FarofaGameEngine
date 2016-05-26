@@ -44,6 +44,7 @@ var SceneManager = (function () {
 
         addScene : function (scene, name) {
             scenesNames[name] = scenes.length;
+            scene.onInternalInitialize();
             scenes.push(scene);
         },
 

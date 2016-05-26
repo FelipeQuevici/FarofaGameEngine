@@ -22,4 +22,8 @@ function Component () {
     this.onPostUpdate = function () {
         
     };
+
+    this.reset = function () {
+
+    };
 }

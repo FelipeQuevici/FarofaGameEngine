@@ -10,25 +10,33 @@ function PlayerStatsComponent(parent) {
     var waveState = false;
     var addAdrenaline = 0;
     var maxAdrenaline = 10;
-    
+
+    this.reset = function () {
+        this.currentHealth = this.maxHealth;
+        currentMoney = 0;
+        this.moveSpeed = 200;
+        playerController.setMoveSpeed(this.moveSpeed);
+    };
+
     this.onCreate = function (parent) {
         this.parent = parent;
         this.maxHealth = 6;
-        this.currentHealth = this.maxHealth;
         this.adrenaline = maxAdrenaline;
         this.adrenalineReductionSpeed = 0.7;
-        this.moveSpeed = 200;
-        currentMoney = 0;
         playerController = this.parent.getComponent("playerController");
-        playerController.setMoveSpeed(this.moveSpeed);
         EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied, this);
         EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
+        this.reset();
     };
 
     this.removeLife = function (amount) {
         this.currentHealth -= amount;
         EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
+
+        if (this.currentHealth <= 0) {
+            this.parent.scene.gameOver();
+        }
     };
 
     this.getCurrentMoney = function () {

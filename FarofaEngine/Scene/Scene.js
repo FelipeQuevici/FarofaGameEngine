@@ -37,7 +37,6 @@ function Scene() {
     };
 
     this.onPreEnter = function () {
-        
         this.subscribeEvents();
         this.onEnter();
     };
@@ -130,6 +129,11 @@ function Scene() {
             var attackBox = object.getComponent("attackCollisionBox");
             if (attackBox) {
                 this.collisionSystem.removeBody(attackBox);
+            }
+
+            var textComponent = object.getComponent("textComponent");
+            if (textComponent) {
+                this.layers[this.layersNames[textComponent.layer]].removeSpriteComponent(textComponent);
             }
 
             this.objects.splice(index,1);
