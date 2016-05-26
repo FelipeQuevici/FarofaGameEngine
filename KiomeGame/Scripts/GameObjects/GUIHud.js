@@ -115,7 +115,7 @@ function AdrenalineBarGUIGameObject(scene, player) {
     };
     
     this.onUpdate = function (deltaTime) {
-    	this.getComponent("sprite").sprite.spriteInformation.w = (barWidth * playerStats.adrenaline) / 10;
+    	this.getComponent("sprite").sprite.spriteInformation.w = (barWidth * playerStats.adrenaline) / playerStats.getMaxAdrenaline();
     };
     
     onCreate.call(this, scene, player);
