@@ -82,3 +82,41 @@ function MoneyImageGUIGameObject(scene) {
     
     onCreate.call(this, scene);
 }
+
+AdrenalineBorderGUIGameObject.inheritsFrom(GameObject);
+
+function AdrenalineBorderGUIGameObject(scene) {
+    function onCreate(scene) {
+        this.onCreateGameObject(scene, new Vector2(30,90),0);
+    }
+    
+    this.onInitialize = function () {
+        this.addComponent("sprite", new SpriteComponent(this,0,"GUI","Stamina_Empty"));
+    };    
+    
+    onCreate.call(this, scene);
+}
+
+AdrenalineBarGUIGameObject.inheritsFrom(GameObject);
+
+function AdrenalineBarGUIGameObject(scene, player) {
+	var playerStats;
+	var barWidth;
+	
+    function onCreate(scene, player) {
+        this.onCreateGameObject(scene, new Vector2(30,90),0);
+        this.player = player;        
+    }
+    
+    this.onInitialize = function () {
+        this.addComponent("sprite", new SpriteComponent(this,0,"GUI","Stamina_Bar"));
+        playerStats = this.player.getComponent("stats");
+        barWidth = this.getComponent("sprite").sprite.spriteInformation.w;
+    };    
+    
+    this.onUpdate = function (deltaTime) {
+    	this.getComponent("sprite").sprite.spriteInformation.w = (barWidth * playerStats.adrenaline) / 10;
+    };
+    
+    onCreate.call(this, scene, player);
+}
