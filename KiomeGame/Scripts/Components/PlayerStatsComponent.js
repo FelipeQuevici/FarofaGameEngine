@@ -16,7 +16,7 @@ function PlayerStatsComponent(parent) {
         this.maxHealth = 6;
         this.currentHealth = this.maxHealth;
         this.adrenaline = maxAdrenaline;
-        this.adrenalineReductionSpeed = 1.5;
+        this.adrenalineReductionSpeed = 0.7;
         this.moveSpeed = 200;
         currentMoney = 0;
         playerController = this.parent.getComponent("playerController");
