@@ -34,6 +34,10 @@ function PlayerStatsComponent(parent) {
     this.getCurrentMoney = function () {
         return currentMoney;
     };
+    
+    this.getMaxAdrenaline = function () {
+    	return maxAdrenaline;
+    };
 
     var enemyDied = function (args) {
         var enemy = args["enemy"];
