@@ -24,7 +24,9 @@ function PlayerGameObject(scene, position, target) {
             "playerIdle1"));
         
         this.addComponent("animation", new AnimationComponent(this, "playerIdle", this.getComponent("sprite")));
-        this.addComponent("characterController", new CharacterControllerComponent(this));
+        var cc = this.addComponent("characterController", new CharacterControllerComponent(this));
+        cc.setShouldKnockBack(true);
+
         this.addComponent("playerController", new PlayerControllerComponent(this, target));
         this.addComponent("stats", new PlayerStatsComponent(this));
     };

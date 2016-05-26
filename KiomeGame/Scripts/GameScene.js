@@ -141,6 +141,9 @@ function GameScene() {
             }
         }
 
+        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60));
+        this.addObject(drinkingSale);
+
 
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
         this.addObject(hudLife1);
@@ -159,8 +162,8 @@ function GameScene() {
     var borderSize = 50;
     var allCanvasWidth = canvas.width+2*borderSize;
     var allCanvasHeight = canvas.height+2*borderSize;
-    var amplitude = 5;
-    var freq = 1 * 2 * Math.PI * 0.01;
+    var amplitude = 10;
+    var freq = 1/10 * 2 * Math.PI * 0.01;
     var elapsed = 0;
     var elapsedChange = 20  ;
 
@@ -169,9 +172,9 @@ function GameScene() {
         context.fillStyle = "black";
         context.fillText(currentState, 10, 10);*/
 
-        /*var context = renderer.getContext();
+        var context = renderer.getContext();
 
-        context.fillText(fps.getFPS(),10,10);
+        /*context.fillText(fps.getFPS(),10,10);
         context.fill();
 
         
@@ -217,8 +220,8 @@ function GameScene() {
         }
         elapsed+=elapsedChange;
 
-        context.putImageData(imageData,-borderSize,- borderSize);
-*/
+        context.putImageData(imageData,-borderSize,- borderSize);*/
+
     };
 }
 

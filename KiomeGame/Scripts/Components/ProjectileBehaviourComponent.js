@@ -4,25 +4,34 @@
 
 ProjectileBehaviourComponent.inheritsFrom(Component);
 
-function ProjectileBehaviourComponent(parent, direction) {
+function ProjectileBehaviourComponent(parent, direction, collideTag) {
     var timeCreated;
     var duration;
     var projectileSpeed;
 
-    this.onCreate = function (parent, direction) {
+    this.onCreate = function (parent, direction, collideTag) {
         this.parent = parent;
         direction.normalize();
         projectileSpeed = 300;
         direction.multiplyByScalar(projectileSpeed);
         timeCreated = Date.now();
         duration = 5000;
+        this.collideTag = collideTag || "enemy";
     };
 
     this.onCollision = function(collisions) {
         for (var collision in collisions) {
             var collidedObject = collisions[collision].parent;
-            if (collidedObject.tag == "enemy" && !collidedObject.wasDestroyed) {
-                collidedObject.getComponent("stats").removeLife(1);
+            if (collidedObject.tag == this.collideTag && !collidedObject.wasDestroyed) {
+                var enemyBehaviour = collidedObject.getComponent("enemyBehaviour");
+                if (enemyBehaviour) {
+                    collidedObject.getComponent("characterController").stun(1000);
+                    enemyBehaviour.setIsMelee(true);
+                }
+                var playerController = collidedObject.getComponent("playerController");
+                if (playerController) {
+                    collidedObject.getComponent("stats").removeLife(1);
+                }
                 this.parent.scene.destroyObject(this.parent);
                 return;
             }
@@ -44,5 +53,5 @@ function ProjectileBehaviourComponent(parent, direction) {
     };
 
 
-    this.onCreate(parent, direction);
+    this.onCreate(parent, direction, collideTag);
 }

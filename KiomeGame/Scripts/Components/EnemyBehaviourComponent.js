@@ -6,10 +6,10 @@ function EnemyBehaviourComponent(parent, target) {
     var lastChangedDirection;
     var timeNextChangeDirection;
     var direction;
-    var enemySpeed = 150;
+    var isMelee = true;
 
-
-    var attackDistance = 30;
+    var attackMeleeDistance = 30;
+    var attackRangedDistance = 300;
 
     var characterController;
 
@@ -25,9 +25,9 @@ function EnemyBehaviourComponent(parent, target) {
         this.changeDirection();
     };
 
-    function shouldChangeDirection() {
-        return Date.now() - lastChangedDirection > timeNextChangeDirection;
-    }
+    this.setIsMelee = function (value) {
+        isMelee = value;
+    };
 
     var isMoving = true;
     var lastToMove;
@@ -37,22 +37,44 @@ function EnemyBehaviourComponent(parent, target) {
     }
 
     this.onPreUpdate = function (deltaTime) {
-
-        if (isMoving) {
-            this.parent.rotation =  angleBetweenTwoPoints(this.parent.position, target.position);
-            var toMove = polarToVector(1, this.parent.rotation);
-            lastToMove = toMove.copy();
-            var distance = distanceBetweenTwoPoints(this.parent.position, target.position);
-            if (distance < attackDistance) {
-                characterController.enterMeleeAttackState();
-                isMoving = false;
-                return;
-            }
-            characterController.move(toMove, deltaTime);
+        if (characterController.isBeingKnockedBack()) {
+            characterController.knockBackState(deltaTime, goBackToMove, this);
+        }
+        else if (characterController.isStuned()) {
+            characterController.stunUpdate(deltaTime, goBackToMove, this);
         }
         else {
-            characterController.meleeAttackUpdate(lastToMove,deltaTime,goBackToMove, this);
+            if (isMoving) {
+                this.parent.rotation =  angleBetweenTwoPoints(this.parent.position, target.position);
+                var toMove = polarToVector(1, this.parent.rotation);
+                lastToMove = toMove.copy();
+                var distance = distanceBetweenTwoPoints(this.parent.position, target.position);
+                if (isMelee) {
+                    if (distance < attackMeleeDistance) {
+                        characterController.enterMeleeAttackState();
+                        isMoving = false;
+                        return;
+                    }
+                }
+                else {
+                    if (distance < attackRangedDistance) {
+                        characterController.enterRangedAttack();
+                        isMoving = false;
+                        return;
+                    }
+                }
+                characterController.move(toMove, deltaTime);
+            }
+            else {
+                if (isMelee) {
+                    characterController.meleeAttackUpdate(lastToMove, deltaTime, goBackToMove, this);
+                }
+                else {
+                    characterController.rangedAttack(deltaTime, goBackToMove, this);
+                }
+            }
         }
+
     };
 
     this.onCreate(parent);

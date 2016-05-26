@@ -25,6 +25,25 @@ function CharacterControllerComponent(parent) {
     var walkAnimation = "playerWalking";
     var idleAnimation = "playerIdle";
     var meleeAttackAnimation = "playerAttack";
+    var knockBackAnimation = "playerIdle";
+    var rangedAttackanimation = "playerIdle";
+    var stunedAnimation = "playerIdle";
+
+
+    var animationStartTime;
+    var attack1AnimationDuration = 500;
+
+    var attack2AnimationDuration = 500;
+
+    this.setRangedAttackDuration = function (value) {
+        attack2AnimationDuration = value;
+    };
+
+    var dashAnimationDuration = 100;
+
+    var knockBackSpeed = 200;
+    var knowBackDuration = 200;
+
 
     this.setMoveSpeed = function(speed){
     	moveSpeed = speed;
@@ -58,25 +77,88 @@ function CharacterControllerComponent(parent) {
        }
    };
 
+    var knockBackDirection;
+    var isKnockingBack = false;
+
+    this.isBeingKnockedBack = function () {
+        return isKnockingBack;
+    };
+
+    function isKnockBackOver() {
+        return Date.now() - animationStartTime > knowBackDuration;
+    }
+
+    this.enterKnockBackState = function (direction) {
+        animationStartTime = Date.now();
+        if(!animationComponent.isAnimationPlaying(knockBackAnimation)){
+            animationComponent.setAnimation(AnimationManager.getAnimation(knockBackAnimation));
+        }
+        isKnockingBack = true;
+        knockBackDirection = direction;
+    };
+
+    var shouldKnockBack = false;
+
+    this.setShouldKnockBack = function (value) {
+        shouldKnockBack = value;
+    };
+
+    this.knockBackState = function (deltaTime, functionOver, caller) {
+        if (isKnockBackOver()) {
+            animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
+            functionOver.call(caller);
+            isKnockingBack = false;
+            return;
+        }
+
+        var moveDirection = knockBackDirection.copy();
+        moveDirection.multiplyByScalar(knockBackSpeed * deltaTime);
+        if(moveDirection.x != 0 || moveDirection.y != 0){
+            rigidBodyComponent.move(moveDirection);
+        }
+    };
+
+    var stunDuration;
+
+    function isStunOver() {
+        return Date.now() - animationStartTime > stunDuration;
+    }
+
+    this.stun = function (duration) {
+        stunDuration = duration;
+        isStuned = true;
+        if(!animationComponent.isAnimationPlaying(stunedAnimation)){
+            animationComponent.setAnimation(AnimationManager.getAnimation(stunedAnimation));
+        }
+        animationStartTime = Date.now();
+    };
+
+    var isStuned = false;
+
+    this.isStuned = function () {
+        return isStuned;
+    };
+
+    this.stunUpdate = function (deltaTime, functionOver, caller) {
+        if (isStunOver()) {
+            animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
+            functionOver.call(caller);
+            isStuned = false;
+            return;
+        }
+    };
+
+
     this.enterMeleeAttackState = function () {
-        attackAnimationStartTime = Date.now();
+        animationStartTime = Date.now();
         if(!animationComponent.isAnimationPlaying(meleeAttackAnimation)){
             animationComponent.setAnimation(AnimationManager.getAnimation(meleeAttackAnimation));
         }
         attackCollisionComponent.enable = true;
     };
 
-    var attackAnimationStartTime;
-    var attack1AnimationDuration = 500;
-    var attack2AnimationDuration = 500;
-    var dashAnimationDuration = 100;
-
-    var dashCoolDown = 100;
-    var lastDash = Date.now();
-
-
     function isMeleeAttackAnimationOver() {
-        return Date.now() - attackAnimationStartTime > attack1AnimationDuration;
+        return Date.now() - animationStartTime > attack1AnimationDuration;
     }
 
     this.meleeAttackUpdate = function (direction, deltaTime, functionOnOver, caller) {
@@ -108,17 +190,22 @@ function CharacterControllerComponent(parent) {
             var collidedObject = collisions[collision].parent;
             if (collidedObject.tag == attackHitTag && !collidedObject.wasDestroyed && hitList.indexOf(collidedObject) == -1) {
                 collidedObject.getComponent("stats").removeLife(1);
+                if (shouldKnockBack) {
+                    var angle = angleBetweenTwoPoints(collidedObject.position, this.parent.position);
+                    var direction = polarToVector(1, -angle);
+                    collidedObject.getComponent("characterController").enterKnockBackState(direction);
+                }
                 hitList.push(collidedObject);
             }
         }
     };
 
     function isDashingAnimationOver() {
-        return Date.now() - attackAnimationStartTime > dashAnimationDuration
+        return Date.now() - animationStartTime > dashAnimationDuration
     }
 
     this.enterDashSate = function () {
-        attackAnimationStartTime = Date.now();
+        animationStartTime = Date.now();
     };
 
     this.dashUpdate = function(deltaTime, direction, functionOnOver, caller) {
@@ -133,11 +220,11 @@ function CharacterControllerComponent(parent) {
     };
 
     function isRangedAttackAnimationOver() {
-        return Date.now() - attackAnimationStartTime > attack2AnimationDuration;
+        return Date.now() - animationStartTime > attack2AnimationDuration;
     }
 
     this.enterRangedAttack = function () {
-        attackAnimationStartTime = Date.now();
+        animationStartTime = Date.now();
     };
 
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
@@ -149,7 +236,7 @@ function CharacterControllerComponent(parent) {
 
     this.throwProjectile = function () {
         var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+40),
-            "poo", polarToVector(1,this.parent.rotation));
+            "poo", polarToVector(1,this.parent.rotation), "projectile", attackHitTag);
         this.parent.scene.createObject(bulletTest);
     };
 

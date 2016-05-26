@@ -35,13 +35,13 @@ function PlayerStatsComponent(parent) {
         var value = enemy.getComponent("stats").money;
         currentMoney += value;
         this.adrenaline += 20;
-        console.log("adrenaline: "+this.adrenaline);
+        //console.log("adrenaline: "+this.adrenaline);
     };
     
     this.onUpdate = function (deltaTime) {
     	this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
     	if(this.adrenaline <= 0){
-    		console.log("adrenaline: "+this.adrenaline);
+    		//console.log("adrenaline: "+this.adrenaline);
     		this.adrenaline = 0;
     		playerController.setMoveSpeed(this.moveSpeed / 4);
     	}else{

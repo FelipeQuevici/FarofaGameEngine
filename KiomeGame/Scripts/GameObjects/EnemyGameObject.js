@@ -26,8 +26,10 @@ function EnemyGameObject(scene, position, rotation, target) {
         character.setIdleAnimation("enemyIdle");
         character.setMeleeAttackAnimation("enemyAttack");
         character.setHitTag("player");
+        character.setRangedAttackDuration(1000);
 
-        this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this, target));
+        var e = this.addComponent("enemyBehaviour", new EnemyBehaviourComponent(this, target));
+        e.setIsMelee(false);
         this.addComponent("stats", new EnemyStatsComponent(this));
     };
 
