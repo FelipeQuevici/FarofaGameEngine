@@ -8,13 +8,15 @@ function PlayerStatsComponent(parent) {
     var currentMoney = 0;
     var playerController;
     var waveState = false;
+    var addAdrenaline = 0;
+    var maxAdrenaline = 10;
     
     this.onCreate = function (parent) {
         this.parent = parent;
         this.maxHealth = 6;
         this.currentHealth = this.maxHealth;
-        this.adrenaline = 10;
-        this.adrenalineReductionSpeed = 2;
+        this.adrenaline = maxAdrenaline;
+        this.adrenalineReductionSpeed = 1.5;
         this.moveSpeed = 200;
         currentMoney = 0;
         playerController = this.parent.getComponent("playerController");
@@ -37,7 +39,7 @@ function PlayerStatsComponent(parent) {
         var enemy = args["enemy"];
         var value = enemy.getComponent("stats").money;
         currentMoney += value;
-        this.adrenaline += 1;        
+        addAdrenaline += 1;        
     };
     
     var waveStarted = function (){
@@ -46,7 +48,8 @@ function PlayerStatsComponent(parent) {
     
     var waveEnded = function (){
     	waveState = false;
-    	this.adrenaline = 10;
+    	addAdrenaline = maxAdrenaline;
+    	playerController.setMoveSpeed(this.moveSpeed);
     };
     
     this.onUpdate = function (deltaTime) {    	
@@ -58,7 +61,16 @@ function PlayerStatsComponent(parent) {
         	}else{
         		playerController.setMoveSpeed(this.moveSpeed);
         	}
-    	}    	    
+    	}  
+    	
+    	if(addAdrenaline > 0){
+    		this.adrenaline += this.adrenalineReductionSpeed * deltaTime * 3;    
+    		addAdrenaline -= this.adrenalineReductionSpeed * deltaTime * 3;
+    		if(this.adrenaline >= maxAdrenaline){
+        		this.adrenaline = maxAdrenaline;
+        		addAdrenaline = 0;
+        	}
+    	}
     };    
         
     this.onCreate(parent);

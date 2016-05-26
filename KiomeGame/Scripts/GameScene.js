@@ -154,6 +154,12 @@ function GameScene() {
 
         var moneyIcon = new MoneyImageGUIGameObject(this);
         this.addObject(moneyIcon);
+        
+        var adrenalineBorder = new AdrenalineBorderGUIGameObject(this);
+        this.addObject(adrenalineBorder);
+        
+        var adrenalineBar = new AdrenalineBarGUIGameObject(this, player);
+        this.addObject(adrenalineBar);
     };
 
     var borderSize = 50;
