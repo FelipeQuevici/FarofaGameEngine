@@ -1,0 +1,58 @@
+{ "height":6,
+ "layers":[
+        {
+         "data":[1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":6,
+         "name":"Floor",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":8,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":6,
+         "name":"Walls",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":8,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"left-up",
+ "tileheight":256,
+ "tilesets":[
+        {
+         "columns":2,
+         "firstgid":1,
+         "image":"Gordo\/CSF\/Curso\/CMPM - 120\/Final\/tiles\/tileset.png",
+         "imageheight":1280,
+         "imagewidth":512,
+         "margin":0,
+         "name":"base",
+         "spacing":0,
+         "terrains":[
+                {
+                 "name":"New Terrain",
+                 "tile":-1
+                }],
+         "tilecount":10,
+         "tileheight":256,
+         "tiles":
+            {
+             "2":
+                {
+                 "terrain":[0, 0, 0, -1]
+                }
+            },
+         "tilewidth":256
+        }],
+ "tilewidth":256,
+ "version":1,
+ "width":8
+}
