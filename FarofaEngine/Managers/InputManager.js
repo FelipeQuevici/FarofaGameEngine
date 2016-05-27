@@ -26,8 +26,11 @@ var InputManager = ( function () {
     var numberToKey = {
         37: "arrowLeft",
         39: "arrowRight",
+        38: "arrowUp",
+        40: "arrowDown",
         32: "space",
-        27: "esc"
+        27: "esc",
+        13: "enter"
     };
 
     function onKeyDown(e) {

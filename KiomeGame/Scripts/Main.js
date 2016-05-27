@@ -24,8 +24,9 @@ FarofaGame.addSpriteSheet("poo");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 
-;
 
+
+FarofaGame.addScene(new MenuScene(), "MenuScene");
 FarofaGame.addScene(new GameScene(), "GameScene");
-FarofaGame.setInitialScene("GameScene");
+FarofaGame.setInitialScene("MenuScene");
 FarofaGame.start();
