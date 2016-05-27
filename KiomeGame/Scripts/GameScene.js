@@ -7,7 +7,6 @@ function GameScene() {
     var crossHair;
 
     this.declareCamera = function () {
-        console.log("ASD");
         this.camera = new CameraFollowWithMargins(this,150,150);
     };
 
@@ -87,12 +86,9 @@ function GameScene() {
     };
 
     this.onEnter = function () {
-        this.declareCamera();
-        const tileSize = 128;
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
         wavesCleared = 1;
-<<<<<<< HEAD:KiomeGame/Scripts/GameScene.js
     };
 
     var currentState = "waitingNextWave";
@@ -108,14 +104,6 @@ function GameScene() {
         this.addLayer("hud");
         this.addLayer("GUI",false,true);
 
-=======
-        for (var objectIndex in this.objects) {
-            var object  = this.objects[objectIndex];
-            this.destroyObject(object);
-        }
-        enemies = [];
-        this.takePendingObjectsFromList();
->>>>>>> origin/master:KiomeGame/Scripts/Scenes/GameScene.js
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
@@ -134,11 +122,12 @@ function GameScene() {
 
         var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(1,1));
         spawnPoints.push(enemySpawn2);
-        this.addObject(enemySpawn2);
+            this.addObject(enemySpawn2);
 
         var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,311));
         spawnPoints.push(enemySpawn3);
         this.addObject(enemySpawn3);
+
 
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
@@ -155,6 +144,7 @@ function GameScene() {
         var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60));
         this.addObject(drinkingSale);
 
+
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
         this.addObject(hudLife1);
         var hudLife2 = new PlayerLifeGUIGameObject(this, player, 1);
@@ -167,36 +157,12 @@ function GameScene() {
 
         var moneyIcon = new MoneyImageGUIGameObject(this);
         this.addObject(moneyIcon);
-
+        
         var adrenalineBorder = new AdrenalineBorderGUIGameObject(this);
         this.addObject(adrenalineBorder);
-
+        
         var adrenalineBar = new AdrenalineBarGUIGameObject(this, player);
         this.addObject(adrenalineBar);
-
-        this.initializeObjects();
-        gameOver = false;
-    };
-
-    var currentState = "waitingNextWave";
-
-    this.onPreUpdate = function (deltaTime) {
-        if (!gameOver)
-            gameStates[currentState].call(this, deltaTime);
-        else
-            this.onEnter();
-    };
-
-    var gameOver = false;
-    this.gameOver = function () {
-        gameOver = true;
-    };
-
-    this.declareObjects = function () {
-        this.addLayer("background");
-        this.addLayer("objectsLayer", true);
-        this.addLayer("hud");
-        this.addLayer("GUI",false,true);
     };
 
     var borderSize = 50;
