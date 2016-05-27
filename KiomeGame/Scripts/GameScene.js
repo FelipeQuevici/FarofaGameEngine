@@ -98,7 +98,7 @@ function GameScene() {
     };
 
     this.declareObjects = function () {
-        const tileSize = 32;//FarofaGame.getGlobalVariable("tileSize");
+        const tileSize = 128;//FarofaGame.getGlobalVariable("tileSize");
         this.addLayer("background");
         this.addLayer("objectsLayer", true);
         this.addLayer("hud");

@@ -15,6 +15,7 @@ FarofaGame.addSpriteSheet("Characters/Enemy/enemyAttack");
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
 
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
+FarofaGame.addSpriteSheet("TileSets/TileSet");
 FarofaGame.addSpriteSheet("crossHair");
 FarofaGame.addSpriteSheet("oldPoo");
 FarofaGame.addSpriteSheet("Hud");
