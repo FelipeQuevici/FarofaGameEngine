@@ -7,6 +7,7 @@ function GameScene() {
     var crossHair;
 
     this.declareCamera = function () {
+        console.log("ASD");
         this.camera = new CameraFollowWithMargins(this,150,150);
     };
 
@@ -86,6 +87,8 @@ function GameScene() {
     };
 
     this.onEnter = function () {
+        this.declareCamera();
+        const tileSize = 128;
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
         wavesCleared = 1;
@@ -124,7 +127,7 @@ function GameScene() {
         var level01 = maps["level01"];
         for (var column in level01["background"]) {
             for (var row in level01["background"][column]) {
-                var tile = new TileGameObject(this, new Vector2((row-5)*32,(column-5)*32),
+                var tile = new TileGameObject(this, new Vector2((row-5)*tileSize,(column-5)*tileSize),
                     0,
                     atlas[level01["background"][column][row]]);
                 this.addObject(tile);
