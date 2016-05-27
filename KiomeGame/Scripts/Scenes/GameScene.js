@@ -86,33 +86,16 @@ function GameScene() {
     };
 
     this.onEnter = function () {
+        const tileSize = 128;
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
         wavesCleared = 1;
-<<<<<<< HEAD:KiomeGame/Scripts/GameScene.js
-    };
-
-    var currentState = "waitingNextWave";
-
-    this.onPreUpdate = function (deltaTime) {
-        gameStates[currentState].call(this, deltaTime);
-    };
-
-    this.declareObjects = function () {
-        const tileSize = 128;//FarofaGame.getGlobalVariable("tileSize");
-        this.addLayer("background");
-        this.addLayer("objectsLayer", true);
-        this.addLayer("hud");
-        this.addLayer("GUI",false,true);
-
-=======
         for (var objectIndex in this.objects) {
             var object  = this.objects[objectIndex];
             this.destroyObject(object);
         }
         enemies = [];
         this.takePendingObjectsFromList();
->>>>>>> origin/master:KiomeGame/Scripts/Scenes/GameScene.js
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
@@ -136,13 +119,12 @@ function GameScene() {
         var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,311));
         spawnPoints.push(enemySpawn3);
         this.addObject(enemySpawn3);
-
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
         var level01 = maps["level01"];
         for (var column in level01["background"]) {
             for (var row in level01["background"][column]) {
-                var tile = new TileGameObject(this, new Vector2((row-5)*32,(column-5)*32),
+                var tile = new TileGameObject(this, new Vector2((row-5)*tileSize,(column-5)*tileSize),
                     0,
                     atlas[level01["background"][column][row]]);
                 this.addObject(tile);
@@ -221,8 +203,7 @@ function GameScene() {
         for (var y = 0; y < allCanvasHeight; y++) {
             var translate = Math.floor((amplitude * Math.sin(freq * (y + elapsed))))*4;
             var x;
-
-            if (translate > 0) {
+ 			if (translate > 0) {
                 for (x = allCanvasWidth-1; x > translate; x--) {
                     var pixelIndex = (y * allCanvasWidth + x) * 4;
                     data[pixelIndex] = data[pixelIndex-translate];
