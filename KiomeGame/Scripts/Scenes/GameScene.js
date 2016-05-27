@@ -7,7 +7,6 @@ function GameScene() {
     var crossHair;
 
     this.declareCamera = function () {
-        console.log("ASD");
         this.camera = new CameraFollowWithMargins(this,150,150);
     };
 
@@ -49,16 +48,16 @@ function GameScene() {
 
         var updateEnemyList = [];
 
-         for (var enemy in enemies) {
+        for (var enemy in enemies) {
             if (enemies[enemy].wasDestroyed) {
                 EventCenterInstance.getInstance().callEvent("enemyDied",this,{"enemy": enemies[enemy]});
                 updateEnemyList.push(enemies[enemy]);
             }
-         }
+        }
 
-         for (var i = 0; i < updateEnemyList.length; i++) {
+        for (var i = 0; i < updateEnemyList.length; i++) {
             enemies.splice(enemies.indexOf(updateEnemyList[i]),1);
-         }
+        }
 
         if (enemies.length == 0 && enemiesSpawnedThisWave == enemiesToSpawnThisWave) {
             timeWhenLastWaveEnded = Date.now();
@@ -67,10 +66,10 @@ function GameScene() {
             wavesCleared++;
         }
     }
-    
+
     var wavesCleared = 0;
     var spawnPoints = [];
-    
+
 
     function waitingNextWaveState() {
         if (Date.now() - timeWhenLastWaveEnded > timeBetweenWaves) {
@@ -87,26 +86,12 @@ function GameScene() {
     };
 
     this.onEnter = function () {
-        this.declareCamera();
         const tileSize = 128;
+
+        this.declareCamera();
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
         wavesCleared = 1;
-    };
-
-    var currentState = "waitingNextWave";
-
-    this.onPreUpdate = function (deltaTime) {
-        gameStates[currentState].call(this, deltaTime);
-    };
-
-    this.declareObjects = function () {
-        const tileSize = 128;//FarofaGame.getGlobalVariable("tileSize");
-        this.addLayer("background");
-        this.addLayer("objectsLayer", true);
-        this.addLayer("hud");
-        this.addLayer("GUI",false,true);
-
         for (var objectIndex in this.objects) {
             var object  = this.objects[objectIndex];
             this.destroyObject(object);
@@ -205,59 +190,59 @@ function GameScene() {
     var elapsedChange = 20  ;
 
     this.onPostDraw = function (renderer) {
-       /* var context = renderer.getContext();
-        context.fillStyle = "black";
-        context.fillText(currentState, 10, 10);*/
+        /* var context = renderer.getContext();
+         context.fillStyle = "black";
+         context.fillText(currentState, 10, 10);*/
 
         var context = renderer.getContext();
 
         /*context.fillText(fps.getFPS(),10,10);
-        context.fill();
+         context.fill();
 
-        
-        var imageData = context.getImageData(-borderSize,-borderSize,allCanvasWidth,allCanvasHeight);
-        var data = imageData.data;
 
-        for (var y = 0; y < allCanvasHeight; y++) {
-            var translate = Math.floor((amplitude * Math.sin(freq * (y + elapsed))))*4;
-            var x;
+         var imageData = context.getImageData(-borderSize,-borderSize,allCanvasWidth,allCanvasHeight);
+         var data = imageData.data;
 
-            if (translate > 0) {
-                for (x = allCanvasWidth-1; x > translate; x--) {
-                    var pixelIndex = (y * allCanvasWidth + x) * 4;
-                    data[pixelIndex] = data[pixelIndex-translate];
-                    data[pixelIndex+1] = data[pixelIndex-translate+1];
-                    data[pixelIndex+2] = data[pixelIndex-translate+2];
-                    data[pixelIndex+3] = data[pixelIndex-translate+3];
-                }
-                for (x = translate; x >= 0; x--) {
-                    var pixelIndex = (y * allCanvasWidth + x) * 4;
-                    data[pixelIndex] = 0;
-                    data[pixelIndex+1] = 0;
-                    data[pixelIndex+2] = 0;
-                    data[pixelIndex+3] = 255;
-                }
-            }
-            else if (translate < 0) {
-                for (x = 0; x < allCanvasWidth-1 - translate; x++) {
-                    var pixelIndex = (y * allCanvasWidth + x) * 4;
-                    data[pixelIndex] = data[pixelIndex-translate];
-                    data[pixelIndex+1] = data[pixelIndex-translate+1];
-                    data[pixelIndex+2] = data[pixelIndex-translate+2];
-                    data[pixelIndex+3] = data[pixelIndex-translate+3];
-                }
-                for (x = allCanvasWidth - translate; x < allCanvasWidth-1; x++) {
-                    var pixelIndex = (y * allCanvasWidth + x) * 4;
-                    data[pixelIndex] = 255;
-                    data[pixelIndex+1] = 255;
-                    data[pixelIndex+2] = 255;
-                    data[pixelIndex+3] = 255;
-                }
-            }
-        }
-        elapsed+=elapsedChange;
+         for (var y = 0; y < allCanvasHeight; y++) {
+         var translate = Math.floor((amplitude * Math.sin(freq * (y + elapsed))))*4;
+         var x;
 
-        context.putImageData(imageData,-borderSize,- borderSize);*/
+         if (translate > 0) {
+         for (x = allCanvasWidth-1; x > translate; x--) {
+         var pixelIndex = (y * allCanvasWidth + x) * 4;
+         data[pixelIndex] = data[pixelIndex-translate];
+         data[pixelIndex+1] = data[pixelIndex-translate+1];
+         data[pixelIndex+2] = data[pixelIndex-translate+2];
+         data[pixelIndex+3] = data[pixelIndex-translate+3];
+         }
+         for (x = translate; x >= 0; x--) {
+         var pixelIndex = (y * allCanvasWidth + x) * 4;
+         data[pixelIndex] = 0;
+         data[pixelIndex+1] = 0;
+         data[pixelIndex+2] = 0;
+         data[pixelIndex+3] = 255;
+         }
+         }
+         else if (translate < 0) {
+         for (x = 0; x < allCanvasWidth-1 - translate; x++) {
+         var pixelIndex = (y * allCanvasWidth + x) * 4;
+         data[pixelIndex] = data[pixelIndex-translate];
+         data[pixelIndex+1] = data[pixelIndex-translate+1];
+         data[pixelIndex+2] = data[pixelIndex-translate+2];
+         data[pixelIndex+3] = data[pixelIndex-translate+3];
+         }
+         for (x = allCanvasWidth - translate; x < allCanvasWidth-1; x++) {
+         var pixelIndex = (y * allCanvasWidth + x) * 4;
+         data[pixelIndex] = 255;
+         data[pixelIndex+1] = 255;
+         data[pixelIndex+2] = 255;
+         data[pixelIndex+3] = 255;
+         }
+         }
+         }
+         elapsed+=elapsedChange;
+
+         context.putImageData(imageData,-borderSize,- borderSize);*/
 
     };
 }
