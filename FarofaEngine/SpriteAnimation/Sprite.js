@@ -4,7 +4,7 @@
 
 function Sprite(image, information) {
     this.image = image;
-    this.spriteInformation = information;
+    this.spriteInformation = clone(information);
     this.rotation = 0;
     this.direction = information.direction;
 

@@ -15,3 +15,11 @@ function angleBetweenTwoPoints(p1, p2) {
 function distanceBetweenTwoPoints(p1, p2) {
     return Math.sqrt(Math.pow(p1.x-p2.x,2) + Math.pow(p1.y-p2.y,2));
 }
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}

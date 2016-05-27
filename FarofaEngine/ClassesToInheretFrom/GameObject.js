@@ -19,6 +19,12 @@ function GameObject(scene, position, rotation, tag) {
         this.onCreateGameObject(scene, position, rotation, tag);
     };
 
+    this.reset = function () {
+        for (var i in this.components) {
+            this.components[i].reset();
+        }
+    };
+
     this.onCreate(scene, position, rotation);
 
     this.onInitialize = function () {
