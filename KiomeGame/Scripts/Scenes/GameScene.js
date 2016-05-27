@@ -92,7 +92,6 @@ function GameScene() {
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
         wavesCleared = 1;
-<<<<<<< HEAD:KiomeGame/Scripts/GameScene.js
     };
 
     var currentState = "waitingNextWave";
@@ -108,14 +107,12 @@ function GameScene() {
         this.addLayer("hud");
         this.addLayer("GUI",false,true);
 
-=======
         for (var objectIndex in this.objects) {
             var object  = this.objects[objectIndex];
             this.destroyObject(object);
         }
         enemies = [];
         this.takePendingObjectsFromList();
->>>>>>> origin/master:KiomeGame/Scripts/Scenes/GameScene.js
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
