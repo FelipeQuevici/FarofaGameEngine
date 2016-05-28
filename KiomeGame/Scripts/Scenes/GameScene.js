@@ -87,7 +87,6 @@ function GameScene() {
 
     this.onEnter = function () {
         const tileSize = 128;
-
         this.declareCamera();
         timeWhenLastWaveEnded = Date.now();
         currentState = "waitingNextWave";
@@ -123,7 +122,6 @@ function GameScene() {
         var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,311));
         spawnPoints.push(enemySpawn3);
         this.addObject(enemySpawn3);
-
         var maps = FarofaGame.loadObject("Maps/maps");
         var atlas = maps["atlas"];
         var level01 = maps["level01"];
@@ -243,7 +241,6 @@ function GameScene() {
          }
          }
          elapsed+=elapsedChange;
-
          context.putImageData(imageData,-borderSize,- borderSize);*/
 
     };
