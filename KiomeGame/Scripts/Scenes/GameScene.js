@@ -7,7 +7,7 @@ function GameScene() {
     var crossHair;
 
     this.declareCamera = function () {
-        this.camera = new CameraFollowWithMargins(this,150,150);
+        this.camera = new CameraFollowWithMargins(this,300,300);
     };
 
     var enemies = [];
@@ -104,7 +104,9 @@ function GameScene() {
         player = new PlayerGameObject(this, new Vector2(1,1),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
-        this.camera.position.sum(new Vector2(150,150));
+        this.camera.position= new Vector2(150,150);
+        SceneManager.getRenderer().camera = this.camera;
+        console.log(this.camera);
 
         var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,311));
         spawnPoints.push(enemySpawn);
@@ -134,8 +136,8 @@ function GameScene() {
             }
         }
 
-        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60));
-        this.addObject(drinkingSale);
+        //var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60));
+        //this.addObject(drinkingSale);
 
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
         this.addObject(hudLife1);

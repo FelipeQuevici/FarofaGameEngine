@@ -16,6 +16,10 @@ var SceneManager = (function () {
     return {
         initialScene: "",
 
+        getRenderer: function () {
+            return renderer;
+        },
+
         initialize: function (newRenderer) {
             renderer = newRenderer;
             this.changeScene(this.initialScene);
