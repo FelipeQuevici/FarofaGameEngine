@@ -25,6 +25,17 @@ function GameObject(scene, position, rotation, tag) {
         }
     };
 
+    this.onDestroy = function () {
+        this.unsubscribeEvents();
+        for (var i in this.components) {
+            this.components[i].onDestroy();
+        }
+    };
+
+    this.unsubscribeEvents = function () {
+
+    };
+
     this.onCreate(scene, position, rotation);
 
     this.onInitialize = function () {

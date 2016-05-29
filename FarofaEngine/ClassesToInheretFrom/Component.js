@@ -26,4 +26,12 @@ function Component () {
     this.reset = function () {
 
     };
+
+    this.onDestroy = function () {
+        this.unsubscribeEvents();
+    };
+
+    this.unsubscribeEvents = function () {
+
+    };
 }

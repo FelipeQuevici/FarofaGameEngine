@@ -135,7 +135,7 @@ function Scene() {
             if (textComponent) {
                 this.layers[this.layersNames[textComponent.layer]].removeSpriteComponent(textComponent);
             }
-
+            object.onDestroy();
             this.objects.splice(index,1);
         }
         destroyList = [];

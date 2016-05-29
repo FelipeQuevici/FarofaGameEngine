@@ -96,6 +96,7 @@ function GameScene() {
             this.destroyObject(object);
         }
         enemies = [];
+
         this.takePendingObjectsFromList();
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
@@ -105,7 +106,6 @@ function GameScene() {
         this.camera.setTarget(player);
         this.camera.position= new Vector2(150,150);
         SceneManager.getRenderer().camera = this.camera;
-        console.log(this.camera);
 
         var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,311));
         spawnPoints.push(enemySpawn);
@@ -165,8 +165,9 @@ function GameScene() {
     this.onPreUpdate = function (deltaTime) {
         if (!gameOver)
             gameStates[currentState].call(this, deltaTime);
-        else
+        else {
             this.onEnter();
+        }
     };
 
     var gameOver = false;

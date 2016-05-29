@@ -33,6 +33,12 @@ function PlayerStatsComponent(parent) {
         this.reset();
     };
 
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("enemyDied", enemyDied, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("waveStarted", waveStarted, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("waveEnded", waveEnded, this);
+    };
+
     this.hasDrinkEquiped = function () {
         return selectedDrink != null;
     };

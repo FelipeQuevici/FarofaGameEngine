@@ -48,6 +48,11 @@ function PlayerControllerComponent(parent, target) {
         EventCenterInstance.getInstance().subscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
     };
 
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("eClicked", drinkOrBuy, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
+    };
+
     function getCurrentDirection() {
         var currentDirection = new Vector2();
         var isAnyKeyPressed = false;

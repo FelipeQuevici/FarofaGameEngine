@@ -17,11 +17,19 @@ function EventCenter() {
         this.events[eventName].push(new FunctionCaller(functionToFire, owner));
     };
 
-    this.unsubscribeEvent = function (eventName, functionToUnsubscribe) {
+    this.unsubscribeEvent = function (eventName, functionToUnsubscribe, owner) {
         if (!this.events.hasOwnProperty(eventName))
             return;
 
-        var index = this.events[eventName].indexOf(functionToUnsubscribe);
+        var index = -1;//this.events[eventName].indexOf(functionToUnsubscribe);
+
+        for (var i = 0; i < this.events[eventName].length; i++) {
+            var event = this.events[eventName][i];
+            if (event.functionName == functionToUnsubscribe && event.owner == owner) {
+                index = i;
+                break;
+            }
+        }
 
         if (index < 0)
             return;
