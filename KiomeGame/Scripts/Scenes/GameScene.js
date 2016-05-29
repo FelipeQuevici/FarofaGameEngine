@@ -134,7 +134,12 @@ function GameScene() {
             }
         }
 
-        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60), new Drink("drink_1", 4));
+        var drink1 =  new Drink("drink_1", 4);
+
+        var overlay = new DrinkingSaleOverlayGameObject(this, new Vector2(60,10),drink1);
+        this.addObject(overlay);
+
+        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60),drink1, overlay);
         this.addObject(drinkingSale);
 
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);

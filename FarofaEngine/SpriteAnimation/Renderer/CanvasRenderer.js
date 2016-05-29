@@ -18,12 +18,6 @@ function CanvasRenderer(canvas) {
         context.translate(b.x - a.pivot.x, b.y - a.pivot.y);            
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h, -c.x + canvas.width/2, -c.y + canvas.height/2, a.w, a.h);
         context.restore();
-        /*context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
-            d.x - e.x, d.y - e.y, b.width, b.height);
-		*/
-        /*context.fillStyle = "black";
-        context.fillRect(d.x,d.y,1,1);
-        context.fill();*/
     };
 
 
@@ -42,13 +36,6 @@ function CanvasRenderer(canvas) {
             d = new Vector2(b.x,b.y);
 
         var e = new Vector2(a.pivot.x, a.pivot.y);
-        /*
-        context.save();
-        context.translate(b.x - a.pivot.x, b.y - a.pivot.y); 
-        context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
-        	-c.x + canvas.width/2, -c.y + canvas.height/2, b.width, b.height);
-        context.restore();
-        */
         
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
             d.x - e.x, d.y - e.y, b.width, b.height);

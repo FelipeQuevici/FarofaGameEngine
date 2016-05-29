@@ -19,6 +19,7 @@ FarofaGame.addSpriteSheet("TileSets/TileSet");
 FarofaGame.addSpriteSheet("crossHair");
 FarofaGame.addSpriteSheet("oldPoo");
 FarofaGame.addSpriteSheet("Hud");
+FarofaGame.addSpriteSheet("Hud/drink_1overlay");
 FarofaGame.addSpriteSheet("poo");
 
 

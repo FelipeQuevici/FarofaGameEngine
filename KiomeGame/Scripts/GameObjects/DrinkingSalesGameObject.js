@@ -4,7 +4,7 @@
 
 DrinkingSalesGameObject.inheritsFrom(GameObject);
 
-function DrinkingSalesGameObject(scene, position, drink) {
+function DrinkingSalesGameObject(scene, position, drink, overlay) {
     var collisionBox;
     var isActive = true;
 
@@ -29,7 +29,6 @@ function DrinkingSalesGameObject(scene, position, drink) {
         spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"background","sand01"));
         EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
-
     };
 
     this.unsubscribeEvents = function () {
@@ -43,6 +42,12 @@ function DrinkingSalesGameObject(scene, position, drink) {
         var playerIn = this.isPlayerIn();
         if (!isPlayerInside && playerIn) {
             EventCenterInstance.getInstance().callEvent("playerInsideDrinking",this,{"drink":drink, "point": this});
+        }
+        if (playerIn) {
+            overlay.setActive(true);
+        }
+        else {
+            overlay.setActive(false);
         }
         isPlayerInside = playerIn;
     };
