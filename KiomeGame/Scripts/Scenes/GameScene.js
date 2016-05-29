@@ -134,8 +134,8 @@ function GameScene() {
             }
         }
 
-        //var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60));
-        //this.addObject(drinkingSale);
+        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60), new Drink("restoreHealth", 4));
+        this.addObject(drinkingSale);
 
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
         this.addObject(hudLife1);

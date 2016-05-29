@@ -10,6 +10,8 @@ function PlayerStatsComponent(parent) {
     var waveState = false;
     var addAdrenaline = 0;
     var maxAdrenaline = 10;
+    var drinksInventory = [];
+    var selectedDrink = null;
 
     this.reset = function () {
         this.currentHealth = this.maxHealth;
@@ -27,7 +29,27 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied, this);
         EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
+        drinksInventory = [];
         this.reset();
+    };
+
+    this.hasDrinkEquiped = function () {
+        return selectedDrink != null;
+    };
+
+    this.buyDrink = function (drink) {
+        console.log("BROUGH DRINK");
+        console.log(drink.price);
+        console.log(currentMoney);
+        if (currentMoney >= drink.price) {
+            console.log("asd");
+            selectedDrink = drink;
+            currentMoney -= drink.price;
+        }
+    };
+
+    this.drinkSelectedDrink = function () {
+        selectedDrink = null;
     };
 
     this.removeLife = function (amount) {

@@ -15,12 +15,37 @@ function PlayerControllerComponent(parent, target) {
 
     var characterController;
 
+    var itemToBuy = null;
+    var itemToBuySale = null;
+
+    function drinkOrBuy() {
+        var statComponent = this.parent.getComponent("stats");
+
+        console.log("E PRESSED");
+        if (itemToBuy && itemToBuySale.isPlayerIn()) {
+            statComponent.buyDrink(itemToBuy);
+            return;
+        }
+        if (statComponent.hasDrinkEquiped()) {
+            console.log("DRINKING ");
+            statComponent.drinkSelectedDrink();
+        }
+    }
+
+    function updateDrinkToBuy(args) {
+        console.log("updateDrink");
+        itemToBuy = args["drink"];
+        itemToBuySale = args["point"];
+    }
+
     this.onCreate = function (parent, target) {
         this.parent = parent;
         targetToLookAt = target;
         currentState = "move";
         lastDirection = new Vector2(0,0);
         characterController = this.parent.getComponent("characterController");
+        EventCenterInstance.getInstance().subscribeEvent("eClicked", drinkOrBuy, this);
+        EventCenterInstance.getInstance().subscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
     };
 
     function getCurrentDirection() {
@@ -73,7 +98,6 @@ function PlayerControllerComponent(parent, target) {
             this.parent.rotation = angleBetweenTwoPoints(this.parent.position, targetToLookAt.position);
             currentState = "rangedAttack";
             characterController.enterRangedAttack();
-            console.log("RANGED ataque");
             return;
         }
 

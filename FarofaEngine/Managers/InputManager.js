@@ -13,6 +13,8 @@ var InputManager = ( function () {
         "esc": [27],
         "mouseLeft": [1],
 
+        "e": [69],
+
         "left": [65, 37],
         "right": [68, 39],
         "down": [83, 40],
@@ -30,7 +32,8 @@ var InputManager = ( function () {
         40: "arrowDown",
         32: "space",
         27: "esc",
-        13: "enter"
+        13: "enter",
+        69: "e"
     };
 
     function onKeyDown(e) {
