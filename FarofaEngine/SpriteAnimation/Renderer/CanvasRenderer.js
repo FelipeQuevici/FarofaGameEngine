@@ -28,6 +28,8 @@ function CanvasRenderer(canvas) {
 
 
     this.drawSpriteComponent = function (spriteComponent, isHud) {
+        if (!spriteComponent.enabled) return;
+
         var sprite = spriteComponent.sprite;
         var a = sprite.spriteInformation;
         var b = new Rectangle(spriteComponent.parent.position.x, spriteComponent.parent.position.y,

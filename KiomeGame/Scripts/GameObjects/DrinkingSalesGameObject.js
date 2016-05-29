@@ -12,14 +12,34 @@ function DrinkingSalesGameObject(scene, position, drink) {
         this.onCreateGameObject(scene,position,0,"sale");
     }
 
+    function waveStarted() {
+        isActive = false;
+        spriteComponent.enabled = false;
+    }
+
+    function waveEnded() {
+        isActive = true;
+        spriteComponent.enabled = true;
+    }
+
+    var spriteComponent;
+
     this.onInitialize = function () {
         collisionBox = this.addComponent("collisionBox", new CollisionBoxComponent(this, new Circle(0,0)));
-        this.addComponent("sprite", new SpriteComponent(this,0,"background","sand01"));
+        spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"background","sand01"));
+        EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
+        EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
+
+    };
+
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("waveStarted", waveStarted, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("waveEnded", waveEnded, this);
     };
 
     var isPlayerInside = false;
 
-    this.onUpdate = function (deltaTime) {
+    this.onUpdate = function () {
         var playerIn = this.isPlayerIn();
         if (!isPlayerInside && playerIn) {
             EventCenterInstance.getInstance().callEvent("playerInsideDrinking",this,{"drink":drink, "point": this});
@@ -32,7 +52,6 @@ function DrinkingSalesGameObject(scene, position, drink) {
         var colList = this.scene.collisionSystem.checkCollision(collisionBox);
         for (var i = 0; i < colList.length; i++) {
             if (colList[i].parent.tag == "player") {
-                console.log("PlayerDentro");
                 return true;
             }
         }

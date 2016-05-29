@@ -43,6 +43,10 @@ function PlayerLifeGUIGameObject(scene, player, index) {
         EventCenterInstance.getInstance().subscribeEvent("playerLoseHealth", this.playerLoseHealth, this);
     };
 
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("playerLoseHealth", this.playerLoseHealth, this);
+    };
+    
     onCreate.call(this, scene);
     var guihud = this;
 }
@@ -60,8 +64,6 @@ function MoneyTextGUIGameObject(scene, player) {
     };
 
     this.onUpdate = function (deltaTime) {
-        //console.log(this.player.getComponent("playerStat"));
-        //console.log(this.player.getComponent("playerStat").getCurrentMoney());
         this.getComponent("textComponent").setText("x " + this.player.getComponent("stats").getCurrentMoney());
     };
 
@@ -119,4 +121,39 @@ function AdrenalineBarGUIGameObject(scene, player) {
     };
     
     onCreate.call(this, scene, player);
+}
+
+CurrentDrinkDisplay.inheritsFrom(GameObject);
+
+function CurrentDrinkDisplay(scene, player) {
+    var playerStats;
+    var spriteComponent;
+
+    function onCreate(scene, player) {
+        this.onCreateGameObject(scene, new Vector2(canvas.width-300,10),0);
+        this.player = player;
+    }
+
+    function changedDrink() {
+        var currentDrink = playerStats.getCurrentDrink();
+        var spriteName = "Selection_Box";
+        if (currentDrink)
+            spriteName = currentDrink.name;
+        spriteComponent.setSpriteName(spriteName);
+    }
+
+    this.onInitialize = function () {
+        var spriteName = "Selection_Box";
+
+        spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI",spriteName));
+        playerStats = player.getComponent("stats");
+        EventCenterInstance.getInstance().subscribeEvent("changedDrink",changedDrink, this);
+    };
+
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("changedDrink",changedDrink, this);
+    };
+    
+    onCreate.call(this, scene, player);
+    
 }

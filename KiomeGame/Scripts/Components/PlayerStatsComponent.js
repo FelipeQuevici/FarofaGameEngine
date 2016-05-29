@@ -10,7 +10,7 @@ function PlayerStatsComponent(parent) {
     var waveState = false;
     var addAdrenaline = 0;
     var maxAdrenaline = 10;
-    var drinksInventory = [];
+    var drinksInventory = {};
     var selectedDrink = null;
 
     this.reset = function () {
@@ -44,18 +44,28 @@ function PlayerStatsComponent(parent) {
     };
 
     this.buyDrink = function (drink) {
-        console.log("BROUGH DRINK");
-        console.log(drink.price);
-        console.log(currentMoney);
         if (currentMoney >= drink.price) {
-            console.log("asd");
             selectedDrink = drink;
             currentMoney -= drink.price;
+            EventCenterInstance.getInstance().callEvent("changedDrink",this);
         }
     };
 
+    this.getCurrentDrink = function () {
+        return selectedDrink;
+    };
+    
     this.drinkSelectedDrink = function () {
+        console.log("drinking");
+        console.log(selectedDrink);
+        var bool = false;
+        if (selectedDrink) {
+            bool = true;
+        }
         selectedDrink = null;
+        if (bool) {
+            EventCenterInstance.getInstance().callEvent("changedDrink",this);
+        }
     };
 
     this.removeLife = function (amount) {

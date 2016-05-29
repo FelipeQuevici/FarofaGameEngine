@@ -21,19 +21,17 @@ function PlayerControllerComponent(parent, target) {
     function drinkOrBuy() {
         var statComponent = this.parent.getComponent("stats");
 
-        console.log("E PRESSED");
         if (itemToBuy && itemToBuySale.isPlayerIn()) {
             statComponent.buyDrink(itemToBuy);
             return;
         }
         if (statComponent.hasDrinkEquiped()) {
-            console.log("DRINKING ");
             statComponent.drinkSelectedDrink();
         }
     }
 
     function updateDrinkToBuy(args) {
-        console.log("updateDrink");
+        //console.log("updateDrink");
         itemToBuy = args["drink"];
         itemToBuySale = args["point"];
     }

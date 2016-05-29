@@ -4,7 +4,7 @@
 
 function Component () {
     this.parent = null;
-    this.enebled = false;
+    this.enabled = false;
 
     this.onCreateComponent = function (parent) {
         this.parent = parent;

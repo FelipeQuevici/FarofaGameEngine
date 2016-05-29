@@ -134,7 +134,7 @@ function GameScene() {
             }
         }
 
-        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60), new Drink("restoreHealth", 4));
+        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60), new Drink("drink_1", 4));
         this.addObject(drinkingSale);
 
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
@@ -155,6 +155,9 @@ function GameScene() {
 
         var adrenalineBar = new AdrenalineBarGUIGameObject(this, player);
         this.addObject(adrenalineBar);
+
+        var currentDrinkIndicator = new CurrentDrinkDisplay(this, player);
+        this.addObject(currentDrinkIndicator);
 
         this.initializeObjects();
         gameOver = false;

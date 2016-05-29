@@ -5,9 +5,10 @@
 function SpriteComponent(parent, totalDirections, layer, spriteName) {
 
     function onCreate(parent, totalDirections, layer, spriteName) {
+        this.onCreateComponent(parent);
+
         var currentScene = parent.scene;
         this.totalDirections = totalDirections;
-        this.parent = parent;
 
         if (totalDirections > 0) {
             this.currentDirection = 0;
