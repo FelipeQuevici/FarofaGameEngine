@@ -10,7 +10,7 @@ function EnemyStatsComponent(parent) {
         this.parent = parent;
         maxLife = 3;
         currentLife = maxLife;
-        this.money = Math.floor(Math.random()*5+5);
+        this.money = Math.floor(Math.random()*3+2);
     };
 
     this.removeLife = function (amount) {

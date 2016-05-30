@@ -20,6 +20,10 @@ function PlayerStatsComponent(parent) {
         playerController.setMoveSpeed(this.moveSpeed);
     };
 
+    this.restoreHealth = function (value) {
+        this.currentHealth = clamp(this.currentHealth+value,0,this.maxHealth);
+    };
+
     this.onCreate = function (parent) {
         this.parent = parent;
         this.maxHealth = 6;
@@ -43,6 +47,17 @@ function PlayerStatsComponent(parent) {
         return selectedDrink != null;
     };
 
+    var lastIndex = 2;
+
+    this.addMaximumHealth = function () {
+        lastIndex += 1;
+        var newMaxHealth = clamp(this.maxHealth+2,0,18);
+        if (this.maxHealth != newMaxHealth) {
+            this.maxHealth = newMaxHealth;
+            this.parent.scene.createObject(new PlayerLifeGUIGameObject(this.parent.scene, this.parent, lastIndex));
+        }
+    };
+
     this.buyDrink = function (drink) {
         if (currentMoney >= drink.price) {
             selectedDrink = drink;
@@ -56,10 +71,11 @@ function PlayerStatsComponent(parent) {
     };
     
     this.drinkSelectedDrink = function () {
-        console.log("drinking");
-        console.log(selectedDrink);
+        if (isUnderBonus) return;
+
         var bool = false;
         if (selectedDrink) {
+            selectedDrink.drinkEffect();
             bool = true;
         }
         selectedDrink = null;
@@ -69,6 +85,8 @@ function PlayerStatsComponent(parent) {
     };
 
     this.removeLife = function (amount) {
+        if (isInvincible) return;
+
         this.currentHealth -= amount;
         EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
 
@@ -101,15 +119,60 @@ function PlayerStatsComponent(parent) {
     	addAdrenaline = maxAdrenaline;
     	playerController.setMoveSpeed(this.moveSpeed);
     };
-    
-    this.onUpdate = function (deltaTime) {    	
+
+    var speedMultiplier = 1;
+    var isUnderBonus = false;
+    var timeWhenBonusStarted;
+    var bonusDuration;
+    var isInvincible = false;
+
+    this.startBonus = function (duration) {
+        isUnderBonus = true;
+        timeWhenBonusStarted = Date.now();
+        bonusDuration = duration;
+    };
+
+    this.giveSpeedBonus = function (duration, newSpeedMultiplier) {
+        speedMultiplier = newSpeedMultiplier;
+        EventCenterInstance.getInstance().callEvent("playerBonusStarted",this,{"bonus": "speed"});
+        playerController.setMoveSpeed(this.moveSpeed * speedMultiplier);
+
+        this.startBonus(duration);
+    };
+
+    this.invincibleBonus = function (duration) {
+        isInvincible = true;
+        EventCenterInstance.getInstance().callEvent("playerBonusStarted",this,{"bonus": "invincible"});
+        this.startBonus(duration);
+    };
+
+    function bonusFinished() {
+        return Date.now() - timeWhenBonusStarted > bonusDuration;
+    }
+
+    this.bonusTimeDuration = function () {
+        return bonusDuration;
+    };
+
+    this.bonusTimeRemaining = function () {
+        return bonusDuration - (Date.now() - timeWhenBonusStarted);
+    };
+
+    function finishBonus() {
+        speedMultiplier = 1;
+        isInvincible = false;
+        isUnderBonus = false;
+        EventCenterInstance.getInstance().callEvent("playerBonusFinished",this);
+    }
+
+    this.onUpdate = function (deltaTime) {
     	if(waveState){    		
     		this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
         	if(this.adrenaline <= 0){
         		this.adrenaline = 0;
-        		playerController.setMoveSpeed(this.moveSpeed / 4);
+        		playerController.setMoveSpeed(this.moveSpeed / 4 * speedMultiplier);
         	}else{
-        		playerController.setMoveSpeed(this.moveSpeed);
+        		playerController.setMoveSpeed(this.moveSpeed * speedMultiplier);
         	}
     	}  
     	
@@ -121,6 +184,13 @@ function PlayerStatsComponent(parent) {
         		addAdrenaline = 0;
         	}
     	}
+
+
+        if (isUnderBonus) {
+            console.log(this.bonusTimeRemaining());
+            if (bonusFinished())
+                finishBonus();
+        }
     };    
         
     this.onCreate(parent);

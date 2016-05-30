@@ -157,3 +157,84 @@ function CurrentDrinkDisplay(scene, player) {
     onCreate.call(this, scene, player);
     
 }
+
+BonusBorderGUIGameObject.inheritsFrom(GameObject);
+
+function BonusBorderGUIGameObject(scene) {
+    var spriteComponent;
+
+
+    function onCreate(scene) {
+        this.onCreateGameObject(scene, new Vector2(30,120),0);
+    }
+
+    function setActive() {
+        spriteComponent.enabled = true;
+    }
+
+    function setUnactive() {
+        spriteComponent.enabled = false;
+    }
+
+    this.onInitialize = function () {
+        spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI","Stamina_Empty"));
+        spriteComponent.enabled = false;
+        EventCenterInstance.getInstance().subscribeEvent("playerBonusStarted",setActive,this);
+        EventCenterInstance.getInstance().subscribeEvent("playerBonusFinished",setUnactive,this);
+
+    };
+
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("playerBonusStarted",setActive,this);
+        EventCenterInstance.getInstance().unsubscribeEvent("playerBonusFinished",setUnactive,this);
+    };
+
+    onCreate.call(this, scene);
+}
+
+BonusBarGUIGameObject.inheritsFrom(GameObject);
+
+function BonusBarGUIGameObject(scene, player) {
+    var playerStats;
+    var barWidth;
+    var spriteComponent;
+
+    function onCreate(scene, player) {
+        this.onCreateGameObject(scene, new Vector2(30,120),0);
+        this.player = player;
+    }
+
+    var isActive = false;
+
+    function setActive() {
+        spriteComponent.enabled = true;
+        isActive = true;
+    }
+
+    function setUnactive() {
+        spriteComponent.enabled = false;
+        isActive = false;
+    }
+
+    this.onInitialize = function () {
+        spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI","Power_Bar"));
+        spriteComponent.enabled = false;
+        EventCenterInstance.getInstance().subscribeEvent("playerBonusStarted",setActive,this);
+        EventCenterInstance.getInstance().subscribeEvent("playerBonusFinished",setUnactive,this);
+        playerStats = this.player.getComponent("stats");
+        barWidth = this.getComponent("sprite").sprite.spriteInformation.w;
+    };
+
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("playerBonusStarted",setActive,this);
+        EventCenterInstance.getInstance().unsubscribeEvent("playerBonusFinished",setUnactive,this);
+    };
+
+
+    this.onUpdate = function (deltaTime) {
+        if (isActive)
+            this.getComponent("sprite").sprite.spriteInformation.w = (barWidth * playerStats.bonusTimeRemaining()) / playerStats.bonusTimeDuration();
+    };
+
+    onCreate.call(this, scene, player);
+}

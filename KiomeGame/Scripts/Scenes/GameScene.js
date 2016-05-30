@@ -134,9 +134,9 @@ function GameScene() {
             }
         }
 
-        var drink1 =  new Drink("drink_1", 4);
+        var drink1 =  new Drink("drink_1", 0, InvencivleBonus, player);
 
-        var overlay = new DrinkingSaleOverlayGameObject(this, new Vector2(60,10),drink1);
+        var overlay = new DrinkingSaleOverlayGameObject(this, new Vector2(60,-180),drink1);
         this.addObject(overlay);
 
         var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60),drink1, overlay);
@@ -163,6 +163,12 @@ function GameScene() {
 
         var currentDrinkIndicator = new CurrentDrinkDisplay(this, player);
         this.addObject(currentDrinkIndicator);
+
+        var bonusBorder = new BonusBorderGUIGameObject(this);
+        this.addObject(bonusBorder);
+
+        var bonusBar = new BonusBarGUIGameObject(this,player);
+        this.addObject(bonusBar);
 
         this.initializeObjects();
         gameOver = false;
