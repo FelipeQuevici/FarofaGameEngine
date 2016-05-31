@@ -22,7 +22,7 @@ FarofaGame.addSpriteSheet("Hud");
 FarofaGame.addSpriteSheet("Hud/drink_overlay");
 FarofaGame.addSpriteSheet("poo");
 
-
+FarofaGame.addAudio("Hotline","Audios/Songs/");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 

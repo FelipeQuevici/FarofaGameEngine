@@ -86,6 +86,7 @@ function GameScene() {
     };
 
     this.onEnter = function () {
+
         const tileSize = 128;
         this.declareCamera();
         timeWhenLastWaveEnded = Date.now();

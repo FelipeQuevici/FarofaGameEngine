@@ -15,7 +15,7 @@ function EnemyStatsComponent(parent) {
 
     this.removeLife = function (amount) {
         currentLife -= amount;
-        console.log(currentLife);
+        //console.log(currentLife);
         if (currentLife <= 0) {
             this.parent.scene.destroyObject(this.parent);
         }

@@ -25,6 +25,7 @@ function MenuScene() {
         this.addObject(item3);
         this.initializeObjects();
         menu.selectItem(0);
+        AudioManager.playAudio("Hotline",true);
     };
 
     this.onUpdate = function () {

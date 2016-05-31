@@ -71,6 +71,10 @@ var FarofaGame = (function () {
         addAnimation: function (name) {
             AnimationManager.loadAnimation(name);
         },
+
+        addAudio: function (name, directory) {
+            AudioManager.loadAudio(name, directory);
+        },
         
         start: function () {
             canvas = document.getElementById("canvas");

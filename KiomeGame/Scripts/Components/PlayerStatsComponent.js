@@ -187,7 +187,6 @@ function PlayerStatsComponent(parent) {
 
 
         if (isUnderBonus) {
-            console.log(this.bonusTimeRemaining());
             if (bonusFinished())
                 finishBonus();
         }
