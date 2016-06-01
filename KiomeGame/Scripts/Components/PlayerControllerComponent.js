@@ -68,6 +68,8 @@ function PlayerControllerComponent(parent, target) {
 
     this.onCreate = function (parent, target) {
         this.parent = parent;
+        this.tag = "player";
+        this.attackSequence = 0;        
         targetToLookAt = target;
         currentState = "move";
         lastDirection = new Vector2(0,0);
@@ -118,6 +120,9 @@ function PlayerControllerComponent(parent, target) {
     var lastDash = Date.now();
 
     var lastDirection;
+    
+    var attackSequenceSpeed = 0.3;
+    var attackSequenceTimer = 0;
 
     function moveState(deltaTime) {
         if (InputManager.isKeyPressed("attack1")) {
@@ -157,11 +162,20 @@ function PlayerControllerComponent(parent, target) {
     }
 
     function goBackToMove() {
+    	this.attackSequence = 0;
+    	attackSequenceTimer = 0;
         currentState = "move";
-    }
+    }           
 
     function meleeAttackState(deltaTime) {
+    	if(attackSequenceTimer >= attackSequenceSpeed){
+    		if (InputManager.isKeyPressed("attack1") && this.attackSequence == 0) {    	
+        		console.log("teste");
+        		this.attackSequence = 1;
+            }
+    	}    	
         characterController.meleeAttackUpdate(lastDirection,deltaTime,goBackToMove,this);
+        attackSequenceTimer += deltaTime;
     }
 
     function rangedAttackState(deltaTime) {

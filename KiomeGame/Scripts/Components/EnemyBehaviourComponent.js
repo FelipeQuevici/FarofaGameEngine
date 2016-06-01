@@ -21,6 +21,7 @@ function EnemyBehaviourComponent(parent, target) {
 
     this.onCreate = function (parent) {
         this.parent = parent;
+        this.tag = "enemy";
         characterController = this.parent.getComponent("characterController");
         this.changeDirection();
     };

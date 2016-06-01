@@ -1,12 +1,14 @@
 {
   "enemyIdle": {
     "animationSpeed": 0.5,
+    "loop": 1,
     "frames": {
       "1": "enemyIdle1"
     }
   },
   "enemyWalking": {
     "animationSpeed": 0.8,
+    "loop": 1,
     "frames": {
       "1": "enemyWalking1",
       "2": "enemyWalking2",
@@ -20,6 +22,7 @@
   },
   "enemyAttack": {
     "animationSpeed": 0.5,
+    "loop": 0,
     "frames": {
       "1": "enemyAttack1",
       "2": "enemyAttack2",

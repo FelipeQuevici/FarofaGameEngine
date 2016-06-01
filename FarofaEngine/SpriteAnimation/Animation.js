@@ -8,7 +8,8 @@ function Animation(animationName, information) {
     function onCreate(animationName, information) {
     	this.name = animationName;
     	this.speed = information[animationName].animationSpeed;
-    	this.frames = [];
+    	this.loop = information[animationName].loop;
+    	this.frames = [];    	
     	for(var frame in information[animationName].frames){
     		this.frames.push(information[animationName].frames[frame]);
         }

@@ -16,7 +16,7 @@ function PlayerStatsComponent(parent) {
     this.reset = function () {
         this.currentHealth = this.maxHealth;
         currentMoney = 0;
-        this.moveSpeed = 200;
+        this.moveSpeed = 300;
         playerController.setMoveSpeed(this.moveSpeed);
     };
 

@@ -31,7 +31,6 @@ function CharacterControllerComponent(parent) {
 
 
     var animationStartTime;
-    var attack1AnimationDuration = 500;
 
     var attack2AnimationDuration = 500;
 
@@ -61,20 +60,20 @@ function CharacterControllerComponent(parent) {
         meleeAttackAnimation = value;
     };
 
-    this.move = function (amount,  deltaTime) {
+    this.move = function (amount,  deltaTime) {    	    	
         var moveDirection = amount.copy();
-       if(moveDirection.x != 0 || moveDirection.y != 0){
-           moveDirection.multiplyByScalar(moveSpeed * deltaTime);
-           rigidBodyComponent.move(moveDirection);
-           if(!animationComponent.isAnimationPlaying(walkAnimation)){
-               animationComponent.setAnimation(AnimationManager.getAnimation(walkAnimation));
-           }
-       }
-       else {
-           if(!animationComponent.isAnimationPlaying(idleAnimation)){
-               animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
-           }
-       }
+        if(moveDirection.x != 0 || moveDirection.y != 0){
+            moveDirection.multiplyByScalar(moveSpeed * deltaTime);
+            rigidBodyComponent.move(moveDirection);
+            if(!animationComponent.isAnimationPlaying(walkAnimation)){
+                animationComponent.setAnimation(AnimationManager.getAnimation(walkAnimation));
+            }
+        }
+        else {
+            if(!animationComponent.isAnimationPlaying(idleAnimation)){
+                animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
+            }
+        }
    };
 
     var knockBackDirection;
@@ -157,12 +156,22 @@ function CharacterControllerComponent(parent) {
         attackCollisionComponent.enable = true;
     };
 
-    function isMeleeAttackAnimationOver() {
-        return Date.now() - animationStartTime > attack1AnimationDuration;
+    function isMeleeAttackAnimationOver(caller) {
+    	if(caller.tag == "player"){
+    		if(animationComponent.currentFrame >= 15){
+    			if(caller.attackSequence == 0){    				
+    				return true;
+    			}else if(caller.attackSequence == 1){
+    				caller.attackSequence = 2;
+    				hitList = [];
+    			}    			
+    		}
+    	}
+    	return animationComponent.isAnimationFinished();
     }
 
-    this.meleeAttackUpdate = function (direction, deltaTime, functionOnOver, caller) {
-        if (isMeleeAttackAnimationOver()) {
+    this.meleeAttackUpdate = function (direction, deltaTime, functionOnOver, caller) {    	
+        if (isMeleeAttackAnimationOver(caller)) {
             animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
             attackCollisionComponent.enable = false;
             hitList = [];
@@ -201,7 +210,7 @@ function CharacterControllerComponent(parent) {
     };
 
     function isDashingAnimationOver() {
-        return Date.now() - animationStartTime > dashAnimationDuration
+    	return animationComponent.isAnimationFinished();
     }
 
     this.enterDashSate = function () {

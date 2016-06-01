@@ -4,9 +4,33 @@
 
 FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
-FarofaGame.addSpriteSheet("Characters/Player/playerIdle");
-FarofaGame.addSpriteSheet("Characters/Player/playerWalking");
-FarofaGame.addSpriteSheet("Characters/Player/playerAttack");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleRight");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottom");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleLeft");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleTop");
+FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleTopRight");
+
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingRight");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingBottom");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingLeft");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingTop");
+FarofaGame.addSpriteSheet("Characters/Player/walking/playerWalkingTopRight");
+
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackTop");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackTopRight");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackRight");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackLeft");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottom");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomLeft");
+
 FarofaGame.addAnimation("Characters/Player/playerAnimation");
 
 FarofaGame.addSpriteSheet("Characters/Enemy/enemyIdle");

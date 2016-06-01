@@ -1,12 +1,46 @@
 {
   "playerIdle": {
-    "animationSpeed": 0.5,
+    "animationSpeed": 1.8,
+    "loop": 1,
     "frames": {
-      "1": "playerIdle1"
+      "1": "playerIdle1",
+      "2": "playerIdle2",
+      "3": "playerIdle3",
+      "4": "playerIdle4",
+      "5": "playerIdle5",
+      "6": "playerIdle6",
+      "7": "playerIdle7",
+      "8": "playerIdle8",
+      "9": "playerIdle9",
+      "10": "playerIdle10",
+      "11": "playerIdle11",
+      "12": "playerIdle12",
+      "13": "playerIdle13",
+      "14": "playerIdle14",
+      "15": "playerIdle15",
+      "16": "playerIdle16",
+      "17": "playerIdle17",
+      "18": "playerIdle18",
+      "19": "playerIdle19",
+      "20": "playerIdle20",
+      "21": "playerIdle21",
+      "22": "playerIdle22",
+      "23": "playerIdle23",
+      "24": "playerIdle24",
+      "25": "playerIdle25",
+      "26": "playerIdle26",
+      "27": "playerIdle27",
+      "28": "playerIdle28",
+      "29": "playerIdle29",
+      "30": "playerIdle30",
+      "31": "playerIdle31",
+      "32": "playerIdle32",
+      "33": "playerIdle33"
     }
   },
   "playerWalking": {
-    "animationSpeed": 0.8,
+    "animationSpeed": 0.6,
+    "loop": 1,
     "frames": {
       "1": "playerWalking1",
       "2": "playerWalking2",
@@ -15,16 +49,45 @@
       "5": "playerWalking5",
       "6": "playerWalking6",
       "7": "playerWalking7",
-      "8": "playerWalking8"
+      "8": "playerWalking8",
+      "9": "playerWalking9",
+      "10": "playerWalking10"
     }
   },
   "playerAttack": {
-    "animationSpeed": 0.5,
+    "animationSpeed": 1,
+    "loop": 0,
     "frames": {
       "1": "playerAttack1",
       "2": "playerAttack2",
       "3": "playerAttack3",
-      "4": "playerAttack4"
+      "4": "playerAttack4",
+      "5": "playerAttack5",
+      "6": "playerAttack6",
+      "7": "playerAttack7",
+      "8": "playerAttack8",
+      "9": "playerAttack9",
+      "10": "playerAttack10",
+      "11": "playerAttack11",
+      "12": "playerAttack12",
+      "13": "playerAttack13",
+      "14": "playerAttack14",
+      "15": "playerAttack15",
+      "16": "playerAttack16",
+      "17": "playerAttack17",
+      "18": "playerAttack18",
+      "19": "playerAttack19",
+      "20": "playerAttack20",
+      "21": "playerAttack21",
+      "22": "playerAttack22",
+      "23": "playerAttack23",
+      "24": "playerAttack24",
+      "25": "playerAttack25",
+      "26": "playerAttack26",
+      "27": "playerAttack27",
+      "28": "playerAttack28",
+      "29": "playerAttack29",
+      "30": "playerAttack30"
     }
   }
 }

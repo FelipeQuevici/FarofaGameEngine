@@ -9,7 +9,8 @@ function AnimationComponent(parent, initialAnimation, spriteComponent) {
     function onCreate(parent, initialAnimation, spriteComponent) {
     	this.parent = parent;
         this.spriteComponent = spriteComponent;        
-        this.currentFrame = 1;        
+        this.currentFrame = 1; 
+        this.animationFinished = false;
         
         if (initialAnimation instanceof Animation) {
         	this.setAnimation(initialAnimation);            
@@ -22,6 +23,7 @@ function AnimationComponent(parent, initialAnimation, spriteComponent) {
         this.currentAnimation = animation;    
         this.currentFrame = 0;
         this.nextFrame();
+        this.animationFinished = false;
         setTimePerFrame(this.currentAnimation["speed"],this.currentAnimation["frames"].length);
         timer = 0;
     };
@@ -30,13 +32,22 @@ function AnimationComponent(parent, initialAnimation, spriteComponent) {
     	return this.currentAnimation.name == animation;
     };
     
+    this.isAnimationFinished = function (){
+    	return this.animationFinished;
+    };
+    
     function setTimePerFrame(animationSpeed, framesLength){
     	timePerFrame = animationSpeed / framesLength;
     }
 
     this.nextFrame = function () {    	    	
-    	if(this.currentFrame == this.currentAnimation["frames"].length){
-    		this.currentFrame = 1;
+    	if(this.currentFrame == this.currentAnimation["frames"].length){    
+    		if(this.currentAnimation.loop == 0){    
+    			this.animationFinished = true;
+    			return;
+    		}else{
+    			this.currentFrame = 1;
+    		}
     	}else{
     		this.currentFrame += 1;
     	}
@@ -44,7 +55,8 @@ function AnimationComponent(parent, initialAnimation, spriteComponent) {
     };
 
     this.onUpdate = function (deltaTime) {
-    	timer += deltaTime; 
+    	
+    	timer += deltaTime * this.spriteComponent.sprite.spriteInformation.frameSpeed; 
         if (timer >= timePerFrame){
         	timer = 0;
         	this.nextFrame();
