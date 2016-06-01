@@ -34,8 +34,8 @@ function PlayerControllerComponent(parent, target) {
                 animationComponent.setAnimation(AnimationManager.getAnimation(drinkingAnimation));
             }
 
-            AudioManager.setVolume("Hotline",0.2);
-            AudioManager.playAudio("Drinking");
+            AudioManager.setVolume(FarofaGame.getGlobalVariable("MainMusic"),0.2);
+            AudioManager.playAudio("Drinking", false);
 
             currentState = "drinking";
 
@@ -124,6 +124,10 @@ function PlayerControllerComponent(parent, target) {
             currentState = "meleeAttack";
             lastDirection = getCurrentDirection.call(this);
             characterController.enterMeleeAttackState();
+
+            AudioManager.playAudio("MeleeAttack");
+            var a = Math.round(Math.random()+1);
+            AudioManager.playAudio("MonkeyAttack"+a, false, true);
             return;
         }
 

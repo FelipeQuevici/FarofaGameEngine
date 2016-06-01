@@ -25,7 +25,12 @@ function MenuScene() {
         this.addObject(item3);
         this.initializeObjects();
         menu.selectItem(0);
-        AudioManager.playAudio("Hotline",true);
+
+
+        var mainSong = FarofaGame.getGlobalVariable("MainMusic");
+        var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
+        AudioManager.setVolume(mainSong,volume);
+        AudioManager.playAudio(mainSong, true, false);
     };
 
     this.onUpdate = function () {

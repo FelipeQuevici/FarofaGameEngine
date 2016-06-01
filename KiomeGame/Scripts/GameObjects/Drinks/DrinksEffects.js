@@ -14,18 +14,28 @@ function GivesExtraHeart(playerStats) {
 }
 
 function ResumeMusic() {
-    AudioManager.setVolume("Hotline",1);
-    AudioManager.playAudio("Hotline");
+    var mainSong = FarofaGame.getGlobalVariable("MainMusic");
+    var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
+    AudioManager.setVolume(mainSong,volume);
+    AudioManager.playAudio(mainSong, false);
 }
 
 function SpeedBonus(playerStats) {
-    AudioManager.pauseAudio("Hotline");
-    AudioManager.playAudio("Mariachi",false,ResumeMusic);
+    var mainSong = FarofaGame.getGlobalVariable("MainMusic");
+    var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
+
+    AudioManager.pauseAudio(mainSong);
+    AudioManager.setVolume("Mariachi", volume);
+    AudioManager.playAudio("Mariachi", false, false, ResumeMusic);
     playerStats.giveSpeedBonus(10000,2);
 }
 
 function InvincibleBonus(playerStats) {
-    AudioManager.pauseAudio("Hotline");
-    AudioManager.playAudio("Russian",false,ResumeMusic);
+    var mainSong = FarofaGame.getGlobalVariable("MainMusic");
+    var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
+
+    AudioManager.pauseAudio(mainSong);
+    AudioManager.setVolume("Russian", volume);
+    AudioManager.playAudio("Russian", false, false, ResumeMusic);
     playerStats.invincibleBonus(10000);
 }

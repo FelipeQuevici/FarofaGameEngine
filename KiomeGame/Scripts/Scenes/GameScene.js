@@ -87,11 +87,13 @@ function GameScene() {
 
     this.onEnter = function () {
         var notStoppedAudios = AudioManager.notStoppedAudios();
+        var mainSong = FarofaGame.getGlobalVariable("MainMusic");
         for (var audioIndex in notStoppedAudios) {
             var currentAudio = notStoppedAudios[audioIndex];
-            if (currentAudio == "Hotline") {
-                AudioManager.setVolume(currentAudio,1);
-                AudioManager.playAudio(currentAudio, true);
+            if (currentAudio == mainSong) {
+                var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
+                AudioManager.setVolume(currentAudio,volume);
+                AudioManager.playAudio(currentAudio, true, false);
             }
             else {
                 AudioManager.stopAudio(currentAudio);
@@ -147,7 +149,7 @@ function GameScene() {
             }
         }
 
-        var drink1 =  new Drink("drink_1", 0, SpeedBonus, player);
+        var drink1 =  new Drink("drink_3", 0, SpeedBonus, player);
 
         var overlay = new DrinkingSaleOverlayGameObject(this, new Vector2(60,-180),drink1);
         this.addObject(overlay);

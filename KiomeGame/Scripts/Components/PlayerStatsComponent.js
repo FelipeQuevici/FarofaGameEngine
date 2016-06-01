@@ -87,6 +87,9 @@ function PlayerStatsComponent(parent) {
     this.removeLife = function (amount) {
         if (isInvincible) return;
 
+        var a = Math.round(Math.random()+1);
+        AudioManager.playAudio("MonkeyHit"+a);
+
         this.currentHealth -= amount;
         EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
 

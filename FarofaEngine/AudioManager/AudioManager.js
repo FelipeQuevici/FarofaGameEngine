@@ -32,15 +32,23 @@ var AudioManager = (function () {
         },
 
 
-        playAudio: function (name, loop, callBackOnEnd, callBackCaller) {
+        playAudio: function (name, loop, playOtherInstance, callBackOnEnd, callBackCaller) {
             if (!audios.hasOwnProperty(name)) {
                 Debug.log("Audio does not exist", 0, "audioManager");
                 return;
             }
-            if (audiosStatus[name] == "playing") {
+            if (audiosStatus[name] == "playing" && !playOtherInstance) {
+
                 Debug.log("Audio is already playing.", 0, "audioManager");
                 return;
+
             }
+            if (playOtherInstance) {
+                var audio = new Audio(audios[name].src);
+                audio.play();
+            }
+
+
             if (audiosStatus[name] == "stopped") {
                 var audio = audios[name];
                 audio.loop = loop;
@@ -80,9 +88,6 @@ var AudioManager = (function () {
         },
 
         setVolume: function (name, volume) {
-            if (audiosStatus[name] == "stopped") {
-                return;
-            }
             audios[name].volume = volume;
         },
 
