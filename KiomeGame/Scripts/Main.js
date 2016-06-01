@@ -4,6 +4,7 @@
 
 FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
+//Player
 FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleRight");
 FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottomRight");
 FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottom");
@@ -31,11 +32,31 @@ FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottom");
 FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomRight");
 FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomLeft");
 
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingRight");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottom");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingLeft");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTop");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopRight");
+
 FarofaGame.addAnimation("Characters/Player/playerAnimation");
 
-FarofaGame.addSpriteSheet("Characters/Enemy/enemyIdle");
+//Enemy
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTopRight");
+
 FarofaGame.addSpriteSheet("Characters/Enemy/enemyWalking");
+
 FarofaGame.addSpriteSheet("Characters/Enemy/enemyAttack");
+
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
 
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");

@@ -70,7 +70,7 @@ function EnemyBehaviourComponent(parent, target) {
                 if (isMelee) {
                     characterController.meleeAttackUpdate(lastToMove, deltaTime, goBackToMove, this);
                 }
-                else {
+                else {                	
                     characterController.rangedAttack(deltaTime, goBackToMove, this);
                 }
             }
