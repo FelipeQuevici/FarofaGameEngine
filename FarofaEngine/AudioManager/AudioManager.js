@@ -77,6 +77,23 @@ var AudioManager = (function () {
             audios[name].pause();
             audios[name].currentTime = 0;
             audiosStatus[name] = "stopped";
+        },
+
+        setVolume: function (name, volume) {
+            if (audiosStatus[name] == "stopped") {
+                return;
+            }
+            audios[name].volume = volume;
+        },
+
+        notStoppedAudios: function () {
+            var list = [];
+            for (var audioName in audiosStatus) {
+                if (audiosStatus[audioName] != "stopped") {
+                    list.push(audioName);
+                }
+            }
+            return list;
         }
     }
 })();

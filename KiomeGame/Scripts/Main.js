@@ -23,6 +23,9 @@ FarofaGame.addSpriteSheet("Hud/drink_overlay");
 FarofaGame.addSpriteSheet("poo");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
+FarofaGame.addAudio("Mariachi","Audios/Songs/");
+FarofaGame.addAudio("Russian","Audios/Songs/");
+FarofaGame.addAudio("Drinking","Audios/SFX/");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 

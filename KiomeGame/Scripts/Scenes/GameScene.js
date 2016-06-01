@@ -86,6 +86,18 @@ function GameScene() {
     };
 
     this.onEnter = function () {
+        var notStoppedAudios = AudioManager.notStoppedAudios();
+        for (var audioIndex in notStoppedAudios) {
+            var currentAudio = notStoppedAudios[audioIndex];
+            if (currentAudio == "Hotline") {
+                AudioManager.setVolume(currentAudio,1);
+                AudioManager.playAudio(currentAudio, true);
+            }
+            else {
+                AudioManager.stopAudio(currentAudio);
+            }
+        }
+
 
         const tileSize = 128;
         this.declareCamera();
@@ -135,7 +147,7 @@ function GameScene() {
             }
         }
 
-        var drink1 =  new Drink("drink_1", 0, InvencivleBonus, player);
+        var drink1 =  new Drink("drink_1", 0, SpeedBonus, player);
 
         var overlay = new DrinkingSaleOverlayGameObject(this, new Vector2(60,-180),drink1);
         this.addObject(overlay);

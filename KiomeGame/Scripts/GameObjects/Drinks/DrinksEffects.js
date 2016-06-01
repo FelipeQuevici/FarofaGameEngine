@@ -13,10 +13,19 @@ function GivesExtraHeart(playerStats) {
     EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
 }
 
+function ResumeMusic() {
+    AudioManager.setVolume("Hotline",1);
+    AudioManager.playAudio("Hotline");
+}
+
 function SpeedBonus(playerStats) {
+    AudioManager.pauseAudio("Hotline");
+    AudioManager.playAudio("Mariachi",false,ResumeMusic);
     playerStats.giveSpeedBonus(10000,2);
 }
 
-function InvencivleBonus(playerStats) {
+function InvincibleBonus(playerStats) {
+    AudioManager.pauseAudio("Hotline");
+    AudioManager.playAudio("Russian",false,ResumeMusic);
     playerStats.invincibleBonus(10000);
 }

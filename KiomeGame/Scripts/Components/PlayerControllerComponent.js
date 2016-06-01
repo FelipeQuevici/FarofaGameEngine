@@ -10,9 +10,10 @@ function PlayerControllerComponent(parent, target) {
         "move": moveState,
         "meleeAttack": meleeAttackState,
         "rangedAttack": rangedAttackState,
-        "dashing": dashingState
+        "dashing": dashingState,
+        "drinking": drinkingState
     };
-
+    
     var characterController;
 
     var itemToBuy = null;
@@ -26,6 +27,35 @@ function PlayerControllerComponent(parent, target) {
             return;
         }
         if (statComponent.hasDrinkEquiped()) {
+            startDrinkingTime = Date.now();
+            var animationComponent = this.parent.getComponent("animation");
+
+            if(!animationComponent.isAnimationPlaying(drinkingAnimation)) {
+                animationComponent.setAnimation(AnimationManager.getAnimation(drinkingAnimation));
+            }
+
+            AudioManager.setVolume("Hotline",0.2);
+            AudioManager.playAudio("Drinking");
+
+            currentState = "drinking";
+
+        }
+    }
+
+    var startDrinkingTime;
+    var drinkingDuration = 1000;
+    var drinkingAnimation = "playerIdle";
+
+    function finishedDrinking() {
+        return Date.now() - startDrinkingTime > drinkingDuration;
+    }
+
+    function drinkingState() {
+
+        if (finishedDrinking()) {
+            currentState = "move";
+            this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));
+            var statComponent = this.parent.getComponent("stats");
             statComponent.drinkSelectedDrink();
         }
     }
