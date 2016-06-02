@@ -39,7 +39,7 @@ function CanvasRenderer(canvas) {
         
         context.drawImage(sprite.image, a.x, a.y, a.w, a.h,
             d.x - e.x, d.y - e.y, b.width, b.height);
-         
+        
     };
 
     this.drawText = function (textComponent, isHud) {

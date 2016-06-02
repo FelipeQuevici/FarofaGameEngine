@@ -32,7 +32,7 @@ function GameScene() {
     };
 
     this.spawnEnemy = function (spawnPoint) {
-        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x, spawnPoint.position.y-52), 0, player);
+        var enemy = new EnemyGameObject(this, new Vector2(spawnPoint.position.x, spawnPoint.position.y), 0, player);
         this.createObject(enemy);
         enemies.push(enemy);
         enemiesSpawnedThisWave++;
