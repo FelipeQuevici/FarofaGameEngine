@@ -29,6 +29,17 @@ function CharacterControllerComponent(parent) {
     var rangedAttackanimation = "playerIdle";
     var stunedAnimation = "playerIdle";
 
+    this.setKnockBackAnimation = function (value) {
+        knockBackAnimation = value;
+    };
+
+    this.setStunedAnumation = function (value) {
+        stunedAnimation = value;
+    };
+
+    this.setRangedAttackAnimation = function (value) {
+        rangedAttackanimation = value;
+    };
 
     var animationStartTime;
 
