@@ -119,7 +119,7 @@ function GameScene() {
         player = new PlayerGameObject(this, new Vector2(1,1),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
-        this.camera.position= new Vector2(150,150);
+        this.camera.position= new Vector2(0 ,0);
         SceneManager.getRenderer().camera = this.camera;
 
         var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,311));
@@ -150,27 +150,27 @@ function GameScene() {
         }
 
         var drink1 =  new Drink("drink_1", 0, RestoreHealth, player);
-        var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(60,-180),drink1);
+        var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(1295,-230),drink1);
         this.addObject(overlay1);
-        var drinkingSale1 = new DrinkingSalesGameObject(this,new Vector2(60,60),drink1, overlay1);
+        var drinkingSale1 = new DrinkingSalesGameObject(this,new Vector2(1295,10),drink1, overlay1);
         this.addObject(drinkingSale1);
 
         var drink2 =  new Drink("drink_2", 0, GivesExtraHeart, player);
-        var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(140,-180),drink2);
+        var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(1213,-230),drink2);
         this.addObject(overlay2);
-        var drinkingSale2 = new DrinkingSalesGameObject(this,new Vector2(140,60),drink2, overlay2);
+        var drinkingSale2 = new DrinkingSalesGameObject(this,new Vector2(1213,10),drink2, overlay2);
         this.addObject(drinkingSale2);
 
         var drink3 =  new Drink("drink_3", 0, SpeedBonus, player);
-        var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(220,-180),drink3);
+        var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(1135,-230),drink3);
         this.addObject(overlay3);
-        var drinkingSale3 = new DrinkingSalesGameObject(this,new Vector2(220,60),drink3, overlay3);
+        var drinkingSale3 = new DrinkingSalesGameObject(this,new Vector2(1135,10),drink3, overlay3);
         this.addObject(drinkingSale3);
 
         var drink4 =  new Drink("drink_4", 0, InvincibleBonus, player);
-        var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(400,-180),drink4);
+        var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(1054,-230),drink4);
         this.addObject(overlay4);
-        var drinkingSale4 = new DrinkingSalesGameObject(this,new Vector2(400,60),drink4, overlay4);
+        var drinkingSale4 = new DrinkingSalesGameObject(this,new Vector2(1054,10),drink4, overlay4);
         this.addObject(drinkingSale4);
         
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);

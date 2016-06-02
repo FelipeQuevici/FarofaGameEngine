@@ -26,8 +26,8 @@ function DrinkingSalesGameObject(scene, position, drink, overlay) {
 
     this.onInitialize = function () {
         //collisionBox = this.addComponent("collisionBox", new CollisionBoxComponent(this, new Circle(0,0)));
-    	collisionBox = this.addComponent("rigidBody", new RigidBodyComponent(this));
-    	spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"background","scenarioAsset1"));
+    	collisionBox = this.addComponent("collisionBox", new CollisionBoxComponent(this, new Circle(0,0)));
+    	spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"background","sand01"));
         EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
     };

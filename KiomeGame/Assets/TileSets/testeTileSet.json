@@ -66,9 +66,6 @@
       "x":16,
       "y":16
     },
-    "direction": 0,
-    "tag": "solid",
-    "frameSpeed": 1,
     "collisions": {
       "collisionBox": {
         "shape": "rectangle",
