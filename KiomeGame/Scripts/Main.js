@@ -53,9 +53,23 @@ FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTopLeft");
 FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTop");
 FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTopRight");
 
-FarofaGame.addSpriteSheet("Characters/Enemy/enemyWalking");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingTopRight");
 
-FarofaGame.addSpriteSheet("Characters/Enemy/enemyAttack");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackTopRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomLeft");
 
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
 
@@ -69,7 +83,7 @@ FarofaGame.addSpriteSheet("poo");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
 FarofaGame.setGlobalVariable("MainMusic","Hotline");
-FarofaGame.setGlobalVariable("MainMusicVolume",0.7);
+FarofaGame.setGlobalVariable("MainMusicVolume",0.0);
 FarofaGame.addAudio("Mariachi","Audios/Songs/");
 FarofaGame.addAudio("Russian","Audios/Songs/");
 FarofaGame.addAudio("Drinking","Audios/SFX/");
