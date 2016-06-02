@@ -56,7 +56,7 @@
   },
   "enemyAttack": {
     "animationSpeed": 1.2,
-    "loop": 1,
+    "loop": 0,
     "frames": {
       "1": "enemyAttack1",
       "2": "enemyAttack2",

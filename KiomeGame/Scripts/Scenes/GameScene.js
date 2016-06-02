@@ -12,7 +12,7 @@ function GameScene() {
 
     var enemies = [];
 
-    var timeBetweenWaves = 5000;
+    var timeBetweenWaves = 10000;
     var timeWhenLastWaveEnded;
 
     var enemiesToSpawnThisWave;

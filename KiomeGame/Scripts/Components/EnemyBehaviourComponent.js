@@ -8,7 +8,7 @@ function EnemyBehaviourComponent(parent, target) {
     var direction;
     var isMelee = true;
 
-    var attackMeleeDistance = 30;
+    var attackMeleeDistance = 70;
     var attackRangedDistance = 300;
 
     var characterController;

@@ -220,7 +220,7 @@ function CharacterControllerComponent(parent) {
     };
 
     function isDashingAnimationOver() {
-    	return animationComponent.isAnimationFinished();
+        return Date.now() - animationStartTime > dashAnimationDuration;
     }
 
     this.enterDashSate = function () {
