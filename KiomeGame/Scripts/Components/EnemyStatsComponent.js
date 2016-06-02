@@ -8,7 +8,7 @@ function EnemyStatsComponent(parent) {
 
     this.onCreate = function (parent) {
         this.parent = parent;
-        maxLife = 3;
+        maxLife = 2;
         currentLife = maxLife;
         this.money = Math.floor(Math.random()*3+2);
     };

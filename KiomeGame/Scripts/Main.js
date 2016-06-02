@@ -4,6 +4,7 @@
 
 FarofaGame.setLoadDirectory("KiomeGame/Assets/");
 
+//Player
 FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleRight");
 FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottomRight");
 FarofaGame.addSpriteSheet("Characters/Player/idle/playerIdleBottom");
@@ -31,12 +32,48 @@ FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottom");
 FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomRight");
 FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomLeft");
 
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingRight");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottom");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingLeft");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTop");
+FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopRight");
+
 FarofaGame.addAnimation("Characters/Player/playerAnimation");
 
-FarofaGame.addSpriteSheet("Characters/Enemy/enemyIdle");
-FarofaGame.addSpriteSheet("Characters/Enemy/enemyWalking");
-FarofaGame.addSpriteSheet("Characters/Enemy/enemyAttack");
+//Enemy
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/idle/EnemyIdleTopRight");
+
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingTopRight");
+
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackTopRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomLeft");
+
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
+
+FarofaGame.addSpriteSheet("Tilesets/scenarioAssets");
 
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("TileSets/TileSet");

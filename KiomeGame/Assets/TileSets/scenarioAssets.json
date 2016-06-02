@@ -1,0 +1,42 @@
+{
+"scenarioAsset1":
+{
+	"x":0,"y":0,"w":640,"h":313,
+	"pivot" : {"x":320, "y":156},  
+	"frameSpeed": 1,
+	"tag": "solid",
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 0, "y": 80, "w": 640, "h": 220}}
+},
+"scenarioAsset2":
+{
+	"x":0,"y":313,"w":271,"h":199,
+	"pivot" : {"x":135, "y":100},  
+	"frameSpeed": 1,
+	"tag": "solid",
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 0, "y": 33, "w": 271, "h": 151}}
+},
+"scenarioAsset3":
+{
+	"x":0,"y":0,"w":640,"h":313,
+	"pivot" : {"x":320, "y":156},  
+	"frameSpeed": 1,
+	"tag": "solid",
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 0, "y": 80, "w": 640, "h": 220}}
+},
+"scenarioAsset4":
+{
+	"x":0,"y":0,"w":640,"h":313,
+	"pivot" : {"x":320, "y":156},  
+	"frameSpeed": 1,
+	"tag": "solid",
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 0, "y": 80, "w": 640, "h": 220}}
+},
+"scenarioAsset5":
+{
+	"x":0,"y":0,"w":640,"h":313,
+	"pivot" : {"x":320, "y":156},  
+	"frameSpeed": 1,
+	"tag": "solid",
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 0, "y": 80, "w": 640, "h": 220}}
+}
+}

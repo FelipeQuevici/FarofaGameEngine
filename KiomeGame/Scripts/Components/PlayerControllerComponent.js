@@ -44,17 +44,18 @@ function PlayerControllerComponent(parent, target) {
 
     var startDrinkingTime;
     var drinkingDuration = 1000;
-    var drinkingAnimation = "playerIdle";
+    var drinkingAnimation = "playerDrinking";
 
-    function finishedDrinking() {
-        return Date.now() - startDrinkingTime > drinkingDuration;
+    function finishedDrinking(animationComponent) {
+        //return Date.now() - startDrinkingTime > drinkingDuration;
+        return  animationComponent.isAnimationFinished();
     }
 
     function drinkingState() {
-
-        if (finishedDrinking()) {
+    	var animationComponent = this.parent.getComponent("animation");
+        if (finishedDrinking(animationComponent)) {
             currentState = "move";
-            this.parent.getComponent("animation").setAnimation(AnimationManager.getAnimation("playerIdle"));
+            animationComponent.setAnimation(AnimationManager.getAnimation("playerIdle"));
             var statComponent = this.parent.getComponent("stats");
             statComponent.drinkSelectedDrink();
         }

@@ -91,8 +91,9 @@ function PlayerStatsComponent(parent) {
         AudioManager.playAudio("MonkeyHit"+a);
 
         this.currentHealth -= amount;
+        addAdrenaline += 2;  
         EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
-
+        
         if (this.currentHealth <= 0) {
             this.parent.scene.gameOver();
         }
@@ -110,7 +111,7 @@ function PlayerStatsComponent(parent) {
         var enemy = args["enemy"];
         var value = enemy.getComponent("stats").money;
         currentMoney += value;
-        addAdrenaline += 1;        
+        addAdrenaline += 2;        
     };
     
     var waveStarted = function (){
@@ -173,7 +174,7 @@ function PlayerStatsComponent(parent) {
     		this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
         	if(this.adrenaline <= 0){
         		this.adrenaline = 0;
-        		playerController.setMoveSpeed(this.moveSpeed / 4 * speedMultiplier);
+        		playerController.setMoveSpeed(this.moveSpeed / 2 * speedMultiplier);
         	}else{
         		playerController.setMoveSpeed(this.moveSpeed * speedMultiplier);
         	}

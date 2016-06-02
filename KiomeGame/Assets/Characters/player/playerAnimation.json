@@ -89,5 +89,41 @@
       "29": "playerAttack29",
       "30": "playerAttack30"
     }
+  },
+  "playerDrinking": {
+    "animationSpeed": 1,
+    "loop": 0,
+    "frames": {
+      "1": "playerDrinking1",
+      "2": "playerDrinking2",
+      "3": "playerDrinking3",
+      "4": "playerDrinking4",
+      "5": "playerDrinking5",
+      "6": "playerDrinking6",
+      "7": "playerDrinking7",
+      "8": "playerDrinking8",
+      "9": "playerDrinking9",
+      "10": "playerDrinking10",
+      "11": "playerDrinking11",
+      "12": "playerDrinking12",
+      "13": "playerDrinking13",
+      "14": "playerDrinking14",
+      "15": "playerDrinking15",
+      "16": "playerDrinking16",
+      "17": "playerDrinking17",
+      "18": "playerDrinking18",
+      "19": "playerDrinking19",
+      "20": "playerDrinking20",
+      "21": "playerDrinking21",
+      "22": "playerDrinking22",
+      "23": "playerDrinking23",
+      "24": "playerDrinking24",
+      "25": "playerDrinking25",
+      "26": "playerDrinking26",
+      "27": "playerDrinking27",
+      "28": "playerDrinking28",
+      "29": "playerDrinking29",
+      "30": "playerDrinking30"
+    }
   }
 }

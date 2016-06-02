@@ -159,8 +159,7 @@ function CharacterControllerComponent(parent) {
     };
 
 
-    this.enterMeleeAttackState = function () {
-        animationStartTime = Date.now();
+    this.enterMeleeAttackState = function () {        
         if(!animationComponent.isAnimationPlaying(meleeAttackAnimation)){
             animationComponent.setAnimation(AnimationManager.getAnimation(meleeAttackAnimation));
         }
@@ -245,6 +244,9 @@ function CharacterControllerComponent(parent) {
 
     this.enterRangedAttack = function () {
         animationStartTime = Date.now();
+        if(!animationComponent.isAnimationPlaying(meleeAttackAnimation)){
+            animationComponent.setAnimation(AnimationManager.getAnimation(meleeAttackAnimation));
+        }
     };
 
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
