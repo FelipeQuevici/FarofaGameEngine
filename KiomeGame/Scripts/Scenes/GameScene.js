@@ -154,7 +154,7 @@ function GameScene() {
         var overlay = new DrinkingSaleOverlayGameObject(this, new Vector2(60,-180),drink1);
         this.addObject(overlay);
 
-        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(60,60),drink1, overlay);
+        var drinkingSale = new DrinkingSalesGameObject(this,new Vector2(1152, -200),drink1, overlay);
         this.addObject(drinkingSale);
 
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
@@ -184,7 +184,28 @@ function GameScene() {
 
         var bonusBar = new BonusBarGUIGameObject(this,player);
         this.addObject(bonusBar);
-
+        	
+        var balcony = new ScenarioGameObject(this, 1152, -200, "scenarioAsset1");
+        this.addObject(balcony);
+        
+        var table1 = new ScenarioGameObject(this, 900, 400, "scenarioAsset2");
+        this.addObject(table1);
+        
+        var table2 = new ScenarioGameObject(this, -100, -400, "scenarioAsset2");
+        this.addObject(table2);
+        
+        var table3 = new ScenarioGameObject(this, 0, 500, "scenarioAsset2");
+        this.addObject(table3);
+        
+        var table4 = new ScenarioGameObject(this, 600, 1000, "scenarioAsset2");
+        this.addObject(table4);
+        
+        var table5 = new ScenarioGameObject(this, 1300, 1000, "scenarioAsset2");
+        this.addObject(table5);
+        
+        var table6 = new ScenarioGameObject(this, 400, 100, "scenarioAsset2");
+        this.addObject(table6);
+        
         this.initializeObjects();
         gameOver = false;
     };

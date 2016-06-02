@@ -73,6 +73,8 @@ FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomLeft");
 
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
 
+FarofaGame.addSpriteSheet("Tilesets/scenarioAssets");
+
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("TileSets/TileSet");
 FarofaGame.addSpriteSheet("crossHair");

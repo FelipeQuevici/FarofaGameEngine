@@ -174,7 +174,7 @@ function PlayerStatsComponent(parent) {
     		this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
         	if(this.adrenaline <= 0){
         		this.adrenaline = 0;
-        		playerController.setMoveSpeed(this.moveSpeed / 3 * speedMultiplier);
+        		playerController.setMoveSpeed(this.moveSpeed / 2 * speedMultiplier);
         	}else{
         		playerController.setMoveSpeed(this.moveSpeed * speedMultiplier);
         	}

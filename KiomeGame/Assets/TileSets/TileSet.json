@@ -214,5 +214,89 @@
         "h": 128
       }
     }
+  },
+  "wallBottomLeft2": {
+    "x": 128,
+    "y": 384,
+    "w": 128,
+    "h": 128,
+    "pivot" : {
+      "x":64,
+      "y":64
+    },
+    "tag": "solid",
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    }
+  },
+  "wallBottomRight2": {
+    "x": 256,
+    "y": 384,
+    "w": 128,
+    "h": 128,
+    "pivot" : {
+      "x":64,
+      "y":64
+    },
+    "tag": "solid",
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    }
+  },
+  "wallTopLeft2": {
+    "x": 128,
+    "y": 512,
+    "w": 128,
+    "h": 128,
+    "pivot" : {
+      "x":64,
+      "y":64
+    },
+    "tag": "solid",
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    }
+  },
+  "wallTopRight2": {
+    "x": 256,
+    "y": 512,
+    "w": 128,
+    "h": 128,
+    "pivot" : {
+      "x":64,
+      "y":64
+    },
+    "tag": "solid",
+    "frameSpeed": 1,
+    "collisions": {
+      "rigidBody": {
+        "shape": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    }
   }
 }
