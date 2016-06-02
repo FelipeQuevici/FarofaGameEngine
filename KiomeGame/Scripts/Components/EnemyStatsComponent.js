@@ -10,12 +10,11 @@ function EnemyStatsComponent(parent) {
         this.parent = parent;
         maxLife = 2;
         currentLife = maxLife;
-        this.money = Math.floor(Math.random()*3+2);
+        this.money = Math.floor(Math.random()*7+3);
     };
 
     this.removeLife = function (amount) {
         currentLife -= amount;
-        console.log("REMOBE");
         AudioManager.playAudio("EnemyHit", false, true);
         //console.log(currentLife);
         if (currentLife <= 0) {

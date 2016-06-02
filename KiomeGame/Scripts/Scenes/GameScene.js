@@ -7,7 +7,7 @@ function GameScene() {
     var crossHair;
 
     this.declareCamera = function () {
-        this.camera = new CameraFollowWithMargins(this,300,300);
+        this.camera = new CameraFollowWithMargins(this,400,400);
     };
 
     var enemies = [];
@@ -149,25 +149,25 @@ function GameScene() {
             }
         }
 
-        var drink1 =  new Drink("drink_1", 0, RestoreHealth, player);
+        var drink1 =  new Drink("drink_1", 10, RestoreHealth, player);
         var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(1295,-230),drink1);
         this.addObject(overlay1);
         var drinkingSale1 = new DrinkingSalesGameObject(this,new Vector2(1295,10),drink1, overlay1);
         this.addObject(drinkingSale1);
 
-        var drink2 =  new Drink("drink_2", 0, GivesExtraHeart, player);
+        var drink2 =  new Drink("drink_2", 30, GivesExtraHeart, player);
         var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(1213,-230),drink2);
         this.addObject(overlay2);
         var drinkingSale2 = new DrinkingSalesGameObject(this,new Vector2(1213,10),drink2, overlay2);
         this.addObject(drinkingSale2);
 
-        var drink3 =  new Drink("drink_3", 0, SpeedBonus, player);
+        var drink3 =  new Drink("drink_3", 15, SpeedBonus, player);
         var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(1135,-230),drink3);
         this.addObject(overlay3);
         var drinkingSale3 = new DrinkingSalesGameObject(this,new Vector2(1135,10),drink3, overlay3);
         this.addObject(drinkingSale3);
 
-        var drink4 =  new Drink("drink_4", 0, InvincibleBonus, player);
+        var drink4 =  new Drink("drink_4", 25, InvincibleBonus, player);
         var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(1054,-230),drink4);
         this.addObject(overlay4);
         var drinkingSale4 = new DrinkingSalesGameObject(this,new Vector2(1054,10),drink4, overlay4);

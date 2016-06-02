@@ -58,6 +58,10 @@ function PlayerControllerComponent(parent, target) {
             animationComponent.setAnimation(AnimationManager.getAnimation("playerIdle"));
             var statComponent = this.parent.getComponent("stats");
             statComponent.drinkSelectedDrink();
+            if (!statComponent.isUnderBonus()) {
+                AudioManager.setVolume(FarofaGame.getGlobalVariable("MainMusic"),FarofaGame.getGlobalVariable("MainMusicVolume"));
+
+            }
         }
     }
 

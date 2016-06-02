@@ -69,7 +69,11 @@ function PlayerStatsComponent(parent) {
     this.getCurrentDrink = function () {
         return selectedDrink;
     };
-    
+
+    this.isUnderBonus = function () {
+        return isUnderBonus;
+    };
+
     this.drinkSelectedDrink = function () {
         if (isUnderBonus) return;
 
