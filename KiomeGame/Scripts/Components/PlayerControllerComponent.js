@@ -19,14 +19,36 @@ function PlayerControllerComponent(parent, target) {
     var itemToBuy = null;
     var itemToBuySale = null;
 
-    function drinkOrBuy() {
+    function tryToBuy() {
         var statComponent = this.parent.getComponent("stats");
 
         if (itemToBuy && itemToBuySale.isPlayerIn()) {
             statComponent.buyDrink(itemToBuy);
             return;
         }
-        if (statComponent.hasDrinkEquiped()) {
+    }
+
+    function number1Pressed() {
+        drinkOnIndex.call(this,1);
+    }
+
+    function number2Pressed() {
+        drinkOnIndex.call(this,2);
+    }
+
+    function number3Pressed() {
+        drinkOnIndex.call(this,3);
+    }
+
+    function number4Pressed() {
+        drinkOnIndex.call(this,4);
+    }
+
+    function drinkOnIndex(index) {
+        var statComponent = this.parent.getComponent("stats");
+
+        if (statComponent.hasDrinkEquiped(index)) {
+            indexToDrink = index;
             startDrinkingTime = Date.now();
             var animationComponent = this.parent.getComponent("animation");
 
@@ -42,6 +64,7 @@ function PlayerControllerComponent(parent, target) {
         }
     }
 
+    var indexToDrink;
     var startDrinkingTime;
     var drinkingDuration = 1000;
     var drinkingAnimation = "playerDrinking";
@@ -57,7 +80,8 @@ function PlayerControllerComponent(parent, target) {
             currentState = "move";
             animationComponent.setAnimation(AnimationManager.getAnimation("playerIdle"));
             var statComponent = this.parent.getComponent("stats");
-            statComponent.drinkSelectedDrink();
+            statComponent.drinkSelectedDrink(indexToDrink);
+            indexToDrink = -1;
             if (!statComponent.isUnderBonus()) {
                 AudioManager.setVolume(FarofaGame.getGlobalVariable("MainMusic"),FarofaGame.getGlobalVariable("MainMusicVolume"));
 
@@ -79,12 +103,20 @@ function PlayerControllerComponent(parent, target) {
         currentState = "move";
         lastDirection = new Vector2(0,0);
         characterController = this.parent.getComponent("characterController");
-        EventCenterInstance.getInstance().subscribeEvent("eClicked", drinkOrBuy, this);
+        EventCenterInstance.getInstance().subscribeEvent("eClicked", tryToBuy, this);
+        EventCenterInstance.getInstance().subscribeEvent("1Clicked", number1Pressed, this);
+        EventCenterInstance.getInstance().subscribeEvent("2Clicked", number2Pressed, this);
+        EventCenterInstance.getInstance().subscribeEvent("3Clicked", number3Pressed, this);
+        EventCenterInstance.getInstance().subscribeEvent("4Clicked", number4Pressed, this);
         EventCenterInstance.getInstance().subscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
     };
 
     this.unsubscribeEvents = function () {
-        EventCenterInstance.getInstance().unsubscribeEvent("eClicked", drinkOrBuy, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("eClicked", tryToBuy, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("1Clicked", number1Pressed, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("2Clicked", number2Pressed, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("3Clicked", number3Pressed, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("4Clicked", number4Pressed, this);
         EventCenterInstance.getInstance().unsubscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
     };
 

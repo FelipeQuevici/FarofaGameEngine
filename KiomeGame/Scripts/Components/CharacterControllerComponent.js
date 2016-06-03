@@ -211,7 +211,9 @@ function CharacterControllerComponent(parent) {
                 collidedObject.getComponent("stats").removeLife(1);
                 if (shouldKnockBack) {
                     var angle = angleBetweenTwoPoints(collidedObject.position, this.parent.position);
+
                     var direction = polarToVector(1, -angle);
+                    direction.x = -direction.x;
                     collidedObject.getComponent("characterController").enterKnockBackState(direction);
                 }
                 hitList.push(collidedObject);

@@ -123,22 +123,25 @@ function AdrenalineBarGUIGameObject(scene, player) {
     onCreate.call(this, scene, player);
 }
 
-CurrentDrinkDisplay.inheritsFrom(GameObject);
+DrinkInventoryDisplayIndex.inheritsFrom(GameObject);
 
-function CurrentDrinkDisplay(scene, player) {
+function DrinkInventoryDisplayIndex(scene, player, index) {
     var playerStats;
     var spriteComponent;
 
-    function onCreate(scene, player) {
-        this.onCreateGameObject(scene, new Vector2(canvas.width-300,10),0);
+    function onCreate(scene, player, index) {
+        this.onCreateGameObject(scene, new Vector2(20,160+130*(index-1)),0);
         this.player = player;
+        this.index = index;
     }
 
     function changedDrink() {
-        var currentDrink = playerStats.getCurrentDrink();
+        var currentDrink = playerStats.drinkOnSlot(this.index);
         var spriteName = "Selection_Box";
         if (currentDrink)
             spriteName = currentDrink.name;
+        
+        console.log(spriteName);
         spriteComponent.setSpriteName(spriteName);
     }
 
@@ -147,14 +150,14 @@ function CurrentDrinkDisplay(scene, player) {
 
         spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI",spriteName));
         playerStats = player.getComponent("stats");
-        EventCenterInstance.getInstance().subscribeEvent("changedDrink",changedDrink, this);
+        EventCenterInstance.getInstance().subscribeEvent("changedDrink"+this.index,changedDrink, this);
     };
 
     this.unsubscribeEvents = function () {
-        EventCenterInstance.getInstance().unsubscribeEvent("changedDrink",changedDrink, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("changedDrink"+this.index,changedDrink, this);
     };
     
-    onCreate.call(this, scene, player);
+    onCreate.call(this, scene, player, index);
     
 }
 

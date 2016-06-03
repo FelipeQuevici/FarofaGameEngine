@@ -22,7 +22,12 @@ var InputManager = ( function () {
 
         "attack1": [1],
         "attack2": [3],
-        "dash": [32]
+        "dash": [32],
+
+        "1": [49],
+        "2": [50],
+        "3": [51],
+        "4": [52]
     };
 
     var numberToKey = {
@@ -33,7 +38,11 @@ var InputManager = ( function () {
         32: "space",
         27: "esc",
         13: "enter",
-        69: "e"
+        69: "e",
+        49: "1",
+        50: "2",
+        51: "3",
+        52: "4"
     };
 
     function onKeyDown(e) {

@@ -12,7 +12,8 @@ function PlayerStatsComponent(parent) {
     var maxAdrenaline = 10;
     var drinksInventory = {};
     var selectedDrink = null;
-
+    var drinkInventory = {};
+    
     this.reset = function () {
         this.currentHealth = this.maxHealth;
         currentMoney = 0;
@@ -43,8 +44,13 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().unsubscribeEvent("waveEnded", waveEnded, this);
     };
 
-    this.hasDrinkEquiped = function () {
-        return selectedDrink != null;
+    this.hasDrinkEquiped = function (index) {
+        return drinkInventory[index] != null;
+        //return selectedDrink != null;
+    };
+
+    this.drinkOnSlot = function (index) {
+        return drinkInventory[index];
     };
 
     var lastIndex = 2;
@@ -61,8 +67,9 @@ function PlayerStatsComponent(parent) {
     this.buyDrink = function (drink) {
         if (currentMoney >= drink.price) {
             selectedDrink = drink;
+            drinkInventory[drink.index] = drink;
             currentMoney -= drink.price;
-            EventCenterInstance.getInstance().callEvent("changedDrink",this);
+            EventCenterInstance.getInstance().callEvent("changedDrink"+drink.index,this);
         }
     };
 
@@ -74,18 +81,24 @@ function PlayerStatsComponent(parent) {
         return isUnderBonus;
     };
 
-    this.drinkSelectedDrink = function () {
+    this.drinkSelectedDrink = function (index) {
         if (isUnderBonus) return;
 
-        var bool = false;
-        if (selectedDrink) {
+        if (drinkInventory[index]) {
+            drinkInventory[index].drinkEffect();
+            drinkInventory[index] = null;
+            console.log(index);
+            EventCenterInstance.getInstance().callEvent("changedDrink"+index,this);
+        }
+
+        /*if (selectedDrink) {
             selectedDrink.drinkEffect();
             bool = true;
         }
         selectedDrink = null;
         if (bool) {
             EventCenterInstance.getInstance().callEvent("changedDrink",this);
-        }
+        }*/
     };
 
     this.removeLife = function (amount) {

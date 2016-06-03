@@ -1,8 +1,9 @@
 
-function Drink(name, price, functionToCall, player) {
-    this.onCreateItem = function (name, price ) {
+function Drink(name, price, functionToCall, player, index) {
+    this.onCreateItem = function (name, price, index) {
         this.name = name;
         this.price = price;
+        this.index = index;
         //console.log(player);
     };
 
@@ -12,5 +13,5 @@ function Drink(name, price, functionToCall, player) {
         functionToCall.call(null, stats);
     };
 
-    this.onCreateItem(name, price);
+    this.onCreateItem(name, price, index);
 }
