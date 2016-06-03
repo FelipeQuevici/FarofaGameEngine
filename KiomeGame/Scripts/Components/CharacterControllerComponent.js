@@ -172,6 +172,10 @@ function CharacterControllerComponent(parent) {
     			if(caller.attackSequence == 0){    				
     				return true;
     			}else if(caller.attackSequence == 1){
+                    //console.log(this.parent.rotation);
+                    caller.resetLastDirectionToCurrent();
+                    this.parent.getComponent("sprite").setAngle(this.parent.rotation);
+                    //console.log(this.parent.rotation);
     				caller.attackSequence = 2;
     				hitList = [];
     			}    			
@@ -181,7 +185,7 @@ function CharacterControllerComponent(parent) {
     }
 
     this.meleeAttackUpdate = function (direction, deltaTime, functionOnOver, caller) {    	
-        if (isMeleeAttackAnimationOver(caller)) {
+        if (isMeleeAttackAnimationOver.call(this,caller)) {
             animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
             attackCollisionComponent.enable = false;
             hitList = [];

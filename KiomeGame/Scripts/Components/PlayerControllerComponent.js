@@ -120,6 +120,10 @@ function PlayerControllerComponent(parent, target) {
         EventCenterInstance.getInstance().unsubscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
     };
 
+    this.resetLastDirectionToCurrent = function () {
+        lastDirection = getCurrentDirection.call(this);
+    };
+
     function getCurrentDirection() {
         var currentDirection = new Vector2();
         var isAnyKeyPressed = false;
@@ -150,7 +154,6 @@ function PlayerControllerComponent(parent, target) {
 
         currentDirection.normalize();
         return currentDirection;
-
     }
 
     var dashCoolDown = 100;
