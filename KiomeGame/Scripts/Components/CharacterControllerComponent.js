@@ -244,14 +244,13 @@ function CharacterControllerComponent(parent) {
         rigidBodyComponent.move(moveDirection);
     };
 
-    function isRangedAttackAnimationOver() {
-        return Date.now() - animationStartTime > attack2AnimationDuration;
+    function isRangedAttackAnimationOver() {        
+        return animationComponent.isAnimationFinished();
     }
 
     this.enterRangedAttack = function () {
-        animationStartTime = Date.now();
-        if(!animationComponent.isAnimationPlaying(meleeAttackAnimation)){
-            animationComponent.setAnimation(AnimationManager.getAnimation(meleeAttackAnimation));
+        if(!animationComponent.isAnimationPlaying(rangedAttackanimation)){
+            animationComponent.setAnimation(AnimationManager.getAnimation(rangedAttackanimation));
         }
     };
 
@@ -259,6 +258,7 @@ function CharacterControllerComponent(parent) {
         if (isRangedAttackAnimationOver()) {
             this.throwProjectile();
             functionOnOver.call(caller);
+            animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
         }
     };
 

@@ -17,7 +17,7 @@ function EnemyGameObject(scene, position, rotation, target) {
         this.addComponent("sprite", new SpriteComponent(this,
             7,
             "objectsLayer",
-            "enemyIdle1"
+            "enemyShooting1"
             ));
 
         this.addComponent("animation", new AnimationComponent(this, "enemyIdle", this.getComponent("sprite")));
@@ -25,6 +25,7 @@ function EnemyGameObject(scene, position, rotation, target) {
         character.setWalkAnimation("enemyWalking");
         character.setIdleAnimation("enemyIdle");
         character.setMeleeAttackAnimation("enemyAttack");
+        character.setRangedAttackAnimation("enemyShooting");
         character.setKnockBackAnimation("enemyIdle");
         character.setStunedAnumation("enemyIdle");
         character.setHitTag("player");

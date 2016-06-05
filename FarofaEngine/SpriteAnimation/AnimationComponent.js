@@ -51,7 +51,8 @@ function AnimationComponent(parent, initialAnimation, spriteComponent) {
     	}else{
     		this.currentFrame += 1;
     	}
-    	this.spriteComponent.setSpriteName(this.currentAnimation["name"] + this.currentFrame);
+    	var frameName = this.currentAnimation["frames"][this.currentFrame - 1];
+    	this.spriteComponent.setSpriteName(frameName);
     };
 
     this.onUpdate = function (deltaTime) {

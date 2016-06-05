@@ -1,45 +1,13 @@
 {
   "enemyIdle": {
-    "animationSpeed": 0.5,
+    "animationSpeed": 1,
     "loop": 1,
     "frames": {
-      "1": "enemyIdle1",
-      "2": "enemyIdle2",
-      "3": "enemyIdle3",
-      "4": "enemyIdle4",
-      "5": "enemyIdle5",
-      "6": "enemyIdle6",
-      "7": "enemyIdle7",
-      "8": "enemyIdle8",
-      "9": "enemyIdle9",
-      "10": "enemyIdle10",
-      "11": "enemyIdle11",
-      "12": "enemyIdle12",
-      "13": "enemyIdle13",
-      "14": "enemyIdle14",
-      "15": "enemyIdle15",
-      "16": "enemyIdle16",
-      "17": "enemyIdle17",
-      "18": "enemyIdle18",
-      "19": "enemyIdle19",
-      "20": "enemyIdle20",
-      "21": "enemyIdle21",
-      "22": "enemyIdle22",
-      "23": "enemyIdle23",
-      "24": "enemyIdle24",
-      "25": "enemyIdle25",
-      "26": "enemyIdle26",
-      "27": "enemyIdle27",
-      "28": "enemyIdle28",
-      "29": "enemyIdle29",
-      "30": "enemyIdle30",
-      "31": "enemyIdle31",
-      "32": "enemyIdle32",
-      "33": "enemyIdle33"
+      "1": "enemyShooting1"
     }
   },
   "enemyWalking": {
-    "animationSpeed": 0.8,
+    "animationSpeed": 0.6,
     "loop": 1,
     "frames": {
       "1": "enemyWalking1",
@@ -51,7 +19,38 @@
       "7": "enemyWalking7",
       "8": "enemyWalking8",
       "9": "enemyWalking9",
-      "10": "enemyWalking10"
+      "10": "enemyWalking10",
+      "11": "enemyWalking11",
+      "12": "enemyWalking12",
+      "13": "enemyWalking13",
+      "14": "enemyWalking14",
+      "15": "enemyWalking15",
+      "16": "enemyWalking16",
+      "17": "enemyWalking17",
+      "18": "enemyWalking18",
+      "19": "enemyWalking19",
+      "20": "enemyWalking20",
+      "21": "enemyWalking21",
+      "22": "enemyWalking22"
+    }
+  },
+  "enemyShooting": {
+    "animationSpeed": 0.3,
+    "loop": 0,
+    "frames": {
+      "1": "enemyShooting1",
+      "2": "enemyShooting2",
+      "3": "enemyShooting3",
+      "4": "enemyShooting4",
+      "5": "enemyShooting5",
+      "6": "enemyShooting6",
+      "7": "enemyShooting7",
+      "8": "enemyShooting8",
+      "9": "enemyShooting9",
+      "10": "enemyShooting10",
+      "11": "enemyShooting11",
+      "12": "enemyShooting12",
+      "13": "enemyShooting13"
     }
   },
   "enemyAttack": {

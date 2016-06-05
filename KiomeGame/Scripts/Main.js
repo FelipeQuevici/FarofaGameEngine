@@ -44,14 +44,14 @@ FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopRight");
 FarofaGame.addAnimation("Characters/Player/playerAnimation");
 
 //Enemy
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleRight");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleBottomRight");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleBottom");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleBottomLeft");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleLeft");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleTopLeft");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleTop");
-FarofaGame.addSpriteSheet("Characters/Enemy/idle/enemyIdleTopRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/shooting/enemyShootingTopRight");
 
 FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingRight");
 FarofaGame.addSpriteSheet("Characters/Enemy/walking/enemyWalkingBottomRight");
