@@ -20,13 +20,15 @@ function CharacterControllerComponent(parent) {
     var moveSpeed = 200;
     var moveSpeedWhileAttacking = 50;
     var dashSpeed = 400;
+    var rangedAttackTimer = 0;
+    var rangedAttackflag = false;
     var hitList = [];
 
     var walkAnimation = "playerWalking";
     var idleAnimation = "playerIdle";
     var meleeAttackAnimation = "playerAttack";
     var knockBackAnimation = "playerIdle";
-    var rangedAttackanimation = "playerIdle";
+    var rangedAttackanimation = "playerThrowing";
     var stunedAnimation = "playerIdle";
 
     this.setKnockBackAnimation = function (value) {
@@ -42,8 +44,6 @@ function CharacterControllerComponent(parent) {
     };
 
     var animationStartTime;
-
-    var attack2AnimationDuration = 500;
 
     this.setRangedAttackDuration = function (value) {
         attack2AnimationDuration = value;
@@ -99,6 +99,7 @@ function CharacterControllerComponent(parent) {
     }
 
     this.enterKnockBackState = function (direction) {
+    	rangedAttackTimer = 0;
         animationStartTime = Date.now();
         if(!animationComponent.isAnimationPlaying(knockBackAnimation)){
             animationComponent.setAnimation(AnimationManager.getAnimation(knockBackAnimation));
@@ -135,6 +136,7 @@ function CharacterControllerComponent(parent) {
     }
 
     this.stun = function (duration) {
+    	rangedAttackTimer = 0;
         stunDuration = duration;
         isStuned = true;
         if(!animationComponent.isAnimationPlaying(stunedAnimation)){
@@ -172,10 +174,8 @@ function CharacterControllerComponent(parent) {
     			if(caller.attackSequence == 0){    				
     				return true;
     			}else if(caller.attackSequence == 1){
-                    //console.log(this.parent.rotation);
                     caller.resetLastDirectionToCurrent();
                     this.parent.getComponent("sprite").setAngle(this.parent.rotation);
-                    //console.log(this.parent.rotation);
     				caller.attackSequence = 2;
     				hitList = [];
     			}    			
@@ -250,20 +250,42 @@ function CharacterControllerComponent(parent) {
 
     this.enterRangedAttack = function () {
         if(!animationComponent.isAnimationPlaying(rangedAttackanimation)){
+        	rangedAttackflag = false;
             animationComponent.setAnimation(AnimationManager.getAnimation(rangedAttackanimation));
         }
     };
 
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
-        if (isRangedAttackAnimationOver()) {
-            this.throwProjectile();
+    	console.log("teste");
+    	if(!rangedAttackflag){
+    		if(caller.tag == "player"){
+        		if(animationComponent.currentFrame >= 8){
+        			this.throwProjectile(this.parent.position);
+        			rangedAttackflag = true;
+        		}
+        	}else if(caller.tag == "enemy"){        		
+        		if(rangedAttackTimer >= caller.getShootingDelay()){          			
+        			this.enterRangedAttack();
+        			if(animationComponent.currentFrame >= 3){        				
+            			this.throwProjectile(this.parent.position);
+            			rangedAttackflag = true;
+            		}
+        		}else{
+        			animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
+        		}	        		
+        		rangedAttackTimer += deltaTime;
+        	}
+    	}
+    	    	
+        if (isRangedAttackAnimationOver()) {            
             functionOnOver.call(caller);
             animationComponent.setAnimation(AnimationManager.getAnimation(idleAnimation));
+            rangedAttackTimer = 0;
         }
     };
 
-    this.throwProjectile = function () {
-        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(this.parent.position.x,this.parent.position.y+40),
+    this.throwProjectile = function (position) {
+        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(position.x,position.y+40),
             "poo", polarToVector(1,this.parent.rotation), "projectile", attackHitTag);
         this.parent.scene.createObject(bulletTest);
     };

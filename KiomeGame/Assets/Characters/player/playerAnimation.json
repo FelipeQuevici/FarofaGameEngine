@@ -1,6 +1,6 @@
 {
   "playerIdle": {
-    "animationSpeed": 1.8,
+    "animationSpeed": 1.9,
     "loop": 1,
     "frames": {
       "1": "playerIdle1",
@@ -88,6 +88,30 @@
       "28": "playerAttack28",
       "29": "playerAttack29",
       "30": "playerAttack30"
+    }
+  },
+  "playerThrowing": {
+    "animationSpeed": 0.6,
+    "loop": 0,
+    "frames": {
+      "1": "playerThrowing1",
+      "2": "playerThrowing2",
+      "3": "playerThrowing3",
+      "4": "playerThrowing4",
+      "5": "playerThrowing5",
+      "6": "playerThrowing6",
+      "7": "playerThrowing7",
+      "8": "playerThrowing8",
+      "9": "playerThrowing9",
+      "10": "playerThrowing10",
+      "11": "playerThrowing11",
+      "12": "playerThrowing12",
+      "13": "playerThrowing13",
+      "14": "playerThrowing14",
+      "15": "playerThrowing15",
+      "16": "playerThrowing16",
+      "17": "playerThrowing17",
+      "18": "playerThrowing18"
     }
   },
   "playerDrinking": {

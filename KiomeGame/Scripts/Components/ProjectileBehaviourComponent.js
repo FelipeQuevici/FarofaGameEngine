@@ -12,7 +12,7 @@ function ProjectileBehaviourComponent(parent, direction, collideTag) {
     this.onCreate = function (parent, direction, collideTag) {
         this.parent = parent;
         direction.normalize();
-        projectileSpeed = 300;
+        projectileSpeed = 1000;
         direction.multiplyByScalar(projectileSpeed);
         timeCreated = Date.now();
         duration = 5000;

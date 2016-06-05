@@ -32,6 +32,15 @@ FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottom");
 FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomRight");
 FarofaGame.addSpriteSheet("Characters/Player/attack/playerAttackBottomLeft");
 
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingTop");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingTopRight");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingRight");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingLeft");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingBottom");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/throwing/playerThrowingBottomLeft");
+
 FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingRight");
 FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottomRight");
 FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingBottom");
@@ -85,7 +94,7 @@ FarofaGame.addSpriteSheet("poo");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
 FarofaGame.setGlobalVariable("MainMusic","Hotline");
-FarofaGame.setGlobalVariable("MainMusicVolume",0.7);
+FarofaGame.setGlobalVariable("MainMusicVolume",0.0);
 FarofaGame.addAudio("Mariachi","Audios/Songs/");
 FarofaGame.addAudio("Russian","Audios/Songs/");
 FarofaGame.addAudio("Drinking","Audios/SFX/");
