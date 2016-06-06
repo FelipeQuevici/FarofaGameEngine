@@ -1,5 +1,5 @@
 {
-"enemyWalking1-5":
+"enemyShooting1-5":
 {
 	"x":0,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -8,7 +8,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking2-5":
+"enemyShooting2-5":
 {
 	"x":614,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -17,7 +17,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking3-5":
+"enemyShooting3-5":
 {
 	"x":1228,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -26,7 +26,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking4-5":
+"enemyShooting4-5":
 {
 	"x":1842,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -35,7 +35,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking5-5":
+"enemyShooting5-5":
 {
 	"x":2456,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -44,7 +44,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking6-5":
+"enemyShooting6-5":
 {
 	"x":3070,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -53,7 +53,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking7-5":
+"enemyShooting7-5":
 {
 	"x":3684,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -62,7 +62,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking8-5":
+"enemyShooting8-5":
 {
 	"x":4298,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -71,7 +71,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking9-5":
+"enemyShooting9-5":
 {
 	"x":4912,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -80,7 +80,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking10-5":
+"enemyShooting10-5":
 {
 	"x":5526,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -89,7 +89,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking11-5":
+"enemyShooting11-5":
 {
 	"x":6140,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -98,7 +98,7 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking12-5":
+"enemyShooting12-5":
 {
 	"x":6754,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
@@ -107,90 +107,9 @@
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
 	"attackCollisionBox": {}}
 },
-"enemyWalking13-5":
+"enemyShooting13-5":
 {
 	"x":7368,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking14-5":
-{
-	"x":7982,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking15-5":
-{
-	"x":8596,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking16-5":
-{
-	"x":9210,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking17-5":
-{
-	"x":9824,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking18-5":
-{
-	"x":10438,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking19-5":
-{
-	"x":11052,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking20-5":
-{
-	"x":11666,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking21-5":
-{
-	"x":12280,"y":0,"w":614,"h":346,
-	"pivot" : {"x":306, "y":221},
-	"frameSpeed": 1,
-	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
-	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": {}}
-},
-"enemyWalking22-5":
-{
-	"x":12894,"y":0,"w":614,"h":346,
 	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},

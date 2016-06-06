@@ -10,6 +10,7 @@ function EnemyBehaviourComponent(parent, target) {
 
     var attackMeleeDistance = 70;
     var attackRangedDistance = 300;
+    var shootingDelay = 0.8;
 
     var characterController;
 
@@ -28,6 +29,10 @@ function EnemyBehaviourComponent(parent, target) {
 
     this.setIsMelee = function (value) {
         isMelee = value;
+    };
+    
+    this.getShootingDelay = function(){
+    	return shootingDelay;
     };
 
     var isMoving = true;
