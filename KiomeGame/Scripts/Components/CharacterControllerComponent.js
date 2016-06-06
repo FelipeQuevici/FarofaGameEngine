@@ -17,9 +17,20 @@ function CharacterControllerComponent(parent) {
         hitList = [];
     };
 
-    var moveSpeed = 200;
-    var moveSpeedWhileAttacking = 50;
-    var dashSpeed = 400;
+    var moveSpeed = 400;
+    var moveSpeedWhileAttacking = 70;
+
+    this.setMoveSpeedWhileAttacking = function (value) {
+        moveSpeedWhileAttacking = value;
+    };
+
+    var dashSpeed = 700;
+
+    this.setDashSpeed = function (value) {
+        dashSpeed = value;
+    };
+
+
     var hitList = [];
 
     var walkAnimation = "playerWalking";
@@ -28,6 +39,8 @@ function CharacterControllerComponent(parent) {
     var knockBackAnimation = "playerIdle";
     var rangedAttackanimation = "playerIdle";
     var stunedAnimation = "playerIdle";
+
+
 
     this.setKnockBackAnimation = function (value) {
         knockBackAnimation = value;

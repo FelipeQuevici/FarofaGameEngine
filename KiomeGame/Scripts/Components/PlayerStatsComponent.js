@@ -13,12 +13,18 @@ function PlayerStatsComponent(parent) {
     var drinksInventory = {};
     var selectedDrink = null;
     var drinkInventory = {};
-    
+
+
+
     this.reset = function () {
         this.currentHealth = this.maxHealth;
         currentMoney = 0;
-        this.moveSpeed = 300;
+        this.moveSpeed = 400;
+        this.moveSpeedWhileAttacking = 70;
+        this.dashSpeed = 700;
         playerController.setMoveSpeed(this.moveSpeed);
+        playerController.setDashSpeed(this.dashSpeed);
+        playerController.setMoveSpeedWhileAttacking(this.moveSpeedWhileAttacking);
     };
 
     this.restoreHealth = function (value) {

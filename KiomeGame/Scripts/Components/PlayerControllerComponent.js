@@ -234,6 +234,14 @@ function PlayerControllerComponent(parent, target) {
     this.setMoveSpeed = function (speed){
     	characterController.setMoveSpeed(speed);
     };
+
+    this.setMoveSpeedWhileAttacking = function (speed) {
+        characterController.setMoveSpeedWhileAttacking(speed)
+    };
+
+    this.setDashSpeed = function (speed) {
+        characterController.setDashSpeed(speed);
+    }
     
     this.onPreUpdate = function (deltaTime) {
         playerStates[currentState].call(this, deltaTime);

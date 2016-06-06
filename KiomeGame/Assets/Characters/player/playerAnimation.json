@@ -55,7 +55,7 @@
     }
   },
   "playerAttack": {
-    "animationSpeed": 1,
+    "animationSpeed": 0.7,
     "loop": 0,
     "frames": {
       "1": "playerAttack1",
