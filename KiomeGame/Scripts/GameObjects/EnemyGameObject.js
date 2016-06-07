@@ -26,8 +26,8 @@ function EnemyGameObject(scene, position, rotation, target) {
         character.setIdleAnimation("enemyIdle");
         character.setMeleeAttackAnimation("enemyAttack");
         character.setRangedAttackAnimation("enemyShooting");
-        character.setKnockBackAnimation("enemyIdle");
-        character.setStunedAnumation("enemyIdle");
+        character.setKnockBackAnimation("enemyHit");
+        character.setStunedAnumation("enemyHit");
         character.setHitTag("player");
         character.setRangedAttackDuration(1000);
 
