@@ -27,6 +27,7 @@ function ProjectileBehaviourComponent(parent, direction, collideTag) {
                 if (enemyBehaviour) {
                     collidedObject.getComponent("characterController").stun(1000);
                     enemyBehaviour.setIsMelee(true);
+                    EventCenterInstance.getInstance().callEvent("pooHit",this);
                 }
                 var playerController = collidedObject.getComponent("playerController");
                 if (playerController) {

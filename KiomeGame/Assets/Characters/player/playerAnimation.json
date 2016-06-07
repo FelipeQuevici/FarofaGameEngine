@@ -39,7 +39,7 @@
     }
   },
   "playerWalking": {
-    "animationSpeed": 0.6,
+    "animationSpeed": 0.3,
     "loop": 1,
     "frames": {
       "1": "playerWalking1",
@@ -55,7 +55,7 @@
     }
   },
   "playerAttack": {
-    "animationSpeed": 0.7,
+    "animationSpeed": 0.6,
     "loop": 0,
     "frames": {
       "1": "playerAttack1",

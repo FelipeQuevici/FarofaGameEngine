@@ -7,7 +7,7 @@ function GameScene() {
     var crossHair;
 
     this.declareCamera = function () {
-        this.camera = new CameraFollowWithMargins(this,400,400);
+        this.camera = new CameraFollowWithMargins(this,700,400);
     };
 
     var enemies = [];
@@ -61,7 +61,7 @@ function GameScene() {
 
         if (enemies.length == 0 && enemiesSpawnedThisWave == enemiesToSpawnThisWave) {
             timeWhenLastWaveEnded = Date.now();
-            EventCenterInstance.getInstance().callEvent("waveEnded",this);
+            EventCenterInstance.getInstance().callEvent("waveEnded",this,{"time":timeBetweenWaves/1000});
             currentState = "waitingNextWave";
             wavesCleared++;
         }
@@ -151,28 +151,28 @@ function GameScene() {
 
         //var drink1 =  new Drink("drink_1", 10, RestoreHealth, player, 1);
         var drink1 =  new Drink("drink_1", 0, RestoreHealth, player, 1);
-        var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(1295,-230),drink1);
+        var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(1295,160),drink1);
         this.addObject(overlay1);
         var drinkingSale1 = new DrinkingSalesGameObject(this,new Vector2(1295,10),drink1, overlay1);
         this.addObject(drinkingSale1);
 
         //var drink2 =  new Drink("drink_2", 30, GivesExtraHeart, player, 2);
         var drink2 =  new Drink("drink_2", 0, GivesExtraHeart, player, 2);
-        var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(1213,-230),drink2);
+        var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(1213,160),drink2);
         this.addObject(overlay2);
         var drinkingSale2 = new DrinkingSalesGameObject(this,new Vector2(1213,10),drink2, overlay2);
         this.addObject(drinkingSale2);
 
         //var drink3 =  new Drink("drink_3", 15, SpeedBonus, player, 3);
         var drink3 =  new Drink("drink_3", 0, SpeedBonus, player, 3);
-        var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(1135,-230),drink3);
+        var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(1135,160),drink3);
         this.addObject(overlay3);
         var drinkingSale3 = new DrinkingSalesGameObject(this,new Vector2(1135,10),drink3, overlay3);
         this.addObject(drinkingSale3);
 
         //var drink4 =  new Drink("drink_4", 25, InvincibleBonus, player, 4);
         var drink4 =  new Drink("drink_4", 0, InvincibleBonus, player, 4);
-        var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(1054,-230),drink4);
+        var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(1054,160),drink4);
         this.addObject(overlay4);
         var drinkingSale4 = new DrinkingSalesGameObject(this,new Vector2(1054,10),drink4, overlay4);
         this.addObject(drinkingSale4);
@@ -234,6 +234,12 @@ function GameScene() {
         
         var table6 = new ScenarioGameObject(this, 400, 100, "scenarioAsset2");
         this.addObject(table6);
+
+        var errorDialog = new HelperDialogGUIGameObject(this);
+        this.addObject(errorDialog);
+
+        var nextWaveDialog = new NextWaveDialog(this);
+        this.addObject(nextWaveDialog);
         
         this.initializeObjects();
         gameOver = false;

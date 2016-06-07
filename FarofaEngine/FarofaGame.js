@@ -55,7 +55,11 @@ var FarofaGame = (function () {
         isPaused = false;
     }
 
+    var bgColor = "#5F61C2";
     return {
+        setBgColor: function (color) {
+            bgColor = color;
+        },
         addScene: function (scene, name) {
             //scene.onInternalInitialize();
             SceneManager.addScene(scene, name);
@@ -80,6 +84,7 @@ var FarofaGame = (function () {
             canvas = document.getElementById("canvas");
             fpsCounter = document.getElementById("fps");
             renderer = new CanvasRenderer(canvas);
+            renderer.setBackgroundColor(bgColor);
             SceneManager.initialize(renderer);
             InputManager.initialize();
             millisecondsLastUpdate = Date.now();

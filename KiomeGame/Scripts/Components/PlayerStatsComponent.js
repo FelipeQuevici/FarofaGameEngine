@@ -19,8 +19,8 @@ function PlayerStatsComponent(parent) {
     this.reset = function () {
         this.currentHealth = this.maxHealth;
         currentMoney = 0;
-        this.moveSpeed = 400;
-        this.moveSpeedWhileAttacking = 70;
+        this.moveSpeed = 500;
+        this.moveSpeedWhileAttacking = 80;
         this.dashSpeed = 700;
         playerController.setMoveSpeed(this.moveSpeed);
         playerController.setDashSpeed(this.dashSpeed);
@@ -31,6 +31,10 @@ function PlayerStatsComponent(parent) {
         this.currentHealth = clamp(this.currentHealth+value,0,this.maxHealth);
     };
 
+    function pooHit() {
+        addAdrenaline += 2;
+    }
+
     this.onCreate = function (parent) {
         this.parent = parent;
         this.maxHealth = 6;
@@ -40,6 +44,7 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().subscribeEvent("enemyDied", enemyDied, this);
         EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
+        EventCenterInstance.getInstance().subscribeEvent("pooHit",pooHit,this);
         drinksInventory = [];
         this.reset();
     };
@@ -48,6 +53,8 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().unsubscribeEvent("enemyDied", enemyDied, this);
         EventCenterInstance.getInstance().unsubscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().unsubscribeEvent("waveEnded", waveEnded, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("pooHit",pooHit,this);
+
     };
 
     this.hasDrinkEquiped = function (index) {
@@ -71,11 +78,18 @@ function PlayerStatsComponent(parent) {
     };
 
     this.buyDrink = function (drink) {
+        if (drinkInventory[drink.index]) {
+            EventCenterInstance.getInstance().callEvent("DialogError",this,{"message":"error_same_drink"});
+        }
+
         if (currentMoney >= drink.price) {
             selectedDrink = drink;
             drinkInventory[drink.index] = drink;
             currentMoney -= drink.price;
             EventCenterInstance.getInstance().callEvent("changedDrink"+drink.index,this);
+        }
+        else {
+            EventCenterInstance.getInstance().callEvent("DialogError",this,{"message":"error_no_money"});
         }
     };
 
@@ -88,7 +102,9 @@ function PlayerStatsComponent(parent) {
     };
 
     this.drinkSelectedDrink = function (index) {
-        if (isUnderBonus) return;
+        if (isUnderBonus) {
+            return;
+        }
 
         if (drinkInventory[index]) {
             drinkInventory[index].drinkEffect();
@@ -192,9 +208,16 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().callEvent("playerBonusFinished",this);
     }
 
+    var showedStaminaTip = false;
+
     this.onUpdate = function (deltaTime) {
     	if(waveState){    		
-    		this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;    
+    		this.adrenaline -= this.adrenalineReductionSpeed * deltaTime;
+            if (!showedStaminaTip && this.adrenaline <= maxAdrenaline/4) {
+                EventCenterInstance.getInstance().callEvent("DialogWarning",this,{"message":"warning_low_stamina"});
+                showedStaminaTip = true;
+            }
+
         	if(this.adrenaline <= 0){
         		this.adrenaline = 0;
         		playerController.setMoveSpeed(this.moveSpeed / 2 * speedMultiplier);

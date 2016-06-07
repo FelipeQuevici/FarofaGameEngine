@@ -87,9 +87,10 @@ FarofaGame.addSpriteSheet("TileSets/scenarioAssets");
 FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("TileSets/TileSet");
 FarofaGame.addSpriteSheet("crossHair");
-FarofaGame.addSpriteSheet("oldPoo");
 FarofaGame.addSpriteSheet("Hud/Hud");
-FarofaGame.addSpriteSheet("Hud/drink_overlay");
+FarofaGame.addSpriteSheet("Hud/drinks_overlays");
+FarofaGame.addSpriteSheet("Hud/warning_overlay");
+FarofaGame.addSpriteSheet("Hud/waves");
 FarofaGame.addSpriteSheet("poo");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
@@ -104,6 +105,7 @@ FarofaGame.addAudio("MonkeyHit1","Audios/SFX/");
 FarofaGame.addAudio("MonkeyHit2","Audios/SFX/");
 FarofaGame.addAudio("MonkeyAttack2","Audios/SFX/");
 FarofaGame.addAudio("MonkeyAttack1","Audios/SFX/");
+FarofaGame.addAudio("Wrong","Audios/SFX/");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 
@@ -111,4 +113,5 @@ FarofaGame.setGlobalVariable("tileSize",32);
 FarofaGame.addScene(new MenuScene(), "MenuScene");
 FarofaGame.addScene(new GameScene(), "GameScene");
 FarofaGame.setInitialScene("MenuScene");
+FarofaGame.setBgColor("#3B3B3B");
 FarofaGame.start();

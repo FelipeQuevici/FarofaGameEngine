@@ -47,6 +47,11 @@ function PlayerControllerComponent(parent, target) {
     function drinkOnIndex(index) {
         var statComponent = this.parent.getComponent("stats");
 
+        if (statComponent.isUnderBonus()) {
+            EventCenterInstance.getInstance().callEvent("DialogError",this,{"message":"error_under_effect"});
+            return;
+        }
+
         if (statComponent.hasDrinkEquiped(index)) {
             indexToDrink = index;
             startDrinkingTime = Date.now();
@@ -60,7 +65,6 @@ function PlayerControllerComponent(parent, target) {
             AudioManager.playAudio("Drinking", false);
 
             currentState = "drinking";
-
         }
     }
 
@@ -156,6 +160,12 @@ function PlayerControllerComponent(parent, target) {
         return currentDirection;
     }
 
+    var canDash = false;
+
+    this.setCanDash = function (value) {
+        canDash = value;
+    };
+
     var dashCoolDown = 100;
     var lastDash = Date.now();
 
@@ -170,9 +180,9 @@ function PlayerControllerComponent(parent, target) {
             lastDirection = getCurrentDirection.call(this);
             characterController.enterMeleeAttackState();
 
-            AudioManager.playAudio("MeleeAttack");
+            AudioManager.playAudio("MeleeAttack",false, true);
             var a = Math.round(Math.random()+1);
-            AudioManager.playAudio("MonkeyAttack"+a, false, true);
+            AudioManager.playAudio("MonkeyAttack"+a);
             return;
         }
 
@@ -183,7 +193,7 @@ function PlayerControllerComponent(parent, target) {
             return;
         }
 
-        if (InputManager.isKeyPressed("dash")) {
+        if (InputManager.isKeyPressed("dash") && canDash) {
             var now = Date.now();
             if (now - lastDash > dashCoolDown) {
                 characterController.enterDashSate();

@@ -10,6 +10,7 @@ function TextComponent(parent, text, layer, color, font) {
         var currentScene = parent.scene;
         this.layer = layer;
         this.text = text;
+        this.enabled = true;
         if (color) this.color = color;
         if (font) this.font = font;
         currentScene.addSpriteToLayer(this, layer);

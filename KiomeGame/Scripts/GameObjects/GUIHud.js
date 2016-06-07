@@ -241,3 +241,122 @@ function BonusBarGUIGameObject(scene, player) {
 
     onCreate.call(this, scene, player);
 }
+
+HelperDialogGUIGameObject.inheritsFrom(GameObject);
+
+function HelperDialogGUIGameObject(scene) {
+    var spriteComponent;
+    var isActive;
+
+    function onCreate(scene) {
+        this.onCreateGameObject(scene,new Vector2(canvas.width-375,5),0);
+    }
+
+    var dialogDuration = 2;
+    var dialogTimeSoFar;
+
+    function showErrorDialog(args) {
+        isActive = true;
+        dialogTimeSoFar = 0;
+        AudioManager.playAudio("Wrong");
+        spriteComponent.setSpriteName(args["message"]);
+        spriteComponent.enabled = true;
+        dialogDuration = 2;
+    }
+
+    function hideDialog() {
+        isActive = false;
+        spriteComponent.enabled = false;
+    }
+
+    this.onInitialize = function () {
+        spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI","error_no_money"));
+        spriteComponent.enabled = false;
+        isActive = false;
+        EventCenterInstance.getInstance().subscribeEvent("DialogError",showErrorDialog,this);
+        EventCenterInstance.getInstance().subscribeEvent("DialogWarning",showWarningDialog,this);
+    };
+
+    function showWarningDialog(args) {
+        isActive = true;
+        dialogTimeSoFar = 0;
+        spriteComponent.setSpriteName(args["message"]);
+        spriteComponent.enabled = true;
+        dialogDuration = 4;
+    }
+
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("DialogError",showErrorDialog,this);
+        EventCenterInstance.getInstance().unsubscribeEvent("DialogWarning",showWarningDialog,this);
+    };
+
+    this.onUpdate = function (deltaTime) {
+        if (!isActive) return;
+
+        dialogTimeSoFar += deltaTime;
+        console.log(dialogTimeSoFar + " " + deltaTime + " " + dialogDuration);
+        if (dialogTimeSoFar > dialogDuration) {
+            hideDialog();
+        }
+    };
+
+
+    onCreate.call(this, scene);
+}
+
+NextWaveDialog.inheritsFrom(GameObject);
+
+function NextWaveDialog(scene) {
+    var spriteComponent;
+    var textComponent;
+    var isActive;
+
+    function onCreate(scene) {
+        this.onCreateGameObject(scene,new Vector2(canvas.width/2,canvas.height-55),0);
+    }
+
+    var timeToNextWave = 10;
+    var timeLeft;
+    var text = "\t" + timeToNextWave;
+
+    function waveStarted(args) {
+        timeToNextWave = args["time"];
+        timeLeft = timeToNextWave;
+        isActive = true;
+        spriteComponent.enabled = true;
+        textComponent.enabled = true;
+    }
+
+    function waveEnded() {
+        isActive = false;
+        spriteComponent.enabled = false;
+        textComponent.enabled = false;
+    }
+
+    this.onInitialize = function () {
+        var text = "\t" + 10;
+        timeLeft = timeToNextWave;
+        spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI","next_wave_display"));
+        textComponent = this.addComponent("text", new TextComponent(this,text,"GUI","black","40px Arial"));
+
+        isActive = true;
+        EventCenterInstance.getInstance().subscribeEvent("waveStarted",waveEnded,this);
+        EventCenterInstance.getInstance().subscribeEvent("waveEnded",waveStarted,this);
+    };
+
+    this.unsubscribeEvents = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("waveStarted",waveEnded,this);
+        EventCenterInstance.getInstance().unsubscribeEvent("waveEnded",waveStarted,this);
+    };
+
+    this.onUpdate = function (deltaTime) {
+        if (!isActive) return;
+
+        timeLeft -= deltaTime;
+        text = "\t" + Math.round(timeLeft);
+        textComponent.setText(text);
+    };
+
+
+    onCreate.call(this, scene);
+}

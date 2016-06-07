@@ -43,6 +43,8 @@ function CanvasRenderer(canvas) {
     };
 
     this.drawText = function (textComponent, isHud) {
+        if (!textComponent.enabled) return;
+
         if (textComponent.hasOwnProperty("color")) {
             context.fillStyle = textComponent.color;
         }
@@ -88,10 +90,16 @@ function CanvasRenderer(canvas) {
         context.fill();
     };
 
+    var bgColor = "#5F61C2";
+
+    this.setBackgroundColor = function (value) {
+        bgColor = value;
+    };
+
     this.refreshCanvas = function () {
         this.parent.refreshCanvas();
 
-        context.fillStyle = "#5F61C2";
+        context.fillStyle = bgColor;
         context.fillRect(0,0,canvas.width,canvas.height);
         context.fill();
     };

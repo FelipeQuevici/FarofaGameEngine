@@ -27,14 +27,28 @@ function DrinkingSalesGameObject(scene, position, drink, overlay) {
     this.onInitialize = function () {
         //collisionBox = this.addComponent("collisionBox", new CollisionBoxComponent(this, new Circle(0,0)));
     	collisionBox = this.addComponent("collisionBox", new CollisionBoxComponent(this, new Circle(0,0)));
-    	spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"background","sand01"));
+    	spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"invisible","sand01"));
         EventCenterInstance.getInstance().subscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded", waveEnded, this);
+        EventCenterInstance.getInstance().subscribeEvent("playerInsideDrinking", disactivateIfNotInside, this);
     };
+
+    var canActivate;
+
+    function disactivateIfNotInside(args) {
+        var sale = args["point"];
+        if (sale == this) {
+            canActivate = true;
+            return;
+        }
+
+        canActivate = false;
+    }
 
     this.unsubscribeEvents = function () {
         EventCenterInstance.getInstance().unsubscribeEvent("waveStarted", waveStarted, this);
         EventCenterInstance.getInstance().unsubscribeEvent("waveEnded", waveEnded, this);
+        EventCenterInstance.getInstance().unsubscribeEvent("playerInsideDrinking", disactivateIfNotInside, this);
     };
 
     var isPlayerInside = false;
@@ -44,7 +58,7 @@ function DrinkingSalesGameObject(scene, position, drink, overlay) {
         if (!isPlayerInside && playerIn) {
             EventCenterInstance.getInstance().callEvent("playerInsideDrinking",this,{"drink":drink, "point": this});
         }
-        if (playerIn) {
+        if (playerIn && canActivate) {
             overlay.setActive(true);
         }
         else {
