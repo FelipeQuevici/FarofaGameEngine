@@ -80,6 +80,15 @@ FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottom");
 FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomRight");
 FarofaGame.addSpriteSheet("Characters/Enemy/attack/enemyAttackBottomLeft");
 
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitTop");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitTopLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitTopRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitLeft");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitBottom");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitBottomRight");
+FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitBottomLeft");
+
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
 
 FarofaGame.addSpriteSheet("TileSets/scenarioAssets");

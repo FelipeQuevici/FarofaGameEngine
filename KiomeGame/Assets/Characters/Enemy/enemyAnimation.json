@@ -54,7 +54,7 @@
     }
   },
   "enemyAttack": {
-    "animationSpeed": 1.2,
+    "animationSpeed": 0.8,
     "loop": 0,
     "frames": {
       "1": "enemyAttack1",
@@ -74,19 +74,35 @@
       "15": "enemyAttack15",
       "16": "enemyAttack16",
       "17": "enemyAttack17",
-      "18": "enemyAttack18",
-      "19": "enemyAttack19",
-      "20": "enemyAttack20",
-      "21": "enemyAttack21",
-      "22": "enemyAttack22",
-      "23": "enemyAttack23",
-      "24": "enemyAttack24",
-      "25": "enemyAttack25",
-      "26": "enemyAttack26",
-      "27": "enemyAttack27",
-      "28": "enemyAttack28",
-      "29": "enemyAttack29",
-      "30": "enemyAttack30"
+      "18": "enemyAttack18"
+    }
+  },
+  "enemyHit": {
+    "animationSpeed": 0.7,
+    "loop": 1,
+    "frames": {
+      "1": "enemyHit1",
+      "2": "enemyHit2",
+      "3": "enemyHit3",
+      "4": "enemyHit4",
+      "5": "enemyHit5",
+      "6": "enemyHit6",
+      "7": "enemyHit7",
+      "8": "enemyHit8",
+      "9": "enemyHit9",
+      "10": "enemyHit10",
+      "11": "enemyHit11",
+      "12": "enemyHit12",
+      "13": "enemyHit13",
+      "14": "enemyHit14",
+      "15": "enemyHit15",
+      "16": "enemyHit16",
+      "17": "enemyHit17",
+      "18": "enemyHit18",
+      "19": "enemyHit19",
+      "20": "enemyHit20",
+      "21": "enemyHit21",
+      "22": "enemyHit22"
     }
   }
 }

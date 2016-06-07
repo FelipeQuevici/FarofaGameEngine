@@ -2,19 +2,38 @@
   "poo": {
     "x": 0,
     "y": 0,
-    "w": 16,
-    "h": 32,
+    "w": 38,
+    "h": 62,
     "pivot" : {
-      "x":8,
-      "y":29
+      "x":36,
+      "y":102
     },
     "collisions": {
       "collisionBox": {
         "shape": "rectangle",
-        "x": 0,
-        "y": 16,
-        "w": 16,
-        "h": 16
+        "x": 1,
+        "y": 40,
+        "w": 36,
+        "h": 22
+      }
+    }
+  },
+  "poo2": {
+    "x": 0,
+    "y": 0,
+    "w": 75,
+    "h": 122,
+    "pivot" : {
+      "x":36,
+      "y":102
+    },
+    "collisions": {
+      "collisionBox": {
+        "shape": "rectangle",
+        "x": 3,
+        "y": 78,
+        "w": 70,
+        "h": 43
       }
     }
   }

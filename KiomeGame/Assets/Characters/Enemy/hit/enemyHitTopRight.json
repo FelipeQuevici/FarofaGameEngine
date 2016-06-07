@@ -1,164 +1,200 @@
 {
-"enemyAttack1-5":
+"enemyHit1-7":
 {
 	"x":0,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack2-5":
+"enemyHit2-7":
 {
 	"x":614,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack3-5":
+"enemyHit3-7":
 {
 	"x":1228,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack4-5":
+"enemyHit4-7":
 {
 	"x":1842,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack5-5":
+"enemyHit5-7":
 {
 	"x":2456,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack6-5":
+"enemyHit6-7":
 {
 	"x":3070,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack7-5":
+"enemyHit7-7":
 {
 	"x":3684,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack8-5":
+"enemyHit8-7":
 {
 	"x":4298,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack9-5":
+"enemyHit9-7":
 {
 	"x":4912,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack10-5":
+"enemyHit10-7":
 {
 	"x":5526,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack11-5":
+"enemyHit11-7":
 {
 	"x":6140,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack12-5":
+"enemyHit12-7":
 {
 	"x":6754,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack13-5":
+"enemyHit13-7":
 {
 	"x":7368,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack14-5":
+"enemyHit14-7":
 {
 	"x":7982,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack15-5":
+"enemyHit15-7":
 {
 	"x":8596,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack16-5":
+"enemyHit16-7":
 {
 	"x":9210,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack17-5":
+"enemyHit17-7":
 {
 	"x":9824,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
 },
-"enemyAttack18-5":
+"enemyHit18-7":
 {
 	"x":10438,"y":0,"w":614,"h":346,
-	"pivot" : {"x":307, "y":218},  
+	"pivot" : {"x":306, "y":221},
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 243, "y": 190},"radius": 50}}
+	"attackCollisionBox": {}}
+},
+"enemyHit19-7":
+{
+	"x":11052,"y":0,"w":614,"h":346,
+	"pivot" : {"x":306, "y":221},
+	"frameSpeed": 1,
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
+	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
+	"attackCollisionBox": {}}
+},
+"enemyHit20-7":
+{
+	"x":11666,"y":0,"w":614,"h":346,
+	"pivot" : {"x":306, "y":221},
+	"frameSpeed": 1,
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
+	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
+	"attackCollisionBox": {}}
+},
+"enemyHit21-7":
+{
+	"x":12280,"y":0,"w":614,"h":346,
+	"pivot" : {"x":306, "y":221},
+	"frameSpeed": 1,
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
+	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
+	"attackCollisionBox": {}}
+},
+"enemyHit22-7":
+{
+	"x":12894,"y":0,"w":614,"h":346,
+	"pivot" : {"x":306, "y":221},
+	"frameSpeed": 1,
+	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
+	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
+	"attackCollisionBox": {}}
 }
 }
