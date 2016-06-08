@@ -109,6 +109,14 @@ var InputManager = ( function () {
                     if (keys[keyToNumber[key][i]]) return true;
                 }
             }
+        },
+        isAnyKeyPressed : function () {
+            for (var key in keys) {
+                if (!keys[key]) continue;
+                for (var i = 0; i < keyToNumber[key].length; i++) {
+                    if (keys[keyToNumber[key][i]]) return true;
+                }
+            }
             return false;
         },
         getMousePosition: function () {
