@@ -50,6 +50,15 @@ FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopLeft");
 FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTop");
 FarofaGame.addSpriteSheet("Characters/Player/drinking/playerDrinkingTopRight");
 
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingRight");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingBottomRight");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingBottom");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingBottomLeft");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingLeft");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingTopLeft");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingTop");
+FarofaGame.addSpriteSheet("Characters/Player/dying/playerDyingTopRight");
+
 FarofaGame.addAnimation("Characters/Player/playerAnimation");
 
 //Enemy
@@ -88,6 +97,8 @@ FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitLeft");
 FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitBottom");
 FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitBottomRight");
 FarofaGame.addSpriteSheet("Characters/Enemy/hit/enemyHitBottomLeft");
+
+FarofaGame.addSpriteSheet("Characters/Enemy/bullet/enemyBullet");
 
 FarofaGame.addAnimation("Characters/Enemy/enemyAnimation");
 

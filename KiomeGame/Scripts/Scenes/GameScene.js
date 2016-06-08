@@ -251,7 +251,10 @@ function GameScene() {
         if (!gameOver)
             gameStates[currentState].call(this, deltaTime);
         else {
-            this.onEnter();
+        	if (InputManager.isKeyPressed("attack1")){
+        		this.onEnter();
+        	}
+
         }
     };
 
