@@ -278,14 +278,14 @@ function CharacterControllerComponent(parent) {
     	if(!rangedAttackflag){
     		if(caller.tag == "player"){
         		if(animationComponent.currentFrame >= 8){
-        			this.throwProjectile(this.parent.position);
+        			this.throwProjectile(caller, this.parent.position);
         			rangedAttackflag = true;
         		}
         	}else if(caller.tag == "enemy"){        		
         		if(rangedAttackTimer >= caller.getShootingDelay()){          			
         			this.enterRangedAttack();
         			if(animationComponent.currentFrame >= 3){        				
-            			this.throwProjectile(this.parent.position);
+            			this.throwProjectile(caller, this.parent.position);
             			rangedAttackflag = true;
             		}
         		}else{
@@ -302,9 +302,18 @@ function CharacterControllerComponent(parent) {
         }
     };
 
-    this.throwProjectile = function (position) {
-        var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(position.x,position.y+40),
-            "poo", polarToVector(1,this.parent.rotation), "projectile", attackHitTag);
+    this.throwProjectile = function (caller, position) {
+    	var sprite = "";
+    	if(caller.tag == "enemy"){   
+    		sprite = "enemyBullet";
+    		totalDirections = 7;
+    	}else if(caller.tag == "player"){   
+    		sprite = "poo";
+    		totalDirections = 0;
+    	}
+    	
+    	var bulletTest = new ProjectileGameObject(this.parent.scene,new Vector2(position.x,position.y),
+    			sprite , polarToVector(1,this.parent.rotation), "projectile", attackHitTag, totalDirections);
         this.parent.scene.createObject(bulletTest);
     };
 

@@ -134,6 +134,8 @@ function PlayerStatsComponent(parent) {
         EventCenterInstance.getInstance().callEvent("playerLoseHealth", this);
         
         if (this.currentHealth <= 0) {
+        	var animationComponent = this.parent.getComponent("animation");
+        	animationComponent.setAnimation(AnimationManager.getAnimation("playerDying"));
             this.parent.scene.gameOver();
         }
     };
