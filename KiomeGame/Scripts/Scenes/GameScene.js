@@ -116,25 +116,25 @@ function GameScene() {
         crossHair = new CrossHairGameObject(this);
         this.addObject(crossHair);
 
-        player = new PlayerGameObject(this, new Vector2(1,1),crossHair);
+        player = new PlayerGameObject(this, new Vector2(1200,150),crossHair);
         this.addObject(player);
         this.camera.setTarget(player);
         this.camera.position= new Vector2(0 ,0);
         SceneManager.getRenderer().camera = this.camera;
 
-        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1,311));
+        var enemySpawn = new EnemySpawnPointGameObject(this, new Vector2(1700,550));
         spawnPoints.push(enemySpawn);
         this.addObject(enemySpawn);
 
-        var enemySpawn1 = new EnemySpawnPointGameObject(this, new Vector2(383,1));
+        var enemySpawn1 = new EnemySpawnPointGameObject(this, new Vector2(-540,-360));
         spawnPoints.push(enemySpawn1);
         this.addObject(enemySpawn1);
 
-        var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(1,1));
+        var enemySpawn2 = new EnemySpawnPointGameObject(this, new Vector2(110,1000));
         spawnPoints.push(enemySpawn2);
         this.addObject(enemySpawn2);
 
-        var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(383,311));
+        var enemySpawn3 = new EnemySpawnPointGameObject(this, new Vector2(-300,675));
         spawnPoints.push(enemySpawn3);
         this.addObject(enemySpawn3);
         var maps = FarofaGame.loadObject("Maps/maps");
@@ -151,30 +151,30 @@ function GameScene() {
 
         var drink1 =  new Drink("drink_1", 10, RestoreHealth, player, 1);
         //var drink1 =  new Drink("drink_1", 0, RestoreHealth, player, 1);
-        var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(1295,160),drink1);
+        var overlay1 = new DrinkingSaleOverlayGameObject(this, new Vector2(1295,130),drink1);
         this.addObject(overlay1);
-        var drinkingSale1 = new DrinkingSalesGameObject(this,new Vector2(1295,10),drink1, overlay1);
+        var drinkingSale1 = new DrinkingSalesGameObject(this,new Vector2(1295,-20),drink1, overlay1);
         this.addObject(drinkingSale1);
 
         var drink2 =  new Drink("drink_2", 30, GivesExtraHeart, player, 2);
         //var drink2 =  new Drink("drink_2", 0, GivesExtraHeart, player, 2);
-        var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(1213,160),drink2);
+        var overlay2 = new DrinkingSaleOverlayGameObject(this, new Vector2(1213,130),drink2);
         this.addObject(overlay2);
-        var drinkingSale2 = new DrinkingSalesGameObject(this,new Vector2(1213,10),drink2, overlay2);
+        var drinkingSale2 = new DrinkingSalesGameObject(this,new Vector2(1213,-20),drink2, overlay2);
         this.addObject(drinkingSale2);
 
         var drink3 =  new Drink("drink_3", 15, SpeedBonus, player, 3);
         //var drink3 =  new Drink("drink_3", 0, SpeedBonus, player, 3);
-        var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(1135,160),drink3);
+        var overlay3 = new DrinkingSaleOverlayGameObject(this, new Vector2(1135,130),drink3);
         this.addObject(overlay3);
-        var drinkingSale3 = new DrinkingSalesGameObject(this,new Vector2(1135,10),drink3, overlay3);
+        var drinkingSale3 = new DrinkingSalesGameObject(this,new Vector2(1135,-20),drink3, overlay3);
         this.addObject(drinkingSale3);
 
         var drink4 =  new Drink("drink_4", 25, InvincibleBonus, player, 4);
         //var drink4 =  new Drink("drink_4", 0, InvincibleBonus, player, 4);
-        var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(1054,160),drink4);
+        var overlay4 = new DrinkingSaleOverlayGameObject(this, new Vector2(1054,130),drink4);
         this.addObject(overlay4);
-        var drinkingSale4 = new DrinkingSalesGameObject(this,new Vector2(1054,10),drink4, overlay4);
+        var drinkingSale4 = new DrinkingSalesGameObject(this,new Vector2(1054,-20),drink4, overlay4);
         this.addObject(drinkingSale4);
         
         var hudLife1 = new PlayerLifeGUIGameObject(this, player, 0);
@@ -220,7 +220,7 @@ function GameScene() {
         var table1 = new ScenarioGameObject(this, 900, 400, "scenarioAsset3");
         this.addObject(table1);
         
-        var table2 = new ScenarioGameObject(this, -70, -300, "scenarioAsset3");
+        var table2 = new ScenarioGameObject(this, -100, -400, "scenarioAsset3");
         this.addObject(table2);
         
         var table3 = new ScenarioGameObject(this, 0, 500, "scenarioAsset4");
