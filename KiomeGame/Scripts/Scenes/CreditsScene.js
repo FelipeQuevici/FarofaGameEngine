@@ -23,7 +23,6 @@ function CreditsScene() {
 
     this.onExit = function () {
         EventCenterInstance.getInstance().unsubscribeEvent("mouse1Clicked",mouseClicked, this);
-
     };
 
     this.onEnter = function () {

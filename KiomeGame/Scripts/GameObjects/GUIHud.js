@@ -141,7 +141,7 @@ function DrinkInventoryDisplayIndex(scene, player, index) {
         if (currentDrink)
             spriteName = currentDrink.name;
         
-        console.log(spriteName);
+        //  console.log(spriteName);
         spriteComponent.setSpriteName(spriteName);
     }
 
@@ -294,7 +294,7 @@ function HelperDialogGUIGameObject(scene) {
         if (!isActive) return;
 
         dialogTimeSoFar += deltaTime;
-        console.log(dialogTimeSoFar + " " + deltaTime + " " + dialogDuration);
+        //console.log(dialogTimeSoFar + " " + deltaTime + " " + dialogDuration);
         if (dialogTimeSoFar > dialogDuration) {
             hideDialog();
         }

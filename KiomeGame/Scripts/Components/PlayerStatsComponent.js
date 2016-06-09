@@ -109,7 +109,7 @@ function PlayerStatsComponent(parent) {
         if (drinkInventory[index]) {
             drinkInventory[index].drinkEffect();
             drinkInventory[index] = null;
-            console.log(index);
+            //console.log(index);
             EventCenterInstance.getInstance().callEvent("changedDrink"+index,this);
         }
 

@@ -41,6 +41,12 @@ function MenuScene() {
         EventCenterInstance.getInstance().unsubscribeEvent("mouse1Clicked",mouseClicked, this);
     };
 
+    function changeFromIntroToLoop() {
+        var mainSongLoop = FarofaGame.getGlobalVariable("MainMusicLoop");
+        FarofaGame.setGlobalVariable("MainMusic", mainSongLoop);
+        AudioManager.playAudio(mainSongLoop,true);
+    }
+
     this.onEnter = function () {
         var backgroundImage = new BackgroundImageObject(this,"Menu_Screen");
         this.addObject(backgroundImage);
@@ -50,9 +56,13 @@ function MenuScene() {
         item3 = new Rectangle(613, 706,342, 112);
 
         var mainSong = FarofaGame.getGlobalVariable("MainMusic");
+        AudioManager.stopAudio(mainSong);
+
+        var mainSongIntro = FarofaGame.getGlobalVariable("MainMusicIntro");
+        FarofaGame.setGlobalVariable("MainMusic", mainSongIntro);
         var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
-        AudioManager.setVolume(mainSong,volume);
-        AudioManager.playAudio(mainSong, true, false);
+        AudioManager.setVolume(mainSongIntro,volume);
+        AudioManager.playAudio(mainSongIntro, false, false,changeFromIntroToLoop,this);
 
         EventCenterInstance.getInstance().subscribeEvent("mouse1Clicked",mouseClicked, this);
         

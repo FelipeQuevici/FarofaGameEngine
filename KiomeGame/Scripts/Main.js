@@ -116,8 +116,12 @@ FarofaGame.addSpriteSheet("Menus/Instructions_Screen");
 FarofaGame.addSpriteSheet("Menus/Credits_Screen");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
-FarofaGame.setGlobalVariable("MainMusic","Hotline");
-FarofaGame.setGlobalVariable("MainMusicVolume",0.0);
+FarofaGame.addAudio("EletroMaracatuIntro","Audios/Songs/");
+FarofaGame.addAudio("EletroMaracatuLoop","Audios/Songs/");
+FarofaGame.setGlobalVariable("MainMusic","EletroMaracatuIntro");
+FarofaGame.setGlobalVariable("MainMusicIntro","EletroMaracatuIntro");
+FarofaGame.setGlobalVariable("MainMusicLoop","EletroMaracatuLoop");
+FarofaGame.setGlobalVariable("MainMusicVolume",0.8);
 FarofaGame.addAudio("Mariachi","Audios/Songs/");
 FarofaGame.addAudio("Russian","Audios/Songs/");
 FarofaGame.addAudio("Drinking","Audios/SFX/");

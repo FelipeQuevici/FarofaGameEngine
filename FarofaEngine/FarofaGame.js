@@ -47,7 +47,7 @@ var FarofaGame = (function () {
 
     var isPaused = false;
     function pause() {
-        console.log("ASD");
+        //console.log("ASD");
         isPaused = true;
     }
 

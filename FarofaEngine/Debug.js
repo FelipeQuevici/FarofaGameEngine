@@ -16,10 +16,9 @@ var Debug = (function () {
     return {
         log: function (message, level, type) {
             if (types[type] && level >= debugLevel) {
-                console.log(message);
+                //console.log(message);
             }
         },
-
         setLevel : function (level) {
             debugLevel = level;
         }
