@@ -6,7 +6,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack2-2":
 {
@@ -15,7 +15,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack3-2":
 {
@@ -24,7 +24,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack4-2":
 {
@@ -33,7 +33,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack5-2":
 {
@@ -42,7 +42,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack6-2":
 {
@@ -51,7 +51,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack7-2":
 {
@@ -96,7 +96,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack12-2":
 {
@@ -105,7 +105,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack13-2":
 {
@@ -114,7 +114,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack14-2":
 {
@@ -123,7 +123,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack15-2":
 {
@@ -132,7 +132,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack16-2":
 {
@@ -141,7 +141,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack17-2":
 {
@@ -150,7 +150,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 },
 "enemyAttack18-2":
 {
@@ -159,6 +159,6 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 285},"radius": 0}}
 }
 }

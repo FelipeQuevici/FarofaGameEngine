@@ -6,7 +6,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack2-1":
 {
@@ -15,7 +15,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack3-1":
 {
@@ -24,7 +24,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack4-1":
 {
@@ -33,7 +33,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack5-1":
 {
@@ -42,7 +42,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack6-1":
 {
@@ -51,7 +51,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack7-1":
 {
@@ -60,7 +60,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack8-1":
 {
@@ -69,7 +69,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack9-1":
 {
@@ -78,7 +78,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack10-1":
 {
@@ -87,7 +87,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack11-1":
 {
@@ -96,7 +96,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack12-1":
 {
@@ -105,7 +105,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack13-1":
 {
@@ -114,7 +114,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack14-1":
 {
@@ -123,7 +123,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack15-1":
 {
@@ -132,7 +132,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack16-1":
 {
@@ -141,7 +141,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack17-1":
 {
@@ -150,7 +150,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack18-1":
 {
@@ -159,7 +159,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack19-1":
 {
@@ -168,7 +168,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack20-1":
 {
@@ -177,7 +177,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack21-1":
 {
@@ -186,7 +186,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 64}}
 },
 "playerAttack22-1":
 {
@@ -195,7 +195,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack23-1":
 {
@@ -204,7 +204,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack24-1":
 {
@@ -213,7 +213,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack25-1":
 {
@@ -222,7 +222,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack26-1":
 {
@@ -231,7 +231,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack27-1":
 {
@@ -240,7 +240,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack28-1":
 {
@@ -249,7 +249,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack29-1":
 {
@@ -258,7 +258,7 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 },
 "playerAttack30-1":
 {
@@ -267,6 +267,6 @@
 	"frameSpeed": 1,
 	"collisions": {"rigidBody": { "shape": "rectangle", "x": 274, "y": 195, "w": 64, "h": 54},
 	"damageCollisionBox": { "shape": "circle", "center": { "x": 307, "y": 158},"radius": 32},
-	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 50}}
+	"attackCollisionBox": { "shape": "circle", "center": { "x": 371, "y": 253},"radius": 0}}
 }
 }
