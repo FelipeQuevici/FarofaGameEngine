@@ -101,6 +101,8 @@ FarofaGame.addSpriteSheet("Hud/overlays");
 FarofaGame.addSpriteSheet("poo");
 
 FarofaGame.addSpriteSheet("Menus/Menu_Screen");
+FarofaGame.addSpriteSheet("Menus/Instructions_Screen");
+FarofaGame.addSpriteSheet("Menus/Credits_Screen");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
 FarofaGame.setGlobalVariable("MainMusic","Hotline");
@@ -118,9 +120,10 @@ FarofaGame.addAudio("Wrong","Audios/SFX/");
 
 FarofaGame.setGlobalVariable("tileSize",32);
 
-
 FarofaGame.addScene(new MenuScene(), "MenuScene");
 FarofaGame.addScene(new GameScene(), "GameScene");
+FarofaGame.addScene(new InstructionsScene(), "InstructionsScene");
+FarofaGame.addScene(new CreditsScene(), "CreditsScene");
 FarofaGame.setInitialScene("MenuScene");
 FarofaGame.setBgColor("#3B3B3B");
 FarofaGame.start();
