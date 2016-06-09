@@ -80,6 +80,7 @@ function PlayerStatsComponent(parent) {
     this.buyDrink = function (drink) {
         if (drinkInventory[drink.index]) {
             EventCenterInstance.getInstance().callEvent("DialogError",this,{"message":"error_same_drink"});
+            return;
         }
 
         if (currentMoney >= drink.price) {
