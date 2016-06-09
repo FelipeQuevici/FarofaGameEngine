@@ -11,7 +11,8 @@ function PlayerControllerComponent(parent, target) {
         "meleeAttack": meleeAttackState,
         "rangedAttack": rangedAttackState,
         "dashing": dashingState,
-        "drinking": drinkingState
+        "drinking": drinkingState,
+        "dying": dyingState
     };
     
     var characterController;
@@ -113,6 +114,7 @@ function PlayerControllerComponent(parent, target) {
         EventCenterInstance.getInstance().subscribeEvent("3Clicked", number3Pressed, this);
         EventCenterInstance.getInstance().subscribeEvent("4Clicked", number4Pressed, this);
         EventCenterInstance.getInstance().subscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
+        EventCenterInstance.getInstance().subscribeEvent("playerDied", playerDied, this);
     };
 
     this.unsubscribeEvents = function () {
@@ -122,8 +124,9 @@ function PlayerControllerComponent(parent, target) {
         EventCenterInstance.getInstance().unsubscribeEvent("3Clicked", number3Pressed, this);
         EventCenterInstance.getInstance().unsubscribeEvent("4Clicked", number4Pressed, this);
         EventCenterInstance.getInstance().unsubscribeEvent("playerInsideDrinking", updateDrinkToBuy, this);
-    };
-
+        EventCenterInstance.getInstance().unsubscribeEvent("playerDied", playerDied, this);
+    };       
+    
     this.resetLastDirectionToCurrent = function () {
         lastDirection = getCurrentDirection.call(this);
     };
@@ -240,6 +243,19 @@ function PlayerControllerComponent(parent, target) {
     function dashingState(deltaTime) {
         characterController.dashUpdate(deltaTime,lastDirection,finishDash,this);
     }
+    
+    function playerDied(){
+    	var animationComponent = this.parent.getComponent("animation");
+		animationComponent.setAnimation(AnimationManager.getAnimation("playerDying"));
+		currentState = "dying";
+    }    
+    
+    function dyingState(deltaTime) {
+    	var animationComponent = this.parent.getComponent("animation");
+    	if(animationComponent.isAnimationFinished()){
+    		this.parent.scene.gameOver();
+    	}    	
+    };
     
     this.setMoveSpeed = function (speed){
     	characterController.setMoveSpeed(speed);
