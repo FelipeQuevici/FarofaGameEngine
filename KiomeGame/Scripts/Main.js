@@ -97,10 +97,10 @@ FarofaGame.addSpriteSheet("TileSets/testeTileSet");
 FarofaGame.addSpriteSheet("TileSets/TileSet");
 FarofaGame.addSpriteSheet("crossHair");
 FarofaGame.addSpriteSheet("Hud/Hud");
-FarofaGame.addSpriteSheet("Hud/drinks_overlays");
-FarofaGame.addSpriteSheet("Hud/warning_overlay");
-FarofaGame.addSpriteSheet("Hud/waves");
+FarofaGame.addSpriteSheet("Hud/overlays");
 FarofaGame.addSpriteSheet("poo");
+
+FarofaGame.addSpriteSheet("Menus/Menu_Screen");
 
 FarofaGame.addAudio("Hotline","Audios/Songs/");
 FarofaGame.setGlobalVariable("MainMusic","Hotline");

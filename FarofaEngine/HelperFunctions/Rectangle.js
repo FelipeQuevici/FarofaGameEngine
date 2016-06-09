@@ -19,4 +19,18 @@ function Rectangle(x, y, width, height) {
     this.toString = function () {
       return "(" + this.x + ", " +  this.y + ", "  + this.width + ", "+  this.height + ")";
     };
+
+    this.isPointInside = function (point) {
+        if (this.x <= point.x) {
+            if (point.x <= this.right()) {
+                if (this.y <= point.y) {
+                    if (point.y <= this.bottom()){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+        //return (this.x <= point.x <= this.x + this.width) && (this.y <= point.y <= this.y + this.height)
+    }
 }

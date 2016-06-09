@@ -16,6 +16,12 @@ function TextComponent(parent, text, layer, color, font) {
         currentScene.addSpriteToLayer(this, layer);
     }
     
+    var offset;
+    
+    this.setOffset = function (value) {
+        offset = value;
+    };
+    
     this.setText = function (value) {
         //console.log(value);
         this.text = value;
@@ -23,7 +29,7 @@ function TextComponent(parent, text, layer, color, font) {
 
     
     this.draw = function (renderer, isUsingCamera) {
-        renderer.drawText(this, isUsingCamera)
+        renderer.drawText(this, isUsingCamera, offset)
     };
 
     onCreate.call(this, parent, text, layer, color, font);

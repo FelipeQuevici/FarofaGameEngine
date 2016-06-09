@@ -42,7 +42,8 @@ function CanvasRenderer(canvas) {
         
     };
 
-    this.drawText = function (textComponent, isHud) {
+    this.drawText = function (textComponent, isHud, offset) {
+        offset = offset || new Vector2();
         if (!textComponent.enabled) return;
 
         if (textComponent.hasOwnProperty("color")) {
@@ -65,9 +66,11 @@ function CanvasRenderer(canvas) {
         else
             d = new Vector2(b.x,b.y);
 
+        var e = new Vector2(d.x+offset.x,d.y +offset.y);
+
         //console.log("X " + textComponent.text);
 
-        context.fillText(textComponent.text, d.x, d.y);
+        context.fillText(textComponent.text, e.x, e.y);
         context.fill();
 
     };

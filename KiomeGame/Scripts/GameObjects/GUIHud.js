@@ -249,7 +249,7 @@ function HelperDialogGUIGameObject(scene) {
     var isActive;
 
     function onCreate(scene) {
-        this.onCreateGameObject(scene,new Vector2(canvas.width-375,5),0);
+        this.onCreateGameObject(scene,new Vector2(canvas.width-230,50),0);
     }
 
     var dialogDuration = 2;
@@ -338,7 +338,7 @@ function NextWaveDialog(scene) {
         timeLeft = timeToNextWave;
         spriteComponent = this.addComponent("sprite", new SpriteComponent(this,0,"GUI","next_wave_display"));
         textComponent = this.addComponent("text", new TextComponent(this,text,"GUI","black","40px Arial"));
-
+        textComponent.setOffset(new Vector2(-90,10));
         isActive = true;
         EventCenterInstance.getInstance().subscribeEvent("waveStarted",waveEnded,this);
         EventCenterInstance.getInstance().subscribeEvent("waveEnded",waveStarted,this);
@@ -353,7 +353,7 @@ function NextWaveDialog(scene) {
         if (!isActive) return;
 
         timeLeft -= deltaTime;
-        text = "\t" + Math.round(timeLeft);
+        text = "Next Wave:" + Math.ceil(timeLeft);
         textComponent.setText(text);
     };
 

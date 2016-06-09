@@ -5,7 +5,6 @@
 MenuScene.inheritsFrom(Scene);
 
 function MenuScene() {
-    var menu;
     var item1;
     var item2;
     var item3;
@@ -13,24 +12,39 @@ function MenuScene() {
     this.declareObjects = function () {
         this.addLayer("GUI",false,true);
     };
+    
+    function mouseClicked(args) {
+        var mousePosition = args["position"];
+        var boundingRect = canvas.getBoundingClientRect();
+        mousePosition =  new Vector2(mousePosition.x - boundingRect.left, mousePosition.y - boundingRect.top);
+        
+        if (item1.isPointInside(mousePosition)) {
+            startGame();
+        }
+    }
+
+    this.onExit = function () {
+        EventCenterInstance.getInstance().unsubscribeEvent("mouse1Clicked",mouseClicked, this);
+
+    };
 
     this.onEnter = function () {
-        menu = new MenuGameObject(this);
-        this.addObject(menu);
-        item1 = new ItemGameObject(this, menu,"New Game", startGame, this);
-        this.addObject(item1);
-        item2 = new ItemGameObject(this,menu,"Credits", clicouItem2, this);
-        this.addObject(item2);
-        item3 = new ItemGameObject(this,menu,"Do nothing", clicouItem2, this);
-        this.addObject(item3);
-        this.initializeObjects();
-        menu.selectItem(0);
+
+
+        var backgroundImage = new BackgroundImageObject(this,"Menu_Screen");
+        this.addObject(backgroundImage);
+
+        item1 = new Rectangle(700,400,200,100);
 
 
         var mainSong = FarofaGame.getGlobalVariable("MainMusic");
         var volume = FarofaGame.getGlobalVariable("MainMusicVolume");
         AudioManager.setVolume(mainSong,volume);
         AudioManager.playAudio(mainSong, true, false);
+
+        EventCenterInstance.getInstance().subscribeEvent("mouse1Clicked",mouseClicked, this);
+        
+        this.initializeObjects();
     };
 
     this.onUpdate = function () {
@@ -38,9 +52,5 @@ function MenuScene() {
 
     function startGame() {
         SceneManager.changeScene("GameScene");
-    }
-
-    function clicouItem2() {
-        console.log("Did Nothing");
     }
 }

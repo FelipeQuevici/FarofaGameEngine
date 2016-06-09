@@ -81,7 +81,7 @@ var InputManager = ( function () {
         event.preventDefault();
         var button = mouseEventToButton(event);
         if (!keys[button]) {
-            EventCenterInstance.getInstance().callEvent("mouse" + button + "Clicked", this, {position: mousePosition});
+            EventCenterInstance.getInstance().callEvent("mouse" + button + "Clicked", this, {"position": mousePosition});
         }
         keys[button] = true;
     }

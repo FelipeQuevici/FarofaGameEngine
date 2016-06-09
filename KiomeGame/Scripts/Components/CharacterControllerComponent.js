@@ -274,7 +274,7 @@ function CharacterControllerComponent(parent) {
     };
 
     this.rangedAttack = function(deltaTime, functionOnOver, caller) {
-    	console.log("teste");
+    	//console.log("teste");
     	if(!rangedAttackflag){
     		if(caller.tag == "player"){
         		if(animationComponent.currentFrame >= 8){

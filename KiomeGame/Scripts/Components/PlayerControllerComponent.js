@@ -220,7 +220,7 @@ function PlayerControllerComponent(parent, target) {
     function meleeAttackState(deltaTime) {
     	if(attackSequenceTimer >= attackSequenceSpeed){
     		if (InputManager.isKeyPressed("attack1") && this.attackSequence == 0) {    	
-        		console.log("teste");
+        		//console.log("teste");
         		this.attackSequence = 1;
             }
     	}    	
